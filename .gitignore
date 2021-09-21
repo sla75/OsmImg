@@ -1,0 +1,13 @@
+*~
+.*
+*.pbf
+*.osm
+*.gpx
+*.zip
+*.img
+*.log
+*.lck
+
+cache/**
+tmp/**
+imgs/**
