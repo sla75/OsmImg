@@ -1,0 +1,175 @@
+#!/bin/bash
+
+style=default
+debug=false
+nodownload=false
+path=$(dirname "${0}")
+tmpdir=$(dirname $(mktemp -u))
+oldtime="-10 sec"
+
+while [[ $# -gt 0 ]]; do
+	key="$1"
+	case $key in
+	-a|--area)
+		area=${2,,}
+		shift # past argument
+		shift # past value
+		;;
+	-s|--style)
+		style=${2,,}
+		shift # past argument
+		shift # past value
+		;;
+	-d|--debug)
+		debug=true
+		shift # past value
+		;;
+	-nd|--nodownload)
+		nodownload=${2}
+		shift # past argument
+		shift # past value
+		;;
+	--help|*)
+		echo -e "Usage: $0 -a name [-l name] [-d] [-nd]" >&2
+		echo -e "\t-a,  --area nameofarea\tprocess area to img" >&2
+		echo -e "\t-s,  --style\tProcess current style" >&2
+		echo -e "\t-d,  --debug\tMore detailed statement" >&2
+		echo -e "\t-nd, --nodownload\t\tDisable downloads" >&2
+		echo -e "Exit status:" >&2
+		echo -e "\t0     - Processed" >&2
+		echo -e "\tother - Other error" >&2
+		exit 1
+		;;
+	X)
+		area=${key}
+		shift # past argument
+		if [ -z ${destfile} ]; then
+			destfile=${url%%#*}
+			destfile=$(basename -- ${destfile%%\?*})
+		fi;
+		;;
+	esac
+done
+
+function exitmsg {
+	local msg=$1;
+	local es=${2:0}
+	echo -e ${msg} >&2
+	exit $es
+}
+
+function checkModifFile {
+	local srcfile=$1;
+	local dstfile=$2;
+	local mdffile=$3;
+	date '+%F %T' -r ${srcfile}; echo "src=${srcfile}";
+	date '+%F %T' -r ${dstfile}; echo "dst=${dstfile}";
+	date '+%F %T' -r ${mdffile}; echo "mdf=${mdffile}";
+	[[ ! -e ${dstfile} ]] && return 0;
+	echo "1. ${srcfile} -nt ${dstfile}"
+	[[ ${srcfile} -nt ${dstfile} ]] && return 0;
+	echo "2. ${mdffile} -nt ${dstfile}"
+	[[ ${mdffile} -nt ${dstfile} ]] && return 0;
+	echo "3. ${mdffile} -nt ${srcfile}"
+	[[ ${mdffile} -nt ${srcfile} ]] && return 0;
+	echo "4. ret 1";
+	return 1;
+}
+
+echo -e "\n### 0. Check parameters..."
+
+if [ -z ${area} ]; then
+	echo "The parameter area is obligatory. Use $0 --help" >&2
+	exit 1
+fi;
+
+echo "ROOT: ${path}"
+echo "      Area: ${area}"
+echo "     style: ${style}"
+${debug} && echo "     Debug: yes"
+${nodownload} && echo "NoDownload: yes"
+
+[ ! -d ${path}/area ] && mkdir -p ${path}/area
+[ ! -d ${path}/cache ] && mkdir -p ${path}/cache
+[ ! -d ${path}/style ] && mkdir -p ${path}/style
+
+echo -e "\n### 0.1 Check ${area}.parameters"
+[ ! -e ${path}/area/${area}.parameters ] && exitmsg "Parameters for area '${path}/area/${area}.parameters' not found!" 1;
+echo ${path}/area/${area}.parameters
+source ${path}/area/${area}.parameters
+
+[ ! -e ${path}/area/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${path}/area/${area}.mkgmap' not found!" 1;
+
+echo -e "\n### 1. Check mkgmap"
+echo -e "\n### 2. Check splitter"
+
+echo -e "\n### 3. Check geofabric"
+
+function check {
+	local url="a"
+	echo "URL '$url'"
+	[ -n "${url}" ] && echo "url -n $url "
+	[ -z "${url}" ] && echo "url -z $url "
+	[ -e "${url}" ] && echo "url -e $url "
+	[ ! -e "${url}" ] && echo "url !-e $url "
+	#URL ''  url -z   url !-e
+	#URL '/' url -n / url -e /
+	#URL 'a' url -n a url !-e a
+}
+
+
+#srctmpfile_dwl=${tmpdir}/$(basename ${srcfile})".downloaded"
+srctmpfile_plg=${srcfile}".polygoned"
+srctmpfile_flt=${srcfile}".filtered"
+echo "url=${url}"
+if [[ ! -e ${srcfile} && -n "${url}" ]]; then
+	echo "TODO> 3.1 TODO Download $url CREATE ${srcfile}"
+	${path}/bin/curletag -ft "-10 sec" -f ${srcfile} ${url} || rm -v ${srctmpfile_plg} ${srctmpfile_flt}
+fi;
+[ -e ${srcfile} ] && ls -l "${srcfile}"
+
+echo -e "\n### 4. Check polygon ${polygon}"
+if [[ -n "${polygon}" && -e ${polygon} ]]; then
+	echo "Polygon '${polygon}' exists."
+	ls -l "${polygon}"
+	if checkModifFile ${srcfile} ${srctmpfile_plg} ${polygon}; then
+		echo "###### 4.1 TODO Polygoned ${srctmpfile_plg}"
+		echo -n "POLYGONED " > ${srctmpfile_plg}
+		date '+%F %T' >> ${srctmpfile_plg}
+	fi;
+else
+	echo "###### 4.9 Polygon not exists."
+	srctmpfile_plg=${srcfile}
+fi;
+[ -e ${srctmpfile_plg} ] && ls -l "${srctmpfile_plg}"
+[ -e ${srctmpfile_plg} ] && cat "${srctmpfile_plg}"
+
+echo -e "\n### 5. Check filter"
+if [[ -n "${filter}" && -e ${filter} ]]; then
+	echo "Filter '${filter}' exists."
+	ls -l "${filter}"
+	if checkModifFile ${srctmpfile_plg} ${srctmpfile_flt} ${filter}; then
+		echo "###### 5.1 TODO Filtered ${srctmpfile_flt}"
+		echo -n "FILTERED " > ${srctmpfile_flt}
+		date '+%F %T' >> ${srctmpfile_flt}
+	fi;
+else
+	echo "###### 5.9 Filter not exists."
+	srctmpfile_flt=${srcfile}
+fi;
+
+[ -e ${srctmpfile_flt} ] && ls -l "${srctmpfile_flt}"
+[ -e ${srctmpfile_flt} ] && cat "${srctmpfile_flt}"
+
+date '+%F %T'
+exit 0
+
+
+echo -e "\n### 6. Check splitter"
+echo -e "\n### 7. Run mkgmap"
+echo -e "\n### 8. Postprocessing"
+
+
+
+
+

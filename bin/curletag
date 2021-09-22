@@ -1,0 +1,141 @@
+#!/bin/bash
+ver="2.0"
+function condFileTime {
+	local file=$1
+	local oldtime=${2:-"-1 hour"}
+
+	if [ ! -f ${file} ]; then
+		echo "File ${file} NOT EXISTS!" >&2
+		return 2;
+	fi;
+	if [ `date -d ${oldtime} '+%s'` -gt `stat -L --format %Y ${file}` ]; then
+		echo "File is OLD!" >&2
+		return 1;
+	fi;
+	echo "File is Ok."
+	return 0;
+}
+
+function downloadUrl {
+	local headtmp=$(mktemp);
+	trap "rm -v ${headtmp}" EXIT
+	curl --dump-header ${headtmp} $* >&2 || exit 1
+#	echo "*** HEAD ***" >&2
+#	cat ${headtmp} >&2
+#	echo "### HEAD ###" >&2
+	grep -E "HTTP/[0-9]+(\.[0-9]+)? [0-9]+" ${headtmp} >&2
+	grep -E "HTTP/[0-9]+(\.[0-9]+)? 2[0-9]{2}" ${headtmp} > /dev/null || return 1
+	netag=$(cat ${headtmp} | grep "ETag" | tail -n 1)
+	return 0
+}
+
+###################################################################
+
+ft="-1 day"
+fe="-4 hour"
+
+while [[ $# -gt 0 ]]; do
+	key="$1"
+	case $key in
+	-f|--file)
+		destfile=${2}
+		shift # past argument
+		shift # past value
+		;;
+	-ft|--filetime)
+		ft=${2}
+		shift # past argument
+		shift # past value
+		;;
+	-et|--etagtime)
+		fe=${2}
+		shift # past argument
+		shift # past value
+		;;
+	--help)
+		echo -e $(basename $0)" version $ver\n" >&2
+		echo -e "Usage: "$(basename $0)" [params] <url>" >&2
+		echo -e "\t-f,  --file <file>\tname of downloaded file" >&2
+		echo -e "\t-ft, --filetime <time> \tdefault is '${ft}'" >&2
+		echo -e "\t-et, --etagtime <time> \tdefault is '${fe}'" >&2
+		echo -e "\t Exit status:" >&2
+		echo -e "\t\t0 - no change, no echo to STDOUT" >&2
+		echo -e "\t\t1 - new downloaded file, new eTag echo to STDOUT" >&2
+		echo -e "\t\t2 - others error" >&2
+		exit 1
+		;;
+	*)
+		url=${key}
+		shift # past argument
+		if [ -z ${destfile} ]; then
+			destfile=${url%%#*}
+			destfile=$(basename -- ${destfile%%\?*})
+		fi;
+		;;
+	esac
+done
+
+if [ -z ${url} ]; then
+	echo "No url. For help use parameter --help" >&2
+	exit 1
+fi;
+echo ${url} | grep -E '(http|https)://[^/"]+' >/dev/null
+if [ $? -ne 0 ]; then
+	echo "Bad url. $url For help use parameter --help" >&2
+	exit 1
+fi;
+
+etagfile=$(dirname ${destfile})"/.etag"
+[[ ! -d ${etagfile} ]] && mkdir -p ${etagfile}
+etagfile="${etagfile}/"$(basename ${destfile})".etag"
+nodwonloadsFile=".nodownloads"
+#echo "etagFile ${etagfile}"
+#echo "destFile ${destfile}"
+#echo "Check eTag and Time compare"
+
+condFileTime ${destfile} ${ft}
+condTimefile=$?
+if [ ${condTimefile} -eq 1 ]; then
+	condFileTime ${etagfile} ${fe}
+	condTimefile=$?
+	if [ ${condTimefile} -eq 1 ]; then
+		oetag=$(head -n 1 ${etagfile})
+		echo "old eTag $oetag"
+		netag=$(curl --insecure --no-progress-meter --location --head "${url}" | grep "ETag" | tail -n 1)
+		echo "new eTag $netag"
+		if [[ "${netag:-NO}" == "${oetag}" ]]; then
+			touch ${etagfile}
+			condTimefile=0;
+		fi;
+	fi;
+fi;
+if [ ${condTimefile} -ge 3 ]; then
+	echo "BAD argument!" >&2
+	exit 1
+fi;
+	
+
+if [[ ${condTimefile} -ne 0 ]]; then
+	echo "Downloading ${url}"
+	if [ ! -f ${nodwonloadsFile} ]; then
+		echo -e "\tTo disable any downloads, set NODOWNLOADS flag as: \$ touch ${nodwonloadsFile}"
+	else
+		echo -e "\tYou need to download the file ${destfile}, but downloading is DISABLED. To enable any downloads, remove NODOWNLOADS flag: \$ rm ${nodwonloadsFile}"
+		exit 0
+	fi;
+	tmpfile=$(mktemp)
+	trap "[[ -f ${tmpfile} ]] && rm ${tmpfile}" EXIT
+	downloadUrl --compressed --insecure --location --output ${tmpfile} "${url}" || exit 2
+	echo "$netag"
+	mv -v ${tmpfile} ${destfile}
+	[[ -n ${netag} ]] && echo -n "${netag}" > ${etagfile}
+	[[ -e ${destfile} ]] || exit 2
+#	echo "${netag}" | cut -d':' -f 2 | tr -d " '\""
+	exit 1
+fi;
+
+exit 0
+
+#filename=$(basename -- "$fullfile")
+#extension="${filename##*.}"
+#filename="${filename%.*}"
