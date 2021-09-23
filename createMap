@@ -68,23 +68,9 @@ function showFileTime {
 }
 
 function checkModifFile {
-	local fS=$1;
-	local fD=$2;
-	local fM=$3;
-#	[ -e ${fS} ] && printf "%s %s SRC %s\n" `date '+%F %T' -r ${fS}` ${fS}
-#	[ -e ${fM} ] && printf "%s %s MDF %s\n" `date '+%F %T' -r ${fM}` ${fM}
-#	[ -e ${fD} ] && printf "%s %s DST %s\n" `date '+%F %T' -r ${fD}` ${fD}
-
-#	[[ ! -e ${fD} ]] && echo -e "\t\t1. DST not exists!";
-	[[ ! -e ${fD} ]] && return 0;
-
-#	[[ ${fD} -ot ${fM} ]] && echo -e "\t\t2. time DST < MDF";
-	[[ ${fD} -ot ${fM} ]] && return 0;
-
-#	[[ ${fS} -nt ${fD} ]] && echo -e "\t\t3. time SRC > DST";
-	[[ ${fS} -nt ${fD} ]] && return 0;
-
-#	echo -e "\t\t4. No change";
+	[[ ! -e ${2} ]] && return 0;
+	[[ ${2} -ot ${3} ]] && return 0;
+	[[ ${1} -nt ${2} ]] && return 0;
 	return 1;
 }
 
@@ -94,8 +80,8 @@ echo -e "\n### 0. Check parameters..."
 [ -z ${area} ] && errmsg 1 "The parameter area is obligatory. Use $0 --help"
 
 msg "ROOT: ${path}"
-msg "      Area: ${area}"
-msg "     style: ${style}"
+msg "      Area: ${area} "
+msg "     Style: ${style}"
 ${debug} && msg "     Debug: ${debug}"
 ${nodownload} && msg "NoDownload: ${nodownload}"
 
@@ -107,6 +93,7 @@ echo -e "\n### 0.1 Check ${area}.parameters"
 [ ! -e ${path}/area/${area}.parameters ] && exitmsg "Parameters for area '${path}/area/${area}.parameters' not found!" 1;
 msg ${path}/area/${area}.parameters
 source ${path}/area/${area}.parameters
+echo -e "FID: ${img_fid}"
 
 [ ! -e ${path}/area/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${path}/area/${area}.mkgmap' not found!" 1;
 
