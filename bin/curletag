@@ -8,7 +8,8 @@ function condFileTime {
 		echo "File ${file} NOT EXISTS!" >&2
 		return 2;
 	fi;
-	if [ `date -d ${oldtime} '+%s'` -gt `stat -L --format %Y ${file}` ]; then
+#	stat -L --format %Y $1 | { read gmt ; echo `date -d "@$gmt" "+%F %T"`" $1"; }
+	if [ `date -d "${oldtime}" '+%s'` -gt `stat -L --format %Y ${file}` ]; then
 		echo "File is OLD!" >&2
 		return 1;
 	fi;
@@ -93,10 +94,10 @@ nodwonloadsFile=".nodownloads"
 #echo "destFile ${destfile}"
 #echo "Check eTag and Time compare"
 
-condFileTime ${destfile} ${ft}
+condFileTime ${destfile} "${ft}"
 condTimefile=$?
 if [ ${condTimefile} -eq 1 ]; then
-	condFileTime ${etagfile} ${fe}
+	condFileTime "${etagfile}" "${fe}"
 	condTimefile=$?
 	if [ ${condTimefile} -eq 1 ]; then
 		oetag=$(head -n 1 ${etagfile})
