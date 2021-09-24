@@ -13,7 +13,6 @@ function condFileTime {
 		echo "File is OLD!" >&2
 		return 1;
 	fi;
-	echo "File is Ok."
 	return 0;
 }
 
@@ -89,7 +88,7 @@ fi;
 etagfile=$(dirname ${destfile})"/.etag"
 [[ ! -d ${etagfile} ]] && mkdir -p ${etagfile}
 etagfile="${etagfile}/"$(basename ${destfile})".etag"
-nodwonloadsFile=".nodownloads"
+
 #echo "etagFile ${etagfile}"
 #echo "destFile ${destfile}"
 #echo "Check eTag and Time compare"
@@ -118,12 +117,6 @@ fi;
 
 if [[ ${condTimefile} -ne 0 ]]; then
 	echo "Downloading ${url}"
-	if [ ! -f ${nodwonloadsFile} ]; then
-		echo -e "\tTo disable any downloads, set NODOWNLOADS flag as: \$ touch ${nodwonloadsFile}"
-	else
-		echo -e "\tYou need to download the file ${destfile}, but downloading is DISABLED. To enable any downloads, remove NODOWNLOADS flag: \$ rm ${nodwonloadsFile}"
-		exit 0
-	fi;
 	tmpfile=$(mktemp)
 	trap "[[ -f ${tmpfile} ]] && rm ${tmpfile}" EXIT
 	downloadUrl --compressed --insecure --location --output ${tmpfile} "${url}" || exit 2

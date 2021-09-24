@@ -1,4 +1,11 @@
 #!/bin/bash
+function timering {
+	local last=$(date +%s)
+	last=$(($last-$tt))
+	echo "Running time is $last seconds."
+}
+tt=$(date +%s)
+trap 'timering' EXIT
 
 style=default
 debug=false
@@ -6,7 +13,7 @@ nodownload=false
 path=$(dirname "${0}")
 tmpdir=$(dirname $(mktemp -u))
 oldtime="-10 month"
-
+verbose=""
 while [[ $# -gt 0 ]]; do
 	key="$1"
 	case $key in
@@ -22,6 +29,7 @@ while [[ $# -gt 0 ]]; do
 		;;
 	-d|--debug)
 		debug=true
+		verbose="--verbose"
 		shift # past value
 		;;
 	-nd|--nodownload)
@@ -40,26 +48,14 @@ while [[ $# -gt 0 ]]; do
 		echo -e "\tother - Other error" >&2
 		exit 1
 		;;
-	X)
-		area=${key}
-		shift # past argument
-		if [ -z ${destfile} ]; then
-			destfile=${url%%#*}
-			destfile=$(basename -- ${destfile%%\?*})
-		fi;
-		;;
 	esac
 done
 
 function exitmsg {
-	local msg=$1;
-	local es=${2:0}
-	echo -e ${msg} >&2
-	exit $es
+	echo -e ${1}" (${2:-0})" >&2 ; exit ${2:-0}
 }
 function msg {
-	local msg=$@;
-	[ ${debug} ] && echo -e ${msg}
+	${debug} && echo -e ${*}
 }
 
 function showFileTime {
@@ -74,6 +70,31 @@ function checkModifFile {
 	return 1;
 }
 
+function checkPrgsMkgmap {
+	local prg=${1,,}
+	local file="${path}/cache/${prg}-latest.zip"
+	local url="https://www.mkgmap.org.uk/download/${prg}-latest.zip"
+	${path}/bin/curletag ${v} --filetime "-1 day" --etagtime "-1 hour" --file ${file} ${url}
+	if [ $? -eq 1 ]; then
+		unzip -o -q -d "${path}/cache" ${file} || return 1
+		# Create symlink
+		while read line; do
+			unlink "${path}/cache/${prg}" 2>/dev/null
+			${debug} && echo "Create symlink ${line} ${prg}"
+			ln ${v} -s -r ${line} ${path}/cache/${prg} 2>/dev/null || return 1
+			break;
+		done < <(ls -td ${path}/cache/${prg}-r*)
+	fi;
+	if [ -L ${path}/cache/${prg} ]; then
+		ls -l ${path}/cache/${prg}
+	else
+		echo -e "${prg,^^} not found!" >&2
+		return 1
+	fi;
+}
+
+
+
 echo -e "\n### "`date '+%F %T'`" START"
 echo -e "\n### 0. Check parameters..."
 
@@ -82,8 +103,9 @@ echo -e "\n### 0. Check parameters..."
 msg "ROOT: ${path}"
 msg "      Area: ${area} "
 msg "     Style: ${style}"
-${debug} && msg "     Debug: ${debug}"
-${nodownload} && msg "NoDownload: ${nodownload}"
+msg "     Debug: ${debug}"
+msg "NoDownload: ${nodownload}"
+
 
 [ ! -d ${path}/area ] && mkdir -p ${path}/area
 [ ! -d ${path}/cache ] && mkdir -p ${path}/cache
@@ -94,63 +116,54 @@ echo -e "\n### 0.1 Check ${area}.parameters"
 msg ${path}/area/${area}.parameters
 source ${path}/area/${area}.parameters
 echo -e "FID: ${img_fid}"
+echo -e "url: ${url}"
 
 [ ! -e ${path}/area/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${path}/area/${area}.mkgmap' not found!" 1;
 
-echo -e "\n### 1. Check mkgmap"
-echo -e "\n### 2. Check splitter"
 
-echo -e "\n### 3. Check geofabric"
+echo -e "\n### 1. Check splitter"
+checkPrgsMkgmap splitter || exit 1;
 
-function check {
-	local url="a"
-	echo "URL '$url'"
-	[ -n "${url}" ] && echo "url -n $url "
-	[ -z "${url}" ] && echo "url -z $url "
-	[ -e "${url}" ] && echo "url -e $url "
-	[ ! -e "${url}" ] && echo "url !-e $url "
-	#URL ''  url -z   url !-e
-	#URL '/' url -n / url -e /
-	#URL 'a' url -n a url !-e a
-}
+echo -e "\n### 2. Check mkgmap"
+checkPrgsMkgmap mkgmap || exit 1;
 
 
-#srctmpfile_dwl=${tmpdir}/$(basename ${srcfile})".downloaded"
-srctmpfile_plg=${srcfile}".polygoned"
-srctmpfile_flt=${srcfile}".filtered"
-if [[ ! ${nodownload} && -n "${url}" ]]; then
-	msg "url=${url}"
-	echo -e "######TODO> 3.1 TODO Download "`echo ${url} | awk -F[/:] '{print $4}'
+if [[ ${nodownload}=false && -n "${url}" ]]; then
+	msg "\n### 3. Download "`echo ${url} | awk -F[/:] '{print $4}'
 `" CREATE ${srcfile}"
 	${path}/bin/curletag -ft "-1 day" -f ${srcfile} ${url}
 else
-	[ -n "${url}" ] && echo -e "###### 3.9.1 No url."
-	[ ! ${nodownload} ] && echo -e "###### 3.9.2 Disable download by parameter -nd."
+	[ -n "${url}" ] && msg "\n### 3. No url."
+	[ ! ${nodownload} ] && msg "\n### 3. Disable download by parameter -nd."
 fi;
 
-showFileTime ${srcfile} || exitmsg 1 "Source file ${srcfile} not found(1)!"
+showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
 
-echo -e "\n### 4. Check polygon ${polygon}"
+polygonname=$(basename ${polygon})
+srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
 if [[ -n "${polygon}" && -e ${polygon} ]]; then
-	echo -e "\t###### 4.1 Polygon '${polygon}' exists."
 	if checkModifFile ${srcfile} ${srctmpfile_plg} ${polygon}; then
-		echo -e "\t###### 4.2 TODO Polygoned ${srctmpfile_plg}"
-		echo -n "POLYGONED "`date '+%F %T'` > ${srctmpfile_plg}
+		echo -e "\n### 4. Create polygon from '${polygon}' to ${srctmpfile_plg}"
+		osmconvert ${verbose} ${srcfile} -B=${polygon} -o=${srctmpfile_plg}
+	else
+		msg "\n### 4. No need to polygoned by ${polygon}"
 	fi;
 else
-	msg "\t###### 4.9 Polygon not exists."
+	msg "\n### 4. Polygon not exists."
 	srctmpfile_plg=${srcfile}
 fi;
 
-echo -e "\n### 5. Check filter"
+srctmpfile_flt=cache/${polygonname}".filtered"
+
 if [[ -n "${filter}" && -e ${filter} ]]; then
-	echo -e "\t###### 5.1 Filter '${filter}' exists."
 	if checkModifFile ${srctmpfile_plg} ${srctmpfile_flt} ${filter}; then
-		echo -e "\t###### 5.2 TODO Filtered ${srctmpfile_flt}"
+		echo -e "\n### 5. Create filter from '${filter}' to ${srctmpfile_plg}"
 		echo -n "FILTERED "`date '+%F %T'` > ${srctmpfile_flt}
+	else
+		msg "\n### 5. No need to filtered by ${polygon}"
 	fi;
 else
-	echo -e "\t###### 5.9 Filter not exists."
+	msg "\n###. 5 Filter not exists."
 	srctmpfile_flt=${srctmpfile_plg}
 fi;
 
@@ -165,5 +178,23 @@ msg "\n### 8. Postprocessing"
 
 echo -e "\n### "`date '+%F %T'`" END\n"
 
+exit 0
+####################################
+filename=$(basename -- "$fullfile")
+extension="${filename##*.}"
+filename="${filename%.*}"
+filename="${fullfile##*/}"
+
+function check {
+	local url="a"
+	echo "URL '$url'"
+	[ -n "${url}" ] && echo "url -n $url "
+	[ -z "${url}" ] && echo "url -z $url "
+	[ -e "${url}" ] && echo "url -e $url "
+	[ ! -e "${url}" ] && echo "url !-e $url "
+	#URL ''  url -z   url !-e
+	#URL '/' url -n / url -e /
+	#URL 'a' url -n a url !-e a
+}
 
 
