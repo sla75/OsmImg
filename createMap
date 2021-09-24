@@ -10,7 +10,10 @@ trap 'timering' EXIT
 style=default
 debug=false
 nodownload=false
-path=$(dirname "${0}")
+root=$(dirname "${0}")
+patharea="${root}/area"
+pathcache="${root}/cache"
+pathstyle="${root}/style"
 tmpdir=$(dirname $(mktemp -u))
 oldtime="-10 month"
 verbose=""
@@ -72,21 +75,21 @@ function checkModifFile {
 
 function checkPrgsMkgmap {
 	local prg=${1,,}
-	local file="${path}/cache/${prg}-latest.zip"
+	local file="${pathcache}/${prg}-latest.zip"
 	local url="https://www.mkgmap.org.uk/download/${prg}-latest.zip"
-	${path}/bin/curletag ${v} --filetime "-1 day" --etagtime "-1 hour" --file ${file} ${url}
+	${root}/bin/curletag ${v} --filetime "-1 day" --etagtime "-1 hour" --file ${file} ${url}
 	if [ $? -eq 1 ]; then
-		unzip -o -q -d "${path}/cache" ${file} || return 1
+		unzip -o -q -d "${pathcache}" ${file} || return 1
 		# Create symlink
 		while read line; do
-			unlink "${path}/cache/${prg}" 2>/dev/null
+			unlink "${pathcache}/${prg}" 2>/dev/null
 			${debug} && echo "Create symlink ${line} ${prg}"
-			ln ${v} -s -r ${line} ${path}/cache/${prg} 2>/dev/null || return 1
+			ln ${v} -s -r ${line} ${pathcache}/${prg} 2>/dev/null || return 1
 			break;
-		done < <(ls -td ${path}/cache/${prg}-r*)
+		done < <(ls -td ${pathcache}/${prg}-r*)
 	fi;
-	if [ -L ${path}/cache/${prg} ]; then
-		ls -l ${path}/cache/${prg}
+	if [ -L ${pathcache}/${prg} ]; then
+		ls -l ${pathcache}/${prg}
 	else
 		echo -e "${prg,^^} not found!" >&2
 		return 1
@@ -100,25 +103,27 @@ echo -e "\n### 0. Check parameters..."
 
 [ -z ${area} ] && errmsg 1 "The parameter area is obligatory. Use $0 --help"
 
-msg "ROOT: ${path}"
+tmpimg="${tmpdir}/${area}"
+
+msg "ROOT: ${root}"
 msg "      Area: ${area} "
 msg "     Style: ${style}"
 msg "     Debug: ${debug}"
 msg "NoDownload: ${nodownload}"
 
 
-[ ! -d ${path}/area ] && mkdir -p ${path}/area
-[ ! -d ${path}/cache ] && mkdir -p ${path}/cache
-[ ! -d ${path}/style ] && mkdir -p ${path}/style
+[ ! -d ${patharea} ] && mkdir -p ${patharea}
+[ ! -d ${pathcache} ] && mkdir -p ${pathcache}
+[ ! -d ${pathstyle} ] && mkdir -p ${pathstyle}
 
 echo -e "\n### 0.1 Check ${area}.parameters"
-[ ! -e ${path}/area/${area}.parameters ] && exitmsg "Parameters for area '${path}/area/${area}.parameters' not found!" 1;
-msg ${path}/area/${area}.parameters
-source ${path}/area/${area}.parameters
+[ ! -e ${patharea}/${area}.parameters ] && exitmsg "Parameters for area '${patharea}/${area}.parameters' not found!" 1;
+msg ${patharea}/${area}.parameters
+source ${patharea}/${area}.parameters
 echo -e "FID: ${img_fid}"
 echo -e "url: ${url}"
 
-[ ! -e ${path}/area/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${path}/area/${area}.mkgmap' not found!" 1;
+[ ! -e ${patharea}/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${patharea}/${area}.mkgmap' not found!" 1;
 
 
 echo -e "\n### 1. Check splitter"
@@ -131,7 +136,7 @@ checkPrgsMkgmap mkgmap || exit 1;
 if [[ ${nodownload}=false && -n "${url}" ]]; then
 	msg "\n### 3. Download "`echo ${url} | awk -F[/:] '{print $4}'
 `" CREATE ${srcfile}"
-	${path}/bin/curletag -ft "-1 day" -f ${srcfile} ${url}
+	${root}/bin/curletag -ft "-1 day" -f ${srcfile} ${url}
 else
 	[ -n "${url}" ] && msg "\n### 3. No url."
 	[ ! ${nodownload} ] && msg "\n### 3. Disable download by parameter -nd."
@@ -171,7 +176,55 @@ srcfile=${srctmpfile_flt}
 showFileTime ${srcfile} || exitmsg 1 "Source file ${srcfile} not found(2)!"
 head -n 1 ${srcfile}
 
-msg "\n### 6. Check splitter"
+function execjar {
+	local prg=$1
+	shift;
+	[[ ! $prg =~ ^(mkgmap|splitter)$ ]] && exitmsg "Bad program $prg!" 1
+	[[ "${debug}" == "true" && -f "${prg}/logger.txt" ]] && local log="-Dlog.config=${tmpimg}/logger.txt"
+
+	#-Xms2048m -Xmx4096m
+	local memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
+	msg "\t#############################################"
+	msg "\t############### S P L I T E R ###############"
+	printf "\t###    MemFree: %20sMB    ###\n" $(($memfree/1024))
+	msg "\t#############################################\n"
+	memfree=$(($memfree*8/10/1024))
+	#[[ $(grep MemFree /proc/meminfo | awk '{print $2}') -gt $((1024*1024*5)) ]] && mem="-Xmx4g"
+	local mem="-Xmx${memfree}m"
+	msg "execute> java ${mem} ${log} -jar ${pathcache}/${prg}/${prg}.jar $*"
+	java ${mem} ${log} -jar ${pathcache}/${prg}/${prg}.jar $*
+	return $?
+}
+
+yyyymm=$(date +'%Y/%m')
+
+msg "\n### 6. Run splitter"
+splitterDir="${tmpdir}/splitter_${area}"
+
+[ ! -d ${splitterDir} ] && mkdir -p ${splitterDir}
+${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-24 hour" --file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
+unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
+execjar splitter ${geonames} \
+		--max-threads=4	\
+		--mapid=${img_fid}0001	\
+		--status-freq=10	\
+		--description=${img_abbr}_${yyyymm}	\
+		--output=pbf	\
+		--output-dir=${splitterDir}	\
+		${srcfile} || exit 1
+echo "Directory: ${splitterDir}/"
+ls -l ${splitterDir}/
+		
+
+#execjar splitter ${geonames} ${argsPolygon}	\
+#		--max-threads=2	\
+#		--mapid=${imgfid}0001	\
+#		--status-freq=10	\
+#		--description=${imgname}_${yyyymm}	\
+#		--output=pbf	\
+#		--output-dir=${splitterDir}	\
+#		${srcpbf}
+		
 msg "\n### 7. Run mkgmap"
 
 msg "\n### 8. Postprocessing"
