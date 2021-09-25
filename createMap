@@ -14,6 +14,7 @@ root=$(dirname "${0}")
 patharea="${root}/area"
 pathcache="${root}/cache"
 pathstyle="${root}/style"
+pathpolygon="${root}/polygon"
 tmpdir=$(dirname $(mktemp -u))
 oldtime="-10 month"
 verbose=""
@@ -144,20 +145,21 @@ fi;
 
 showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
 
-polygonname=$(basename ${polygon})
-srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
-if [[ -n "${polygon}" && -e ${polygon} ]]; then
-	if checkModifFile ${srcfile} ${srctmpfile_plg} ${polygon}; then
+if [[ -n "${polygon}" && -e ${pathpolygon}/${polygon} ]]; then
+	polygonname=$(basename ${polygon})
+	srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
+	if checkModifFile ${srcfile} ${srctmpfile_plg} ${pathpolygon}/${polygon}; then
 		echo -e "\n### 4. Create polygon from '${polygon}' to ${srctmpfile_plg}"
-		osmconvert ${verbose} ${srcfile} -B=${polygon} -o=${srctmpfile_plg}
+		osmconvert ${verbose} ${srcfile} -B=${pathpolygon}/${polygon} -o=${srctmpfile_plg}
 	else
 		msg "\n### 4. No need to polygoned by ${polygon}"
 	fi;
 else
 	msg "\n### 4. Polygon not exists."
+	echo ${pathpolygon}/${polygon}
 	srctmpfile_plg=${srcfile}
 fi;
-
+exit 0
 srctmpfile_flt=cache/${polygonname}".filtered"
 
 if [[ -n "${filter}" && -e ${filter} ]]; then
