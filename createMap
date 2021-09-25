@@ -16,6 +16,7 @@ pathcache="${root}/cache"
 pathstyle="${root}/style"
 pathpolygon="${root}/polygon"
 tmpdir=$(dirname $(mktemp -u))
+pathimg="${tmpdir}/polygon"
 oldtime="-10 month"
 verbose=""
 while [[ $# -gt 0 ]]; do
@@ -121,7 +122,7 @@ echo -e "\n### 0.1 Check ${area}.parameters"
 [ ! -e ${patharea}/${area}.parameters ] && exitmsg "Parameters for area '${patharea}/${area}.parameters' not found!" 1;
 msg ${patharea}/${area}.parameters
 source ${patharea}/${area}.parameters
-echo -e "FID: ${img_fid}"
+echo -e "FID: ${imgfid}"
 echo -e "url: ${url}"
 
 [ ! -e ${patharea}/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${patharea}/${area}.mkgmap' not found!" 1;
@@ -159,7 +160,7 @@ else
 	echo ${pathpolygon}/${polygon}
 	srctmpfile_plg=${srcfile}
 fi;
-exit 0
+
 srctmpfile_flt=cache/${polygonname}".filtered"
 
 if [[ -n "${filter}" && -e ${filter} ]]; then
@@ -176,7 +177,6 @@ fi;
 
 srcfile=${srctmpfile_flt}
 showFileTime ${srcfile} || exitmsg 1 "Source file ${srcfile} not found(2)!"
-head -n 1 ${srcfile}
 
 function execjar {
 	local prg=$1
@@ -186,10 +186,10 @@ function execjar {
 
 	#-Xms2048m -Xmx4096m
 	local memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
-	msg "\t#############################################"
-	msg "\t############### S P L I T E R ###############"
-	printf "\t###    MemFree: %20sMB    ###\n" $(($memfree/1024))
-	msg "\t#############################################\n"
+	msg "\t############################################"
+	printf "\t############### %6s%-6s ###############\n" `echo ${prg^^} | cut -c 1-$((${#prg}/2))` `echo ${prg^^} | cut -c $((${#prg}/2+1))-${#prg}`
+	printf "\t###   MemFree: %20sMB    ###\n" $(($memfree/1024))
+	msg "\t############################################\n"
 	memfree=$(($memfree*8/10/1024))
 	#[[ $(grep MemFree /proc/meminfo | awk '{print $2}') -gt $((1024*1024*5)) ]] && mem="-Xmx4g"
 	local mem="-Xmx${memfree}m"
@@ -208,7 +208,7 @@ ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-24 hour" --file "${
 unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
 execjar splitter ${geonames} \
 		--max-threads=4	\
-		--mapid=${img_fid}0001	\
+		--mapid=${imgfid}0001	\
 		--status-freq=10	\
 		--description=${img_abbr}_${yyyymm}	\
 		--output=pbf	\
@@ -216,24 +216,45 @@ execjar splitter ${geonames} \
 		${srcfile} || exit 1
 echo "Directory: ${splitterDir}/"
 ls -l ${splitterDir}/
-		
 
-#execjar splitter ${geonames} ${argsPolygon}	\
-#		--max-threads=2	\
-#		--mapid=${imgfid}0001	\
-#		--status-freq=10	\
-#		--description=${imgname}_${yyyymm}	\
-#		--output=pbf	\
-#		--output-dir=${splitterDir}	\
-#		${srcpbf}
-		
+exit 1		
 msg "\n### 7. Run mkgmap"
+
+
+if [ -f "${splitterDir}/template.args" ]; then
+	[ -d ${pathimg} ] && rm -rf ${pathimg}
+	[ ! -d ${pathimg} ] && mkdir -p ${pathimg}
+	unzip -l ${pathcache}/bounds.zip &> /dev/null && bounds="--bounds=${pathcache}/bounds.zip"
+	execjar mkgmap --verbose ${licfile} ${bounds}	\
+		--max-jobs=3	\
+		--family-id=${imgfid}	\
+		--description=${imgname}_${yyyymm}.${version}	\
+		--read-config="${argstmp}"	\
+		--product-version=${version}	\
+		--output-dir=${pathimg}/img	\
+		--gmapsupp	\
+		--read-config="${splitterDir}/template.args"	\
+		${icontype} || exit 1
+#				${srcpbf}	\
+#		--precomp-sea=${rootDir}/cache/sea.zip	\		
+	pathImg=${mapDir}/img/${name,,}.img
+	mv -v ${mapDir}/img/gmapsupp.img ${pathImg} || exit 1
+	imgsversion="${name^} ${yyyymm} v.${version}"
+	echo "SET Mapsetname '${imgsversion}'"
+	gmt -w -m "${imgsversion}" ${pathImg}
+	gmt -i ${pathImg} 2>/dev/null
+	ls -l ${pathImg}
+else
+	errmsg "No splitter files." 1
+fi;
+
+
+
 
 msg "\n### 8. Postprocessing"
 
 echo -e "\n### "`date '+%F %T'`" END\n"
 
-exit 0
 ####################################
 filename=$(basename -- "$fullfile")
 extension="${filename##*.}"
