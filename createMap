@@ -200,21 +200,27 @@ function execjar {
 
 yyyymm=$(date +'%Y/%m')
 
-msg "\n### 6. Run splitter"
 splitterDir="${tmpdir}/splitter_${area}"
-
-[ ! -d ${splitterDir} ] && mkdir -p ${splitterDir}
-${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-24 hour" --file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
-unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
-execjar splitter ${geonames} \
-		--max-threads=4	\
-		--mapid=${imgfid}0001	\
-		--status-freq=10	\
-		--description=${img_abbr}_${yyyymm}	\
-		--output=pbf	\
-		--output-dir=${splitterDir}	\
-		${srcfile} || exit 1
-echo "Directory: ${splitterDir}/"
+#[ -d ${splitterDir} ] && rm -rf ${splitterDir}
+echo "XXX"
+showFileTime ${srcfile}
+showFileTime ${splitterDir}/template.args
+if [ ${srcfile} -nt ${splitterDir}/template.args} ]; then
+	msg "\n### 6. Run splitter"
+	exit 0
+	[ ! -d ${splitterDir} ] && mkdir -p ${splitterDir}
+	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-24 hour" --file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
+	unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
+	execjar splitter ${geonames} \
+			--max-threads=4	\
+			--mapid=${imgfid}0001	\
+			--status-freq=10	\
+			--description=${img_abbr}_${yyyymm}	\
+			--output=pbf	\
+			--output-dir=${splitterDir}	\
+			${srcfile} || exit 1
+	echo "Directory: ${splitterDir}/"
+fi;
 ls -l ${splitterDir}/
 
 exit 1		
