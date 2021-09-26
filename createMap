@@ -51,6 +51,8 @@ while [[ $# -gt 0 ]]; do
 		echo -e "Exit status:" >&2
 		echo -e "\t0     - Processed" >&2
 		echo -e "\tother - Other error" >&2
+		echo -e "\nExample:" >&2
+		echo -e "\t$0 -d -a czech -s MTBsign" >&2
 		exit 1
 		;;
 	esac
@@ -103,7 +105,7 @@ function checkPrgsMkgmap {
 echo -e "\n### "`date '+%F %T'`" START"
 echo -e "\n### 0. Check parameters..."
 
-[ -z ${area} ] && errmsg 1 "The parameter area is obligatory. Use $0 --help"
+[ -z ${area} ] && exitmsg "The parameter area is obligatory. Use $0 --help" 1
 
 tmpimg="${tmpdir}/${area}"
 
@@ -138,7 +140,7 @@ checkPrgsMkgmap mkgmap || exit 1;
 if [[ ${nodownload}=false && -n "${url}" ]]; then
 	msg "\n### 3. Download "`echo ${url} | awk -F[/:] '{print $4}'
 `" CREATE ${srcfile}"
-	${root}/bin/curletag -ft "-1 day" -f ${srcfile} ${url}
+	${root}/bin/curletag -ft "-1 day" -fe "-2 hour" -f ${srcfile} ${url}
 else
 	[ -n "${url}" ] && msg "\n### 3. No url."
 	[ ! ${nodownload} ] && msg "\n### 3. Disable download by parameter -nd."
@@ -176,7 +178,7 @@ else
 fi;
 
 srcfile=${srctmpfile_flt}
-showFileTime ${srcfile} || exitmsg 1 "Source file ${srcfile} not found(2)!"
+showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found(2)!" 1
 
 function execjar {
 	local prg=$1
@@ -209,7 +211,7 @@ if [ ${srcfile} -nt ${splitterDir}/template.args} ]; then
 	msg "\n### 6. Run splitter"
 	exit 0
 	[ ! -d ${splitterDir} ] && mkdir -p ${splitterDir}
-	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-24 hour" --file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
+	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" --file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
 	unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
 	execjar splitter ${geonames} \
 			--max-threads=4	\
