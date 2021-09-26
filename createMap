@@ -8,6 +8,7 @@ tt=$(date +%s)
 trap 'timering' EXIT
 
 style=default
+bounds=false
 debug=false
 nodownload=false
 root=$(dirname "${0}")
@@ -32,6 +33,10 @@ while [[ $# -gt 0 ]]; do
 		shift # past argument
 		shift # past value
 		;;
+	-b|--bounds)
+		bounds=true
+		shift # past value
+		;;
 	-d|--debug)
 		debug=true
 		verbose="--verbose"
@@ -45,8 +50,9 @@ while [[ $# -gt 0 ]]; do
 	--help|*)
 		echo -e "Usage: $0 -a name [-l name] [-d] [-nd]" >&2
 		echo -e "\t-a,  --area nameofarea\tprocess area to img" >&2
-		echo -e "\t-s,  --style\tProcess current style" >&2
+		echo -e "\t-b,  --bounds\tcompile with bounds tag" >&2
 		echo -e "\t-d,  --debug\tMore detailed statement" >&2
+		echo -e "\t-s,  --style\tProcess current style" >&2
 		echo -e "\t-nd, --nodownload\t\tDisable downloads" >&2
 		echo -e "Exit status:" >&2
 		echo -e "\t0     - Processed" >&2
@@ -113,6 +119,7 @@ msg "ROOT: ${root}"
 msg "      Area: ${area} "
 msg "     Style: ${style}"
 msg "     Debug: ${debug}"
+msg "     Bounds: ${bounds}"
 msg "NoDownload: ${nodownload}"
 
 
@@ -189,7 +196,9 @@ function execjar {
 	#-Xms2048m -Xmx4096m
 	local memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
 	msg "\t############################################"
-	printf "\t############### %6s%-6s ###############\n" `echo ${prg^^} | cut -c 1-$((${#prg}/2))` `echo ${prg^^} | cut -c $((${#prg}/2+1))-${#prg}`
+	printf "\t############### %6s%-6s ###############\n" \
+		`echo ${prg^^} | cut -c 1-$((${#prg}/2))` \
+		`echo ${prg^^} | cut -c $((${#prg}/2+1))-${#prg}`
 	printf "\t###   MemFree: %20sMB    ###\n" $(($memfree/1024))
 	msg "\t############################################\n"
 	memfree=$(($memfree*8/10/1024))
@@ -200,18 +209,13 @@ function execjar {
 	return $?
 }
 
+msg "\n### 6. Run splitter"
 yyyymm=$(date +'%Y/%m')
-
 splitterDir="${tmpdir}/splitter_${area}"
-#[ -d ${splitterDir} ] && rm -rf ${splitterDir}
-echo "XXX"
-showFileTime ${srcfile}
-showFileTime ${splitterDir}/template.args
-if [ ${srcfile} -nt ${splitterDir}/template.args} ]; then
-	msg "\n### 6. Run splitter"
-	exit 0
+if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/template.args ]]; then
 	[ ! -d ${splitterDir} ] && mkdir -p ${splitterDir}
-	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" --file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
+	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
+		--file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
 	unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
 	execjar splitter ${geonames} \
 			--max-threads=4	\
@@ -222,18 +226,22 @@ if [ ${srcfile} -nt ${splitterDir}/template.args} ]; then
 			--output-dir=${splitterDir}	\
 			${srcfile} || exit 1
 	echo "Directory: ${splitterDir}/"
+else
+	echo -e "\t### The Splitter is already updated."
 fi;
-ls -l ${splitterDir}/
+$debug && ls -l ${splitterDir}/
 
-exit 1		
 msg "\n### 7. Run mkgmap"
 
 
 if [ -f "${splitterDir}/template.args" ]; then
 	[ -d ${pathimg} ] && rm -rf ${pathimg}
 	[ ! -d ${pathimg} ] && mkdir -p ${pathimg}
-	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" --file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
+	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
+		--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
 	unzip -l ${pathcache}/bounds.zip &> /dev/null && bounds="--bounds=${pathcache}/bounds.zip"
+	echo "bounds=$bounds"
+	exit 1	
 	execjar mkgmap --verbose ${licfile} ${bounds}	\
 		--max-jobs=3	\
 		--family-id=${imgfid}	\
