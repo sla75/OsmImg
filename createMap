@@ -225,15 +225,16 @@ function varreplace {
 	sed -i "s/%name%/${name^}Map/gi" ${rfile}
 	sed -i "s/%year%/$(date +%Y)/gi" ${rfile}
 }
-function getLicenfeFile {
+function getLicenceFile {
 	local licfile=""
-	[ -f "${patharea}/licence.txt" ] && licfile="${patharea}/licence.txt";
+	[ -f "${root}/licence.txt" ] && licfile="${root}/licence.txt";
 	[ -f "${patharea}/${area}.licence.txt" ] && licfile="${patharea}/${area}.licence.txt";
-	if [ -e ${licfile} ]; then
+	if [[ -n "${licfile}" && -e ${licfile} ]]; then
 		local lictmp=${tmpdir}/$(basename ${licfile})
 		cp -v ${licfile} ${lictmp} >&2
 		varreplace ${lictmp} || exit $?
 		echo "--license-file=${lictmp}"
+		${debug} && cat ${lictmp} >&2
 		return 0
 	fi;
 	echo "Licence file ${patharea}/licence.txt OR ${patharea}/${area}.licence.txt not found." >&2
@@ -248,14 +249,14 @@ if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/templat
 		--file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
 	unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
 	execjar splitter ${geonames} \
-			--max-threads=4	\
+			--max-threads=3	\
 			--mapid=${imgfid}0001	\
 			--status-freq=10	\
 			--description=${img_abbr}_${yyyymm}	\
 			--output=pbf	\
 			--output-dir=${splitterDir}	\
 			${srcfile} || exit 1
-	echo "Directory: ${splitterDir}/"
+	echo "Directory: ${splitterDir}"
 else
 	echo -e "\t### The Splitter is already updated."
 fi;
@@ -271,19 +272,21 @@ if [ -f "${splitterDir}/template.args" ]; then
 		--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
 	unzip -l ${pathcache}/bounds.zip &> /dev/null && bounds="--bounds=${pathcache}/bounds.zip"
 	version=$(getVersion)
-	exit 1
-	execjar mkgmap --verbose $(getLicenceFile) ${bounds}	\
+	
+	echo execjar mkgmap --verbose $(getLicenceFile) ${bounds}	\
 		--max-jobs=3	\
 		--family-id=${imgfid}	\
 		--description=${imgname}_${yyyymm}.${version}	\
 		--read-config="${argstmp}"	\
 		--product-version=${version}	\
-		--output-dir=${pathimg}/img	\
+		--output-dir=${pathcache}/img_${area}	\
 		--gmapsupp	\
 		--read-config="${splitterDir}/template.args"	\
+		--style-file=newstyle	\
 		${icontype} || exit 1
 #				${srcpbf}	\
 #		--precomp-sea=${rootDir}/cache/sea.zip	\		
+	exit 1
 	pathImg=${mapDir}/img/${name,,}.img
 	mv -v ${mapDir}/img/gmapsupp.img ${pathImg} || exit 1
 	imgsversion="${name^} ${yyyymm} v.${version}"
