@@ -225,7 +225,20 @@ function varreplace {
 	sed -i "s/%name%/${name^}Map/gi" ${rfile}
 	sed -i "s/%year%/$(date +%Y)/gi" ${rfile}
 }
-
+function getLicenfeFile {
+	local licfile=""
+	[ -f "${patharea}/licence.txt" ] && licfile="${patharea}/licence.txt";
+	[ -f "${patharea}/${area}.licence.txt" ] && licfile="${patharea}/${area}.licence.txt";
+	if [ -e ${licfile} ]; then
+		local lictmp=${tmpdir}/$(basename ${licfile})
+		cp -v ${licfile} ${lictmp} >&2
+		varreplace ${lictmp} || exit $?
+		echo "--license-file=${lictmp}"
+		return 0
+	fi;
+	echo "Licence file ${patharea}/licence.txt OR ${patharea}/${area}.licence.txt not found." >&2
+	return 1
+}
 msg "\n### 6. Run splitter"
 yyyymm=$(date +'%Y/%m')
 splitterDir="${tmpdir}/splitter_${area}"
@@ -259,7 +272,7 @@ if [ -f "${splitterDir}/template.args" ]; then
 	unzip -l ${pathcache}/bounds.zip &> /dev/null && bounds="--bounds=${pathcache}/bounds.zip"
 	version=$(getVersion)
 	exit 1
-	execjar mkgmap --verbose ${licfile} ${bounds}	\
+	execjar mkgmap --verbose $(getLicenceFile) ${bounds}	\
 		--max-jobs=3	\
 		--family-id=${imgfid}	\
 		--description=${imgname}_${yyyymm}.${version}	\
