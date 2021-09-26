@@ -1,0 +1,4 @@
+Layer osm.slavics.cz (c) $YEAR$
+mkgmap v. $MKGMAP_VERSION$
+%name%, Map data (c) openstreetmap.org
+Map layout (c) osm.slavics.cz %datetime% v.%version%
