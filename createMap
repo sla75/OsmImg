@@ -232,6 +232,7 @@ msg "\n### 7. Run mkgmap"
 if [ -f "${splitterDir}/template.args" ]; then
 	[ -d ${pathimg} ] && rm -rf ${pathimg}
 	[ ! -d ${pathimg} ] && mkdir -p ${pathimg}
+	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" --file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
 	unzip -l ${pathcache}/bounds.zip &> /dev/null && bounds="--bounds=${pathcache}/bounds.zip"
 	execjar mkgmap --verbose ${licfile} ${bounds}	\
 		--max-jobs=3	\
