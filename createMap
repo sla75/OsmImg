@@ -44,7 +44,6 @@ while [[ $# -gt 0 ]]; do
 		;;
 	-nd|--nodownload)
 		nodownload=true
-		shift # past argument
 		shift # past value
 		;;
 	--help|*)
@@ -150,8 +149,8 @@ if [[ ${nodownload}=false && -n "${url}" ]]; then
 `" CREATE ${srcfile}"
 	${root}/bin/curletag -ft "-1 day" -fe "-2 hour" -f ${srcfile} ${url}
 else
-	[ -n "${url}" ] && msg "\n### 3. No url."
-	[ ! ${nodownload} ] && msg "\n### 3. Disable download by parameter -nd."
+	[ -n "${url}" ] && msg "### 3. No url."
+	[ ! ${nodownload} ] && msg "### 3. Disable download by parameter -nd."
 fi;
 
 showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
@@ -166,7 +165,7 @@ if [[ -n "${polygon}" && -e ${pathpolygon}/${polygon} ]]; then
 		msg "\n### 4. No need to polygoned by ${polygon}"
 	fi;
 else
-	msg "\n### 4. Polygon not exists."
+	msg "### 4. Polygon not exists."
 	echo ${pathpolygon}/${polygon}
 	srctmpfile_plg=${srcfile}
 fi;
@@ -181,7 +180,7 @@ if [[ -n "${filter}" && -e ${filter} ]]; then
 		msg "\n### 5. No need to filtered by ${polygon}"
 	fi;
 else
-	msg "\n###. 5 Filter not exists."
+	msg "###. 5 Filter not exists."
 	srctmpfile_flt=${srctmpfile_plg}
 fi;
 
@@ -245,20 +244,20 @@ yyyymm=$(date +'%Y/%m')
 splitterDir="${tmpdir}/splitter_${area}"
 if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/template.args ]]; then
 	[ ! -d ${splitterDir} ] && mkdir -p ${splitterDir}
-	${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
+	! $nodownload && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
 		--file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
 	unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
 	execjar splitter ${geonames} \
 			--max-threads=3	\
 			--mapid=${imgfid}0001	\
 			--status-freq=10	\
-			--description=${img_abbr}_${yyyymm}	\
+			--description=${imgabbr}_${yyyymm}	\
 			--output=pbf	\
 			--output-dir=${splitterDir}	\
 			${srcfile} || exit 1
 	echo "Directory: ${splitterDir}"
 else
-	echo -e "\t### The Splitter is already updated."
+	echo -e "### The Splitter is already updated."
 fi;
 $debug && ls -l ${splitterDir}/
 

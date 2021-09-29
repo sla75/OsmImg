@@ -1,8 +1,7 @@
 # ID mapy, max x500
-img_fid=6010
-img_abbr="CZ"
-srcfile="cache/czech-republic-latest.osm.pbf"
-urlX="https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf"
-url="http://weblin.pre.cz/aplikace/ridok/kosilka.php?download=1&id=1686-%3EID1686"
+imgfid=6020
+imgabbr="CZ"
+srcfile="cache/celakovice.osm"
+#url="https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf"
 polygon="area/poly/doksy.poly"
 filter="../2018_JHMD.pdf"

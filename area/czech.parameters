@@ -1,6 +1,6 @@
 # ID mapy, max x500
-img_fid=6010
-img_abbr="CZ"
+imgfid=6010
+imgabbr="CZ"
 srcfile="cache/czech-republic-latest.osm.pbf"
 url="https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf"
 polygon="doksy.poly"
