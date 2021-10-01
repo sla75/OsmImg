@@ -1,0 +1,22 @@
+# -------------------------------------------------------------------
+# This is the default mkgmap style file for converting OSM nodes
+# into Garmin POIs.
+# Any line prefaced with # is a comment and will not be applied.
+# Each line is a rule, of the generalised format:
+#  OSM_tag(s)_to_match  [Garmin_type_code resolution]
+# See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
+# and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
+# for more information.
+
+# impose routing/speed restrictions due to access/barrier. See option --link-pois-to-ways
+
+
+barrier=gate
+	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24-22]
+barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x3202 resolution 24-23]
+barrier=lift_gate | barrier=swing_gate
+	{add name='${barrier|subst:"_=> "}'} [0x3203 resolution 24-23]
+barrier=bus_trap | barrier=block | barrier=cycle_barrier |
+	barrier=stile | barrier=kissing_gate
+	{add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
+name=* {name '${name}'}

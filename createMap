@@ -7,7 +7,7 @@ function timering {
 tt=$(date +%s)
 trap 'timering' EXIT
 
-style=default
+style=mapnik
 bounds=false
 debug=false
 nodownload=false
@@ -17,7 +17,7 @@ pathcache="${root}/cache"
 pathstyle="${root}/style"
 pathpolygon="${root}/polygon"
 tmpdir=$(dirname $(mktemp -u))
-pathimg="${tmpdir}/polygon"
+
 oldtime="-10 month"
 verbose=""
 while [[ $# -gt 0 ]]; do
@@ -84,6 +84,7 @@ function checkModifFile {
 
 function checkPrgsMkgmap {
 	local prg=${1,,}
+	[[ ! $prg =~ ^(mkgmap|splitter)$ ]]  && exitmsg "Bad program $prg!" 1
 	local file="${pathcache}/${prg}-latest.zip"
 	local url="https://www.mkgmap.org.uk/download/${prg}-latest.zip"
 	${root}/bin/curletag ${v} --filetime "-1 day" --etagtime "-1 hour" --file ${file} ${url}
@@ -96,6 +97,11 @@ function checkPrgsMkgmap {
 			ln ${v} -s -r ${line} ${pathcache}/${prg} 2>/dev/null || return 1
 			break;
 		done < <(ls -td ${pathcache}/${prg}-r*)
+		if [[ $prg =~ ^mkgmap$ ]]; then
+			cp -r ${pathcache}/mkgmap/examples/styles/default ${pathstyle}/
+			mv -v ${pathstyle}/default ${pathstyle}/mapnik
+			cp -v ${pathcache}/mkgmap/examples/typ-files/mapnik.txt ${pathstyle}/mapnik/
+		fi;
 	fi;
 	if [ -L ${pathcache}/${prg} ]; then
 		ls -l ${pathcache}/${prg}
@@ -134,7 +140,7 @@ source ${patharea}/${area}.parameters
 echo -e "FID: ${imgfid}"
 echo -e "url: ${url}"
 
-[ ! -e ${patharea}/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${patharea}/${area}.mkgmap' not found!" 1;
+#[ ! -e ${patharea}/${area}.mkgmap ] && exitmsg "Config mkgmap for area '${patharea}/${area}.mkgmap' not found!" 1;
 
 
 echo -e "\n### 1. Check splitter"
@@ -157,6 +163,7 @@ showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
 
 if [[ -n "${polygon}" && -e ${pathpolygon}/${polygon} ]]; then
 	polygonname=$(basename ${polygon})
+	name="${polygonname%.*}-${style}"
 	srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
 	if checkModifFile ${srcfile} ${srctmpfile_plg} ${pathpolygon}/${polygon}; then
 		echo -e "\n### 4. Create polygon from '${polygon}' to ${srctmpfile_plg}"
@@ -255,40 +262,40 @@ if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/templat
 			--output=pbf	\
 			--output-dir=${splitterDir}	\
 			${srcfile} || exit 1
-	echo "Directory: ${splitterDir}"
 else
 	echo -e "### The Splitter is already updated."
 fi;
+echo "Splitter directory: ${splitterDir}"
 $debug && ls -l ${splitterDir}/
 
 msg "\n### 7. Run mkgmap"
 
 
 if [ -f "${splitterDir}/template.args" ]; then
-	[ -d ${pathimg} ] && rm -rf ${pathimg}
-	[ ! -d ${pathimg} ] && mkdir -p ${pathimg}
+	[ -d =${tmpdir}/img_${area} ] && rm -rf =${tmpdir}/img_${area}
+	[ ! -d =${tmpdir}/img_${area} ] && mkdir -p =${tmpdir}/img_${area}
 	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
 		--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
-	unzip -l ${pathcache}/bounds.zip &> /dev/null && bounds="--bounds=${pathcache}/bounds.zip"
+	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
 	version=$(getVersion)
 	
-	echo execjar mkgmap --verbose $(getLicenceFile) ${bounds}	\
-		--max-jobs=3	\
+	execjar mkgmap --verbose $(getLicenceFile) ${boundstag}	\
+		--max-jobs	\
 		--family-id=${imgfid}	\
 		--description=${imgname}_${yyyymm}.${version}	\
-		--read-config="${argstmp}"	\
+		--read-config="${pathstyle}/${style}.cfg"	\
 		--product-version=${version}	\
-		--output-dir=${pathcache}/img_${area}	\
+		--output-dir=${tmpdir}/img_${area}	\
 		--gmapsupp	\
 		--read-config="${splitterDir}/template.args"	\
-		--style-file=newstyle	\
-		${icontype} || exit 1
-#				${srcpbf}	\
-#		--precomp-sea=${rootDir}/cache/sea.zip	\		
-	exit 1
-	pathImg=${mapDir}/img/${name,,}.img
-	mv -v ${mapDir}/img/gmapsupp.img ${pathImg} || exit 1
-	imgsversion="${name^} ${yyyymm} v.${version}"
+		--style-file=${pathstyle}/${style}	\
+		${pathstyle}/${style}/${style}.txt || exit 1
+	echo "Output mkgmap directory: ${tmpdir}/img_${area}"
+	$debug && ls -l ${tmpdir}/img_${area}/
+	[ -d ${pathcache}/imgs/ ] || mkdir -p ${pathcache}/imgs/
+	pathImg=${pathcache}/imgs/${name^}.img
+	mv -v ${tmpdir}/img_${area}/gmapsupp.img ${pathImg} || exit 1
+	imgsversion="${name^}, ${yyyymm} v.${version}"
 	echo "SET Mapsetname '${imgsversion}'"
 	gmt -w -m "${imgsversion}" ${pathImg}
 	gmt -i ${pathImg} 2>/dev/null
@@ -297,8 +304,9 @@ else
 	errmsg "No splitter files." 1
 fi;
 
-
-
+echo -e "#####################"
+echo -e "### 7. END mkgmap ###"
+echo -e "#####################"
 
 msg "\n### 8. Postprocessing"
 

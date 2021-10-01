@@ -1,0 +1,134 @@
+[_id]
+ProductCode=
+FID=
+CodePage=1252
+[End]
+
+;=========== COMMENTAIRES ======
+[_comments]
+This program is free software
+it under the terms of the GNU General Public License version 3 or
+version 2 as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+Author: Jorisbo@hotmail.com and others
+
+Based on mkgmap default style version: r4293
+[End]
+
+
+
+
+;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
+[_drawOrder]
+[End]
+
+
+
+
+
+;===================== POLYGONES ========================
+
+
+;====================== LINES ===========================
+
+
+;====================== POINTS ==========================
+
+
+[_point]
+Type=0x03200
+;GRMN_TYPE: //
+String1=0x00,Barrier
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="5 5 2 1"   Colormode=16
+"!	c #3F3F3F"
+"  	c none"
+" !!! "
+"!!!!!"
+"!!!!!"
+"!!!!!"
+" !!! "
+;12345
+[end]
+
+
+[_point]
+Type=0x03201
+;GRMN_TYPE: //
+String1=0x00,Brana
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=No
+DayXpm="14 9 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #0000B4"
+"  	c none"
+"  #!  #!  #!  "
+"  #!  #!  #!  "
+"##############"
+"!!!!!!!!!!!!!!"
+"  #!  #!  #!  "
+"##############"
+"!!!!!!!!!!!!!!"
+"  #!  #!  #!  "
+"  #!  #!  #!  "
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x03202
+;GRMN_TYPE: //
+String1=0x00,Sloupek
+ExtendedLabels=N
+DayXpm="8 16 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"%	c #101010"
+"  	c none"
+"   #!   "
+"   #!   "
+"  !!##  "
+"  !!##  "
+"  ##!!  "
+"  ##!!  "
+"  !!##  "
+"  !!##  "
+"  ##!!  "
+"  ##!!  "
+"  !!##  "
+"  !!##  "
+"  ##!!  "
+"  ##!!  "
+" %%%%%% "
+"%%%%%%%%"
+;12345678
+[end]
+
+
+[_point]
+Type=0x03203
+;GRMN_TYPE: //
+String1=0x00,Zavora
+ExtendedLabels=N
+DayXpm="16 7 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"%	c #101010"
+"  	c none"
+" %%             "
+"##!!##!!##!!##!!"
+"!!##!!##!!##!!##"
+" %%           % "
+" %%           % "
+" %%           % "
+"%%%%         %%%"
+;1234567890123456
+[end]
