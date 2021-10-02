@@ -1,23 +1,13 @@
+
+
 [_id]
 ProductCode=
 FID=
 CodePage=1252
-[End]
+ [End]
 
 ;=========== COMMENTAIRES ======
 [_comments]
-This program is free software
-it under the terms of the GNU General Public License version 3 or
-version 2 as published by the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-General Public License for more details.
-
-Author: Jorisbo@hotmail.com and others
-
-Based on mkgmap default style version: r4293
 [End]
 
 
@@ -43,12 +33,12 @@ Based on mkgmap default style version: r4293
 [_point]
 Type=0x03200
 ;GRMN_TYPE: //
-String1=0x00,Barrier
+String1=0x00,Bariera
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 DayXpm="5 5 2 1"   Colormode=16
-"!	c #3F3F3F"
+"!	c #FF0000"
 "  	c none"
 " !!! "
 "!!!!!"
@@ -68,7 +58,7 @@ FontStyle=Default
 CustomColor=No
 DayXpm="14 9 3 1"   Colormode=16
 "!	c #FFFFFF"
-"#	c #0000B4"
+"#	c #00007F"
 "  	c none"
 "  #!  #!  #!  "
 "  #!  #!  #!  "
@@ -91,7 +81,7 @@ ExtendedLabels=N
 DayXpm="8 16 4 1"   Colormode=16
 "!	c #FFFFFF"
 "#	c #FF0000"
-"%	c #101010"
+"%	c #000000"
 "  	c none"
 "   #!   "
 "   #!   "
@@ -102,6 +92,36 @@ DayXpm="8 16 4 1"   Colormode=16
 "  !!##  "
 "  !!##  "
 "  ##!!  "
+"  ##!!  "
+"  !!##  "
+"  !!##  "
+"  ##!!  "
+"  ##!!  "
+" %%%%%% "
+"%%%%%%%%"
+;12345678
+[end]
+
+
+[_point]
+Type=0x03203
+;GRMN_TYPE: //
+String1=0x00,Zavora
+ExtendedLabels=N
+DayXpm="16 7 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"%	c #000000"
+"  	c none"
+" %%             "
+"##!!##!!##!!##!!"
+"!!##!!##!!##!!##"
+" %%           % "
+" %%           % "
+" %%           % "
+"%%%%         %%%"
+;1234567890123456
+[end]
 "  ##!!  "
 "  !!##  "
 "  !!##  "

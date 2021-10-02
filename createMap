@@ -8,7 +8,7 @@ tt=$(date +%s)
 trap 'timering' EXIT
 
 style=mapnik
-bounds=false
+bounds=true
 debug=false
 nodownload=false
 root=$(dirname "${0}")
@@ -198,7 +198,7 @@ function execjar {
 	local prg=$1
 	shift;
 	[[ ! $prg =~ ^(mkgmap|splitter)$ ]] && exitmsg "Bad program $prg!" 1
-	[[ "${debug}" == "true" && -f "${prg}/logger.txt" ]] && local log="-Dlog.config=${tmpimg}/logger.txt"
+	[[ "${debug}" == "true" && -f "${root}/logger.txt" ]] && local log="-Dlog.config=${root}/logger.txt"
 
 	#-Xms2048m -Xmx4096m
 	local memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
@@ -289,6 +289,7 @@ if [ -f "${splitterDir}/template.args" ]; then
 		--gmapsupp	\
 		--read-config="${splitterDir}/template.args"	\
 		--style-file=${pathstyle}/${style}	\
+		--list-styles --check-styles	\
 		${pathstyle}/${style}/${style}.txt || exit 1
 	echo "Output mkgmap directory: ${tmpdir}/img_${area}"
 	$debug && ls -l ${tmpdir}/img_${area}/

@@ -12,7 +12,7 @@
 
 
 barrier=gate
-	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24-22]
+	{add name='${barrier|subst:"_=> "}'; echotags "GATE"} [0x3201 resolution 24-22]
 barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x3202 resolution 24-23]
 barrier=lift_gate | barrier=swing_gate
 	{add name='${barrier|subst:"_=> "}'} [0x3203 resolution 24-23]
