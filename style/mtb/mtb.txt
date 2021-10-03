@@ -27,7 +27,292 @@ CodePage=1252
 ;====================== LINES ===========================
 
 
+[_line]
+Type=0x10c00
+;GRMN_TYPE: Misc. Line Types/RAILROAD(NT)/Railroad/NT
+UseOrientation=Y
+Xpm="32 3 2  1"
+"! c #A0A0A0"
+"  c none"
+"!!!!!!!!        !!!!!!!!        "
+"!      !  !!!!  !      !  !!!!  "
+"!!!!!!!!        !!!!!!!!        "
+;12345678901234567890123456789012
+String1=0x00,Zanikla trat
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11c00
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_449/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 10 2  1"
+"! c #FF30FF"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x11c01
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_450/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 10 2  1"
+"! c #FF30FF"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+" !!!!!!  !!!!!!  !!!!!!  !!!!!! "
+;12345678901234567890123456789012
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x11c02
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_451/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 10 2  1"
+"! c #FF30FF"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!  !  !!!  !  !!!  !  !!!  !  !"
+;12345678901234567890123456789012
+ExtendedLabels=N
+[end]
+
+
 ;====================== POINTS ==========================
+
+
+[_point]
+Type=0x02a02
+;GRMN_TYPE: Business - Food and Drink/RESTAURANT_ASIAN/Asian cuisine/Non NT
+String1=0x00,
+ExtendedLabels=N
+DayXpm="13 15 17 1"   Colormode=16
+"!	c #A85C00"
+"#	c #F8FCF8"
+"%	c #000000"
+"?	c #D07800"
+"$	c #D87C00"
+"*	c #B86400"
+"=	c #E08000"
+"1	c #F89400"
+"2	c #B86800"
+"3	c #E08400"
+"4	c #C87400"
+"5	c #C07000"
+"6	c #B06400"
+"7	c #985400"
+"8	c #A05800"
+"9	c #804400"
+"  	c none"
+"  ### ###    "
+" #%%%#%%%#   "
+"#%###%%##%#  "
+"#%#######%## "
+" #%%%%%%%%%%#"
+" #%######%%%#"
+" #%######%#%#"
+" #%?#$#*#%#%#"
+" #%=#1?2#%#%#"
+" #%$13#2#%#%#"
+" #%4??567%%%#"
+" #%*22#89%%# "
+" #%%!879%%#  "
+" #%%%%%%%%#  "
+"  ########   "
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x02c06
+;GRMN_TYPE: Business - Attractions/GARDEN, PARK/Garden, park/Non NT
+String1=0x00,Jehlicnan
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="12 13 19 2"   Colormode=16
+"!!	c #B86400"
+"!#	c #F8FCF8"
+"!%	c #000000"
+"!?	c #00AC00"
+"!$	c #00A000"
+"!*	c #00C800"
+"!=	c #00A800"
+"!1	c #009400"
+"!2	c #00B400"
+"!3	c #00A400"
+"!4	c #009000"
+"!5	c #008000"
+"!6	c #009800"
+"!7	c #008C00"
+"!8	c #007C00"
+"!9	c #007800"
+"#!	c #006400"
+"##	c #F8C800"
+"  	c none"
+"          !#!#          "
+"        !#!%!%!#        "
+"      !#!%!?!$!%!#      "
+"    !#!%!*!*!=!1!%!#    "
+"  !#!%!?!*!2!3!4!5!%!#  "
+"!#!%!%!%!=!3!6!7!%!%!%!#"
+"!#!#!#!%!1!4!7!5!%!#!#!#"
+"  !#!%!8!5!5!9#!#!!%!#  "
+"!#!%!%!%!%!%!%!%!%!%!%!#"
+"  !#!#!#!%##!!!%!#!#!#  "
+"      !#!%##!!!%!#      "
+"      !#!%!%!%!%!#      "
+"      !#!#!#!#!#!#      "
+;123456789012
+[end]
+
+
+[_point]
+Type=0x02c07
+;GRMN_TYPE: Business - Attractions/ZOO/Zoo/Non NT
+String1=0x00,Listnac
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="12 13 12 1"   Colormode=16
+"!	c #B86400"
+"#	c #F8FCF8"
+"%	c #000000"
+"?	c #00AC00"
+"$	c #00C800"
+"*	c #009400"
+"=	c #00B400"
+"1	c #00A400"
+"2	c #008000"
+"3	c #006400"
+"4	c #F8C800"
+"  	c none"
+"   ### ##   "
+"  #%%%#%%#  "
+" #%$$*%**%# "
+"#%$4$?**22%#"
+"#%?$4=1!2%# "
+" #%*4*3!33%#"
+"#%***4!!33%#"
+"#%***4!33%# "
+"##%*%%!3%#%#"
+" ###%4!%### "
+"   #%4!%#   "
+"   #%%%%#   "
+"   ######   "
+;123456789012
+[end]
+
+
+[_point]
+Type=0x03001
+;GRMN_TYPE: Business - Emergency and Government/POLICE_STATION/Police station/Non NT
+String1=0x00,Schody
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="11 10 2 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #0065D5"
+"###########"
+"#######!!!#"
+"#######!!!#"
+"#####!!!###"
+"#####!!!###"
+"###!!!#####"
+"###!!!#####"
+"#!!!#######"
+"#!!!#######"
+"###########"
+;12345678901
+[end]
+
+
+[_point]
+Type=0x03101
+;GRMN_TYPE: //
+String1=0x00,Stop
+ExtendedLabels=N
+DayXpm="15 15 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+"    #######    "
+"   #########   "
+"  ###########  "
+" #####!!!##### "
+"#####!###!#####"
+"#####!#########"
+"######!########"
+"#######!#######"
+"########!######"
+"#########!#####"
+"#####!###!#####"
+" #####!!!##### "
+"  ###########  "
+"   #########   "
+"    #######    "
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x03102
+;GRMN_TYPE: //
+String1=0x00,Prednost
+ExtendedLabels=N
+DayXpm="16 13 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+"                "
+" ############## "
+" ############## "
+"  ##!!!!!!!!##  "
+"  ###!!!!!!###  "
+"   ##!!!!!!##   "
+"   ###!!!!###   "
+"    ##!!!!##    "
+"    ###!!###    "
+"     ##!!##     "
+"     ######     "
+"      ####      "
+"       ##       "
+;1234567890123456
+[end]
 
 
 [_point]
@@ -37,15 +322,20 @@ String1=0x00,Bariera
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="5 5 2 1"   Colormode=16
+DayXpm="8 8 4 1"   Colormode=16
 "!	c #FF0000"
+"#	c #FFFFFF"
+"%	c #BD0000"
 "  	c none"
-" !!! "
-"!!!!!"
-"!!!!!"
-"!!!!!"
-" !!! "
-;12345
+" ###### "
+"#%%%%%%#"
+"#%####%#"
+"#%#!!#%#"
+"#%#!!#%#"
+"#%####%#"
+"#%%%%%%#"
+" ###### "
+;12345678
 [end]
 
 
@@ -56,19 +346,22 @@ String1=0x00,Brana
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=No
-DayXpm="14 9 3 1"   Colormode=16
+DayXpm="14 12 3 1"   Colormode=16
 "!	c #FFFFFF"
-"#	c #00007F"
+"#	c #000000"
 "  	c none"
-"  #!  #!  #!  "
-"  #!  #!  #!  "
+"          !###"
+"         !###!"
+"        !###! "
 "##############"
-"!!!!!!!!!!!!!!"
-"  #!  #!  #!  "
 "##############"
-"!!!!!!!!!!!!!!"
-"  #!  #!  #!  "
-"  #!  #!  #!  "
+"!!!!!!###!!!!!"
+"    !###!     "
+"##############"
+"##############"
+"!!###!!!!!!!!!"
+"!###!         "
+"###!          "
 ;12345678901234
 [end]
 
@@ -108,13 +401,15 @@ Type=0x03203
 ;GRMN_TYPE: //
 String1=0x00,Zavora
 ExtendedLabels=N
-DayXpm="16 7 4 1"   Colormode=16
+DayXpm="16 9 4 1"   Colormode=16
 "!	c #FFFFFF"
 "#	c #FF0000"
 "%	c #000000"
 "  	c none"
 " %%             "
 "##!!##!!##!!##!!"
+"##!!##!!##!!##!!"
+"!!##!!##!!##!!##"
 "!!##!!##!!##!!##"
 " %%           % "
 " %%           % "
@@ -122,33 +417,1202 @@ DayXpm="16 7 4 1"   Colormode=16
 "%%%%         %%%"
 ;1234567890123456
 [end]
-"  ##!!  "
-"  !!##  "
-"  !!##  "
-"  ##!!  "
-"  ##!!  "
-" %%%%%% "
-"%%%%%%%%"
+
+
+[_point]
+Type=0x06407
+;GRMN_TYPE: Geographical Named Points of Interest/DAM/Dam/Non NT, NT
+String1=0x00,Jez
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=No
+DayXpm="16 16 11 1"   Colormode=16
+"!	c #C0C4C0"
+"#	c #F8FCF8"
+"%	c #000000"
+"?	c #F0F4F0"
+"$	c #E8ECE8"
+"*	c #E0E4E0"
+"=	c #D8DCD8"
+"1	c #D0D4D0"
+"2	c #0898F8"
+"3	c #C8CCC8"
+"  	c none"
+"  ############  "
+" #%%%%%%%%%%%%# "
+"#%????$*===111%#"
+"#%###?$*=%%111%#"
+"#%?#??$*=%%222%#"
+"#%???$$*%%%222%#"
+"#%$$$$*=%%%222%#"
+"#%****=%%%%222%#"
+"#%=*===%%%%222%#"
+"#%====%%%%%222%#"
+"#%====%%%%%222%#"
+"#%222%%%%%%222%#"
+"#%222%%%%%%222%#"
+"#%11111133333!%#"
+" #%%%%%%%%%%%%# "
+"  ############  "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x0640c
+;GRMN_TYPE: Geographical Named Points of Interest/MINE/Mine/Non NT, NT
+String1=0x00,Dul
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 14 12 1"   Colormode=16
+"!	c #505050"
+"#	c #F8FCF8"
+"%	c #000000"
+"?	c #181818"
+"$	c #101010"
+"*	c #585858"
+"=	c #606060"
+"1	c #303030"
+"2	c #707070"
+"3	c #484848"
+"4	c #404040"
+"  	c none"
+"  ###  #####    "
+" #%%%##%%%?$#   "
+"#%*==%%#%%?1%#  "
+"#%=22=*%%##%%?# "
+"#%=22=*34%#%%%%#"
+"#%*==*!3%#%%#%%#"
+" #%**%%%#%%##1?#"
+" #%333%%%%# #%1#"
+"  #%4%#%%#   #%#"
+"  #%%##%%%#   # "
+"   ###%%#%%#    "
+"    #%%# #%%#   "
+"   #%%#   #%%#  "
+"   ###     ###  "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x0640d
+;GRMN_TYPE: Geographical Named Points of Interest/OILFIELD/Oilfield/Non NT, NT
+String1=0x00,byv. dul
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="17 15 3 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #626262"
+"  	c none"
+"   !!       !!   "
+"  !##!     !##!  "
+"   !##!   !##!   "
+"    !##! !##!    "
+"     !##!##!     "
+"      !###!      "
+"  !!  !###!  !!! "
+" !##!!##!##!!###!"
+"!######! !######!"
+"!#####!  !!#####!"
+" !#####! !#####! "
+"  !####!!#####!  "
+"   !##!  !###!   "
+"    !!    !#!    "
+"           !     "
+;12345678901234567
+[end]
+
+
+[_point]
+Type=0x06511
+;GRMN_TYPE: Geographical Named Points of Interest - Water Related/SPRING/Spring/Non NT, NT
+String1=0x00,Pramen
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="10 16 3 1"   Colormode=16
+"!	c #0000F8"
+"#	c #FFFFFF"
+"  	c none"
+"    ##    "
+"  ##!!##  "
+" #!!!!!!# "
+" #!!!!!!# "
+"#!!!!!!!!#"
+"#!!!!!!!!#"
+" #!!!!!!# "
+" #!!!!!!# "
+"  #!!!##  "
+"   #!!#   "
+"   #!!#   "
+"    #!!#  "
+"     #!!# "
+"    #!!#  "
+"   #!!#   "
+"    ##    "
+;1234567890
+[end]
+
+
+[_point]
+Type=0x06612
+;GRMN_TYPE: Geographical Named Points of Interest - Land Related/RESERVE/Reserve/Non NT, NT
+String1=0x00,Pomnik
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="9 15 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #414141"
+"  	c none"
+"   !!!   "
+"  !###!  "
+"  !###!  "
+" !!!#!!! "
+"!#######!"
+" !#####! "
+"  !###!  "
+"   !#    "
+"  !!#!!  "
+" !#####! "
+" !#####! "
+" !#####! "
+" !#####! "
+"!#######!"
+" !!!!!!! "
+;123456789
+[end]
+
+
+[_point]
+Type=0x06613
+;GRMN_TYPE: Geographical Named Points of Interest - Land Related/RIDGE/Ridge/Non NT, NT
+String1=0x00,kamen
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="11 13 2 1"   Colormode=16
+"!	c #7B3020"
+"  	c none"
+"     !!    "
+"    !!!    "
+"   !!!!!   "
+"  !!!!!!   "
+"  !!!!!!   "
+"  !!!!!!   "
+" !!!!!!!!  "
+" !!!!!!!!  "
+" !!!!!!!!  "
+"!!!!!!!!!! "
+"!!!!!!!!!! "
+"!!!!!!!!!!!"
+"!!!!!!!!!!!"
+;12345678901
+[end]
+
+
+[_point]
+Type=0x06614
+;GRMN_TYPE: Geographical Named Points of Interest - Land Related/ROCK/Rock/Non NT, NT
+String1=0x00,skala
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="18 12 2 1"   Colormode=16
+"!	c #7B3000"
+"  	c none"
+"     !!           "
+"     !!           "
+"    !!!!          "
+"    !!!!    !     "
+"   !!!!!    !!    "
+"   !!!!!!  !!!!   "
+"   !!!!!!  !!!!   "
+"  !!!!!!! !!!!!!  "
+"  !!!!!!!!!!!!!!  "
+" !!!!!!!!!!!!!!!! "
+" !!!!!!!!!!!!!!!! "
+"!!!!!!!!!!!!!!!!!!"
+;123456789012345678
+[end]
+
+
+[_point]
+Type=0x06616
+;GRMN_TYPE: Geographical Named Points of Interest - Land Related/SUMMIT/Summit, top of a hill or mountain/Non NT, NT
+String1=0x00,Vrchol
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=No
+DayXpm="15 13 4 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #000000"
+"%	c #BD956A"
+"  	c none"
+"       !       "
+"      !#!      "
+"     !###!     "
+"     !#%#!     "
+"    !##%##!    "
+"    !#%%%#!    "
+"   !##%%%##!   "
+"   !#%%%%%#!   "
+"  !##%%#%%##!  "
+"  !#%%%%%%%#!  "
+" !##%%%%%%%##! "
+"!#############!"
+" !!!!!!!!!!!!! "
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x10600
+;GRMN_TYPE: Marine Miscellaneous Points/SEABED_NATURE_TEXT/Nature of the seabed text/Non NT, NT
+String1=0x00,Parkoviste
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="13 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #0000B4"
+"#############"
+"#############"
+"#############"
+"###!!!!!!####"
+"###!!!!!!!###"
+"###!!###!!###"
+"###!!###!!###"
+"###!!!!!!!###"
+"###!!!!!!####"
+"###!!########"
+"###!!########"
+"###!!########"
+"###!!########"
+"#############"
+"#############"
+"#############"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x10601
+;GRMN_TYPE: //
+String1=0x00,Parkoviste, placene
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #0000B4"
+"##############"
+"##############"
+"##!!!!!!######"
+"##!!!!!!!#####"
+"##!!###!!#####"
+"##!!###!!#####"
+"##!!!!!!!#####"
+"##!!!!!!######"
+"##!!##########"
+"##!!##!!!!!!##"
+"##!!##!####!##"
+"##!!##!####!##"
+"######!!##!!##"
+"######!!!!!!##"
+"##############"
+"##############"
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x10603
+;GRMN_TYPE: //
+String1=0x00,Prejezd
+ExtendedLabels=N
+DayXpm="16 9 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+" ##          ## "
+"#!!##      ##!!#"
+" ##!!##  ##!!## "
+"   ##!!##!!##   "
+"     ##!!##     "
+"   ##!!##!!##   "
+" ##!!##  ##!!## "
+"#!!##      ##!!#"
+" ##          ## "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x10604
+;GRMN_TYPE: //
+String1=0x00,Prejezd
+ExtendedLabels=N
+DayXpm="12 7 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+" ##      ## "
+"#!!##  ##!!#"
+" ##!!##!!## "
+"   ##!!##   "
+" ##!!##!!## "
+"#!!##  ##!!#"
+" ##      ## "
+;123456789012
+[end]
+
+
+[_point]
+Type=0x10701
+;GRMN_TYPE: Marine Miscellaneous Points/RECOMMENDED_ANCHORAGE/Recommended anchorage place/Non NT, NT
+String1=0x00,Pristav
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=No
+DayXpm="11 13 3 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #0030D5"
+"  	c none"
+"     !     "
+"    !#!    "
+"   !#!#!   "
+"    !#!    "
+"    !#!    "
+"   !###!   "
+"    !#!    "
+" !! !#! !! "
+"!##!!#!!##!"
+"!##!!#!!##!"
+" !!#!#!#!! "
+"   !###!   "
+"    !!!    "
+;12345678901
+[end]
+
+
+[_point]
+Type=0x10c02
+;GRMN_TYPE: Business - Lodging/BED_AND_BREAKFAST(NT)/Bed and breakfast inn/NT
+String1=0x00,Rozhled
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 16 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+"       !        "
+"      !#!       "
+"      !#!       "
+"     !###!      "
+"     !###!      "
+"   !!##!##!!    "
+" !!###! !###!!  "
+"!####!   !####! "
+" !!###! !###!!  "
+"   !!##!##!!    "
+"     !###!      "
+"     !###!      "
+"      !#!       "
+"      !#!       "
+"       !        "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x10c03
+;GRMN_TYPE: Business - Lodging/CAMPGROUND(NT)/Campground/NT
+String1=0x00,Camp
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="16 22 4 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #000000"
+"%	c #008400"
+"  	c none"
+"    !     !     "
+"   !%#   !%#    "
+"   !%#   !%#    "
+"   !%%# !%%#    "
+"    !%# !%#     "
+"    !%%#%%#     "
+"     !%!%#      "
+"     !%%%#      "
+"      !%#       "
+"     !%%%#      "
+"     !%%%#      "
+"    !%%%%%#     "
+"    !%%#%%#     "
+"   !%%%#%%%#    "
+"   !%%# !%%#    "
+"  !%%%# !%%%#   "
+"  !%%#   !%%#   "
+" !%%%#####%%%#  "
+" !%%%%%%%%%%%#  "
+"!%%%%%%%%%%%%%# "
+" #############  "
+"                "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x10c04
+;GRMN_TYPE: Business - Lodging/RESORT(NT)/Resort/NT
+String1=0x00,Rozcestnik
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="10 13 6 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"%	c #7F7F7F"
+"?	c #FF0000"
+"$	c #00FF00"
+"  	c none"
+"    ##    "
+"  ##%%##  "
+" #!!!!!!# "
+" #!?????!#"
+" #!!!!!!# "
+"  ##%%##  "
+" #!!!!!!# "
+"#!$$$$$!# "
+" #!!!!!!# "
+"  ##%%##  "
+"   #%%#   "
+"   #%%#   "
+"   #%%#   "
+;1234567890
+[end]
+
+
+[_point]
+Type=0x10c05
+;GRMN_TYPE: Business - Lodging/CAMPGROUND_SITE(NT)/Campground Site/NT
+String1=0x00,Zricenina
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 14 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #BD0000"
+"  	c none"
+"      !!!!!!!!"
+"      !######!"
+"      !######!"
+"      !######!"
+"      !######!"
+"      !######!"
+"!!!!!!!######!"
+"!############!"
+"!############!"
+"!############!"
+"!############!"
+"!############!"
+"!############!"
+"!!!!!!!!!!!!!!"
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x10e0c
+;GRMN_TYPE: Business - Entertainment/NIGHTLIFE(NT)/Nightlife/NT
+String1=0x00,Zel. stanice
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="12 12 2 1"   Colormode=16
+"!	c #000000"
+"#	c #7BCAFF"
+"!!!!!!!!!!!!"
+"!!!!!!!!!!!!"
+"!!########!!"
+"!!########!!"
+"!!########!!"
+"!!########!!"
+"!!########!!"
+"!!########!!"
+"!!########!!"
+"!!########!!"
+"!!!!!!!!!!!!"
+"!!!!!!!!!!!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x11006
+;GRMN_TYPE: Business - Services/BANK(NT)/Bank/NT
+String1=0x00,Bankomat
+ExtendedLabels=N
+DayXpm="11 14 17 1"   Colormode=16
+"!	c #008800"
+"#	c #F8FCF8"
+"%	c #000000"
+"?	c #00C800"
+"$	c #00C000"
+"*	c #00B800"
+"=	c #00A800"
+"1	c #00A000"
+"2	c #00BC00"
+"3	c #00B400"
+"4	c #009C00"
+"5	c #00AC00"
+"6	c #009800"
+"7	c #00A400"
+"8	c #008C00"
+"9	c #009400"
+"  	c none"
+"  #######  "
+" #%%%%%%%# "
+"#%?$*#%=1%#"
+"#%?$###%1%#"
+"#%$#%#%#%%#"
+"#%2#%#%%%%#"
+"#%33##%14%#"
+"#%555##%6%#"
+"#%==7#%#%%#"
+"#%1#%#%#%%#"
+"#%4%###%8%#"
+"#%99%#%8!%#"
+" #%%%%%%%# "
+"  #######  "
+;12345678901
+[end]
+
+
+[_point]
+Type=0x11007
+;GRMN_TYPE: Business - Services/DEALER(NT)/Dealer of manufactured goods/NT
+String1=0x00,Odpocivka
+ExtendedLabels=N
+DayXpm="12 11 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #BD0000"
+"  	c none"
+"     !!     "
+"    !##!    "
+"  !!####!!  "
+" !########! "
+"!##########!"
+" !!!!##!!!! "
+" !!!!##!!!! "
+"!###!##!###!"
+" !#!!##!!#! "
+"!##########!"
+" !!!!!!!!!! "
+;123456789012
+[end]
+
+
+[_point]
+Type=0x11008
+;GRMN_TYPE: Business - Services/GND_TRANSPORT(NT)/Ground transportation status, i.e. a bus station/NT
+String1=0x00,Komin
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="7 24 3 1"   Colormode=16
+"!	c #101010"
+"#	c #949494"
+"  	c none"
+"     !!"
+"    !! "
+"   !!  "
+"   !!  "
+"  !!   "
+"       "
+" !!!!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+"!!!!!!!"
+;1234567
+[end]
+
+
+[_point]
+Type=0x11009
+;GRMN_TYPE: Business - Services/MARINA(NT)/Marina/NT
+String1=0x00,Krizek
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="8 12 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"   ##   "
+"  #!!#  "
+" ##!!## "
+"#!!!!!!#"
+"#!!!!!!#"
+" ##!!## "
+"  #!!#  "
+"  #!!#  "
+"  #!!#  "
+"  #!!## "
+"  #!!!!#"
+"   #### "
 ;12345678
 [end]
 
 
 [_point]
-Type=0x03203
-;GRMN_TYPE: //
-String1=0x00,Zavora
-ExtendedLabels=N
-DayXpm="16 7 4 1"   Colormode=16
-"!	c #FFFFFF"
-"#	c #FF0000"
-"%	c #101010"
+Type=0x1100a
+;GRMN_TYPE: Business - Services/WRECKER_SERVICE(NT)/Wrecker service/NT
+String1=0x00,Vez
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="9 24 3 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #101010"
 "  	c none"
-" %%             "
-"##!!##!!##!!##!!"
-"!!##!!##!!##!!##"
-" %%           % "
-" %%           % "
-" %%           % "
-"%%%%         %%%"
-;1234567890123456
+"    !    "
+"   !#!   "
+"   !#!   "
+"   !#!   "
+"  !###!  "
+" !##!##! "
+" !#####! "
+" !#!#!#! "
+" !#!#!#! "
+"!!#!#!#!!"
+"!##!#!##!"
+"!#!###!#!"
+"!#!!#!!#!"
+"!#!!#!!#!"
+"!#!!#!!#!"
+"!##!#!##!"
+"!#!###!#!"
+"!#!!#!!#!"
+"!#!!#!!#!"
+"!#!!#!!#!"
+"!##!#!##!"
+"!#!###!#!"
+" ! !#! ! "
+"    !    "
+;123456789
+[end]
+
+
+[_point]
+Type=0x1100b
+;GRMN_TYPE: Business - Services/PARKING(NT)/Parking/NT
+String1=0x00,Bozi muka
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="9 12 3 1"   Colormode=16
+"!	c #101010"
+"#	c #FFFFFF"
+"  	c none"
+"    #    "
+"   #!#   "
+"  #!!!#  "
+"   #!#   "
+"   #!#   "
+"  #!!!#  "
+" #!###!# "
+" #!# #!# "
+" #!# #!# "
+" #!###!# "
+"#!!!!!!!#"
+" ####### "
+;123456789
+[end]
+
+
+[_point]
+Type=0x1100c
+;GRMN_TYPE: Business - Services/REST_AREA_TOURIST_INFO(NT)/Rest area, Tourist information/NT
+String1=0x00,Kaple
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="8 14 3 1"   Colormode=16
+"!	c #101010"
+"#	c #FFFFFF"
+"  	c none"
+"   ##   "
+"  #!!#  "
+" ##!!## "
+"#!!!!!!#"
+"#!!!!!!#"
+"  #!!## "
+"  #!!#  "
+" #!!!!# "
+"#!!!!!!#"
+"#!!!!!!#"
+"#!!!!!!#"
+"#!!!!!!#"
+" #!!!!# "
+"  ####  "
+;12345678
+[end]
+
+
+[_point]
+Type=0x1100d
+;GRMN_TYPE: Business - Services/AUTO_CLUB(NT)/Automobile club/NT
+String1=0x00,prirodni zajimavost
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="15 15 4 1"   Colormode=16
+"!	c #009541"
+"#	c #FFFFFF"
+"%	c #000000"
+"  	c none"
+"       #       "
+"      #!%      "
+"     #!!!%     "
+"    #!!!!!%    "
+"   #!!!%!!!%   "
+"  #!!!% #!!!%  "
+" #!!!%   #!!!% "
+"#!!!%     #!!!%"
+" #!!!%   #!!!% "
+"  #!!!% #!!!%  "
+"   #!!!%!!!%   "
+"    #!!!!!%    "
+"     #!!!%     "
+"      #!%      "
+"       #       "
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x1100e
+;GRMN_TYPE: Business - Services/CAR_WASH(NT)/Car wash/NT
+String1=0x00,propast
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="13 13 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #7B3000"
+"  	c none"
+"     !!!     "
+"   !!###!!   "
+"  !#######!  "
+" !###!#!###! "
+" !##! ! !##! "
+"!##!     !##!"
+"!###!   !###!"
+"!##!     !##!"
+" !##! ! !##! "
+" !###!#!###! "
+"  !#######!  "
+"   !!###!!   "
+"     !!!     "
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x1100f
+;GRMN_TYPE: Business - Services/GARMIN_DEALERS(NT)/Garmin dealer/NT
+String1=0x00,jeskyne
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="13 7 2 1"   Colormode=16
+"!	c #7B3020"
+"  	c none"
+"     !!!     "
+"   !!!!!!!   "
+"  !!!   !!!  "
+"  !!     !!  "
+" !!  !!!  !! "
+" !! !!!!! !! "
+"!!! !!!!! !!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x11102
+;GRMN_TYPE: Business - Emergency and Government/HOSPITAL(NT)/Hospital/NT
+String1=0x00,Prvni pomoc
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="12 12 3 1"   Colormode=0
+"!	c #F8FCF8"
+"#	c #000000"
+"%	c #BD0000"
+"!!!!!!!!!!!!"
+"!##########!"
+"!#!!!!!!!!#!"
+"!#!!!%%!!!#!"
+"!#!!!%%!!!#!"
+"!#!%%%%%%!#!"
+"!#!%%%%%%!#!"
+"!#!!!%%!!!#!"
+"!#!!!%%!!!#!"
+"!#!!!!!!!!#!"
+"!##########!"
+"!!!!!!!!!!!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x11103
+;GRMN_TYPE: Business - Emergency and Government/CITY_HALL(NT)/City hall/NT
+String1=0x00,Lekarna
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="12 12 2 1"   Colormode=0
+"!	c #F8FCF8"
+"#	c #009541"
+"!!!!!!!!!!!!"
+"!##########!"
+"!#!!!!!!!!#!"
+"!#!!!##!!!#!"
+"!#!!!##!!!#!"
+"!#!######!#!"
+"!#!######!#!"
+"!#!!!##!!!#!"
+"!#!!!##!!!#!"
+"!#!!!!!!!!#!"
+"!##########!"
+"!!!!!!!!!!!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x11104
+;GRMN_TYPE: Business - Emergency and Government/COURTHOUSE(NT)/Courthouse/NT
+String1=0x00,Zachrany bod
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="11 11 4 1"   Colormode=16
+"!	c #BD0000"
+"#	c #FFFFFF"
+"%	c #000000"
+"  	c none"
+"   ###     "
+"   #!!!    "
+"   #!!!%   "
+"####!!!%   "
+"#!!!!!!!!! "
+"#!!!!!!!!!%"
+" !!!!!!!!!%"
+"  %%!!!%%%%"
+"    !!!%   "
+"    !!!%   "
+"     %%%   "
+;12345678901
+[end]
+
+
+[_point]
+Type=0x11105
+;GRMN_TYPE: Business - Emergency and Government/COMMUNITY_CENTER(NT)/Community center/NT
+String1=0x00,Fixme
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 12 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFF00"
+"  	c none"
+"    !!    "
+"   !##!   "
+"  !####!  "
+" !##!!##! "
+" !##!!##! "
+"  !!!##!  "
+"   !##!   "
+"   !##!   "
+"    !!    "
+"   !##!   "
+"   !##!   "
+"    !!    "
+;1234567890
+[end]
+
+
+[_point]
+Type=0x11500
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_1/User customizable point type/Non NT, NT
+String1=0x00,BOD
+ExtendedLabels=Y
+FontStyle=NormalFont
+CustomColor=No
+DayXpm="1 1 2 1"   Colormode=16
+"!	c #000000"
+"  	c none"
+" "
+;1
+[end]
+
+
+[_point]
+Type=0x11501
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_2/User customizable point type/Non NT, NT
+String1=0x00,Bunker
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 10 3 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"  	c none"
+"              "
+"              "
+"!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!"
+"  !!######!!  "
+"  !!######!!  "
+"  !!!!!!!!!!  "
+"   !!!!!!!!   "
+"              "
+"              "
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x11502
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_3/User customizable point type/Non NT, NT
+String1=0x00,Sedlo
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="15 9 3 1"   Colormode=16
+"!	c #7B3020"
+"#	c #FFFFFF"
+"  	c none"
+" #     #     # "
+"#!#   #!#   #!#"
+"#!!# #!!!# #!!#"
+" #!!# #!# #!!# "
+"  #!!# # #!!#  "
+"   #!!# #!!#   "
+" ####!!#!!#### "
+"#!!!!!!!!!!!!!#"
+" ############# "
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x11503
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_4/User customizable point type/Non NT, NT
+String1=0x00,Nebezpeci
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 21 5 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #BD30FF"
+"%	c #101010"
+"?	c #FFFF00"
+"  	c none"
+"   !!!!!!!!   "
+"  !%%%%%%%%!  "
+" !%????????%! "
+"!%??????????%!"
+"!%??######??%!"
+"!%??######??%!"
+"!%??######??%!"
+"!%???####???%!"
+"!%???####???%!"
+"!%???####???%!"
+"!%????##????%!"
+"!%????##????%!"
+"!%????##????%!"
+"!%??????????%!"
+"!%????##????%!"
+"!%???####???%!"
+"!%????##????%!"
+"!%??????????%!"
+" !%????????%! "
+"  !%%%%%%%%!  "
+"   !!!!!!!!   "
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x11504
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_5/User customizable point type/Non NT, NT
+String1=0x00,Zavora
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="19 15 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #BD0000"
+"%	c #000000"
+"  	c none"
+"                 ! "
+"               !!#!"
+"             !!###!"
+"           !!#!###!"
+"         !!###!##! "
+"  !    !!#!###!!!  "
+" !%! !!###!##!     "
+"!%%%!#!###!!!      "
+"!%%###!##!     ! ! "
+"!%%###!!!     !%!%!"
+"!%%##!         !%! "
+"!%%%!          !%! "
+" !%!           !%! "
+" !%!           !%! "
+"  !             !  "
+;1234567890123456789
+[end]
+
+
+[_point]
+Type=0x11505
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_6/User customizable point type/Non NT, NT
+String1=0x00,block
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="12 9 6 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #303030"
+"%	c #A4A4A4"
+"?	c #E6E6E6"
+"$	c #BD0000"
+"  	c none"
+"   !!!!!!   "
+"  !######!  "
+" !#$$$$$$#! "
+"!#$??????$#!"
+"!#$??????$#!"
+"!#$%%%%%%$#!"
+"!#$%%%%%%$#!"
+"!#$%%%%%%$#!"
+"############"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x11506
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_7/User customizable point type/Non NT, NT
+String1=0x00,Sloupek
+ExtendedLabels=N
+DayXpm="6 14 6 1"   Colormode=16
+"!	c #000000"
+"#	c #FF3000"
+"%	c #FFFFFF"
+"?	c #FF8080"
+"$	c #7B0000"
+"  	c none"
+"  ?$  "
+"?#%%#$"
+"?%%##$"
+"?%##%$"
+"?##%%$"
+"?#%%#$"
+"?%%##$"
+"?%##%$"
+"?##%%$"
+"?#%%#$"
+"?%%##$"
+"?%##%$"
+"?##%%$"
+"!!!!!!"
+;123456
+[end]
+
+
+[_point]
+Type=0x11507
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_8/User customizable point type/Non NT, NT
+String1=0x00,gate
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 16 4 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #000000"
+"%	c #BD9500"
+"  	c none"
+"              "
+"  !!  !!  !!  "
+"!!%%!!%%!!%%!!"
+"##%%##%%##%%##"
+"##%%##%%##%%##"
+"!!%%!!%%!!%%!!"
+" !%%!!%%!!%%! "
+" !%%!!%%!!%%! "
+"!!%%!!%%!!%%!!"
+"##%%##%%##%%##"
+"##%%##%%##%%##"
+"!!%%!!%%!!%%!!"
+"  !!  !!  !!  "
+"              "
+"              "
+"              "
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x11508
+;GRMN_TYPE: User Customizable Points/CUSTOMIZABLE_POINT_9/User customizable point type/Non NT, NT
+String1=0x00,Stozar vys. napeti
+ExtendedLabels=N
+DayXpm="11 16 3 1"   Colormode=16
+"!	c #101010"
+"#	c #FFFFB4"
+"  	c none"
+"     #     "
+"    #!#    "
+"  ##!#!##  "
+" #!!!!!!!# "
+" #!#!#!#!# "
+" ###!#!### "
+"#!!!!!!!!!#"
+"#!#!###!#!#"
+" ##!!!!!## "
+" #!!###!!# "
+" #!!!!!!!# "
+" #!#####!# "
+"#!!!!!!!!!#"
+"#!#######!#"
+"#!#     #!#"
+" #       # "
+;12345678901
 [end]

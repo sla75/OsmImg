@@ -3,5 +3,5 @@ imgfid=6010
 imgabbr="CZ"
 srcfile="cache/czech-republic-latest.osm.pbf"
 url="https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf"
-polygon="doksy.poly"
-filter="../2018_JHMD.pdf"
+#polygon="doksy.poly"
+#filter="../2018_JHMD.pdf"

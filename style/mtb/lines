@@ -7,3 +7,13 @@
 # See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
+
+abandoned:railway=* | (railway=* & abandoned=yes) {add railway=abandoned}
+railway=abandoned & length()>1000 [0x10c00 default_name="zrusena trat" resolution 24-20]
+railway=abandoned [0x10c00 resolution 24-23]
+
+bicycle=yes & mtb:scale!=* {add mtb:scale=0}
+
+mtb:scale=0 [0x11c00 resolution 24-23]
+mtb:scale=1 [0x11c01 resolution 24-23]
+mtb:scale=2 [0x11c02 resolution 24-23]

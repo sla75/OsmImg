@@ -198,7 +198,7 @@ function execjar {
 	local prg=$1
 	shift;
 	[[ ! $prg =~ ^(mkgmap|splitter)$ ]] && exitmsg "Bad program $prg!" 1
-	[[ "${debug}" == "true" && -f "${root}/logger.txt" ]] && local log="-Dlog.config=${root}/logger.txt"
+#	[[ "${debug}" == "true" && -f "${root}/logger.txt" ]] && local log="-Dlog.config=${root}/logger.txt"
 
 	#-Xms2048m -Xmx4096m
 	local memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
@@ -276,20 +276,22 @@ if [ -f "${splitterDir}/template.args" ]; then
 	[ ! -d =${tmpdir}/img_${area} ] && mkdir -p =${tmpdir}/img_${area}
 	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
 		--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
-	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
+#	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
 	version=$(getVersion)
+
+	cp -v ${pathstyle}/${style}.cfg ${tmpdir}/${style}.cfg >&2
+	varreplace ${tmpdir}/${style}.cfg || exit $?
 	
 	execjar mkgmap --verbose $(getLicenceFile) ${boundstag}	\
 		--max-jobs	\
 		--family-id=${imgfid}	\
 		--description=${imgname}_${yyyymm}.${version}	\
-		--read-config="${pathstyle}/${style}.cfg"	\
+		--read-config="${tmpdir}/${style}.cfg"	\
 		--product-version=${version}	\
 		--output-dir=${tmpdir}/img_${area}	\
 		--gmapsupp	\
 		--read-config="${splitterDir}/template.args"	\
-		--style-file=${pathstyle}/${style}	\
-		--list-styles --check-styles	\
+		--check-styles	\
 		${pathstyle}/${style}/${style}.txt || exit 1
 	echo "Output mkgmap directory: ${tmpdir}/img_${area}"
 	$debug && ls -l ${tmpdir}/img_${area}/
