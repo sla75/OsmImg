@@ -53,7 +53,7 @@ natural=tree & denotation=natural_monument {name '${name}'} [0x2c07 resolution 2
 natural=stone {name '${name}'} [0x06613 resolution 24-23]
 natural=rock {name '${name}'} [0x06614 resolution 24-23]
 highway=emergency_access_point {name '${name} (${ref})' | '${ref}' | '${name}' } [0x11104 resolution 24-22]
-man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x11008 resolution 24-22]
+man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x02d02 resolution 24-22]
 
 if (fixme=*) then
 	(mkgmap:line2poi=true & mkgmap:line2poitype=mid) | (mkgmap:line2poi!=*) { name '${name} ${fixme}' | '${fixme}' | '${name}'; echotags 'FIXME'} [0x11105 resolution 24]

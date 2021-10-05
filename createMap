@@ -276,7 +276,7 @@ if [ -f "${splitterDir}/template.args" ]; then
 	[ ! -d =${tmpdir}/img_${area} ] && mkdir -p =${tmpdir}/img_${area}
 	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
 		--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
-#	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
+	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
 	version=$(getVersion)
 
 	cp -v ${pathstyle}/${style}.cfg ${tmpdir}/${style}.cfg >&2
@@ -291,12 +291,11 @@ if [ -f "${splitterDir}/template.args" ]; then
 		--output-dir=${tmpdir}/img_${area}	\
 		--gmapsupp	\
 		--read-config="${splitterDir}/template.args"	\
-		--check-styles	\
 		${pathstyle}/${style}/${style}.txt || exit 1
 	echo "Output mkgmap directory: ${tmpdir}/img_${area}"
 	$debug && ls -l ${tmpdir}/img_${area}/
 	[ -d ${pathcache}/imgs/ ] || mkdir -p ${pathcache}/imgs/
-	pathImg=${pathcache}/imgs/${name^}.img
+	pathImg=${root}/imgs/${name^}.img
 	mv -v ${tmpdir}/img_${area}/gmapsupp.img ${pathImg} || exit 1
 	imgsversion="${name^}, ${yyyymm} v.${version}"
 	echo "SET Mapsetname '${imgsversion}'"

@@ -1,8 +1,8 @@
 
 
 [_id]
-ProductCode=
-FID=
+ProductCode=0000
+FID=8800
 CodePage=1252
  [End]
 
@@ -234,6 +234,45 @@ DayXpm="12 13 12 1"   Colormode=16
 "   #%%%%#   "
 "   ######   "
 ;123456789012
+[end]
+
+
+[_point]
+Type=0x02d02
+;GRMN_TYPE: Business - Entertainment/BAR/Bar or club/Non NT
+String1=0x00,Komin
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="7 24 3 1"   Colormode=16
+"!	c #101010"
+"#	c #949494"
+"  	c none"
+"     !!"
+"    !! "
+"   !!  "
+"   !!  "
+"  !!   "
+"       "
+" !!!!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+" !!##! "
+" !!##! "
+" !##!! "
+" !##!! "
+"!!!!!!!"
+;1234567
 [end]
 
 
@@ -1020,45 +1059,6 @@ DayXpm="12 11 3 1"   Colormode=16
 
 
 [_point]
-Type=0x11008
-;GRMN_TYPE: Business - Services/GND_TRANSPORT(NT)/Ground transportation status, i.e. a bus station/NT
-String1=0x00,Komin
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-DayXpm="7 24 3 1"   Colormode=16
-"!	c #101010"
-"#	c #949494"
-"  	c none"
-"     !!"
-"    !! "
-"   !!  "
-"   !!  "
-"  !!   "
-"       "
-" !!!!! "
-" !!##! "
-" !!##! "
-" !##!! "
-" !##!! "
-" !!##! "
-" !!##! "
-" !##!! "
-" !##!! "
-" !!##! "
-" !!##! "
-" !##!! "
-" !##!! "
-" !!##! "
-" !!##! "
-" !##!! "
-" !##!! "
-"!!!!!!!"
-;1234567
-[end]
-
-
-[_point]
 Type=0x11009
 ;GRMN_TYPE: Business - Services/MARINA(NT)/Marina/NT
 String1=0x00,Krizek
@@ -1613,6 +1613,9 @@ DayXpm="11 16 3 1"   Colormode=16
 "#!!!!!!!!!#"
 "#!#######!#"
 "#!#     #!#"
+" #       # "
+;12345678901
+[end]  #!#"
 " #       # "
 ;12345678901
 [end]
