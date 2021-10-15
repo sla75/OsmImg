@@ -1,9 +1,56 @@
 #!/bin/bash
 
 root=$(dirname "${0}")
+pathbin="${root}/bin"
 pathcache="${root}/cache"
+tmpdir=$(dirname $(mktemp -u))
 
-${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
-	--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
+#${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
+#	--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
 #unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
-unzip -l ${pathcache}/bounds.zip
+#unzip -l ${pathcache}/bounds.zip
+
+allTK=("http://osm.thkukuk.de/TK-Czech_Republic-Basemap.7z" "http://osm.thkukuk.de/TK-Czech_Republic-Bicycling.7z" "http://osm.thkukuk.de/TK-Czech_Republic-SRTM.7z" "http://osm.thkukuk.de/TK-Czech_Republic-Wanderwege.7z")
+
+#http://osm.thkukuk.de/TK-DACH-Basemap.7z
+#http://osm.thkukuk.de/TK-DACH-Bicycling.7z
+#http://osm.thkukuk.de/TK-DACH-Oepnv.7z
+#http://osm.thkukuk.de/TK-DACH-Wanderwege.7z
+#https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbaustria_gmapsupp.7z
+#https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbgermany.exe
+allTK=("https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbczech-republic.exe" "https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/germany/mtbsachsen.exe" "https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbaustria.exe" "https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbitaly.exe" "https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbslovenia.exe" "https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbpoland.exe" "https://ftp.gwdg.de/pub/misc/openstreetmap/openmtbmap/odbl/mtbslovakia.exe")
+
+MAPID=1000
+for url in ${allTK[@]}; do
+#	[[ -d ../tmp/ ]] || mkdir -p ../tmp/
+	mapname=$(basename -- $url)
+	z7name=${pathcache}/${mapname}
+	mapname=${mapname%.*}
+	mapname=${mapname##mtb}
+	echo "Map "${mapname}
+	${pathbin}/curletag --filetime "-1 month" --etagtime "-1 day" --file "${z7name}" "${url}"
+	# && continue
+	#7z e ${z7name} -o../imgs/
+	allStyles=(bold bold2 clas cllg def def2 easy fenx hike mid mid2 subtle subtle2 trad wdlg wide wint xbol xbol2)
+	allStyles=(bold cllg hike mid)
+	for styl in ${allStyles[@]}; do
+		echo "Create ${mapname} as ${styl} $FID,$PID"
+		#ls -la ${tmpdir}/${mapname}-${styl}.img 
+		[[ -f ${tmpdir}/${mapname}-${styl}.img ]] && rm -v ${tmpdir}/${mapname}-${styl}.img
+		[[ -f ${tmpdir}/${mapname}-${styl}.img ]] || ./create_omtb_garmin_img.sh -o ${tmpdir} "${z7name}" ${styl} || exit 1
+		mv -v ${tmpdir}/${mapname}-${styl}.img ${pathcache}/imgs/${mapname}-${styl}.img
+		
+		#gmt -i ${tmpdir}/${mapname}-${styl}.img
+		#cp ${tmpdir}/${mapname}-${styl}.img ${tmpdir}/test.img
+		echo "Change to $MAPID"
+		#[[ -d ${tmpdir}/${mapname}-${styl}/ ]] || mkdir -p ${tmpdir}/${mapname}-${styl}/
+		#echo gmt -s -i -o ${tmpdir}/${mapname}-${styl}/ ${tmpdir}/${mapname}-${styl}.img
+		gmt -w -e $MAPID -m "OpenMtbMap" -r "OMM ${mapname^}-${styl,,}" ${pathcache}/imgs/${mapname}-${styl}.img
+		gmt -i -v ${pathcache}/imgs/${mapname}-${styl}.img
+		cnt=$(gmt -i /tmp/test.img | grep " MPC" | wc -l)
+		MAPID=$(($MAPID+$cnt+5))
+	done
+	MAPID=$(($MAPID+200))
+	break;
+done
+#rm ../imgs/*.exe 2>/dev/null
