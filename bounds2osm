@@ -1,0 +1,9 @@
+#!/bin/bash
+
+root=$(dirname "${0}")
+pathcache="${root}/cache"
+
+${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
+	--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
+#unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
+unzip -l ${pathcache}/bounds.zip
