@@ -22,12 +22,12 @@ bicycle!=no & mtb:scale=0 & highway~'service|unclassified' { delete mtb:scale }
 bicycle=yes & mtb:scale!=* & highway~'footway|track|path' {add mtb:scale=0}
 bicycle=no & mtb:scale=* {set bicycle=yes}
 
-natural=cliff {name '${name}'} [0x10a00 resolution 24-23]
-barrier=fence {echotags "FENCE" } [0x10a01 resolution 24]
+natural=cliff {name '${name}'} [0x10a00 resolution 24]
+barrier=fence [0x10a01 resolution 24]
 barrier=city_wall [0x10a02 resolution 24]
 
 access=no {name '${name}' | 'nepřístupné' } [0x11b00 resolution 24-22]
-access=private & boundary!=* {name '${name}' | 'soukromé' ;echotags "ACCESS" } [0x11b03 resolution 24-22]
+access=private & boundary!=* {name '${name}' | 'soukromé' } [0x11b03 resolution 24-22]
 bicycle=no {name '${name}'} [0x11b01 resolution 24-22]
 access=customers {name 'Only customers'} [0x11b02 resolution 24-23]
 highway=bridleway {name '${name}' | 'Koně' } [0x11b03 resolution 24]

@@ -23,10 +23,10 @@ hazard=* & hazard!=no { name '${hazard|subst:yes=>}'  }   [0x11503 resolution 24
 
 
 (access!=private | access!=customers) & barrier=gate
-	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24-23]
-barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x3202 resolution 24-23]
+	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24]
+barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x3202 resolution 24]
 access!=private & barrier=lift_gate | barrier=swing_gate
-	{add name='${barrier|subst:"_=> "}'} [0x3203 resolution 24-23]
+	{add name='${barrier|subst:"_=> "}'} [0x3203 resolution 24]
 barrier=bus_trap | barrier=block | barrier=cycle_barrier |
 	barrier=stile | barrier=kissing_gate
 	{add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
@@ -62,9 +62,9 @@ shelter_type=picnic_shelter { name '${name}'} [0x11007 resolution 24-23]
 
 natural=tree & denotation=natural_monument & leaf_type=needleleaved {name '${name}'} [0x2c06 resolution 24]
 natural=tree & denotation=natural_monument {name '${name}'} [0x2c07 resolution 24]
-natural=stone {name '${name}'} [0x06613 resolution 24-23]
-natural=rock {name '${name}'} [0x06614 resolution 24-23]
-natural=spring {name '${name}' } [0x06511 resolution 24-23]
+natural=stone {name '${name}'} [0x06613 resolution 24]
+natural=rock {name '${name}'} [0x06614 resolution 24]
+natural=spring {name '${name}' } [0x06511 resolution 24]
 
 natural=peak & ele=* {name '${name} ${ele|subst:"\..*~>"}m'} [0x06616 resolution 24-23]
 natural=peak {name '${name}'} [0x06616 resolution 24]
@@ -74,14 +74,12 @@ man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x02d0
 
 power=tower [0x11508 resolution 24]
 
-amenity~'(pub|bar)' {name '${name}';set addr:postcode = 'open ${opening_hours}'; echo 'POIBAR ${amenity} ${name}'} [0x02a02 resolution 24-23]
-amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '${name}';set addr:postcode = 'open ${opening_hours}'; echo 'FASTFOOD ${name}'} [0x02a02 resolution 24-23]
-
-#outdoor_seating=yes {name '${name}'; echotags 'OUTDOORSEATING ${amenity} ${name}'} [0x02a02 resolution 24-23]
+amenity~'(pub|bar)' {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
+amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
 
 
-#amenity=parking & fee=yes & access!=no {name '${name}'} [0x10601 resolution 24]
-#amenity=parking & access!=private & access!=no {name '${name}'} [0x10600 resolution 24]
+amenity=parking & fee=yes & access!=no {name '${name}'} [0x10601 resolution 24]
+amenity=parking & access!=private & access!=no {name '${name}'} [0x10600 resolution 24]
 tourism=camp_site {name '${name}'} [0x10c03 resolution 24-23]
 tourism=viewpoint {name '${name} ${direction}' | '${name}' | '${direction}'} [0x10c02 resolution 24-23]
 natural=cave_entrance {name '${name}'} [0x1100f resolution 24]

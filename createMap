@@ -57,7 +57,23 @@ while [[ $# -gt 0 ]]; do
 		echo -e "\t0     - Processed" >&2
 		echo -e "\tother - Other error" >&2
 		echo -e "\nExample:" >&2
-		echo -e "\t$0 -d -a czech -s MTBsign" >&2
+		echo -e "\t$0 -d -a czech -s MTBsign\n" >&2
+		memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
+		printf "MemFree: %20sMB\n" $((memfree/1024))
+		echo -e "\tAreas:"
+		for entry in "${patharea}"/* ;do
+			if [[ -f "$entry" && "${entry##*.}" = "parameters" ]];then
+				entry="${entry%.*}"
+				echo -e "\t\t${entry##*/}"
+			fi
+		done
+		echo -e "\tStyles:"
+		for entry in "${pathstyle}"/* ;do
+			if [[ -f "$entry" && "${entry##*.}" = "cfg" ]];then
+			entry="${entry%.*}"
+			echo -e "\t\t${entry##*/}"
+			fi
+		done
 		exit 1
 		;;
 	esac
