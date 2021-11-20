@@ -1,5 +1,5 @@
 # ID mapy, max x500
-imgfid=6010
+imgfid=6000
 imgabbr="CZ"
 srcfile="cache/czech-republic-latest.osm.pbf"
 url="https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf"

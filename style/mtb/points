@@ -15,12 +15,12 @@ if (mkgmap:line2poi=true & mkgmap:line2poitype=mid & access!=private) then
 	highway=steps {name '${name} ${step_count}' | '${name}' | '${step_count}'} [0x3001 resolution 24-23]
 end
 
-hazard=* & hazard!=no { name '${hazard|subst:yes=>}'  }   [0x3002 resolution 24-21]
+hazard=* & hazard!=no { name '${hazard|subst:yes=>}'  }   [0x11503 resolution 24-21]
 
 
 barrier=gate
-	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24-22]
-barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x11506 resolution 24-23]
+	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24-23]
+barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x3202 resolution 24-23]
 barrier=lift_gate | barrier=swing_gate
 	{add name='${barrier|subst:"_=> "}'} [0x3203 resolution 24-23]
 barrier=bus_trap | barrier=block | barrier=cycle_barrier |
@@ -29,18 +29,19 @@ barrier=bus_trap | barrier=block | barrier=cycle_barrier |
 	
 military=bunker & bunker_type=pillbox { name '${name}' ; add label='Bunker' } [0x11501 resolution 24-23]
 	
-highway=stop [0x03101 resolution 24-23]
-highway=give_way [0x03102 resolution 24-23]
+highway=stop [0x03101 resolution 24]
+highway=give_way [0x03102 resolution 24]
 
 tourism=information & information=guidepost { name '${name}' ; add label='${ref}' } [0x10c04 resolution 24-23]
 
 historic=wayside_cross { name '${name}'} [0x11009 resolution 24]
 historic=wayside_shrine { name '${name}'} [0x1100b resolution 24]
+building=chapel { name '${name}'} [0x1100c resolution 24]
 
 amenity=shelter & covered=yes { name '${name}'} [0x11007 resolution 24-23]
 shelter_type=picnic_shelter { name '${name}'} [0x11007 resolution 24-23]
 
-(amenity=atm | atm=yes) { add label='${operator}' | '${brand}' | '${name}'; echo 'ATM ${operator} - ${brand} | ${name}'} [0x11006 resolution 24-23]
+(amenity=atm | atm=yes) { add label='${operator}' | '${brand}' | '${name}'} [0x11006 resolution 24-23]
 
 
 #if (mkgmap:line2poi=true & highway=* & bicycle=dismount) then
@@ -54,6 +55,12 @@ natural=stone {name '${name}'} [0x06613 resolution 24-23]
 natural=rock {name '${name}'} [0x06614 resolution 24-23]
 highway=emergency_access_point {name '${name} (${ref})' | '${ref}' | '${name}' } [0x11104 resolution 24-22]
 man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x02d02 resolution 24-22]
+
+power=tower [0x11508 resolution 24]
+
+amenity~'(pub|bar)' {name '${name}'; echo 'BAR ${amenity} ${name}'} [0x02a02 resolution 24-23]
+
+mkgmap:line2poi=false & natural=* { name '${name}'} [0x1100d resolution 24]
 
 if (fixme=*) then
 	(mkgmap:line2poi=true & mkgmap:line2poitype=mid) | (mkgmap:line2poi!=*) { name '${name} ${fixme}' | '${fixme}' | '${name}'; echotags 'FIXME'} [0x11105 resolution 24]

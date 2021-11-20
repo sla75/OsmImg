@@ -8,7 +8,7 @@ tt=$(date +%s)
 trap 'timering' EXIT
 
 style=mapnik
-bounds=true
+bounds=false
 debug=false
 nodownload=false
 root=$(dirname "${0}")
@@ -137,6 +137,11 @@ echo -e "\n### 0.1 Check ${area}.parameters"
 [ ! -e ${patharea}/${area}.parameters ] && exitmsg "Parameters for area '${patharea}/${area}.parameters' not found!" 1;
 msg ${patharea}/${area}.parameters
 source ${patharea}/${area}.parameters
+
+subfid=$(grep ${style} ${pathstyle}/style.fid 2>/dev/null | cut -d'=' -f2)
+subfid=${subfid:-0}
+imgfid=$((imgfid+subfid))
+
 echo -e "FID: ${imgfid}"
 echo -e "url: ${url}"
 
@@ -272,8 +277,8 @@ msg "\n### 7. Run mkgmap"
 
 
 if [ -f "${splitterDir}/template.args" ]; then
-	[ -d =${tmpdir}/img_${area} ] && rm -rf =${tmpdir}/img_${area}
-	[ ! -d =${tmpdir}/img_${area} ] && mkdir -p =${tmpdir}/img_${area}
+	[ -d ${tmpdir}/img_${area} ] && rm -rf ${tmpdir}/img_${area}
+	[ ! -d ${tmpdir}/img_${area} ] && mkdir -p ${tmpdir}/img_${area}
 	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
 		--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
 	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
