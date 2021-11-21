@@ -17,3 +17,12 @@
 # Currently, the matching relations will be processed and the names
 # appended to the boundary lines in an arbitrary order.
 
+
+route=mtb {
+	apply {
+		add mtbroute='yes';
+		add ref='${ref}';
+		add mtboneway='${oneway}'
+		add mtbname='${name}'
+	}
+}

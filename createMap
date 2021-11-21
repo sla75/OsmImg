@@ -144,6 +144,7 @@ msg "     Debug: ${debug}"
 msg "     Bounds: ${bounds}"
 msg "NoDownload: ${nodownload}"
 
+imgname=${name^}
 
 [ ! -d ${patharea} ] && mkdir -p ${patharea}
 [ ! -d ${pathcache} ] && mkdir -p ${pathcache}
@@ -318,6 +319,7 @@ if [ -f "${splitterDir}/template.args" ]; then
 	[ -d ${pathcache}/imgs/ ] || mkdir -p ${pathcache}/imgs/
 	pathImg=${root}/imgs/${name^}.img
 	mv -v ${tmpdir}/img_${area}/gmapsupp.img ${pathImg} || exit 1
+	name=${name/-/ }
 	imgsversion="${name^}, ${yyyymm} v.${version}"
 	echo "SET Mapsetname '${imgsversion}'"
 	gmt -w -m "${imgsversion}" ${pathImg}

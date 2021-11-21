@@ -96,7 +96,7 @@ landuse=quarry { name '${name}'} [0x0640a resolution 24-22]
 mkgmap:line2poi=false & natural=* { name '${name}'} [0x1100d resolution 24]
 
 if (fixme=*) then
-	(mkgmap:line2poi=true & mkgmap:line2poitype=mid) | (mkgmap:line2poi!=*) { name '${name} ${fixme}' | '${fixme}' | '${name}'; echo 'FIXME'} [0x11105 resolution 24]
+	(mkgmap:line2poi=true & mkgmap:line2poitype=mid) | (mkgmap:line2poi!=*) { name '${name} ${fixme}' | '${fixme}' | '${name}'} [0x11105 resolution 24]
 end
 
 <finalize>
