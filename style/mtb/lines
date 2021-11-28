@@ -19,7 +19,7 @@ barrier=city_wall [0x10a02 resolution 24]
 
 highway=* & access=no {name '${name}' | 'nepřístupné' } [0x11b00 resolution 24-22]
 highway=* & access=private {name '${name}' | 'soukromé' } [0x11b03 resolution 24-22]
-highway=* & access=customers {name 'Only customers'} [0x11b02 resolution 24-23]
+highway=* & access=customers {name 'zakaznici'} [0x11b02 resolution 24-23]
 highway=bridleway {name '${name}' | 'Koně' } [0x11b03 resolution 24]
 
 mtb:scale:up=0 & mtb:scale!=* {set mtb:scale=0}
@@ -29,10 +29,15 @@ mtb:scale:down=0 & mtb:scale!=* {set mtb:scale=0}
 mtb:scale:down=0 {delete mtb:scale:down}
 
 if (highway~'track|path|footway') then
+	bicycle=no & mtb:scale=* {delete bicycle}
 	mtb:scale!=* & highway=track & tracktype=grade1 {set mtb:scale=0}
 	mtb:scale!=* & highway=track & tracktype=grade2 {set mtb:scale=0}
-	mtb:scale!=* & mtb:scale:up!=* & mtb:scale:down!=* [0x11c0f resolution 24]
-	bicycle=no & mtb:scale=* {delete bicycle}
+
+	mtb:scale!=* & mtb:scale:up!=* & mtb:scale:down!=* & smoothness~'excellent|good|intermediate' {set mtb:scale=0}
+	mtb:scale!=* & mtb:scale:up!=* & mtb:scale:down!=* & smoothness~'bad|very_bad' {set mtb:scale=1}
+	mtb:scale!=* & mtb:scale:up!=* & mtb:scale:down!=* & highway!=footway & smoothness~'horrible|very_horrible' {set mtb:scale=2}
+	mtb:scale!=* & mtb:scale:up!=* & mtb:scale:down!=* & highway=footway & smoothness~'horrible|very_horrible' {set smoothness=impassable}
+	mtb:scale!=* & mtb:scale:up!=* & mtb:scale:down!=* & smoothness=impassable {delete mtb:scale; delete mtb:scale:up; delete mtb:scale:down; set bicycle=no}
 	
 	mtb:scale=0 {name '${name}'} [0x11c00 resolution 24 continue]
 	mtb:scale=1 {name '${name} scale 1' | 'scale 1' } [0x11c01 resolution 24 continue]
@@ -57,6 +62,7 @@ if (highway~'track|path|footway') then
 	mtbroute=yes & mtboneway!=* {name '${mtbname} ${name}' | '${mtbname}' | '${name}' ;echotags "MTBROUTE.${highway} ${mtbname}" } [0x11a00 resolution 24-18] 
 	mtbroute=yes & mtboneway=yes {name '${mtbname} ${name}' | '${mtbname}' | '${name}' ;echotags "MTBROUTE.${highway} ${mtbname}" } [0x11a01 resolution 24-18]
 	mtbroute=yes & mtboneway=-1 {name '${mtbname} ${name}' | '${mtbname}' | '${name}' ;echotags "MTBROUTE.${highway} ${mtbname}" } [0x11a02 resolution 24-18]
+	highway=* {name '${name}'} [0x11c0f resolution 24]
 end
 
 

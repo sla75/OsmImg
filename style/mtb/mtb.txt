@@ -474,15 +474,19 @@ ExtendedLabels=N
 Type=0x11c0f
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_464/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 6 2  1"
-"! c #FF0000"
+Xpm="32 10 2  1"
+"! c #FF30FF"
 "  c none"
-" !!!!                           "
-"!!  !!                          "
-"!  !!                           "
-"  !!                            "
+"  !!!!                          "
+" !!!!!!                         "
+" !!  !!                         "
+" !  !!!                         "
+"   !!!                          "
+"   !!                           "
+"   !!                           "
 "                                "
-"  !!                            "
+"   !!                           "
+"   !!                           "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale Unknown
 ExtendedLabels=N
