@@ -17,9 +17,9 @@ natural=cliff {name '${name}'} [0x10a00 resolution 24]
 barrier=fence [0x10a01 resolution 24]
 barrier=city_wall [0x10a02 resolution 24]
 
-highway=* & access=no {name '${name}' | 'nepřístupné' } [0x11b00 resolution 24-22]
-highway=* & access=private {name '${name}' | 'soukromé' } [0x11b03 resolution 24-22]
-highway=* & access=customers {name 'zakaznici'} [0x11b02 resolution 24-23]
+highway=* & access=no [0x11b00 resolution 24-22]
+highway=* & access=private [0x11b03 resolution 24-22]
+highway=* & access=customers [0x11b02 resolution 24-23]
 highway=bridleway {name '${name}' | 'Koně' } [0x11b03 resolution 24]
 
 mtb:scale:up=0 & mtb:scale!=* {set mtb:scale=0}

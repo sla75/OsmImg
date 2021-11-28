@@ -849,6 +849,157 @@ DayXpm="19 15 4 1"   Colormode=16
 
 
 [_point]
+Type=0x06300
+;GRMN_TYPE: Misc. Points of Interest/SPOT_ELEVATION/Spot elevation/Non NT, NT
+String1=0x00,Parkoviste
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="13 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #0000B4"
+"#############"
+"#############"
+"#############"
+"###!!!!!!####"
+"###!!!!!!!###"
+"###!!###!!###"
+"###!!###!!###"
+"###!!!!!!!###"
+"###!!!!!!####"
+"###!!########"
+"###!!########"
+"###!!########"
+"###!!########"
+"#############"
+"#############"
+"#############"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x06301
+;GRMN_TYPE: //
+String1=0x00,Parkoviste, placene
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 16 2 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #0000B4"
+"##############"
+"##############"
+"##!!!!!!######"
+"##!!!!!!!#####"
+"##!!###!!#####"
+"##!!###!!#####"
+"##!!!!!!!#####"
+"##!!!!!!######"
+"##!!##########"
+"##!!##!!!!!!##"
+"##!!##!####!##"
+"##!!##!####!##"
+"######!!##!!##"
+"######!!!!!!##"
+"##############"
+"##############"
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x06302
+;GRMN_TYPE: //
+String1=0x00,Postbox
+ExtendedLabels=N
+DayXpm="10 8 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FFCA00"
+"%	c #101010"
+"!!!!!!!!!!"
+"!%######%!"
+"!#%####%#!"
+"!##%##%##!"
+"!###%%###!"
+"!########!"
+"!########!"
+"!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x06303
+;GRMN_TYPE: //
+String1=0x00,Prejezd
+ExtendedLabels=N
+DayXpm="16 9 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+" ##          ## "
+"#!!##      ##!!#"
+" ##!!##  ##!!## "
+"   ##!!##!!##   "
+"     ##!!##     "
+"   ##!!##!!##   "
+" ##!!##  ##!!## "
+"#!!##      ##!!#"
+" ##          ## "
+;1234567890123456
+[end]
+
+
+[_point]
+Type=0x06304
+;GRMN_TYPE: //
+String1=0x00,Prejezd
+ExtendedLabels=N
+DayXpm="12 7 3 1"   Colormode=16
+"!	c #FFFFFF"
+"#	c #FF0000"
+"  	c none"
+" ##      ## "
+"#!!##  ##!!#"
+" ##!!##!!## "
+"   ##!!##   "
+" ##!!##!!## "
+"#!!##  ##!!#"
+" ##      ## "
+;123456789012
+[end]
+
+
+[_point]
+Type=0x06305
+;GRMN_TYPE: //
+String1=0x00,Pristav
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=No
+DayXpm="11 13 3 1"   Colormode=16
+"!	c #F8FCF8"
+"#	c #0030D5"
+"  	c none"
+"     !     "
+"    !#!    "
+"   !#!#!   "
+"    !#!    "
+"    !#!    "
+"   !###!   "
+"    !#!    "
+" !! !#! !! "
+"!##!!#!!##!"
+"!##!!#!!##!"
+" !!#!#!#!! "
+"   !###!   "
+"    !!!    "
+;12345678901
+[end]
+
+
+[_point]
 Type=0x06407
 ;GRMN_TYPE: Geographical Named Points of Interest/DAM/Dam/Non NT, NT
 String1=0x00,Jez
@@ -1181,157 +1332,6 @@ DayXpm="15 13 4 1"   Colormode=16
 "!#############!"
 " !!!!!!!!!!!!! "
 ;123456789012345
-[end]
-
-
-[_point]
-Type=0x10600
-;GRMN_TYPE: Marine Miscellaneous Points/SEABED_NATURE_TEXT/Nature of the seabed text/Non NT, NT
-String1=0x00,Parkoviste
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-DayXpm="13 16 2 1"   Colormode=16
-"!	c #FFFFFF"
-"#	c #0000B4"
-"#############"
-"#############"
-"#############"
-"###!!!!!!####"
-"###!!!!!!!###"
-"###!!###!!###"
-"###!!###!!###"
-"###!!!!!!!###"
-"###!!!!!!####"
-"###!!########"
-"###!!########"
-"###!!########"
-"###!!########"
-"#############"
-"#############"
-"#############"
-;1234567890123
-[end]
-
-
-[_point]
-Type=0x10601
-;GRMN_TYPE: //
-String1=0x00,Parkoviste, placene
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-DayXpm="14 16 2 1"   Colormode=16
-"!	c #FFFFFF"
-"#	c #0000B4"
-"##############"
-"##############"
-"##!!!!!!######"
-"##!!!!!!!#####"
-"##!!###!!#####"
-"##!!###!!#####"
-"##!!!!!!!#####"
-"##!!!!!!######"
-"##!!##########"
-"##!!##!!!!!!##"
-"##!!##!####!##"
-"##!!##!####!##"
-"######!!##!!##"
-"######!!!!!!##"
-"##############"
-"##############"
-;12345678901234
-[end]
-
-
-[_point]
-Type=0x10602
-;GRMN_TYPE: //
-String1=0x00,Postbox
-ExtendedLabels=N
-DayXpm="10 8 3 1"   Colormode=16
-"!	c #FFFFFF"
-"#	c #FFCA00"
-"%	c #101010"
-"!!!!!!!!!!"
-"!%######%!"
-"!#%####%#!"
-"!##%##%##!"
-"!###%%###!"
-"!########!"
-"!########!"
-"!!!!!!!!!!"
-;1234567890
-[end]
-
-
-[_point]
-Type=0x10603
-;GRMN_TYPE: //
-String1=0x00,Prejezd
-ExtendedLabels=N
-DayXpm="16 9 3 1"   Colormode=16
-"!	c #FFFFFF"
-"#	c #FF0000"
-"  	c none"
-" ##          ## "
-"#!!##      ##!!#"
-" ##!!##  ##!!## "
-"   ##!!##!!##   "
-"     ##!!##     "
-"   ##!!##!!##   "
-" ##!!##  ##!!## "
-"#!!##      ##!!#"
-" ##          ## "
-;1234567890123456
-[end]
-
-
-[_point]
-Type=0x10604
-;GRMN_TYPE: //
-String1=0x00,Prejezd
-ExtendedLabels=N
-DayXpm="12 7 3 1"   Colormode=16
-"!	c #FFFFFF"
-"#	c #FF0000"
-"  	c none"
-" ##      ## "
-"#!!##  ##!!#"
-" ##!!##!!## "
-"   ##!!##   "
-" ##!!##!!## "
-"#!!##  ##!!#"
-" ##      ## "
-;123456789012
-[end]
-
-
-[_point]
-Type=0x10701
-;GRMN_TYPE: Marine Miscellaneous Points/RECOMMENDED_ANCHORAGE/Recommended anchorage place/Non NT, NT
-String1=0x00,Pristav
-ExtendedLabels=Y
-FontStyle=Default
-CustomColor=No
-DayXpm="11 13 3 1"   Colormode=16
-"!	c #F8FCF8"
-"#	c #0030D5"
-"  	c none"
-"     !     "
-"    !#!    "
-"   !#!#!   "
-"    !#!    "
-"    !#!    "
-"   !###!   "
-"    !#!    "
-" !! !#! !! "
-"!##!!#!!##!"
-"!##!!#!!##!"
-" !!#!#!#!! "
-"   !###!   "
-"    !!!    "
-;12345678901
 [end]
 
 
@@ -2047,6 +2047,13 @@ DayXpm="11 16 2 1"   Colormode=16
 "   !!!!!   "
 "  !!   !!  "
 "  !!!!!!!  "
+"  !     !  "
+" !!!!!!!!! "
+" !       ! "
+" !       ! "
+"           "
+;12345678901
+[end]!!!!!  "
 "  !     !  "
 " !!!!!!!!! "
 " !       ! "
