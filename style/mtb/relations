@@ -24,5 +24,6 @@ route=mtb {
 		add ref='${ref}';
 		add mtboneway='${oneway}'
 		add mtbname='${name}'
+		add mtbcolour='${colour}'
 	}
 }
