@@ -19,11 +19,17 @@
 
 
 route=mtb {
+	apply role=forward {
+		add role='forward'
+	}
+	apply role=backward {
+		add role='backward'
+	}
 	apply {
 		add mtbroute='yes';
 		add ref='${ref}';
-		add mtboneway='${oneway}'
+		add oneway='${oneway}'
 		add mtbname='${name}'
-		add mtbcolour='${colour}'
+		add colour='${colour}'
 	}
 }

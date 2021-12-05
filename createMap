@@ -175,7 +175,7 @@ checkPrgsMkgmap mkgmap || exit 1;
 if [[ ${nodownload}=false && -n "${url}" ]]; then
 	msg "\n### 3. Download "`echo ${url} | awk -F[/:] '{print $4}'
 `" CREATE ${srcfile}"
-	${root}/bin/curletag -ft "-1 day" -fe "-2 hour" -f ${srcfile} ${url}
+	${root}/bin/curletag -ft "-8 hour" -fe "-2 hour" -f ${srcfile} ${url}
 else
 	[ -n "${url}" ] && msg "### 3. No url."
 	[ ! ${nodownload} ] && msg "### 3. Disable download by parameter -nd."
@@ -220,7 +220,7 @@ function execjar {
 	local prg=$1
 	shift;
 	[[ ! $prg =~ ^(mkgmap|splitter)$ ]] && exitmsg "Bad program $prg!" 1
-#	[[ "${debug}" == "true" && -f "${root}/logger.txt" ]] && local log="-Dlog.config=${root}/logger.txt"
+	[[ "${debug}" == "true" && -f "${root}/logger.txt" ]] && local log="-Dlog.config=${root}/logger.txt"
 
 	#-Xms2048m -Xmx4096m
 	local memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')

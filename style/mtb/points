@@ -33,7 +33,7 @@ barrier=bus_trap | barrier=block | barrier=cycle_barrier |
 
 military=bunker & bunker_type=pillbox { name '${name}' ; add label='Bunker' } [0x11501 resolution 24-23]
 man_made=tower { name '${name}'} [0x1100a resolution 24]
-historic=ruins { name '${name}'} [0x10c05 resolution 24]
+historic=ruins & wikipedia=* { name '${name}'} [0x10c05 resolution 24]
 
 highway=stop [0x03101 resolution 24]
 highway=give_way [0x03102 resolution 24]
@@ -47,7 +47,8 @@ tourism=information & information=guidepost { name '${name}' ; add label='${ref}
 historic=wayside_cross { name '${name}'} [0x11009 resolution 24]
 historic=wayside_shrine { name '${name}'} [0x1100b resolution 24]
 historic=memorial { name '${name}'} [0x06612 resolution 24]
-building=chapel { name '${name}'} [0x1100c resolution 24]
+historic=chapel | building=chapel { name '${name}'} [0x1100c resolution 24]
+historic=tomb | building=tomb { name '${name}'} [0x1100c resolution 24]
 
 amenity=shelter & covered=yes { name '${name}'} [0x11007 resolution 24-23]
 shelter_type=picnic_shelter { name '${name}'} [0x11007 resolution 24-23]
@@ -64,7 +65,8 @@ natural=tree & denotation=natural_monument & leaf_type=needleleaved {name '${nam
 natural=tree & denotation=natural_monument {name '${name}'} [0x2c07 resolution 24]
 natural=stone {name '${name}'} [0x06613 resolution 24]
 natural=rock {name '${name}'} [0x06614 resolution 24]
-natural=spring {name '${name}' } [0x06511 resolution 24]
+natural=spring & ( access!=no & access!=private ) {name '${name}' } [0x06511 resolution 24]
+amenity=drinking_water & ( access!=no & access!=private ) {name '${name}' } [0x06511 resolution 24]
 
 natural=peak & ele=* {name '${name} ${ele|subst:"\..*~>"}m'} [0x06616 resolution 24-23]
 natural=peak {name '${name}'} [0x06616 resolution 24]
@@ -86,6 +88,10 @@ natural=cave_entrance {name '${name}'} [0x1100f resolution 24]
 natural=sinkhole {name '${name}'} [0x1100e resolution 24]
 tourism=information {name '${name}'} [0x10c01 resolution 24]
 
+
+historic=mine {set man_made=mineshaft; set disused=yes}
+historic=mine_adit {set man_made=adit; set disused=yes}
+
 man_made~'mineshaft|adit' & disused=yes { name '${name}'} [0x0640d resolution 24-23]
 man_made~'mineshaft|adit' { name '${name}'} [0x0640c resolution 24-22]
 
@@ -96,10 +102,11 @@ landuse=quarry { name '${name}'} [0x0640a resolution 24-22]
 mkgmap:line2poi=false & natural=* { name '${name}'} [0x1100d resolution 24]
 
 if (fixme=*) then
-	(mkgmap:line2poi=true & mkgmap:line2poitype=mid) | (mkgmap:line2poi!=*) { name '${name} ${fixme}' | '${fixme}' | '${name}'} [0x11105 resolution 24]
+	(mkgmap:line2poi=true & mkgmap:line2poitype=mid) | (mkgmap:line2poi!=*) [0x11105 resolution 24]
 end
 
 <finalize>
 #opening_hours=* {set addr:postcode = '${addr:postcode} open ${opening_hours}' | 'open ${opening_hours}'}
+fixme=* { name '${name} FIX:${fixme}' | 'FIX: ${fixme}' | '${name}'}
 
 
