@@ -740,6 +740,22 @@ ExtendedLabels=N
 
 
 [_line]
+Type=0x11b05
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_422/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 3 2  1"
+"! c #000000"
+"# c #C0C0C0"
+"#!!##!!##!!##!!##!!##!!##!!##!!#"
+"!##!!##!!##!!##!!##!!##!!##!!##!"
+"#!!##!!##!!##!!##!!##!!##!!##!!#"
+;12345678901234567890123456789012
+String1=0x00,Barrier
+ExtendedLabels=N
+[end]
+
+
+[_line]
 Type=0x11c00
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_449/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
@@ -1828,30 +1844,26 @@ String1=0x00,Rozhled
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="19 19 3 1"   Colormode=16
+DayXpm="15 15 3 1"   Colormode=16
 "!	c #FFFFFF"
 "#	c #FF0000"
 "  	c none"
-"         !         "
-"        !#!        "
-"        !#!        "
-"       !###!       "
-"       !###!       "
-"      !#####!      "
-"     !#######!     "
-"   !!####!####!!   "
-" !!#####! !#####!! "
-"!######!   !######!"
-" !!#####! !#####!! "
-"   !!####!####!!   "
-"     !#######!     "
-"      !#####!      "
-"       !###!       "
-"       !###!       "
-"        !#!        "
-"        !#!        "
-"         !         "
-;1234567890123456789
+"       !       "
+"      !#!      "
+"      !#!      "
+"     !###!     "
+"     !###!     "
+"   !!##!##!!   "
+" !!###! !###!! "
+"!####!   !####!"
+" !!###! !###!! "
+"   !!##!##!!   "
+"     !###!     "
+"     !###!     "
+"      !#!      "
+"      !#!      "
+"       !       "
+;123456789012345
 [end]
 
 

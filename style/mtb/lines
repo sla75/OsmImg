@@ -16,7 +16,10 @@ aerialway=* { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c01 r
 natural=cliff {name '${name}'} [0x10a00 resolution 24]
 barrier=fence [0x10a01 resolution 24]
 barrier=city_wall [0x10a02 resolution 24]
+barrier=* [0x11b05 resolution 24]
 
+bicycle=no & mtb:scale=* {delete bicycle}
+bicycle=no & mtbroute=yes {delete bicycle}
 
 mtbroute=yes & colour!=* {set colour='none'}
 mtbroute=yes & oneway!=* {set oneway='no'}
@@ -61,6 +64,11 @@ mtbroute=yes & colour~'green' & oneway=yes & role=backward
 sac_scale~'mountain_hiking|demanding_mountain_hiking|.*alpine_hiking' {set bicycle=no}
 
 
+access=no & (bicycle!=no | foot!=no) {delete access}
+
+
+
+
 mtb:scale:up=0 & mtb:scale!=* {set mtb:scale=0}
 mtb:scale:up=0 {delete mtb:scale:up}
 
@@ -79,12 +87,12 @@ inclinenum=down {set inclinenum=8}
 #inclinenum=* {; echo 'INCLINE ${incline} ${inclinenum}'}
 
 
-bicycle!=no & incline=down & inclinenum>=16 {name '${inclinenum}%'} [0x11a06 resolution 22 continue]
-bicycle!=no & incline=up & inclinenum>=16 {name '${inclinenum}%'} [0x11a05 resolution 22 continue]
-bicycle!=no & incline=down & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a04 resolution 23 continue]
-bicycle!=no & incline=up & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a03 resolution 23 continue]
-bicycle!=no & incline=down & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a02 resolution 24 continue]
-bicycle!=no & incline=up & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a01 resolution 24 continue]
+highway!=steps & bicycle!=no & incline=down & inclinenum>=16 {name '${inclinenum}%'} [0x11a06 resolution 22 continue]
+highway!=steps & bicycle!=no & incline=up & inclinenum>=16 {name '${inclinenum}%'} [0x11a05 resolution 22 continue]
+highway!=steps & bicycle!=no & incline=down & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a04 resolution 23 continue]
+highway!=steps & bicycle!=no & incline=up & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a03 resolution 23 continue]
+highway!=steps & bicycle!=no & incline=down & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a02 resolution 24 continue]
+highway!=steps & bicycle!=no & incline=up & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a01 resolution 24 continue]
 
 
 #	highway=* {name '${name}'} [0x11c0f resolution 24]
