@@ -19,8 +19,8 @@ abandoned=yes {set disused=yes}
 abandoned:landuse=* {set landuse='${abandoned:landuse}'; set disused=yes}
 abandoned:man_made=* {set man_made='${abandoned:man_made}'; set disused=yes}
 
-hazard=* & hazard!=no { name '${hazard|subst:yes=>}'  }   [0x11503 resolution 24-21]
-
+hazard=* & hazard!=no & mkgmap:line2poi=false { name '${hazard|subst:yes=>}'  }   [0x11503 resolution 24-21]
+hazard=* & hazard!=no & mkgmap:line2poi=true & mkgmap:line2poitype~'start|mid|end' { name '${hazard|subst:yes=>}'  }   [0x11503 resolution 24-21]
 
 (access!=private | access!=customers) & barrier=gate
 	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24]

@@ -186,15 +186,28 @@ if [[ ${nodownload}=false && -n "${url}" ]]; then
 			echo -e "\n### 3.$i Check download ${urlfile##*/}"
 			${root}/bin/curletag -ft "-4 hour" -fe "-2 hour" -f ${urlfile} ${link}
 		done
+		if [ -f ${srcfile} ]; then
+			for link in "${url[@]}"; do
+				i=$((i+1))
+				urlfile="${pathcache}/${link##*/}"
+				if [ ${srcfile} -ot ${urlfile} ]; then
+					echo "${link##*/} is newest than ${srcfile}"
+					rm -v ${srcfile}
+					break;
+				fi;
+			done;		
+		fi;
 		if [ ! -f ${srcfile} ]; then
 			i=0;
 			for link in "${url[@]}"; do
 				i=$((i+1))
 				urlfile="${pathcache}/${link##*/}"
-				echo "MERGE ${i} file=$urlfile"
+				echo "${i} MERGE ${link##*/} to ${srcfile%.*}.${i}.${srcfile##*.}"
 				if [ ${i} -eq 1 ]; then
 					cp -v ${urlfile} "${srcfile%.*}.${i}.${srcfile##*.}"
 				else
+					echo -e "\tosmconvert ${srcfile%.*}.$((i-1)).${srcfile##*.} ${srcfile%.*}.${i}.${srcfile##*.}"
+#					touch "${srcfile%.*}.${i}.${srcfile##*.}"
 					osmconvert "${srcfile%.*}.$((i-1)).${srcfile##*.}" --out-o5m | osmconvert - ${urlfile} -o="${srcfile%.*}.${i}.${srcfile##*.}"
 					rm -v "${srcfile%.*}.$((i-1)).${srcfile##*.}"
 				fi;
@@ -288,7 +301,7 @@ function getLicenceFile {
 		cp -v ${licfile} ${lictmp} >&2
 		varreplace ${lictmp} || exit $?
 		echo "--license-file=${lictmp}"
-		${debug} && cat ${lictmp} >&2
+		cat ${lictmp} >&2
 		return 0
 	fi;
 	echo "Licence file ${patharea}/licence.txt OR ${patharea}/${area}.licence.txt not found." >&2

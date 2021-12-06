@@ -21,35 +21,35 @@ barrier=city_wall [0x10a02 resolution 24]
 mtbroute=yes & colour!=* {set colour='none'}
 mtbroute=yes & oneway!=* {set oneway='no'}
 
-mtbroute=yes & colour~'none|orange' & oneway=no
+mtbroute=yes & colour~'none|orange' & ( oneway=no | role!=* )
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11000 resolution 24-18 continue] 	
 mtbroute=yes & colour~'none|orange' & oneway=yes & role=forward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11001 resolution 24-18 continue]
 mtbroute=yes & colour~'none|orange' & oneway=yes & role=backward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11002 resolution 24-18 continue]
 
-mtbroute=yes & colour~'blue' & oneway=no
+mtbroute=yes & colour~'blue' & ( oneway=no | role!=* )
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11003 resolution 24-18 continue] 	
 mtbroute=yes & colour~'blue' & oneway=yes & role=forward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11004 resolution 24-18 continue]
 mtbroute=yes & colour~'blue' & oneway=yes & role=backward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11005 resolution 24-18 continue]	
 
-mtbroute=yes & colour~'black' & oneway=no
+mtbroute=yes & colour~'black' & ( oneway=no | role!=* )
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11006 resolution 24-18 continue] 	
 mtbroute=yes & colour~'black' & oneway=yes & role=forward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11007 resolution 24-18 continue]
 mtbroute=yes & colour~'black' & oneway=yes & role=backward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11008 resolution 24-18 continue]	
 
-mtbroute=yes & colour~'red' & oneway=no
+mtbroute=yes & colour~'red' & ( oneway=no | role!=* )
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11009 resolution 24-18 continue] 	
 mtbroute=yes & colour~'red' & oneway=yes & role=forward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x1100a resolution 24-18 continue]
 mtbroute=yes & colour~'red' & oneway=yes & role=backward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x1100b resolution 24-18 continue]	
 
-mtbroute=yes & colour~'green' & oneway=no
+mtbroute=yes & colour~'green' & ( oneway=no | role!=* )
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x1100c resolution 24-18 continue] 	
 mtbroute=yes & colour~'green' & oneway=yes & role=forward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x1100d resolution 24-18 continue]
@@ -79,12 +79,12 @@ inclinenum=down {set inclinenum=8}
 #inclinenum=* {; echo 'INCLINE ${incline} ${inclinenum}'}
 
 
-incline=down & inclinenum>=16 {name '${inclinenum}%'} [0x11a06 resolution 22 continue]
-incline=up & inclinenum>=16 {name '${inclinenum}%'} [0x11a05 resolution 22 continue]
-incline=down & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a04 resolution 23 continue]
-incline=up & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a03 resolution 23 continue]
-incline=down & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a02 resolution 24 continue]
-incline=up & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a01 resolution 24 continue]
+bicycle!=no & incline=down & inclinenum>=16 {name '${inclinenum}%'} [0x11a06 resolution 22 continue]
+bicycle!=no & incline=up & inclinenum>=16 {name '${inclinenum}%'} [0x11a05 resolution 22 continue]
+bicycle!=no & incline=down & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a04 resolution 23 continue]
+bicycle!=no & incline=up & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a03 resolution 23 continue]
+bicycle!=no & incline=down & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a02 resolution 24 continue]
+bicycle!=no & incline=up & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a01 resolution 24 continue]
 
 
 #	highway=* {name '${name}'} [0x11c0f resolution 24]
@@ -98,8 +98,8 @@ highway=* & access~'no|private' [0x11b00 resolution 24-22]
 highway=* & access=customers [0x11b02 resolution 24-23]
 highway=bridleway {name '${name}' | 'Koně' } [0x11b03 resolution 24]
 
-
-bicycle=no {name '${name}'} [0x11b01 resolution 24-22]
+bicycle=dismount {name '${name}' | 'dismount'} [0x11b04 resolution 23-24]
+bicycle=no {name '${name}'} [0x11b01 resolution 22-24]
 
 <finalize>
 
