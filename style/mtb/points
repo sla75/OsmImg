@@ -42,10 +42,14 @@ amenity=pharmacy { add label='${brand}' | '${name}' | '${operator}'} [0x11103 re
 amenity=post_office { name 'Pošta'; set addr:postcode = '${collection_times}' | '${ref}' } [0x06302 resolution 24-23]
 amenity=post_box { set addr:postcode = '${ref} ${collection_times}' | '${ref}' } [0x06302 resolution 24]
 
+railway=station  { name '${name}' } [0x10e0c resolution 24-22]
+
+
 tourism=information & information=guidepost { name '${name}' ; add label='${ref}' } [0x10c04 resolution 24-23]
 
 historic=wayside_cross { name '${name}'} [0x11009 resolution 24]
 historic=wayside_shrine { name '${name}'} [0x1100b resolution 24]
+historic=monument { name '${name}'} [0x06615 resolution 24]
 historic=memorial { name '${name}'} [0x06612 resolution 24]
 historic=chapel | building=chapel { name '${name}'} [0x1100c resolution 24]
 historic=tomb | building=tomb { name '${name}'} [0x1100c resolution 24]
@@ -76,14 +80,14 @@ man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x02d0
 
 power=tower [0x11508 resolution 24]
 
-amenity~'(pub|bar)' {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
+amenity~'(pub|bar|restaurant)' {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
 amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
 
 
 amenity=parking & fee=yes & access!=no {name '${name}'} [0x06301 resolution 24]
 amenity=parking & access!=private & access!=no {name '${name}'} [0x06300 resolution 24]
 tourism=camp_site {name '${name}'} [0x10c03 resolution 24-23]
-tourism=viewpoint {name '${name} ${direction}' | '${name}' | '${direction}'} [0x10c02 resolution 20-24]
+tourism=viewpoint {name '${name} ${direction}' | '${name}' | '${direction}'} [0x04002 resolution 24-22]
 natural=cave_entrance {name '${name}'} [0x1100f resolution 24]
 natural=sinkhole {name '${name}'} [0x1100e resolution 24]
 tourism=information {name '${name}'} [0x10c01 resolution 24]
