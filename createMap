@@ -173,9 +173,35 @@ checkPrgsMkgmap mkgmap || exit 1;
 
 
 if [[ ${nodownload}=false && -n "${url}" ]]; then
-	msg "\n### 3. Download "`echo ${url} | awk -F[/:] '{print $4}'
-`" CREATE ${srcfile}"
-	${root}/bin/curletag -ft "-8 hour" -fe "-2 hour" -f ${srcfile} ${url}
+	if [ ${#url[@]} -eq 1 ]; then
+#		msg "\n### 3. Download "`echo ${url} | awk -F[/:] '{print $4}'`" CREATE ${srcfile}"
+		echo -e "\n### 3. Check download ${srcfile}"
+		${root}/bin/curletag -ft "-4 hour" -fe "-2 hour" -f ${srcfile} ${url}
+	else
+		echo "Size download url: ${#url[@]}"
+		i=0;
+		for link in "${url[@]}"; do
+			i=$((i+1))
+			urlfile="${pathcache}/${link##*/}"
+			echo -e "\n### 3.$i Check download ${urlfile##*/}"
+			${root}/bin/curletag -ft "-4 hour" -fe "-2 hour" -f ${urlfile} ${link}
+		done
+		if [ ! -f ${srcfile} ]; then
+			i=0;
+			for link in "${url[@]}"; do
+				i=$((i+1))
+				urlfile="${pathcache}/${link##*/}"
+				echo "MERGE ${i} file=$urlfile"
+				if [ ${i} -eq 1 ]; then
+					cp -v ${urlfile} "${srcfile%.*}.${i}.${srcfile##*.}"
+				else
+					osmconvert "${srcfile%.*}.$((i-1)).${srcfile##*.}" --out-o5m | osmconvert - ${urlfile} -o="${srcfile%.*}.${i}.${srcfile##*.}"
+					rm -v "${srcfile%.*}.$((i-1)).${srcfile##*.}"
+				fi;
+			done
+			[[ -f "${srcfile%.*}.${i}.${srcfile##*.}" ]] && mv -v "${srcfile%.*}.${i}.${srcfile##*.}" ${srcfile}
+		fi;
+	fi;
 else
 	[ -n "${url}" ] && msg "### 3. No url."
 	[ ! ${nodownload} ] && msg "### 3. Disable download by parameter -nd."
