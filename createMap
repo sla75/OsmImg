@@ -263,16 +263,16 @@ function execjar {
 
 	#-Xms2048m -Xmx4096m
 	local memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
-	msg "\t############################################"
+	echo -e "\t############################################"
 	printf "\t############### %6s%-6s ###############\n" \
 		`echo ${prg^^} | cut -c 1-$((${#prg}/2))` \
 		`echo ${prg^^} | cut -c $((${#prg}/2+1))-${#prg}`
 	printf "\t###   MemFree: %20sMB    ###\n" $(($memfree/1024))
-	msg "\t############################################\n"
-	memfree=$(($memfree*8/10/1024))
+	echo -e "\t############################################\n"
+	memfree=$(($memfree*95/100/1024))
 	#[[ $(grep MemFree /proc/meminfo | awk '{print $2}') -gt $((1024*1024*5)) ]] && mem="-Xmx4g"
 	local mem="-Xmx${memfree}m"
-	msg "execute> java ${mem} ${log} -jar ${pathcache}/${prg}/${prg}.jar $*"
+	echo "execute> java ${mem} ${log} -jar ${pathcache}/${prg}/${prg}.jar $*"
 	java ${mem} ${log} -jar ${pathcache}/${prg}/${prg}.jar $*
 	return $?
 }
@@ -307,7 +307,7 @@ function getLicenceFile {
 	echo "Licence file ${patharea}/licence.txt OR ${patharea}/${area}.licence.txt not found." >&2
 	return 1
 }
-msg "\n### 6. Run splitter"
+echo -e "\n### 6. Run splitter"
 yyyymm=$(date +'%Y/%m')
 splitterDir="${tmpdir}/splitter_${area}"
 if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/template.args ]]; then
@@ -316,7 +316,7 @@ if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/templat
 		--file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
 	unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
 	execjar splitter ${geonames} \
-			--max-threads=3	\
+			--max-jobs	\
 			--mapid=${imgfid}0001	\
 			--status-freq=10	\
 			--description=${imgabbr}_${yyyymm}	\
@@ -329,7 +329,7 @@ fi;
 echo "Splitter directory: ${splitterDir}"
 $debug && ls -l ${splitterDir}/
 
-msg "\n### 7. Run mkgmap"
+echo -e "\n### 7. Run mkgmap"
 
 
 if [ -f "${splitterDir}/template.args" ]; then
@@ -370,8 +370,8 @@ fi;
 
 echo -e "#####################"
 echo -e "### 7. END mkgmap ###"
-echo -e "#####################"
-
+echo -e "#####################\n"
+echo -e "${name^}\n"
 msg "\n### 8. Postprocessing"
 
 echo -e "\n### "`date '+%F %T'`" END\n"

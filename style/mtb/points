@@ -49,8 +49,11 @@ tourism=information & information=guidepost { name '${name}' ; add label='${ref}
 
 historic=wayside_cross { name '${name}'} [0x11009 resolution 24]
 historic=wayside_shrine { name '${name}'} [0x1100b resolution 24]
-historic=monument { name '${name}'} [0x06615 resolution 24]
-historic=memorial { name '${name}'} [0x06612 resolution 24]
+historic=monument { name '${name}'} [0x06612 resolution 24]
+historic=memorial { name '${name}'} [0x06615 resolution 24]
+historic~'boundary_stone|milestone' { name '${name}'} [0x06508 resolution 24]
+boundary=marker { name '${name}'} [0x06508 resolution 24]
+man_made=survey_point & survey_point:structure=block { name '${name} ${ele}m' | '${name}' | '${ele}m'} [0x06508 resolution 24]
 historic=chapel | building=chapel { name '${name}'} [0x1100c resolution 24]
 historic=tomb | building=tomb { name '${name}'} [0x1100c resolution 24]
 

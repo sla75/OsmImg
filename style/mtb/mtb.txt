@@ -48,7 +48,8 @@ Xpm="32 10 2  1"
 String1=0x00,Sraz
 ExtendedLabels=Y
 FontStyle=Default
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#FF9520
 [end]
 
 
@@ -144,7 +145,10 @@ Xpm="32 10 2  1"
 " !!!!!   !!!!!   !!!!!   !!!!!  "
 ;12345678901234567890123456789012
 String1=0x00,MTB route
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF9500
 [end]
 
 
@@ -167,7 +171,10 @@ Xpm="32 10 2  1"
 "!!!!!   !!!!!   !!!!!   !!!!!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF9500
 [end]
 
 
@@ -190,7 +197,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway reverse
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF9500
 [end]
 
 
@@ -213,7 +223,10 @@ Xpm="32 10 2  1"
 " !!!!!   !!!!!   !!!!!   !!!!!  "
 ;12345678901234567890123456789012
 String1=0x00,MTB route blue
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#0065FF
 [end]
 
 
@@ -236,7 +249,10 @@ Xpm="32 10 2  1"
 "!!!!!   !!!!!   !!!!!   !!!!!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway blue
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#0065FF
 [end]
 
 
@@ -259,7 +275,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway blue reverse
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#0065FF
 [end]
 
 
@@ -282,7 +301,10 @@ Xpm="32 10 2  1"
 " !!!!!   !!!!!   !!!!!   !!!!!  "
 ;12345678901234567890123456789012
 String1=0x00,MTB route black
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#000000
 [end]
 
 
@@ -305,7 +327,10 @@ Xpm="32 10 2  1"
 "!!!!!   !!!!!   !!!!!   !!!!!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway black
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#000000
 [end]
 
 
@@ -328,7 +353,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway black reverse
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#000000
 [end]
 
 
@@ -351,7 +379,10 @@ Xpm="32 10 2  1"
 " !!!!!   !!!!!   !!!!!   !!!!!  "
 ;12345678901234567890123456789012
 String1=0x00,MTB route red
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF3000
 [end]
 
 
@@ -374,7 +405,10 @@ Xpm="32 10 2  1"
 "!!!!!   !!!!!   !!!!!   !!!!!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway red
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF3000
 [end]
 
 
@@ -397,7 +431,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway red reverse
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF3000
 [end]
 
 
@@ -420,7 +457,10 @@ Xpm="32 10 2  1"
 " !!!!!   !!!!!   !!!!!   !!!!!  "
 ;12345678901234567890123456789012
 String1=0x00,MTB route green
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#00CA00
 [end]
 
 
@@ -443,7 +483,10 @@ Xpm="32 10 2  1"
 "!!!!!   !!!!!   !!!!!   !!!!!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway green
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#00CA00
 [end]
 
 
@@ -466,7 +509,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway green
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#00CA00
 [end]
 
 
@@ -494,7 +540,11 @@ Xpm="32 16 2  1"
 "             !!!                "
 "            !!!                 "
 ;12345678901234567890123456789012
-ExtendedLabels=N
+String1=0x00,Stoupani 1
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#BD6500
 [end]
 
 
@@ -522,7 +572,11 @@ Xpm="32 16 2  1"
 "                !!!             "
 "                 !!!            "
 ;12345678901234567890123456789012
-ExtendedLabels=N
+String1=0x00,Stoupani 1
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#BD6500
 [end]
 
 
@@ -550,7 +604,11 @@ Xpm="32 16 2  1"
 "        !!!!   !!!!             "
 "       !!!!   !!!!              "
 ;12345678901234567890123456789012
-ExtendedLabels=N
+String1=0x00,Stoupani 32ExtendedLabels
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#BD6500
 [end]
 
 
@@ -578,7 +636,11 @@ Xpm="32 16 2  1"
 "             !!!!   !!!!        "
 "              !!!!   !!!!       "
 ;12345678901234567890123456789012
-ExtendedLabels=N
+String1=0x00,Stoupani 2
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#BD6500
 [end]
 
 
@@ -606,7 +668,11 @@ Xpm="32 16 2  1"
 "    !!!!    !!!!    !!!!        "
 "   !!!!    !!!!    !!!!         "
 ;12345678901234567890123456789012
-ExtendedLabels=N
+String1=0x00,Stoupani 3
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#BD6500
 [end]
 
 
@@ -634,7 +700,51 @@ Xpm="32 16 2  1"
 "        !!!!    !!!!    !!!!    "
 "         !!!!    !!!!    !!!!   "
 ;12345678901234567890123456789012
-ExtendedLabels=N
+String1=0x00,Stoupani 3
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#BD6500
+[end]
+
+
+[_line]
+Type=0x11a1e
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_415/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 3 2  1"
+"! c #7B6500"
+"  c none"
+"    !!    !!        !!    !!    "
+"!     !!!!     !!     !!!!     !"
+"    !!    !!        !!    !!    "
+;12345678901234567890123456789012
+String1=0x00,Horsky hrbet
+ExtendedLabels=Y
+FontStyle=LargeFont
+CustomColor=Day
+DaycustomColor:#7B6500
+[end]
+
+
+[_line]
+Type=0x11a1f
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_416/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 5 2  1"
+"! c #7B9500"
+"  c none"
+"    !!!!                        "
+"  !!    !!                      "
+"!!        !!    !!        !!    "
+"                  !!    !!      "
+"                    !!!!        "
+;12345678901234567890123456789012
+String1=0x00,Udoli
+ExtendedLabels=Y
+FontStyle=NormalFont
+CustomColor=Day
+DaycustomColor:#7B9500
 [end]
 
 
@@ -774,7 +884,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale 0
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -797,7 +910,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale 1
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -820,7 +936,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale 2
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -843,7 +962,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale down 1
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -866,7 +988,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale up 1
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -889,7 +1014,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale down 2
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -912,7 +1040,10 @@ Xpm="32 10 2  1"
 "                                "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale up 2
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -935,7 +1066,10 @@ Xpm="32 10 2  1"
 "       !!              !!       "
 ;12345678901234567890123456789012
 String1=0x00,MTB scale Unknown
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FF30FF
 [end]
 
 
@@ -990,7 +1124,8 @@ Type=0x02c06
 String1=0x00,Jehlicnan
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#006500
 DayXpm="12 13 19 2"   Colormode=16
 "!!	c #B86400"
 "!#	c #F8FCF8"
@@ -1034,7 +1169,8 @@ Type=0x02c07
 String1=0x00,Listnac
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#006500
 DayXpm="12 13 12 1"   Colormode=16
 "!	c #B86400"
 "#	c #F8FCF8"
@@ -1110,7 +1246,8 @@ Type=0x03001
 String1=0x00,Schody
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#0065D5
 DayXpm="11 10 2 1"   Colormode=16
 "!	c #F8FCF8"
 "#	c #0065D5"
@@ -1163,13 +1300,13 @@ DayXpm="11 10 3 1"   Colormode=16
 "#	c #FF0000"
 "  	c none"
 "###########"
-" #!!!!!!!# "
+" ######### "
 " ##!!!!!## "
-"  #!!!!!#  "
 "  ##!!!##  "
-"   #!!!#   "
+"  ##!!!##  "
 "   ##!##   "
-"    #!#    "
+"   ##!##   "
+"    ###    "
 "    ###    "
 "     #     "
 ;12345678901
@@ -1330,7 +1467,8 @@ Type=0x06300
 String1=0x00,Parkoviste
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#0000B4
 DayXpm="13 16 2 1"   Colormode=16
 "!	c #FFFFFF"
 "#	c #0000B4"
@@ -1360,7 +1498,8 @@ Type=0x06301
 String1=0x00,Parkoviste, placene
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#0000B4
 DayXpm="14 16 2 1"   Colormode=16
 "!	c #FFFFFF"
 "#	c #0000B4"
@@ -1388,7 +1527,10 @@ DayXpm="14 16 2 1"   Colormode=16
 Type=0x06302
 ;GRMN_TYPE: //
 String1=0x00,Postbox
-ExtendedLabels=N
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=Day
+DaycustomColor:#FFCA00
 DayXpm="10 8 2 1"   Colormode=16
 "!	c #FFCA00"
 "#	c #101010"
@@ -1454,7 +1596,8 @@ Type=0x06305
 String1=0x00,Pristav
 ExtendedLabels=Y
 FontStyle=Default
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#0030D5
 DayXpm="11 13 3 1"   Colormode=16
 "!	c #F8FCF8"
 "#	c #0030D5"
@@ -1482,7 +1625,8 @@ Type=0x06407
 String1=0x00,Jez
 ExtendedLabels=Y
 FontStyle=Default
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#0030D5
 DayXpm="16 16 11 1"   Colormode=16
 "!	c #C0C4C0"
 "#	c #F8FCF8"
@@ -1544,10 +1688,11 @@ Type=0x0640b
 String1=0x00,byv. lom
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#626262
 DayXpm="17 8 3 1"   Colormode=16
 "!	c #FFFFFF"
-"#	c #949494"
+"#	c #626262"
 "  	c none"
 " !!!!!     !!!!! "
 "!#####!   !#####!"
@@ -1605,7 +1750,8 @@ Type=0x0640d
 String1=0x00,byv. dul
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#626262
 DayXpm="17 15 3 1"   Colormode=16
 "!	c #F8FCF8"
 "#	c #626262"
@@ -1626,6 +1772,44 @@ DayXpm="17 15 3 1"   Colormode=16
 "    !!    !#!    "
 "           !     "
 ;12345678901234567
+[end]
+
+
+[_point]
+Type=0x06508
+;GRMN_TYPE: Geographical Named Points of Interest - Water Related/WATERFALL/Waterfall/Non NT, NT
+String1=0x00,Hranicni kamen
+ExtendedLabels=N
+DayXpm="10 22 6 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"%	c #626262"
+"?	c #BD0000"
+"$	c #FF0000"
+"  	c none"
+"    #%    "
+"   ##%%   "
+"  ###%%%  "
+" ####%%%% "
+"#%%%%####%"
+"##%%%###%%"
+"?##%%##%%$"
+"??##%#%%$$"
+"???##%%$$$"
+"#???#%$$$%"
+"##???$$$%%"
+"###??$$%%%"
+"####?$%%%%"
+"#!###%%%#%"
+"#!#!#%#%#%"
+"##!##%%#%%"
+"#!#!#%#%#%"
+"###!#%#%%%"
+" ####%%%% "
+"  ###%%%  "
+"   ##%%   "
+"    #%    "
+;1234567890
 [end]
 
 
@@ -1675,7 +1859,8 @@ Type=0x06511
 String1=0x00,Pramen
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#0000F8
 DayXpm="10 16 3 1"   Colormode=16
 "!	c #0000F8"
 "#	c #FFFFFF"
@@ -1736,23 +1921,25 @@ Type=0x06613
 String1=0x00,kamen
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
-DayXpm="11 13 2 1"   Colormode=16
-"!	c #7B3020"
+CustomColor=Day
+DaycustomColor:#7B3000
+DayXpm="11 13 3 1"   Colormode=16
+"!	c #7B3000"
+"#	c #BD6500"
 "  	c none"
-"     !!    "
-"    !!!    "
-"   !!!!!   "
-"  !!!!!!   "
-"  !!!!!!   "
-"  !!!!!!   "
-" !!!!!!!!  "
-" !!!!!!!!  "
-" !!!!!!!!  "
-"!!!!!!!!!! "
-"!!!!!!!!!! "
-"!!!!!!!!!!!"
-"!!!!!!!!!!!"
+"     ##    "
+"    #!#    "
+"   #!!!#   "
+"  #!!!!#   "
+"  #!!!!#   "
+"  #!!!!#   "
+" #!!!!!!#  "
+" #!!!!!!#  "
+" #!!!!!!#  "
+"#!!!!!!!!# "
+"#!!!!!!!!# "
+"#!!!!!!!!!#"
+"#!!!!!!!!!#"
 ;12345678901
 [end]
 
@@ -1763,22 +1950,24 @@ Type=0x06614
 String1=0x00,skala
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
-DayXpm="18 12 2 1"   Colormode=16
+CustomColor=Day
+DaycustomColor:#7B3000
+DayXpm="18 12 3 1"   Colormode=16
 "!	c #7B3000"
+"#	c #BD6500"
 "  	c none"
-"     !!           "
-"     !!           "
-"    !!!!          "
-"    !!!!    !     "
-"   !!!!!    !!    "
-"   !!!!!!  !!!!   "
-"   !!!!!!  !!!!   "
-"  !!!!!!! !!!!!!  "
-"  !!!!!!!!!!!!!!  "
-" !!!!!!!!!!!!!!!! "
-" !!!!!!!!!!!!!!!! "
-"!!!!!!!!!!!!!!!!!!"
+"     ##           "
+"     ##           "
+"    #!!#          "
+"    #!!#    #     "
+"   #!!!#    ##    "
+"   #!!!!#  #!!#   "
+"   #!!!!#  #!!#   "
+"  #!!!!!# #!!!!#  "
+"  #!!!!!!#!!!!!#  "
+" #!!!!!!!!!!!!!!# "
+" #!!!!!!!!!!!!!!# "
+"#!!!!!!!!!!!!!!!!#"
 ;123456789012345678
 [end]
 
@@ -1843,7 +2032,8 @@ Type=0x10c01
 String1=0x00,Informace
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#009500
 DayXpm="8 11 2 1"   Colormode=16
 "!	c #009500"
 "#	c #FFFFFF"
@@ -1941,7 +2131,8 @@ Type=0x10c05
 String1=0x00,Zricenina
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#BD0000
 DayXpm="12 12 3 1"   Colormode=16
 "!	c #FFFFFF"
 "#	c #BD0000"
@@ -1968,7 +2159,8 @@ Type=0x10e0c
 String1=0x00,Zel. stanice
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#7BCAFF
 DayXpm="12 12 2 1"   Colormode=16
 "!	c #000000"
 "#	c #7BCAFF"
@@ -2184,7 +2376,8 @@ Type=0x1100d
 String1=0x00,prirodni zajimavost
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#009541
 DayXpm="15 15 4 1"   Colormode=16
 "!	c #009541"
 "#	c #FFFFFF"
@@ -2215,7 +2408,8 @@ Type=0x1100e
 String1=0x00,propast
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#7B3000
 DayXpm="13 13 3 1"   Colormode=16
 "!	c #FFFFFF"
 "#	c #7B3000"
@@ -2243,7 +2437,8 @@ Type=0x1100f
 String1=0x00,jeskyne
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#7B3000
 DayXpm="13 7 3 1"   Colormode=16
 "!	c #7B3020"
 "#	c #FFFFFF"
@@ -2318,7 +2513,8 @@ Type=0x11104
 String1=0x00,Zachrany bod
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#FF0000
 DayXpm="11 11 4 1"   Colormode=16
 "!	c #FF0000"
 "#	c #FF8080"
@@ -2345,7 +2541,8 @@ Type=0x11105
 String1=0x00,Fixme
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#FFCA00
 DayXpm="10 12 3 1"   Colormode=16
 "!	c #000000"
 "#	c #FFFF00"
@@ -2412,9 +2609,10 @@ Type=0x11502
 String1=0x00,Sedlo
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#7B3000
 DayXpm="15 9 3 1"   Colormode=16
-"!	c #7B3020"
+"!	c #7B3000"
 "#	c #FFFFFF"
 "  	c none"
 " #     #     # "
@@ -2511,24 +2709,6 @@ DayXpm="11 16 2 1"   Colormode=16
 "!	c #101010"
 "  	c none"
 "           "
-"     !     "
-"    ! !    "
-"  !!!!!!!  "
-"  ! ! ! !  "
-"    ! !    "
-" !!!!!!!!! "
-" ! !   ! ! "
-"   !!!!!   "
-"  !!   !!  "
-"  !!!!!!!  "
-"  !     !  "
-" !!!!!!!!! "
-" !       ! "
-" !       ! "
-"           "
-;12345678901
-[end]45678901
-[end]"
 "     !     "
 "    ! !    "
 "  !!!!!!!  "

@@ -14,6 +14,11 @@ railway=abandoned { name '${name}' } [0x10c00 resolution 24-23]
 aerialway=* { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c01 resolution 24-23]
 
 natural=cliff {name '${name}'} [0x10a00 resolution 24]
+natural~'arete|ridge' {name '${name}'} [0x11a1e resolution 20-24]
+natural=valley {name '${name}'} [0x11a1f resolution 22-24]
+
+
+
 barrier=fence [0x10a01 resolution 24]
 barrier=city_wall [0x10a02 resolution 24]
 barrier=* [0x11b05 resolution 24]
@@ -61,10 +66,11 @@ mtbroute=yes & colour~'green' & oneway=yes & role=backward
 
 
 #sac_scale=hiking
-sac_scale~'mountain_hiking|demanding_mountain_hiking|.*alpine_hiking' {set bicycle=no}
+mtb:scale!=* & sac_scale~'mountain_hiking|demanding_mountain_hiking|.*alpine_hiking' {set bicycle=no}
 
 
 access=no & (bicycle!=no | foot!=no) {delete access}
+highway!=* & bicycle=no {delete bicycle}
 
 
 
