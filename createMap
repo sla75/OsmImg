@@ -316,7 +316,6 @@ if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/templat
 		--file "${pathcache}/cities500.zip" "http://download.geonames.org/export/dump/cities500.zip"
 	unzip -l ${pathcache}/cities500.zip &> /dev/null && geonames="--geonames-file=${pathcache}/cities500.zip"
 	execjar splitter ${geonames} \
-			--max-jobs	\
 			--mapid=${imgfid}0001	\
 			--status-freq=10	\
 			--description=${imgabbr}_${yyyymm}	\
