@@ -137,12 +137,12 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"                                "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
+"  !!      !!      !!      !!    "
+" !!!!    !!!!    !!!!    !!!!   "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+" !!!!    !!!!    !!!!    !!!!   "
+"  !!      !!      !!      !!    "
 ;12345678901234567890123456789012
 String1=0x00,MTB route
 ExtendedLabels=Y
@@ -156,7 +156,7 @@ DaycustomColor:#FF9500
 Type=0x11001
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_66/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #FF9500"
 "  c none"
 "                                "
@@ -164,11 +164,17 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"           !!              !!   "
+"           !!!             !!!  "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"           !!!             !!!  "
+"           !!              !!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway
 ExtendedLabels=Y
@@ -182,14 +188,20 @@ DaycustomColor:#FF9500
 Type=0x11002
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_67/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #FF9500"
 "  c none"
-"   !!!!!   !!!!!   !!!!!   !!!!!"
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-"   !!!!!   !!!!!   !!!!!   !!!!!"
+"   !!              !!           "
+"  !!!             !!!           "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+"  !!!             !!!           "
+"   !!              !!           "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 "                                "
 "                                "
 "                                "
@@ -215,12 +227,12 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"                                "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
+"  !!      !!      !!      !!    "
+" !!!!    !!!!    !!!!    !!!!   "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+" !!!!    !!!!    !!!!    !!!!   "
+"  !!      !!      !!      !!    "
 ;12345678901234567890123456789012
 String1=0x00,MTB route blue
 ExtendedLabels=Y
@@ -234,7 +246,7 @@ DaycustomColor:#0065FF
 Type=0x11004
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_69/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #0065FF"
 "  c none"
 "                                "
@@ -242,11 +254,17 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"           !!              !!   "
+"           !!!             !!!  "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"           !!!             !!!  "
+"           !!              !!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway blue
 ExtendedLabels=Y
@@ -260,14 +278,20 @@ DaycustomColor:#0065FF
 Type=0x11005
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_70/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #0065FF"
 "  c none"
-"   !!!!!   !!!!!   !!!!!   !!!!!"
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-"   !!!!!   !!!!!   !!!!!   !!!!!"
+"   !!              !!           "
+"  !!!             !!!           "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+"  !!!             !!!           "
+"   !!              !!           "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 "                                "
 "                                "
 "                                "
@@ -293,12 +317,12 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"                                "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
+"  !!      !!      !!      !!    "
+" !!!!    !!!!    !!!!    !!!!   "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+" !!!!    !!!!    !!!!    !!!!   "
+"  !!      !!      !!      !!    "
 ;12345678901234567890123456789012
 String1=0x00,MTB route black
 ExtendedLabels=Y
@@ -312,7 +336,7 @@ DaycustomColor:#000000
 Type=0x11007
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_72/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #000000"
 "  c none"
 "                                "
@@ -320,11 +344,17 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"           !!              !!   "
+"           !!!             !!!  "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"           !!!             !!!  "
+"           !!              !!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway black
 ExtendedLabels=Y
@@ -338,14 +368,20 @@ DaycustomColor:#000000
 Type=0x11008
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_73/Non-routable customizable line/Non NT, NT
 UseOrientation=N
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #000000"
 "  c none"
-"   !!!!!   !!!!!   !!!!!   !!!!!"
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-"   !!!!!   !!!!!   !!!!!   !!!!!"
+"   !!              !!           "
+"  !!!             !!!           "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+"  !!!             !!!           "
+"   !!              !!           "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 "                                "
 "                                "
 "                                "
@@ -371,12 +407,12 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"                                "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
+"  !!      !!      !!      !!    "
+" !!!!    !!!!    !!!!    !!!!   "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+" !!!!    !!!!    !!!!    !!!!   "
+"  !!      !!      !!      !!    "
 ;12345678901234567890123456789012
 String1=0x00,MTB route red
 ExtendedLabels=Y
@@ -390,7 +426,7 @@ DaycustomColor:#FF3000
 Type=0x1100a
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_75/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #FF3000"
 "  c none"
 "                                "
@@ -398,11 +434,17 @@ Xpm="32 10 2  1"
 "                                "
 "                                "
 "                                "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"           !!              !!   "
+"           !!!             !!!  "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"           !!!             !!!  "
+"           !!              !!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway red
 ExtendedLabels=Y
@@ -416,14 +458,20 @@ DaycustomColor:#FF3000
 Type=0x1100b
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_76/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
+Xpm="32 16 2  1"
 "! c #FF3000"
 "  c none"
-"   !!!!!   !!!!!   !!!!!   !!!!!"
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-"   !!!!!   !!!!!   !!!!!   !!!!!"
+"   !!              !!           "
+"  !!!             !!!           "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+"  !!!             !!!           "
+"   !!              !!           "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 "                                "
 "                                "
 "                                "
@@ -443,18 +491,18 @@ Type=0x1100c
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_77/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
 Xpm="32 10 2  1"
-"! c #00CA00"
+"! c #009500"
 "  c none"
 "                                "
 "                                "
 "                                "
 "                                "
-"                                "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
+"  !!      !!      !!      !!    "
+" !!!!    !!!!    !!!!    !!!!   "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+"!!!!!!  !!!!!!  !!!!!!  !!!!!!  "
+" !!!!    !!!!    !!!!    !!!!   "
+"  !!      !!      !!      !!    "
 ;12345678901234567890123456789012
 String1=0x00,MTB route green
 ExtendedLabels=Y
@@ -468,19 +516,25 @@ DaycustomColor:#00CA00
 Type=0x1100d
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_78/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
-"! c #00CA00"
+Xpm="32 16 2  1"
+"! c #009500"
 "  c none"
 "                                "
 "                                "
 "                                "
 "                                "
 "                                "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"!!!!!   !!!!!   !!!!!   !!!!!   "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"           !!              !!   "
+"           !!!             !!!  "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"  !!!!!!!!!!!!!   !!!!!!!!!!!!! "
+"           !!!             !!!  "
+"           !!              !!   "
 ;12345678901234567890123456789012
 String1=0x00,MTB route oneway green
 ExtendedLabels=Y
@@ -494,14 +548,20 @@ DaycustomColor:#00CA00
 Type=0x1100e
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_79/Non-routable customizable line/Non NT, NT
 UseOrientation=Y
-Xpm="32 10 2  1"
-"! c #00CA00"
+Xpm="32 16 2  1"
+"! c #009500"
 "  c none"
-"   !!!!!   !!!!!   !!!!!   !!!!!"
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-" !!!!!   !!!!!   !!!!!   !!!!!  "
-"  !!!!!   !!!!!   !!!!!   !!!!! "
-"   !!!!!   !!!!!   !!!!!   !!!!!"
+"   !!              !!           "
+"  !!!             !!!           "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+" !!!!!!!!!!!!!   !!!!!!!!!!!!!  "
+"  !!!             !!!           "
+"   !!              !!           "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 "                                "
 "                                "
 "                                "
@@ -513,6 +573,402 @@ ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
 DaycustomColor:#00CA00
+[end]
+
+
+[_line]
+Type=0x11100
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_97/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 12 2  1"
+"! c #FF3000"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11101
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_98/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 12 2  1"
+"! c #FF3000"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11102
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_99/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 12 2  1"
+"! c #009500"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11103
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_100/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 12 2  1"
+"! c #009500"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11104
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_101/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 12 2  1"
+"! c #FFCA00"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11105
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_102/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 12 2  1"
+"! c #0065FF"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11106
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_103/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 12 2  1"
+"! c #FF00FF"
+"  c none"
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11200
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_129/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 16 2  1"
+"! c #FF3000"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11201
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_130/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 16 2  1"
+"! c #FF3000"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11202
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_131/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 16 2  1"
+"! c #009500"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11203
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_132/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 16 2  1"
+"! c #009500"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11204
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_133/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 18 2  1"
+"! c #FFCA00"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11205
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_134/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 18 2  1"
+"! c #0065FF"
+"  c none"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x11206
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_135/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+Xpm="32 16 2  1"
+"! c #FF00FF"
+"  c none"
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
 [end]
 
 
@@ -2097,25 +2553,24 @@ String1=0x00,Rozcestnik
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
-DayXpm="14 18 5 1"   Colormode=16
+DayXpm="14 17 5 1"   Colormode=16
 "!	c #000000"
 "#	c #FFFFFF"
 "%	c #FF0000"
 "?	c #00FF00"
 "  	c none"
 "      ##      "
-"     #!!#     "
-"  ####!!###   "
-" #!!!!!!!!!!# "
-" #!%%%%%%%%%!#"
-" #!%%%%%%%%%!#"
-" #!!!!!!!!!!# "
-"  ####!!####  "
-" #!!!!!!!!!!# "
-"#!?????????!# "
-"#!?????????!# "
-" #!!!!!!!!!!# "
 "   ###!!####  "
+"  #!!!!!!!!!# "
+"  #!%%%%%%%%!#"
+"  #!%%%%%%%%!#"
+"  #!!!!!!!!!# "
+"  ####!!####  "
+" #!!!!!!!!!#  "
+"#!????????!#  "
+"#!????????!#  "
+" #!!!!!!!!!#  "
+"  ####!!###   "
 "     #!!#     "
 "     #!!#     "
 "     #!!#     "
@@ -2150,6 +2605,78 @@ DayXpm="12 12 3 1"   Colormode=16
 "!!!!!!!!!!!!"
 "!!!!!!!!!!!!"
 ;123456789012
+[end]
+
+
+[_point]
+Type=0x10c06
+;GRMN_TYPE: Business - Lodging/RV_PARK(NT)/RV Park/NT
+String1=0x00,Rozcestnik kolo
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 17 4 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"%	c #FF00FF"
+"  	c none"
+"      ##      "
+"   ###!!####  "
+"  #!!!!!!!!!# "
+"  #!%%%%%%%%!#"
+"  #!%%%%%%%%!#"
+"  #!!!!!!!!!# "
+"  ####!!####  "
+" #!!!!!!!!!#  "
+"#!%%%%%%%%!#  "
+"#!%%%%%%%%!#  "
+" #!!!!!!!!!#  "
+"  ####!!###   "
+"     #!!#     "
+"     #!!#     "
+"     #!!#     "
+"   ##!!!!##   "
+"  #!!!!!!!!#  "
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x10c07
+;GRMN_TYPE: Business - Lodging/SPORTING_CAMP(NT)/Sporting Camp/NT
+String1=0x00,Rozcestnik kombi
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+DayXpm="14 21 6 1"   Colormode=16
+"!	c #000000"
+"#	c #FFFFFF"
+"%	c #FF0000"
+"?	c #00FF00"
+"$	c #FF00FF"
+"  	c none"
+"      ##      "
+"  ####!!###   "
+" #!!!!!!!!!#  "
+"#!%%%%%%%%!#  "
+"#!%%%%%%%%!#  "
+" #!!!!!!!!!#  "
+"  ####!!####  "
+"  #!!!!!!!!!# "
+"  #!????????!#"
+"  #!????????!#"
+"  #!!!!!!!!!# "
+"  ####!!####  "
+" #!!!!!!!!!#  "
+"#!$$$$$$$$!#  "
+"#!$$$$$$$$!#  "
+" #!!!!!!!!!#  "
+"  ####!!###   "
+"     #!!#     "
+"     #!!#     "
+"   ##!!!!##   "
+"  #!!!!!!!!#  "
+;12345678901234
 [end]
 
 

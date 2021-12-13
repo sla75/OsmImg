@@ -1,0 +1,63 @@
+# RED 0
+hikingroute=yes & hiking_red=* & hiking_green=* & hiking_yellow=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11100 resolution 22-18 continue]
+# RED 1
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow=* & hiking_blue=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11101 resolution 22-18 continue]
+hikingroute=yes & hiking_red=* & hiking_green=* & hiking_yellow!=* & hiking_blue=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11101 resolution 22-18 continue]
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow!=* & hiking_blue=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11101 resolution 22-18 continue]
+hikingroute=yes & hiking_red=* & hiking_green=* & hiking_yellow!=* & hiking_blue!=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11101 resolution 22-18 continue]
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow=* & hiking_blue!=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11101 resolution 22-18 continue]
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow!=* & hiking_blue!=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11101 resolution 22-18 continue]
+
+# GREEN 2
+hikingroute=yes & hiking_green=* & hiking_yellow=*
+	{name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [0x11102 resolution 22-18 continue]
+# GREEN 3
+hikingroute=yes & hiking_green=* & hiking_yellow!=*
+	{name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [0x11103 resolution 22-18 continue]
+
+#YELLOW 4
+hikingroute=yes & hiking_yellow=*
+	{name '${hiking_yellow_name} ${name}' | '${hiking_yellow_name}' | '${name}'} [0x11104 resolution 22-18 continue]
+
+#BLUE 5
+hikingroute=yes & hiking_blue=*
+	{name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [0x11105 resolution 22-18 continue]
+	
+# RED 0
+hikingroute=yes & hiking_red=* & hiking_green=* & hiking_yellow=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11200 resolution 24-22 continue]
+# RED 1
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow=* & hiking_blue=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11201 resolution 24-22 continue]
+hikingroute=yes & hiking_red=* & hiking_green=* & hiking_yellow!=* & hiking_blue=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11201 resolution 24-22 continue]
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow!=* & hiking_blue=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11201 resolution 24-22 continue]
+hikingroute=yes & hiking_red=* & hiking_green=* & hiking_yellow!=* & hiking_blue!=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11201 resolution 24-22 continue]
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow=* & hiking_blue!=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11201 resolution 24-22 continue]
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_yellow!=* & hiking_blue!=*
+	{name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [0x11201 resolution 24-22 continue]
+
+# GREEN 2
+hikingroute=yes & hiking_green=* & hiking_yellow=*
+	{name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [0x11202 resolution 24-22 continue]
+# GREEN 3
+hikingroute=yes & hiking_green=* & hiking_yellow!=*
+	{name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [0x11203 resolution 24-22 continue]
+
+#YELLOW 4
+hikingroute=yes & hiking_yellow=*
+	{name '${hiking_yellow_name} ${name}' | '${hiking_yellow_name}' | '${name}'} [0x11204 resolution 24-22 continue]
+
+#BLUE 5
+hikingroute=yes & hiking_blue=*
+	{name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [0x11205 resolution 24-22 continue]

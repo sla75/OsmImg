@@ -45,6 +45,8 @@ amenity=post_box { set addr:postcode = '${ref} ${collection_times}' | '${ref}' }
 railway=station  { name '${name}' } [0x10e0c resolution 24-22]
 
 
+tourism=information & information=guidepost & hiking=yes & bicycle=yes { name '${name}' ; add label='${ref}' } [0x10c07 resolution 24-22]
+tourism=information & information=guidepost & bicycle=yes { name '${name}' ; add label='${ref}' } [0x10c06 resolution 24-22]
 tourism=information & information=guidepost { name '${name}' ; add label='${ref}' } [0x10c04 resolution 24-23]
 
 historic=wayside_cross { name '${name}'} [0x11009 resolution 24]

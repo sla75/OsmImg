@@ -17,8 +17,18 @@
 # Currently, the matching relations will be processed and the names
 # appended to the boundary lines in an arbitrary order.
 
+state~'proposed|recommended' { deletealltags }
 
-route=mtb {
+type=route & route=bicycle {
+	apply {
+		set bicycleroute=yes;
+		set bicyclename='${name}';
+		set bicycleref='${ref}';
+		add bicyclecolour='${colour}'
+	}
+}
+
+type=route & route~'mtb|MTB' {
 	apply role=forward {
 		add role='forward'
 	}
@@ -26,10 +36,47 @@ route=mtb {
 		add role='backward'
 	}
 	apply {
-		add mtbroute='yes';
+		add mtbroute=yes;
 		add ref='${ref}';
 		add oneway='${oneway}'
 		add mtbname='${name}'
-		add colour='${colour}'
+		add mtbcolour='${colour}'
+	}
+}
+
+route~'foot|hiking' & osmc:symbol~'red|red:.*'{
+	apply {
+		set hikingroute=yes;
+		set hiking_red='${osmc:symbol}';
+		set hiking_red_name=
+			'${osmc:name} (${distance})' | '${osmc:name}' |
+			'${name} (${distance})' | '${name}'
+	}
+}
+route~'foot|hiking' & osmc:symbol~'green|green:.*'{
+	apply {
+		set hikingroute=yes;
+		set hiking_green='${osmc:symbol}';
+		set hiking_green_name=
+			'${osmc:name} (${distance})' | '${osmc:name}' |
+			'${name} (${distance})' | '${name}'
+	}
+}
+route~'foot|hiking' & osmc:symbol~'yellow|yellow:.*'{
+	apply {
+		set hikingroute=yes;
+		set hiking_yellow='${osmc:symbol}';
+		set hiking_yellow_name=
+			'${osmc:name} (${distance})' | '${osmc:name}' |
+			'${name} (${distance})' | '${name}'
+	}
+}
+route~'foot|hiking' & osmc:symbol~'blue|blue:.*'{
+	apply {
+		set hikingroute=yes;
+		set hiking_blue='${osmc:symbol}';
+		set hiking_blue_name=
+			'${osmc:name} (${distance})' | '${osmc:name}' |
+			'${name} (${distance})' | '${name}'
 	}
 }
