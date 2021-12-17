@@ -61,3 +61,28 @@ hikingroute=yes & hiking_yellow=*
 #BLUE 5
 hikingroute=yes & hiking_blue=*
 	{name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [0x11205 resolution 24-22 continue]
+
+
+
+########################################################
+#RR {name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [ 0x11200 resolution 24-22 continue]
+#NR & NY & NB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11201 resolution 24-22 continue]
+#NR & NY & BB {name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [ 0x11202 resolution 24-22 continue]
+#NR & YY & BB & NG {name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [ 0x11202 resolution 24-22 continue]
+#NR & YY & GG {name '${hiking_yellow_name} ${name}' | '${hiking_yellow_name}' | '${name}'} [ 0x11203 resolution 24-22 continue]
+#NR & YY & NB & NG {name '${hiking_yellow_name} ${name}' | '${hiking_yellow_name}' | '${name}'} [ 0x11203 resolution 24-22 continue]
+#NR & NY & BB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11204 resolution 24-22 continue]
+#NR & YY & NB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11204 resolution 24-22 continue]
+#RR & NY & NB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11204 resolution 24-22 continue]
+#NR & YY & BB & GG {name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [ 0x11205 resolution 24-22 continue]
+#RR & NY & BB {name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [ 0x11205 resolution 24-22 continue]
+#NR & YY & BB & NG {name '${hiking_yellow_name} ${name}' | '${hiking_yellow_name}' | '${name}'} [ 0x11206 resolution 24-22 continue]
+#RR & YY  {name '${hiking_yellow_name} ${name}' | '${hiking_yellow_name}' | '${name}'} [ 0x11206 resolution 24-22 continue]
+#NR & YY & BB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11207 resolution 24-22 continue]
+#RR & NY & BB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11207 resolution 24-22 continue]
+#RR & YY & NB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11207 resolution 24-22 continue]
+#RR & YY & BB {name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [ 0x11208 resolution 24-22 continue]
+#RR & YY & BB & GG {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11209 resolution 24-22 continue]
+
+
+
