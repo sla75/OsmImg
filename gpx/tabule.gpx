@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gpx version="1.1" creator="JOSM GPX export" xmlns="http://www.topografix.com/GPX/1/1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <time>2021-12-09T15:55:37.056536Z</time>
+    <bounds minlat="49.7582041" minlon="13.6738573" maxlat="51.1233517" maxlon="17.0274339"/>
+  </metadata>
+  <trk>
+    <trkseg>
+      <trkpt lat="50.42339466236625" lon="17.02743392944336">
+      </trkpt>
+      <trkpt lat="50.80767126219568" lon="16.534422454833987">
+      </trkpt>
+      <trkpt lat="51.1233516874248" lon="16.004332122802737">
+      </trkpt>
+      <trkpt lat="50.96707692503513" lon="13.925169525146485">
+      </trkpt>
+      <trkpt lat="50.625073934619586" lon="13.67385726928711">
+      </trkpt>
+      <trkpt lat="49.86012091129587" lon="14.937285003662108">
+      </trkpt>
+      <trkpt lat="49.758204110572365" lon="15.77499252319336">
+      </trkpt>
+      <trkpt lat="50.42339466236625" lon="17.02743392944336">
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
