@@ -34,13 +34,15 @@ bicycle=no & mtb:scale=* {delete bicycle}
 
 
 
+bicycleroute=yes
+	{name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11101 resolution 24-22 continue]
+bicycleroute=yes
+	{name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11100 resolution 21-18 continue]
+
 include 'inc/mtbroute'
 include 'inc/hikingroute'
 
-#bicycleroute=yes
-#	{name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11206 resolution 22-18 continue]	
-bicycleroute=yes
-	{name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11206 resolution 24-18 continue]
+
 	
 mtb:scale:up=0 & mtb:scale!=* {set mtb:scale=0}
 mtb:scale:up=0 {delete mtb:scale:up}
