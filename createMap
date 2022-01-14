@@ -4,6 +4,35 @@ function timering {
 	last=$(($last-$tt))
 	echo "Running time is $last seconds."
 }
+function helpMap {
+	echo -e "Usage: $0 -a name [-l name] [-d] [-nd]" >&2
+	echo -e "\t-a,  --area nameofarea\tprocess area to img" >&2
+	echo -e "\t-b,  --bounds\tcompile with bounds tag" >&2
+	echo -e "\t-d,  --debug\tMore detailed statement" >&2
+	echo -e "\t-s,  --style\tProcess current style" >&2
+	echo -e "\t-nd, --nodownload\t\tDisable downloads" >&2
+	echo -e "Exit status:" >&2
+	echo -e "\t0     - Processed" >&2
+	echo -e "\tother - Other error" >&2
+	echo -e "\nExample:" >&2
+	echo -e "\t$0 -d -a czech -s MTBsign\n" >&2
+	memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
+	printf "MemFree: %20sMB\n" $((memfree/1024))
+	echo -e "\tAreas:"
+	for entry in "${patharea}"/* ;do
+		if [[ -f "$entry" && "${entry##*.}" = "parameters" ]];then
+			entry="${entry%.*}"
+			echo -e "\t\t${entry##*/}"
+		fi
+	done
+	echo -e "\tStyles:"
+	for entry in "${pathstyle}"/* ;do
+		if [[ -f "$entry" && "${entry##*.}" = "cfg" ]];then
+		entry="${entry%.*}"
+		echo -e "\t\t${entry##*/}"
+		fi
+	done
+}
 tt=$(date +%s)
 trap 'timering' EXIT
 
@@ -20,6 +49,10 @@ tmpdir=$(dirname $(mktemp -u))
 
 oldtime="-10 month"
 verbose=""
+if [ "$#" -eq 0 ]; then
+	helpMap
+	exit 0;
+fi
 while [[ $# -gt 0 ]]; do
 	key="$1"
 	case $key in
@@ -47,33 +80,7 @@ while [[ $# -gt 0 ]]; do
 		shift # past value
 		;;
 	--help|*)
-		echo -e "Usage: $0 -a name [-l name] [-d] [-nd]" >&2
-		echo -e "\t-a,  --area nameofarea\tprocess area to img" >&2
-		echo -e "\t-b,  --bounds\tcompile with bounds tag" >&2
-		echo -e "\t-d,  --debug\tMore detailed statement" >&2
-		echo -e "\t-s,  --style\tProcess current style" >&2
-		echo -e "\t-nd, --nodownload\t\tDisable downloads" >&2
-		echo -e "Exit status:" >&2
-		echo -e "\t0     - Processed" >&2
-		echo -e "\tother - Other error" >&2
-		echo -e "\nExample:" >&2
-		echo -e "\t$0 -d -a czech -s MTBsign\n" >&2
-		memfree=$(grep MemFree /proc/meminfo | awk '{print $2}')
-		printf "MemFree: %20sMB\n" $((memfree/1024))
-		echo -e "\tAreas:"
-		for entry in "${patharea}"/* ;do
-			if [[ -f "$entry" && "${entry##*.}" = "parameters" ]];then
-				entry="${entry%.*}"
-				echo -e "\t\t${entry##*/}"
-			fi
-		done
-		echo -e "\tStyles:"
-		for entry in "${pathstyle}"/* ;do
-			if [[ -f "$entry" && "${entry##*.}" = "cfg" ]];then
-			entry="${entry%.*}"
-			echo -e "\t\t${entry##*/}"
-			fi
-		done
+		helpMap
 		exit 1
 		;;
 	esac
