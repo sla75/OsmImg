@@ -85,6 +85,7 @@ man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x02d0
 
 power=tower [0x11508 resolution 24]
 
+place=locality {name '${name}'} [0x02a00 resolution 24]
 amenity~'(pub|bar|restaurant)' {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
 amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
 
@@ -101,9 +102,8 @@ tourism=information {name '${name}'} [0x10c01 resolution 24]
 historic=mine {set man_made=mineshaft; set disused=yes}
 historic=mine_adit {set man_made=adit; set disused=yes}
 
-man_made~'mineshaft|adit' & disused=yes { name '${name}'} [0x0640d resolution 24-23]
-man_made~'mineshaft|adit' { name '${name}'} [0x0640c resolution 24-22]
-
+man_made~'mineshaft|adit|mine_adit' & disused=yes { name '${name}'} [0x0640d resolution 24-23]
+man_made~'mineshaft|adit|mine_adit' { name '${name}'} [0x0640c resolution 24-22]
 
 landuse=quarry & disused=yes { name '${name}'} [0x0640b resolution 24-23]
 landuse=quarry { name '${name}'} [0x0640a resolution 24-22]
