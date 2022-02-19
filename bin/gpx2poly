@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ $# -ne 1 && ! -f $1 ]]; then
+	echo "Bad arguments. Need existing file." >&2
+	exit 1
+fi;
+
+if [ "${1##*.}" != "gpx" ]; then
+	echo "File must extension .gpx" >&2
+	exit 1
+fi;
+
+name="${1%.*}"
+name=${name##*/}
+filename=${1%.*}.poly
+
+echo "Convert $1 to ${filename}"
+
+echo "${name^}" > ${filename}
+echo "A"	>> ${filename}
+
+cat $1 | grep "<trkpt lat" | cut -d'"' -f 2,4 | tr "\"" "\t"	|	\
+while read line; do
+	lon=$(echo ${line} | cut -d' ' -f 2)
+	lan=$(echo ${line} | cut -d' ' -f 1)
+	echo -e "\t${lon}    ${lan}" >> ${filename}
+done
+
+echo "END" >> ${filename}
+echo "END" >> ${filename}

@@ -1,0 +1,7 @@
+# ID mapy, max x500
+imgfid=6500
+imgabbr="IT"
+srcfile="cache/italy-centro-latest.osm.pbf"
+url="https://download.geofabrik.de/europe/italy/centro-latest.osm.pbf"
+polygon="elba.gpx"
+#filter="../2018_JHMD.pdf"

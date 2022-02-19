@@ -228,10 +228,15 @@ else
 fi;
 
 showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
-
+echo "Polygon ${polygon}"
 if [[ -n "${polygon}" && -e ${pathpolygon}/${polygon} ]]; then
 	polygonname=$(basename ${polygon})
 	name="${polygonname%.*}-${style}"
+	if [ "${polygon##*.}" = "gpx" ]; then
+		msg "\n### 4. Prepare ${polyf} from ${polygon}."
+		${root}/bin/gpx2poly ${pathpolygon}/${polygon} || exitmsg "Bad create polygon file from ${pathpolygon}/${polygon} to ${polygonname%.*}.poly" 1
+		polygon=${polygonname%.*}".poly"
+	fi;
 	srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
 	if checkModifFile ${srcfile} ${srctmpfile_plg} ${pathpolygon}/${polygon}; then
 		echo -e "\n### 4. Create polygon from '${polygon}' to ${srctmpfile_plg}"
