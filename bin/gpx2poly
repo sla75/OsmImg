@@ -12,19 +12,16 @@ fi;
 
 name="${1%.*}"
 name=${name##*/}
-filename=${1%.*}.poly
 
-echo "Convert $1 to ${filename}"
-
-echo "${name^}" > ${filename}
-echo "A"	>> ${filename}
+echo "${name^}"
+echo "A"
 
 cat $1 | grep "<trkpt lat" | cut -d'"' -f 2,4 | tr "\"" "\t"	|	\
 while read line; do
 	lon=$(echo ${line} | cut -d' ' -f 2)
 	lan=$(echo ${line} | cut -d' ' -f 1)
-	echo -e "\t${lon}    ${lan}" >> ${filename}
+	echo -e "\t${lon}    ${lan}"
 done
 
-echo "END" >> ${filename}
-echo "END" >> ${filename}
+echo "END"
+echo "END"

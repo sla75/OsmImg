@@ -228,43 +228,49 @@ else
 fi;
 
 showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
-echo "Polygon ${polygon}"
-if [[ -n "${polygon}" && -e ${pathpolygon}/${polygon} ]]; then
+
+######################################## POLYGON #######################################################################
+if [[ -n "${polygon}"  && -e ${pathpolygon}/${polygon} ]]; then
 	polygonname=$(basename ${polygon})
-	name="${polygonname%.*}-${style}"
+	polygonname="${polygonname%.*}"
+	echo -e "\n### 4. Polygon ${polygon}"	
 	if [ "${polygon##*.}" = "gpx" ]; then
-		msg "\n### 4. Prepare ${polyf} from ${polygon}."
-		${root}/bin/gpx2poly ${pathpolygon}/${polygon} || exitmsg "Bad create polygon file from ${pathpolygon}/${polygon} to ${polygonname%.*}.poly" 1
-		polygon=${polygonname%.*}".poly"
+		polygonfile=${tmpdir}/${polygonname}".poly"
+		if [[ ! -e ${polygonfile} || ${polygonfile} -ot ${pathpolygon}/${polygon} ]]; then
+			echo -e "\tCreate polygon from ${pathpolygon}/${polygon}"
+			${root}/bin/gpx2poly ${pathpolygon}/${polygon} > ${polygonfile} || exitmsg "Bad create polygon file from ${pathpolygon}/${polygon} to ${polygonfile}" 1
+		fi;
+	elif [ "${polygon##*.}" = "poly" ]; then
+		polygonfile=${pathpolygon}/${polygon}
+	else
+		msg "\tUnknown format ${polygon}" 1
 	fi;
 	srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
-	if checkModifFile ${srcfile} ${srctmpfile_plg} ${pathpolygon}/${polygon}; then
-		echo -e "\n### 4. Create polygon from '${polygon}' to ${srctmpfile_plg}"
-		osmconvert ${verbose} ${srcfile} -B=${pathpolygon}/${polygon} -o=${srctmpfile_plg}
-	else
-		msg "\n### 4. No need to polygoned by ${polygon}"
+	if checkModifFile ${srcfile} ${srctmpfile_plg} ${polygonfile}; then
+		echo -e "\tCreate PBF polygon from '${polygon}' to ${srctmpfile_plg}"
+		osmconvert ${verbose} ${srcfile} -B=${polygonfile} -o=${srctmpfile_plg}
 	fi;
+	srcfile=${srctmpfile_plg}
+	echo -e "\tPolygoned srcfile "${srctmpfile_plg}
 else
-	msg "### 4. Polygon not exists."
-	echo ${pathpolygon}/${polygon}
-	srctmpfile_plg=${srcfile}
+	msg "\n### 4. No polygoned file."
 fi;
 
-srctmpfile_flt=cache/${polygonname}".filtered"
+######################################## TODO Filter ###################################################################
+#srctmpfile_flt=cache/${polygonname}".filtered"
+#if [[ -n "${filter}" && -e ${filter} ]]; then
+#	if checkModifFile ${srctmpfile_plg} ${srctmpfile_flt} ${filter}; then
+#		echo -e "\n### 5. Create filter from '${filter}' to ${srctmpfile_plg}"
+#		echo -n "TODO FILTERED "`date '+%F %T'` > ${srctmpfile_flt}
+#	else
+#		msg "\n### 5. No need to filtered by ${polygon}"
+#	fi;
+#else
+#	msg "###. 5 Filter not exists."
+#	srctmpfile_flt=${srctmpfile_plg}
+#fi;
 
-if [[ -n "${filter}" && -e ${filter} ]]; then
-	if checkModifFile ${srctmpfile_plg} ${srctmpfile_flt} ${filter}; then
-		echo -e "\n### 5. Create filter from '${filter}' to ${srctmpfile_plg}"
-		echo -n "FILTERED "`date '+%F %T'` > ${srctmpfile_flt}
-	else
-		msg "\n### 5. No need to filtered by ${polygon}"
-	fi;
-else
-	msg "###. 5 Filter not exists."
-	srctmpfile_flt=${srctmpfile_plg}
-fi;
-
-srcfile=${srctmpfile_flt}
+#srcfile=${srctmpfile_flt}
 showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found(2)!" 1
 
 function execjar {
