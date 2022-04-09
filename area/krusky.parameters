@@ -1,0 +1,7 @@
+# ID mapy, max x500
+imgfid=6301
+imgabbr="CZ"
+srcfile="cache/czech-republic-around.osm.pbf"
+url=("https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf" "https://download.geofabrik.de/europe/poland/dolnoslaskie-latest.osm.pbf" "https://download.geofabrik.de/europe/germany/sachsen-latest.osm.pbf")
+polygon="krusky.gpx"
+#filter="../2018_JHMD.pdf"

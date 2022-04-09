@@ -28,10 +28,12 @@ natural=valley {name '${name}'} [0x11a1f resolution 22-24]
 
 barrier=fence [0x10a01 resolution 24]
 barrier=city_wall [0x10a02 resolution 24]
+barrier=bollard [0x11b06 resolution 24]
 barrier=* [0x11b05 resolution 24]
 
 bicycle=no & mtb:scale=* {delete bicycle}
-
+bicycle=no & mtbroute=yes {delete bicycle}
+bicycle!=yes & bicycleroute=yes {set bicycle=yes}
 
 
 bicycleroute=yes

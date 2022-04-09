@@ -1,9 +1,9 @@
 
 # Route 1
-hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_blue!=* & hiking_yellow!=* {name '${hiking_red_name} ${name}' | '${hiking_red_name}' | '${name}'} [ 0x11201 resolution 24-22 continue]
-hikingroute=yes & hiking_red!=* & hiking_green=* & hiking_blue!=* & hiking_yellow!=* {name '${hiking_green_name} ${name}' | '${hiking_green_name}' | '${name}'} [ 0x11204 resolution 24-22 continue]
-hikingroute=yes & hiking_red!=* & hiking_green!=* & hiking_blue!=* & hiking_yellow=* {name '${hiking_yellow_name} ${name}' | '${hiking_yellow_name}' | '${name}'} [ 0x11205 resolution 24-22 continue]
-hikingroute=yes & hiking_red!=* & hiking_green!=* & hiking_blue=* & hiking_yellow!=* {name '${hiking_blue_name} ${name}' | '${hiking_blue_name}' | '${name}'} [ 0x11206 resolution 24-22 continue]
+hikingroute=yes & hiking_red=* & hiking_green!=* & hiking_blue!=* & hiking_yellow!=* {name '${name}'} [ 0x11201 resolution 24-22 continue]
+hikingroute=yes & hiking_red!=* & hiking_green=* & hiking_blue!=* & hiking_yellow!=* {name '${name}'} [ 0x11204 resolution 24-22 continue]
+hikingroute=yes & hiking_red!=* & hiking_green!=* & hiking_blue!=* & hiking_yellow=* {name '${name}'} [ 0x11205 resolution 24-22 continue]
+hikingroute=yes & hiking_red!=* & hiking_green!=* & hiking_blue=* & hiking_yellow!=* {name '${name}'} [ 0x11206 resolution 24-22 continue]
 
 # Routes 2
 hikingroute=yes & hiking_red=* & hiking_green=* & hiking_blue!=* & hiking_yellow!=* {name '${name}'} [ 0x11201 resolution 24-22 continue]

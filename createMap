@@ -26,11 +26,9 @@ function helpMap {
 		fi
 	done
 	echo -e "\tStyles:"
-	for entry in "${pathstyle}"/* ;do
-		if [[ -f "$entry" && "${entry##*.}" = "cfg" ]];then
-		entry="${entry%.*}"
+	find "${pathstyle}"/* -maxdepth 0 -type d,l | while read entry ;do
+#		entry="${entry%.*}"
 		echo -e "\t\t${entry##*/}"
-		fi
 	done
 }
 tt=$(date +%s)
@@ -304,10 +302,11 @@ function getVersion {
 }
 function varreplace {
 	local rfile=$1
+	local lname=${name/-/ }
 	sed -i "s/%date%/$(date +%F)/gi" ${rfile}
 	sed -i "s/%datetime%/$(date +'%F %R')/gi" ${rfile}
 	sed -i "s/%version%/${version}/gi" ${rfile}
-	sed -i "s/%name%/${name^}Map/gi" ${rfile}
+	sed -i "s/%name%/${name^} Map/gi" ${rfile}
 	sed -i "s/%year%/$(date +%Y)/gi" ${rfile}
 }
 function getLicenceFile {
@@ -357,14 +356,14 @@ if [ -f "${splitterDir}/template.args" ]; then
 	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
 	version=$(getVersion)
 
-	cp -v ${pathstyle}/${style}.cfg ${tmpdir}/${style}.cfg >&2
-	varreplace ${tmpdir}/${style}.cfg || exit $?
+	cp -v ${pathstyle}/${style}/mkgmap.args ${tmpdir}/${style}.args >&2
+	varreplace ${tmpdir}/${style}.args || exit $?
 	
 	execjar mkgmap --verbose $(getLicenceFile) ${boundstag}	\
 		--max-jobs	\
 		--family-id=${imgfid}	\
 		--description=${imgname}_${yyyymm}.${version}	\
-		--read-config="${tmpdir}/${style}.cfg"	\
+		--read-config="${tmpdir}/${style}.args"	\
 		--product-version=${version}	\
 		--output-dir=${tmpdir}/img_${area}	\
 		--gmapsupp	\
