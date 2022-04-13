@@ -8,6 +8,108 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
+# Hide proposed ways
+highway~'proposed|proposal|planned|construction|.*proposed.*' {delete highway; delete junction}
+railway~'proposed|proposal|planned|construction|.*proposed.*' {delete railway}
+# Hide removed ways
+highway=razed | highway=dismantled | highway=disused | highway=demolished {delete highway; delete junction}
+# Hide abandoned ways. Abandoned highways have some evidence of their former existence but are no longer used. These
+# abandoned highways could be useful in topographical maps.
+# https://wiki.openstreetmap.org/wiki/Key:abandoned:
+(abandoned:highway=* & (highway!=* | highway=yes)) | highway=abandoned {delete highway; delete junction}
+# Hide other non-existent ways
+highway=unbuilt | highway=neverbuilt | highway=rejected | highway~'x-.*' {delete highway; delete junction}
+# Remove highway tag from ways which are not suitable for routing
+highway=traffic_signals | highway=junction | highway=island | highway=centre_line | highway=traffic_island | highway=stopline |
+    highway=bus_stop | highway=bus_guideway | highway=emergency_access_point | highway=ohm:military:Trench
+    {delete highway}
+highway=via_ferrata {delete highway}  # this shouldn't show as routable on default map: path only for specialists
+highway=piste | highway=ski {delete highway}
+highway=no | highway=none {delete highway}
+
+
+
+
+highway~'road' {set highway=unclassified}
+highway~'motorway_link|trunk|trunk' {set highway=motorway}
+highway~'primary_link' {set highway=primary}
+highway~'secondary_link' {set highway=secondary}
+highway~'tertiary_link' {set highway=tertiary}
+
+bridge~'no|abandoned|razed' {delete bridge}
+tunnel=no {delete tunnel}
+
+
+railway=rail & abandoned=yes { set abandoned:railway=rail}
+railway=abandoned { set abandoned:railway=rail; delete railway}
+razed:railway=rail { set abandoned:railway=rail; delete razed:railway}
+proposed:railway=rail {set railway=proposed}
+disused:railway=rail {set railway=disused}
+
+bridge=* & !(bridge=proposed) & railway~'rail' {name '${name}'} [0x10010 resolution 20 continue]
+
+
+
+railway=rail & usage=main & !(tunnel=yes) [0x10300 resolution 18]
+(railway=rail & usage=industrial) | railway=disused & !(tunnel=yes) [0x10304 resolution 22]
+railway~'rail|preserved|light_rail' & !(tunnel=yes) [0x10301 resolution 20]
+railway~'tram|narrow_gauge' & !(tunnel=yes) [0x10302 resolution 23]
+
+(railway~'proposed|construction' | abandoned:railway=rail) & !(tunnel=yes) [0x10305 resolution 23]
+
+railway=* & abandoned=yes {set abandoned:railway='${railway}'; delete railway}
+abandoned:railway=* & length()>1000 { name '${name}' } [0x10c00 default_name="zr. trat" resolution 24-22]
+abandoned:railway=* [0x10c00 resolution 23]
+
+
+
+
+bridge=* & highway~'motorway|primary' {name '${name}'} [0x10000 resolution 18 continue with_actions]
+bridge=* & highway~'secondary|tertiary|unclassified|service|residential' {name '${name}'} [0x10000 resolution 20 continue with_actions]
+bridge=* & highway~'track|path|footway' {name '${name}'} [0x10001 resolution 22 continue with_actions]
+
+
+
+
+
+
+highway=* & name=* & (bridge!=* | tunnel!=*) {set mkgmap:street='${name}'}
+
+
+
+highway=secondary {name '${ref}/${name}' | '${ref}' | '${name}'} [0x10102 resolution 19]
+highway=tertiary {name '${name}'} [0x10103 resolution 21]
+highway=unclassified {name '${name}'} [0x10104 resolution 21]
+
+highway~'service|cycleway' {name '${name}'} [0x10119 resolution 21-21 continue]
+highway=residential {name '${name}'} [0x10701 resolution 21-21 continue]
+highway=service {name '${name}'} [0x10104 resolution 22]
+highway=residential {name '${name}'} [0x10105 resolution 22]
+highway=cycleway {name '${name}'} [0x10108 resolution 22]
+
+highway=track & tracktype!=* {set tracktype=grade3; set name='? ${name}'}
+highway=path {name '${name}'} [0x10110 resolution 23]
+highway=track & tracktype=grade1 {name '${name}'} [0x10119 resolution 21-21 continue]
+highway=track & tracktype=grade1 {name '${name}'} [0x10111 resolution 21]
+highway=track & tracktype=grade2 {name '${name}'} [0x10112 resolution 22]
+highway=track & tracktype=grade3 {name '${name}'} [0x10113 resolution 22]
+highway=track & tracktype=grade4 {name '${name}'} [0x10114 resolution 22]
+highway=track & tracktype=grade5 {name '${name}'} [0x10115 resolution 22]
+highway=footway {name '${name}'} [0x10115 resolution 22]
+
+
+
+highway~'track|path|footway' {name 'X${name}'} [0x10701 resolution 22]
+highway=* {name 'X${ref} ${name}' | 'X${ref}' | 'X${name}'} [0x10700 resolution 22]
+
+
+
+
+########################################################################################################################################
+
+
+
+
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
 abandoned=yes {deletealltags}  # old, depreciated, ambiguous, method of handling abandoned
@@ -228,7 +330,7 @@ highway=rest_area | highway=services {set tmp:stopMopUp=yes}
 #highway=* & area!=yes & tmp:stopMopUp!=yes [0x07 road_class=0 road_speed=0 resolution 23]
 
 natural=coastline [0x15 resolution 12]
-power=line [0x29 resolution 21]
+power~'line|minor_line' [0x29 resolution 21]
 
 railway=platform & tmp:stopMopUp!=yes [0x16 road_class=0 road_speed=0 resolution 23]
 # Railway lines, note that many devices display type 0x14 only at resolution 24
@@ -243,9 +345,11 @@ railway=platform & tmp:stopMopUp!=yes [0x16 road_class=0 road_speed=0 resolution
 boundary=administrative {name '${mkgmap:boundary_name}'}
 boundary=administrative & admin_level<3 [0x1e resolution 12]
 boundary=administrative & admin_level<5 [0x1d resolution 19]
-boundary=administrative & admin_level<7 [0x1c resolution 21]
-boundary=administrative & admin_level<9 [0x1c resolution 22]
-boundary=administrative [0x1c resolution 22]
+boundary=administrative & admin_level<7 [0x1c resolution 22]
+boundary=administrative & admin_level<9 [0x1c resolution 23]
+
+#Katastr
+boundary=administrative [0x1c resolution 24]
 boundary=national [0x1e resolution 17]
 boundary=political [0x1c resolution 19]
 

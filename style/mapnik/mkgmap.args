@@ -1,0 +1,67 @@
+product-id=1
+draw-priority=18
+transparent=0
+
+series-name: %name% series
+family-name: %name% family
+description: %name% %year% v.%version%
+
+country-name: Czech
+country-abbr: CZ
+copyright-message: %name%, Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz %datetime% v.%version%
+
+# Soubor pro GPS
+gmapsupp
+
+# Kodovani
+lower-case
+#latin1
+code-page: 1252
+show-profiles: 1
+
+
+# Podpora vyhledavani
+#index
+#split-name-index
+location-autofill=is_in,nearest
+#housenumbers
+#poi-address
+name-tag-list=short_name,name,int_name,name:cs,name:en,name:de,place_name
+#make-poi-index
+
+# Podpora routovai
+route
+#net
+#drive-on: right
+#check-roundabouts
+
+link-pois-to-ways
+add-pois-to-lines
+add-pois-to-areas
+#make-opposite-cycleways
+#cycle-map
+
+# Podpora pr MapSource/BaseCamp
+#tdbfile
+overview-mapname: mapset
+
+
+# Vyskova data
+dem: ../SRTM/
+show-profiles: 1
+
+# Styl
+style-file: style/mapnik
+
+# Optimalizace
+polygon-size-limits=24:0,22:12,20:12,18:12,16:12
+reduce-point-density=0
+#reduce-point-density-polygon=3
+min-size-polygon=3
+merge-lines
+
+verbose
+check-styles
+keep-going
+process-destination
+remove-ovm-work-files
