@@ -1,0 +1,29 @@
+fixme=* & ((mkgmap:line2poi=true & mkgmap:line2poitype=mid) | mkgmap:line2poi!=*) {name 'FIX: ${fixme}';echo "Fixme ${fixme}"} [0x06808 resolution 24]
+
+
+
+(barrier=block) [0x1109 resolution 23-24]
+highway=steps & step_count=* & mkgmap:line2poitype=mid {name '${name} ${step_count}' | '${name}' | '${step_count}'} [0x01200 resolution 23-24]
+highway=steps & mkgmap:line2poitype=mid {name '${name} ${step_count}' | '${name}' | '${step_count}'} [0x01200 resolution 23-24]
+
+natural=tree & denotation=natural_monument & leaf_type=needleleaved {name '${name}'} [0x6701 resolution 24]
+natural=tree & denotation=natural_monument {name '${name}'} [0x6618 resolution 24]
+
+mkgmap:area2poi=true & leisure=nature_reserve & mkgmap:cache_area_size>500000 { name '${name}'} [0x06806 resolution 20-23]
+mkgmap:area2poi=true & leisure=nature_reserve { name '${name}'} [0x06806 resolution 23-24]
+
+board_type=nature & information=board {name '${name}'} [0x06807 resolution 24]
+
+historic=wayside_cross { name '${name}'} [0x06800 resolution 24]
+historic=wayside_shrine { name '${name}'} [0x06801 resolution 24]
+building=chapel { name '${name}'} [0x06802 resolution 24]
+
+natural=peak & ele=* {name '${name} ${ele|subst:"\..*~>"}m'} [0x06616 resolution 24-23]
+natural=peak {name '${name}'} [0x06616 resolution 24]
+
+tourism=information & information=guidepost { name '${name}' ; add label='${ref}' } [0x06805 resolution 24-23]
+
+include 'OFM_styles/points';
+
+#natural=* { name '${name}?'} [0x06806 resolution 24]
+#fixme=* { name '${name} FIX:${fixme}' | 'FIX: ${fixme}' | '${name}'}

@@ -1,0 +1,9 @@
+
+
+boundary=protected_area & protect_class>=21 & protect_class<=29 {delete boundary}
+
+leisure=nature_reserve & area_size()>500000 [0x21 resolution 20-23]
+leisure=nature_reserve                      [0x21 resolution 23-24]
+
+
+include 'OFM_styles/polygons';

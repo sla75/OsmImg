@@ -60,7 +60,7 @@ while [[ $# -gt 0 ]]; do
 		shift # past value
 		;;
 	-s|--style)
-		style=${2,,}
+		style=${2}
 		shift # past argument
 		shift # past value
 		;;
@@ -347,6 +347,7 @@ $debug && ls -l ${splitterDir}/
 
 echo -e "\n### 7. Run mkgmap"
 
+[[ -d "${pathstyle}/${style}" ]] || exitmsg "Style ${pathstyle}/${style} not found!" 2
 
 if [ -f "${splitterDir}/template.args" ]; then
 	[ -d ${tmpdir}/img_${area} ] && rm -rf ${tmpdir}/img_${area}
@@ -354,16 +355,20 @@ if [ -f "${splitterDir}/template.args" ]; then
 	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
 		--file "${pathcache}/bounds.zip" "http://osm.thkukuk.de/data/bounds-latest.zip"
 	unzip -l ${pathcache}/bounds.zip &> /dev/null && boundstag="--bounds=${pathcache}/bounds.zip"
+	
+	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
+		--file "${pathcache}/sea.zip" "http://osm.thkukuk.de/data/sea-latest.zip"
+	unzip -l ${pathcache}/sea.zip &> /dev/null && seatag="--precomp-sea=${pathcache}/sea.zip"
+
 	version=$(getVersion)
 
 	cp -v ${pathstyle}/${style}/mkgmap.args ${tmpdir}/${style}.args >&2
 	varreplace ${tmpdir}/${style}.args || exit $?
-	
-	execjar mkgmap --verbose $(getLicenceFile) ${boundstag}	\
+	execjar mkgmap --verbose $(getLicenceFile)\
 		--max-jobs	\
 		--family-id=${imgfid}	\
 		--description=${imgname}_${yyyymm}.${version}	\
-		--read-config="${tmpdir}/${style}.args"	\
+		--read-config="${tmpdir}/${style}.args"	${boundstag} ${seatag}	\
 		--product-version=${version}	\
 		--output-dir=${tmpdir}/img_${area}	\
 		--gmapsupp	\

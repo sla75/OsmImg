@@ -1,0 +1,9 @@
+boundary=protected_area & leisure=nature_reserve & area_size()>500000 {echo "500k  PROTECTED ${name} ${mkgmap:cache_area_size}" } [0x10300 resolution 20-24]
+boundary=protected_area & leisure=nature_reserve                      {echo "      PROTECTED ${name} ${mkgmap:cache_area_size}" } [0x10300 resolution 23-24]
+
+highway~'track|path|footway' & access~'private|no' [0x10101 resolution 23]
+
+barrier=fence [0x1011a resolution 23 continue]
+
+
+include 'OFM_styles/lines';

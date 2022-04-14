@@ -15,7 +15,7 @@ uk.me.parabola.mkgmap.reader.osm.xml.level=INFO
 uk.me.parabola.mkgmap.reader.osm.RestrictionRelation.level=FINE
 uk.me.parabola.mkgmap.reader.osm.Restriction.level=FINE
 # For ConsoleHandler
-java.util.logging.ConsoleHandler.level=WARNING
+java.util.logging.ConsoleHandler.level=INFO
 java.util.logging.ConsoleHandler.formatter=uk.me.parabola.log.UsefulFormatter
 # For FileHandler
 java.util.logging.FileHandler.level=FINE

@@ -1,0 +1,41 @@
+family-id: 12110
+product-id: 1
+draw-priority: 20
+series-name: %name% series
+family-name: %name% family
+description: %name% %year% v.%version%
+copyright-message: %name%, Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz %datetime% v.%version%
+area-name: OsmImg
+country-name: Czech
+country-abbr: CZE
+style-file: style/openmtb
+overview-mapname: 12010000
+#download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
+precomp-sea: sea.zip
+generate-sea: land-tag=natural=background
+#download the latest bounds from http://osm2.pleiades.uni-wuppertal.de/bounds/latest/
+bounds: bounds.zip
+location-autofill: is_in,nearest
+housenumbers
+x-split-name-index
+tdbfile
+latin1
+name-tag-list: short_name,name,int_name,name:cs,name:en,place_name,name:de
+code-page: 1252
+#bounds=cache/bounds.zip
+dem: ../SRTM/
+dem-dists: 9942,9942,9942,13248,44176
+overview-dem-dist=88368
+show-profiles: 1
+merge-lines
+add-pois-to-areas
+add-pois-to-lines
+link-pois-to-ways
+min-size-polygon: 4
+polygon-size-limits=17:2, 15:0
+preserve-element-order
+keep-going
+net
+route
+index
+
