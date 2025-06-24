@@ -1,0 +1,7 @@
+# ID mapy, max x500
+imgfid=6601
+imgabbr="AT"
+srcfile="cache/austria.osm.pbf"
+url="https://download.geofabrik.de/europe/austria-latest.osm.pbf"
+polygon="sfl.gpx"
+#filter="../2018_JHMD.pdf"
