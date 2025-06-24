@@ -13,15 +13,20 @@ fi;
 name="${1%.*}"
 name=${name##*/}
 
-echo "${name^}"
-echo "A"
+exec 3>"${name%.*}.poly"
+
+echo "${name^^}" >&3
+echo "A" >&3
 
 cat $1 | grep "<trkpt lat" | cut -d'"' -f 2,4 | tr "\"" "\t"	|	\
 while read line; do
 	lon=$(echo ${line} | cut -d' ' -f 2)
 	lan=$(echo ${line} | cut -d' ' -f 1)
-	echo -e "\t${lon}    ${lan}"
+	echo -e "\t${lon}    ${lan}" >&3
 done
 
-echo "END"
-echo "END"
+echo -e "END\nEND" >&3
+
+exec 3>&-  # close the data output file
+
+echo "Created ${name%.*}.poly"
