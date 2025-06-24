@@ -1,19 +1,30 @@
+﻿; TYP file to give mapnik rendering
+; -*- coding: UTF-8 -*- NB: first 3 bytes/char in file is UTF-8 encoded ByteOrderMark (BOM)
 
-
-[_id]
-ProductCode=
-FID=
-CodePage=1252
- [End]
-
-;=========== COMMENTAIRES ======
 [_comments]
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 3 or
+version 2 as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+Author: Jorisbo@hotmail.com and others
+
+Based on mkgmap default style version: r4293
 [End]
 
 
+[_id]
+;ProductCode=1   set from --product-id
+;FID=8094        set from --family-id
+;CodePage=65001  set from --code-page
+[End]
 
 
-;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
+;=========== POLYGONS : RENDERING PRIORITY ======
 [_drawOrder]
 Type=0x03d,1
 Type=0x04b,1
@@ -71,235 +82,285 @@ Type=0x004,9
 [End]
 
 
-
-
-
-;===================== POLYGONES ========================
+;===================== POLYGONS ========================
 
 
 [_polygon]
-Type=0x02
+type=0x02
 ;GRMN_TYPE: Urban Areas/SMALL_CITY/Small urban area, less than 200 000 inhabitants/Non NT
-String1=0x00,Suburb
-String2=0x01,RÃƒÂ©sidentiel
+String=Suburb
+String1=0x01,Résidentiel
+String2=0x02,Wohngebiet
+String4=0x03,Bebouwing
+String7=0x15,Obszar mieszkalny
+String8=0x10,Residencial
+String9=0x05,Area residenziale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #E0DFDF"
 [end]
-
-
 [_polygon]
-Type=0x03
+type=0x03
 ;GRMN_TYPE: Urban Areas/TOWN/Urban area, less than 50 000 inhabitants/Non NT
-String1=0x00,Village
+String=Village
+String1=0x01,Résidentiel
+String2=0x02,Wohngebiet
+String4=0x03,Bebouwing
+String7=0x15,Obszar mieszkalny
+String8=0x10,Residencial
+String9=0x05,Area residenziale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #E0DFDF"
 [end]
-
-
 [_polygon]
-Type=0x04
+type=0x04
 ;GRMN_TYPE: Large Manmade Areas/MILITARY_BASE/Military base area/Non NT
-String1=0x00,Military Base
+String=Military Base
+String1=0x01,Domaine militaire
+String2=0x02,Militärisches Sperrgebiet
+String4=0x03,Militair domein
+String7=0x15,Teren wojskowy
+String8=0x10,Militar
+String9=0x05,Area militare
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #BD0000"
+"! c #FF958B"
 "  c none"
-"                 !!             "
-"                !!              "
-"               !!               "
-"              !!                "
-"                             !! "
-"                            !!  "
-"                           !!   "
-"                          !!    "
-"         !!                     "
-"        !!                      "
-"       !!                       "
-"      !!                        "
-"                     !!         "
-"                    !!          "
-"                   !!           "
-"                  !!            "
-" !!                             "
-"!!                              "
-"!                              !"
-"                              !!"
-"             !!                 "
-"            !!                  "
-"           !!                   "
-"          !!                    "
-"                         !!     "
-"                        !!      "
-"                       !!       "
-"                      !!        "
-"     !!                         "
-"    !!                          "
-"   !!                           "
-"  !!                            "
+" !!              !!             "
+"!!              !!              "
+"!              !!              !"
+"              !!              !!"
+"             !!              !! "
+"            !!              !!  "
+"           !!              !!   "
+"          !!              !!    "
+"         !!              !!     "
+"        !!              !!      "
+"       !!              !!       "
+"      !!              !!        "
+"     !!              !!         "
+"    !!              !!          "
+"   !!              !!           "
+"  !!              !!            "
+" !!              !!             "
+"!!              !!              "
+"!              !!              !"
+"              !!              !!"
+"             !!              !! "
+"            !!              !!  "
+"           !!              !!   "
+"          !!              !!    "
+"         !!              !!     "
+"        !!              !!      "
+"       !!              !!       "
+"      !!              !!        "
+"     !!              !!         "
+"    !!              !!          "
+"   !!              !!           "
+"  !!              !!            "
 ;12345678901234567890123456789012
 [end]
-
-
 [_polygon]
-Type=0x05
+type=0x05
 ;GRMN_TYPE: Large Manmade Areas/PARKING_LOT/Parking lot area/Non NT
-String1=0x00,Parking Lot
-String2=0x01,Parking
+String=Parking Lot
+String1=0x01,Parking
+String2=0x02,Parkplatz
+String3=0x04,Car Park
+String4=0x03,Parkeerterrein
+String7=0x15,Parking
+String8=0x10,Estacionamento
+String9=0x05,Parcheggio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #EEEEEE"
 [end]
-
-
 [_polygon]
-Type=0x06
+type=0x06
 ;GRMN_TYPE: Large Manmade Areas/PARKING_GARAGE/Parking garage area/Non NT
-String1=0x00,Parking Garage
-String2=0x01,Garages
+String=Parking Garage
+String1=0x01,Garages
+String2=0x02,Garagen
+String3=0x04,Parking
+String4=0x03,Garages
+String7=0x15,Garaże
+String8=0x10,Garagem
+String9=0x05,Garage
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #DFDDCE"
 [end]
-
-
 [_polygon]
-Type=0x07
+type=0x07
 ;GRMN_TYPE: Large Manmade Areas/AIRPORT/Airport area/Non NT
-String1=0x00,Airport
-String2=0x01,AÃƒÂ©roport
+String=Airport
+String1=0x01,Aéroport
+String2=0x02,Flughafen
+String4=0x03,Vliegveld
+String7=0x15,Lotnisko
+String8=0x10,Aeroporto
+String9=0x05,Aerodromo
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #E9E7E2"
 [end]
-
-
 [_polygon]
-Type=0x08
+type=0x08
 ;GRMN_TYPE: Large Manmade Areas/SHOPPING_AREA/Shopping area/Non NT
-String1=0x00,Shopping Center
-String2=0x01,Zone commerciale
+String=Shopping Center
+String1=0x01,Zone commerciale
+String2=0x02,Gewerbegebiet
+String4=0x03,Commercieel gebied
+String7=0x15,Obszar handlowy
+String8=0x10,Área comercial
+String9=0x05,Area commerciale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #F2DAD9"
 [end]
-
-
 [_polygon]
-Type=0x09
+type=0x09
 ;GRMN_TYPE: Large Manmade Areas/MARINA/Marina area/Non NT
-String1=0x00,Marina
-String2=0x01,Piscine
+String=Marina
+String1=0x01,Piscine
+String2=0x02,Schwimmbad
+String3=0x04,Water Park
+String4=0x03,Zwembad
+String7=0x15,Basen
+String8=0x10,Piscina
+String9=0x05,Piscina
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x0a
+type=0x0a
 ;GRMN_TYPE: Large Manmade Areas/COLLEGE/College or university area/Non NT
-String1=0x00,University/College
-String2=0x01,Ãƒâ€°cole
+String=University/College
+String1=0x01,École
+String2=0x02,Schule
+String3=0x04,Education
+String4=0x03,School
+String7=0x15,Edukacja
+String8=0x10,Escola
+String9=0x05,Scuola
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #FFFFE5"
 [end]
-
-
 [_polygon]
-Type=0x0b
+type=0x0b
 ;GRMN_TYPE: Large Manmade Areas/HOSPITAL/Hospital area/Non NT
-String1=0x00,Hospital
-String2=0x01,HÃƒÂ´pital
+String=Hospital
+String1=0x01,Hôpital
+String2=0x02,Krankenhaus
+String4=0x03,Ziekenhuis
+String7=0x15,Szpital
+String8=0x10,Hospital
+String9=0x05,Ospedale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #FFFFE5"
 [end]
-
-
 [_polygon]
-Type=0x0c
+type=0x0c
 ;GRMN_TYPE: Large Manmade Areas/INDUSTRIAL_COMPLEX/Industrial complex area/Non NT
-String1=0x00,Industrial Complex
-String2=0x01,Zone industrielle
+String=Industrial Complex
+String1=0x01,Zone industrielle
+String2=0x02,Industriegebiet
+String3=0x04,Industrial area
+String4=0x03,Industriegebied
+String7=0x15,Obszar przemysłowy
+String8=0x10,Área industrial
+String9=0x05,Area industriale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #EBDBE8"
 [end]
-
-
 [_polygon]
-Type=0x0e
+type=0x0e
 ;GRMN_TYPE: Large Manmade Areas/AIRPORT_RUNWAYS/Airport runway area/Non NT
-String1=0x00,Aircraft Road
-String2=0x01,AÃƒÂ©rodrome
+String=Aircraft Road
+String1=0x01,Aérodrome
+String2=0x02,Flugfeld
+String3=0x04,Runway
+String4=0x03,Landingsbaan
+String7=0x15,Pas startowy
+String8=0x10,Aeródromo
+String9=0x05,Pista di aviazione
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #BBBBCC"
 [end]
-
-
 [_polygon]
-Type=0x0f
+type=0x0f
 ;GRMN_TYPE: //
-String1=0x00,Commercial Area
-String2=0x01,Zone commerciale
+String=Commercial Area
+String1=0x01,Zone commerciale
+String2=0x02,Gewerbegebiet
+String4=0x03,Commercieel gebied
+String7=0x15,Obszar handlowy
+String8=0x10,Área comercial
+String9=0x05,Area commerciale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #F2DAD9"
 [end]
-
-
 [_polygon]
-Type=0x10
+type=0x10
 ;GRMN_TYPE: //
-String1=0x00,Residential
-String2=0x01,RÃƒÂ©sidentiel
+String=Residential
+String1=0x01,Résidentiel
+String2=0x02,Wohngebiet
+String4=0x03,Bebouwing
+String7=0x15,Obszar mieszkalny
+String8=0x10,Residencial
+String9=0x05,Area residenziale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #E0DFDF"
 [end]
-
-
 [_polygon]
-Type=0x11
+type=0x11
 ;GRMN_TYPE: //
-String1=0x00,Danger Area
+String=Danger Area
+String1=0x01,Domaine militair
+String2=0x02,Militärisches Sperrgebiet
+String4=0x03,Miltaire gevarenzone
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #800000"
+"! c #FFFFFF"
 "# c #FCD8DB"
 "################################"
 "################################"
@@ -335,313 +396,349 @@ Xpm="32 32 2 1"
 "################################"
 ;12345678901234567890123456789012
 [end]
-
-
 [_polygon]
-Type=0x12
+type=0x12
 ;GRMN_TYPE: //
-String1=0x00,Retail
-String2=0x01,Aire
+String=Retail
+String1=0x01,Aire
+String2=0x02,Raststätte
+String4=0x03,Snelweg rustplaats
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #EFC8C8"
 [end]
-
-
 [_polygon]
-Type=0x13
+type=0x13
 ;GRMN_TYPE: Large Manmade Areas/GENERIC_MANMADE/Other or generic manmade area, such as a building/Non NT
-String1=0x00,Building
-String2=0x01,BÃƒÂ¢timent
+String=Building
+String1=0x01,Bâtiment
+String2=0x02,Gebäude
+String4=0x03,Gebouw
+String7=0x15,Budynek
+String8=0x10,Edifício
+String9=0x05,Edificio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #D9D0C9"
 [end]
-
-
 [_polygon]
-Type=0x15
+type=0x15
 ;GRMN_TYPE: Park Areas/NATIONAL_PARK/National park/Non NT
-String1=0x00,Village Green
-String2=0x01,Espace vert
+String=Village Green
+String1=0x01,Espace vert
+String2=0x02,Grün
+String4=0x03,Stadsgroen
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #CDEBB0"
 [end]
-
-
 [_polygon]
-Type=0x16
+type=0x16
 ;GRMN_TYPE: Park Areas/NATIONAL_PARK_OTHER/Small or misc sized national park/Non NT
-String1=0x00,Nature Reserve
-String2=0x01,Espace vert
+String=Nature Reserve
+String1=0x01,Espace vert
+String2=0x02,Grün
+String4=0x03,Groen
+String7=0x15,Zieleń
+String8=0x10,Área verde
+String9=0x05,Area naturale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #DBF1C6"
 [end]
-
-
 [_polygon]
-Type=0x17
+type=0x17
 ;GRMN_TYPE: Park Areas/URBAN_PARK/Small urban park, typically only a few square blocks in size/Non NT
-String1=0x00,City Park/Playground
-String2=0x01,Parc
+String=City Park/Playground
+String1=0x01,Parc
+String2=0x02,Park
+String4=0x03,Park
+String7=0x15,Park
+String8=0x10,Parque
+String9=0x05,Parco
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #C8FACC"
 [end]
-
-
 [_polygon]
-Type=0x18
+type=0x18
 ;GRMN_TYPE: Large Manmade Areas/GOLF_COURSE/Golf course area/Non NT
-String1=0x00,Golf Course
-String2=0x01,Golf
+String=Golf Course
+String1=0x01,Golf
+String2=0x02,Golfplatz
+String4=0x03,Golfbaan
+String7=0x15,Pole golfowe
+String8=0x10,Campo de Golfe
+String9=0x05,Campo da golf
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #B5E3B5"
 [end]
-
-
 [_polygon]
-Type=0x19
+type=0x19
 ;GRMN_TYPE: Large Manmade Areas/SPORTS_COMPLEX/Sports arena or stadium/Non NT
-String1=0x00,Sports Complex
-String2=0x01,Terrain de sport
+String=Sports Complex
+String1=0x01,Terrain de sport
+String2=0x02,Sportplatz
+String3=0x04,Sports pitch
+String4=0x03,Sportveld
+String7=0x15,Teren sportowy
+String8=0x10,Campo de esportes
+String9=0x05,Campo sportivo
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #AAE0CB"
 [end]
-
-
 [_polygon]
-Type=0x1a
+type=0x1a
 ;GRMN_TYPE: Large Manmade Areas/CEMETARY/Cemetary/Non NT
-String1=0x00,Cemetery
+String=Cemetery
+String1=0x01,Cimetière
+String2=0x02,Friedhof
+String4=0x03,Begraafplaats
+String7=0x15,Cmentarz
+String8=0x10,Cemitério
+String9=0x05,Cimitero
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #BD958B"
+"! c #88B78E"
 "# c #AACBAF"
-"############!!!!############!!!!"
-"!!########!!!!!!!!########!!!!!!"
-"#####!!##############!!#########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"##!!!!!!!!########!!!!!!!!######"
-"#############!!##############!!#"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"!!########!!!!!!!!########!!!!!!"
-"#####!!##############!!#########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"####!!!!############!!!!########"
-"##!!!!!!!!########!!!!!!!!######"
-"#############!!##############!!#"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
-"############!!!!############!!!!"
+"################################"
+"################################"
+"################################"
+"################################"
+"#######!!#######################"
+"######!!!!######################"
+"######!!!!######################"
+"######!!!!######################"
+"######!!!!######################"
+"######!!!!######################"
+"######!!!!######################"
+"####!!!!!!!!####################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
 ;12345678901234567890123456789012
 [end]
-
-
 [_polygon]
-Type=0x1c
+type=0x1c
 ;GRMN_TYPE: //
-String1=0x00,Meadow
-ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-Xpm="0 0 1 0"
-"1 c #FFFFD5"
-[end]
-
-
-[_polygon]
-Type=0x1d
-;GRMN_TYPE: //
-String1=0x00,Common
-String2=0x01,Parc
-ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-Xpm="0 0 1 0"
-"1 c #C8FACC"
-[end]
-
-
-[_polygon]
-Type=0x20
-;GRMN_TYPE: Park Areas/STATE_PARK_OTHER/Small or misc sized state park/Non NT
-String1=0x00,Garden
-ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-Xpm="32 32 2 1"
-"! c #8CB873"
-"# c #CDEBB0"
-"!######!!######!!######!!######!"
-"################################"
-"################################"
-"###!!######!!######!!######!!###"
-"###!!######!!######!!######!!###"
-"################################"
-"################################"
-"!######!!######!!######!!######!"
-"!######!!######!!######!!######!"
-"################################"
-"################################"
-"###!!######!!######!!######!!###"
-"###!!######!!######!!######!!###"
-"################################"
-"################################"
-"!######!!######!!######!!######!"
-"!######!!######!!######!!######!"
-"################################"
-"################################"
-"###!!######!!######!!######!!###"
-"###!!######!!######!!######!!###"
-"################################"
-"################################"
-"!######!!######!!######!!######!"
-"!######!!######!!######!!######!"
-"################################"
-"################################"
-"###!!######!!######!!######!!###"
-"###!!######!!######!!######!!###"
-"################################"
-"################################"
-"!######!!######!!######!!######!"
-;12345678901234567890123456789012
-[end]
-
-
-[_polygon]
-Type=0x21
-;GRMN_TYPE: //
-String1=0x00,Tourism
+String=Meadow
+String2=0x02,Wiese
+String4=0x03,Weide
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #CDEBB0"
 [end]
-
-
 [_polygon]
-Type=0x22
+type=0x1d
 ;GRMN_TYPE: //
-String1=0x00,Historic
-String2=0x01,Patrimoine historique
+String=Common
+String1=0x01,Parc
+String2=0x02,Park
+String4=0x03,Park
+String7=0x15,Park
+String8=0x10,Parque
+String9=0x05,Parco
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+Xpm="0 0 1 0"
+"1 c #C8FACC"
+[end]
+[_polygon]
+type=0x20
+;GRMN_TYPE: Park Areas/STATE_PARK_OTHER/Small or misc sized state park/Non NT
+String=Garden
+String1=0x01,Jardin
+String2=0x02,Garten
+String4=0x03,Tuin
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+Xpm="32 32 2 1"
+"! c #8CB873"
+"# c #CDEBB0"
+"################################"
+"################################"
+"################################"
+"###!#######!#######!#######!####"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"###!#######!#######!#######!####"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"###!#######!#######!#######!####"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"###!#######!#######!#######!####"
+"################################"
+"################################"
+"################################"
+"################################"
+;12345678901234567890123456789012
+[end]
+[_polygon]
+type=0x21
+;GRMN_TYPE: //
+String=Tourism
+String4=0x03,Toeristische attractie
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+Xpm="0 0 1 0"
+"1 c #CDEBB0"
+[end]
+[_polygon]
+type=0x22
+;GRMN_TYPE: //
+String=Historic
+String1=0x01,Patrimoine historique
+String2=0x02,Historisches Gebiet / Gebäude
+String4=0x03,Historisch gebied/gebouw
+String7=0x15,Historyczny teren / budynek
+String8=0x10,Edifício histórico
+String9=0x05,Luogo storico
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #D9D0C9"
 [end]
-
-
 [_polygon]
-Type=0x23
+type=0x23
 ;GRMN_TYPE: //
-String1=0x00,Amenity
-String2=0x01,BÃƒÂ¢timent
+String=Amenity
+String1=0x01,Bâtiment
+String2=0x02,Gebäude
+String4=0x03,Gebouw
+String7=0x15,Budynek
+String8=0x10,Edifício
+String9=0x05,Edificio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #D9D0C9"
 [end]
-
-
 [_polygon]
-Type=0x24
+type=0x24
 ;GRMN_TYPE: //
-String1=0x00,Man-made
+String=Man-made
+String2=0x02,Konstruktion
+String4=0x03,Constructie
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #B8B8B8"
 [end]
-
-
 [_polygon]
-Type=0x25
+type=0x25
 ;GRMN_TYPE: //
-String1=0x00,Square
-String2=0x01,Place
-String3=0x02,Platz
-String4=0x03,Markt
-String5=0x05,Piazza
-String6=0x08,Plaza
+;See also 0x6b for pedestrian area
+String=Square
+String1=0x01,Place
+String1=0x02,Platz
+String1=0x03,Markt
+String1=0x05,Piazza
+String1=0x08,Plaza
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #DDDDE8"
 [end]
-
-
 [_polygon]
-Type=0x26
+type=0x26
 ;GRMN_TYPE: //
-String1=0x00,Farm / Yard
+String=Farm / Yard
+String1=0x01,Ferme
+String2=0x02,Bauernhof
+String4=0x03,Boerenbedrijf
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #FFFFE4"
+"1 c #F5DCBA"
 [end]
-
-
 [_polygon]
-Type=0x32
+type=0x32
 ;GRMN_TYPE: Water Areas/SEA/Sea/Non NT
-String1=0x00,Sea
+String=Sea
+String1=0x01,Mer
+String2=0x02,Meer
+String4=0x03,Zee
+String7=0x15,Morze
+String8=0x10,Mar
+String9=0x05,Mare
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
 DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
-"1 c #7BCAFF"
+"1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x3b
+type=0x3b
 ;GRMN_TYPE: //
-String1=0x00,Waterway
-String2=0x01,Eau
+String=Waterway
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -649,13 +746,16 @@ DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x3c
+type=0x3c
 ;GRMN_TYPE: Water Areas/LAKE_100MI/Lake less than 250 sq mi but greater or equal to 100 sq mi in area/Non NT
-String1=0x00,Lake
-String2=0x01,Eau
+String=Lake
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -663,13 +763,16 @@ DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x3d
+type=0x3d
 ;GRMN_TYPE: Water Areas/LAKE_30MI, LARGE_LAKE/Large lake, typically between 30 and 500 sq mi in area/Non NT
-String1=0x00,Bay
-String2=0x01,Baie
+String=Bay
+String1=0x01,Baie
+String2=0x02,Bucht
+String4=0x03,Baai
+String7=0x15,Zatoka
+String8=0x10,Baia
+String9=0x05,Baia
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -710,25 +813,32 @@ Xpm="32 32 2 1"
 "                                "
 ;12345678901234567890123456789012
 [end]
-
-
 [_polygon]
-Type=0x3f
+type=0x3f
 ;GRMN_TYPE: Water Areas/LAKE, LAKE_5MI/Medium sized lake, typically between 5 and 30 sq mi in area/Non NT
-String1=0x00,Reservoir/Basin
+String=Reservoir/Basin
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #7BCAFF"
+"1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x41
+type=0x41
 ;GRMN_TYPE: Water Areas/LAKE_LT_1MI, SMALL_LAKE/Small lake, typically less than 5 sq mi in area/Non NT
-String1=0x00,Small Lake
-String2=0x01,Eau
+String=Small Lake
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -736,26 +846,32 @@ DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x46
+type=0x46
 ;GRMN_TYPE: Water Areas/LARGE_RIVER/Major river, typically at least 700 ft in width/Non NT
-String1=0x00,River
-String2=0x01,Eau
+String=River
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x47
+type=0x47
 ;GRMN_TYPE: Water Areas/RIVER_GT_700FT/Major river greater or equal to 700 ft in width/Non NT
-String1=0x00,Waterfall
-String2=0x01,Eau
+String=Waterfall
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -763,13 +879,16 @@ DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x48
+type=0x48
 ;GRMN_TYPE: Water Areas/RIVER_100FT, SMALL_RIVER/Minor river, typically less than 700 ft in width/Non NT
-String1=0x00,Canal
-String2=0x01,Eau
+String=Canal
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -777,13 +896,16 @@ DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x4b
+type=0x4b
 ;GRMN_TYPE: Map Bounds/DATA_BOUNDS/Bounds of map after creation/Non NT
-String1=0x00,Area of Map Coverage
-String2=0x01,Sol
+String=Area of Map Coverage
+String1=0x01,Sol
+String2=0x02,Hintergrund
+String4=0x03,Achtergrond
+String7=0x15,Obszar niezmapowany
+String8=0x10,Área não mapeada
+String9=0x05,Sfondo
 ExtendedLabels=Y
 FontStyle=LargeFont
 CustomColor=Day
@@ -791,13 +913,16 @@ DaycustomColor:#00FFFF
 Xpm="0 0 1 0"
 "1 c #F2EFE9"
 [end]
-
-
 [_polygon]
-Type=0x4c
+type=0x4c
 ;GRMN_TYPE: Water Areas/INTERMITTENT_LAKE/An intermittent or dry lake/Non NT
-String1=0x00,Intermittent Water
-String2=0x01,Eau
+String=Intermittent Water
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -805,13 +930,16 @@ DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
 [end]
-
-
 [_polygon]
-Type=0x4d
+type=0x4d
 ;GRMN_TYPE: Surface Cover Areas/GLACIER/Large area of compacted snow and ice/Non NT
-String1=0x00,Glacier
-String2=0x01,Glacier
+String=Glacier
+String1=0x01,Glacier
+String2=0x02,Gletscher
+String4=0x03,Gletsjer
+String7=0x15,Lodowiec
+String8=0x10,Geleira
+String9=0x05,Ghiacciaio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -819,59 +947,33 @@ DaycustomColor:#4DA0D7
 Xpm="0 0 1 0"
 "1 c #DDECEC"
 [end]
-
-
 [_polygon]
-Type=0x4e
+type=0x4e
 ;GRMN_TYPE: Surface Cover Areas/ORCHARD/Orchard or plantation area/Non NT
-String1=0x00,Orchard
+String=Orchard
+String1=0x01,Agriculture
+String2=0x02,Ackerland
+String3=0x04,Farmland
+String4=0x03,Landbouw / Glastuinbouw
+String7=0x15,Tereny rolnicze
+String8=0x10,Lavoura
+String9=0x05,Terreno coltivato
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="32 32 2 1"
-"! c #BDCAB4"
-"# c #EEF0D5"
-"################################"
-"################################"
-"################################"
-"################################"
-"#######!!!#############!!!######"
-"######!!#!!###########!!#!!#####"
-"######!###!###########!###!#####"
-"######!!#!!###########!!#!!#####"
-"#######!!!#############!!!######"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"#######!!!#############!!!######"
-"######!!#!!###########!!#!!#####"
-"######!###!###########!###!#####"
-"######!!#!!###########!!#!!#####"
-"#######!!!#############!!!######"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-"################################"
-;12345678901234567890123456789012
+Xpm="0 0 1 0"
+"1 c #EEF0D5"
 [end]
-
-
 [_polygon]
-Type=0x4f
+type=0x4f
 ;GRMN_TYPE: Surface Cover Areas/SCRUB/Scrub brush area/Non NT
-String1=0x00,Scrub
-String2=0x01,Broussailles
+String=Scrub
+String1=0x01,Broussailles
+String2=0x02,Gebüsch
+String4=0x03,Kreupelbos
+String7=0x15,Zarośla
+String8=0x10,Arbusto
+String9=0x05,Terreno incolto
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -912,25 +1014,67 @@ Xpm="32 32 2 1"
 "################################"
 ;12345678901234567890123456789012
 [end]
-
-
 [_polygon]
-Type=0x50
+type=0x50
 ;GRMN_TYPE: Surface Cover Areas/WOODS/Wooded or forested area/Non NT
-String1=0x00,Woods
+String=Woods
+String1=0x01,Forêt
+String2=0x02,Wald
+String4=0x03,Bos
+String7=0x15,Las
+String8=0x10,Floresta
+String9=0x05,Selva
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
-Xpm="0 0 1 0"
-"1 c #ADD19E"
+Xpm="32 32 2 1"
+"! c #8AB379"
+"# c #ADD19E"
+"################################"
+"################################"
+"################################"
+"#####!!!###!####################"
+"####!###!##!####################"
+"####!###!#!#!###################"
+"####!###!#!#!###################"
+"#####!!!##!#!###################"
+"######!##!###!##################"
+"######!##!!!!!##################"
+"######!####!####################"
+"######!####!####################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"################################"
+"###############!!!###!##########"
+"##############!###!##!##########"
+"##############!###!#!#!#########"
+"##############!###!#!#!#########"
+"###############!!!##!#!#########"
+"################!##!###!########"
+"################!##!!!!!########"
+"################!####!##########"
+"################!####!##########"
+"################################"
+"################################"
+;12345678901234567890123456789012
 [end]
-
-
 [_polygon]
-Type=0x51
+type=0x51
 ;GRMN_TYPE: Surface Cover Areas/WETLAND/Wetland or swamp area/Non NT
-String1=0x00,Wetland
-String2=0x01,Marais
+String=Wetland
+String1=0x01,Marais
+String2=0x02,Sumpf
+String3=0x04,Marsh
+String4=0x03,Nat gebied
+String7=0x15,Mokradła
+String8=0x10,Pântano
+String9=0x05,Palude
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -971,64 +1115,78 @@ Xpm="32 32 2 1"
 "                !!!!!           "
 ;12345678901234567890123456789012
 [end]
-
-
 [_polygon]
-Type=0x52
+type=0x52
 ;GRMN_TYPE: Surface Cover Areas/TUNDRA/Area of nearly always freezing soil/Non NT
-String1=0x00,Tundra
+String=Tundra
+String4=0x03,Toendra
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #D6D99F"
 [end]
-
-
 [_polygon]
-Type=0x53
+type=0x53
 ;GRMN_TYPE: Surface Cover Areas/FLAT/Sand, tidal, mud, etc. flat area/Non NT
-String1=0x00,Tidal Sand/Mud Flats
-String2=0x01,Terre
+String=Tidal Sand/Mud Flats
+String1=0x01,Terre
+String2=0x02,Land
+String4=0x03,Land
+String7=0x15,Land
+String8=0x10,Terra
+String9=0x05,Terra
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #F2EFE9"
 [end]
-
-
 [_polygon]
-Type=0x6a
+type=0x6a
 ;GRMN_TYPE: //
-String1=0x00,Station
-String2=0x01,Gare
+; not used by default style
+String=Station
+String1=0x01,Gare
+String2=0x02,Bahnhof
+String4=0x03,Station
+String7=0x15,Stacja
+String8=0x10,Estação
+String9=0x05,Stazione
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #AF9C8D"
 [end]
-
-
 [_polygon]
-Type=0x6b
+type=0x6b
 ;GRMN_TYPE: //
-String1=0x00,Pedestrian Zone
-String2=0x01,Zone piÃƒÂ©tonne
+; not used by default style
+String=Pedestrian Zone
+String1=0x01,Zone piétonne
+String2=0x02,Fußgängerzone
+String4=0x03,Voetgangersgebied
+String7=0x15,Pieszy
+String8=0x10,Pedestre
+String9=0x05,Area pedonale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
 "1 c #DDDDE8"
 [end]
-
-
 [_polygon]
-Type=0x6c
+type=0x6c
 ;GRMN_TYPE: //
-String1=0x00,Platform
-String2=0x01,Quai
+; not used by default style
+String=Platform
+String1=0x01,Quai
+String2=0x02,Bahnsteig
+String4=0x03,Perron
+String7=0x15,Platform
+String8=0x10,Plataforma
+String9=0x05,Banchina
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -1041,129 +1199,127 @@ Xpm="0 0 1 0"
 
 
 [_line]
-Type=0x01
+type=0x01
 ;GRMN_TYPE: Roads/INTERSTATE, MAJOR_HWY/Primary, divided, limited-access highway, akin to an interstate in the US/Non NT, NT
 UseOrientation=N
-Xpm="32 8 2  1"
-"! c #E892A2"
-"# c #FF008B"
-"################################"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!####!!!!!!!!!!!!####!!!!!!!!"
-"####!!!!!!!!!!!!####!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"################################"
-;12345678901234567890123456789012
-String1=0x00,Motorway
+LineWidth=8
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #E892A2"
+"2 c #FF008B"
+String=Motorway
+String1=0x01,Autoroute
+String2=0x02,Autobahn
+String4=0x03,Snelweg
+String7=0x15,Autostrada
+String8=0x10,Autoestrada
+String9=0x05,Autostrada
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x02
+type=0x02
 ;GRMN_TYPE: Roads/PRINCIPAL_HWY/Principal highway, usually divided and limited access, akin to US highways/Non NT, NT
 UseOrientation=N
-Xpm="32 7 2  1"
-"! c #BD0000"
-"# c #FFAEAE"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"################################"
-"################################"
-"!!####!!!!####!!!!####!!!!####!!"
-"################################"
-"################################"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Trunk Road
+LineWidth=8
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #F9B29C"
+"2 c #D87559"
+String=Trunk Road
+String1=0x01,Voie rapide
+String2=0x02,Schnellstraße
+String4=0x03,Autoweg
+String7=0x15,Droga szybkiego ruchu
+String8=0x10,Via expressa
+String9=0x05,Superstrada
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x03
+type=0x03
 ;GRMN_TYPE: Roads/OTHER_HWY/Other highway road, akin to a state highway in the US/Non NT, NT
 UseOrientation=N
-Xpm="32 7 2  1"
-"! c #BD0000"
-"# c #FFAEAE"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"################!###############"
-"################!###############"
-"!!####!!!!####!!!!####!!!!####!!"
-"################!###############"
-"###############!!###############"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Trunk Road
+LineWidth=8
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FCD6A4"
+"2 c #C5A363"
+String=Primary Road
+String1=0x01,Route primaire
+String2=0x02,Bundesstraße
+String4=0x03,Primair
+String7=0x15,Droga krajowa
+String8=0x10,Via primária
+String9=0x05,Strada principale
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x04
+type=0x04
 ;GRMN_TYPE: Roads/ARTERIAL/Main city thoroughfare/Non NT, NT
 UseOrientation=N
-Xpm="32 7 2  1"
-"! c #BDBD00"
-"# c #FFFFD5"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"################################"
-"################################"
-"!!####!!!!####!!!!####!!!!####!!"
-"################################"
-"################################"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Secondary
+LineWidth=8
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #F7FABF"
+"2 c #BBC279"
+String=Secondary Road
+String1=0x01,Route secondaire
+String2=0x02,Bundesstraße
+String4=0x03,Secundair
+String7=0x15,Droga wojewódzka
+String8=0x10,Via secundária
+String9=0x05,Strada principale
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x05
+type=0x05
 ;GRMN_TYPE: Roads/COLLECTOR/Secondary city thoroughfare/Non NT, NT
 UseOrientation=N
-LineWidth=5
+LineWidth=8
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
-"2 c #000000"
-String1=0x00,Tertiary Road
+"2 c #C5C5C5"
+String=Tertiary Road
+String1=0x01,Route tertiaire
+String2=0x02,Straße
+String4=0x03,Tertiair
+String7=0x15,Droga powiatowa
+String8=0x10,Via terciária
+String9=0x05,Strada
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x06
+type=0x06
 ;GRMN_TYPE: Roads/RESIDENTIAL/Residential street, these are typically the most numerous roads in a detailed city map and do not show up until the user is zoomed in quite far/Non NT, NT
 UseOrientation=N
-LineWidth=4
+LineWidth=7
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
-"2 c #838383"
-String1=0x00,Residential/Minor/Unclassified
-String2=0x01,Rue
+"2 c #C5C5C5"
+String=Residential/Minor/Unclassified
+String1=0x01,Rue
+String2=0x02,Straße
+String4=0x03,Weg
+String7=0x15,Droga
+String8=0x10,Residencial
+String9=0x05,Strada residenziale
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x07
+type=0x07
 ;GRMN_TYPE: Roads/ALLEY, DRIVEWAY/Alleyway, private driveway to residence/Non NT, NT
 UseOrientation=N
 LineWidth=3
@@ -1171,17 +1327,20 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
 "2 c #C5C5C5"
-String1=0x00,Alley
-String2=0x01,Rue
+String=Alley
+String1=0x01,Rue
+String2=0x02,Straße
+String4=0x03,Straat
+String7=0x15,Ulica
+String8=0x10,Rua
+String9=0x05,Strada
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#626262
 [end]
-
-
 [_line]
-Type=0x08
+type=0x08
 ;GRMN_TYPE: Roads/LOW_SPEED_RAMP/Highway ramp which is to be driven at low speeds/Non NT, NT
 UseOrientation=Y
 LineWidth=5
@@ -1189,16 +1348,19 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F7FABF"
 "2 c #BBC279"
-String1=0x00,Link Road
-String2=0x01,Voie dÃ¢â‚¬â„¢accÃƒÂ¨s
+String=Link Road
+String1=0x01,Voie d’accès
+String2=0x02,Bundesstraße (Verbindung)
+String4=0x03,Secundair (Verbinding)
+String7=0x15,Droga wojewódzka (łącznik)
+String8=0x10,Ligação de via secundária
+String9=0x05,Strada principale (collegamento)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x09
+type=0x09
 ;GRMN_TYPE: Roads/HIGH_SPEED_RAMP, RAMP/Highway ramp which is to be driven at high speeds/Non NT, NT
 UseOrientation=N
 LineWidth=5
@@ -1206,16 +1368,19 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F9B29C"
 "2 c #D87559"
-String1=0x00,Motorway Link
-String2=0x01,Voie dÃ¢â‚¬â„¢accÃƒÂ¨s
+String=Motorway Link
+String1=0x01,Voie d’accès
+String2=0x02,Schnellstraße (verbindung)
+String4=0x03,Autoweg (Verbinding)
+String7=0x15,Droga szybkiego ruchu  (łącznik)
+String8=0x10,Ligação de via expressa
+String9=0x05,Superstrada (collegamento)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x0a
+type=0x0a
 ;GRMN_TYPE: Roads/UNPAVED_ROAD/Gravel or dirt road/Non NT, NT
 UseOrientation=Y
 Xpm="32 2 2  1"
@@ -1224,16 +1389,20 @@ Xpm="32 2 2  1"
 "!!!!!  !!  !!!!!  !!  !!!!!  !! "
 "!!!!!  !!  !!!!!  !!  !!!!!  !! "
 ;12345678901234567890123456789012
-String1=0x00,Unpaved Road
-String2=0x01,Sans revÃƒÂªtement
+String=Unpaved Road
+String1=0x01,Sans revêtement
+String2=0x02,Unbefestigt
+String3=0x04,Track (Grade unknown)
+String4=0x03,Veldweg (Onbekend)
+String7=0x15,Droga gruntowa (klasa nieznana)
+String8=0x10,Estrada agrícola
+String9=0x05,Sentiero carrabile
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x0b
+type=0x0b
 ;GRMN_TYPE: Roads/MAJOR_CONNECTOR/Major highway connector/Non NT, NT
 UseOrientation=N
 LineWidth=5
@@ -1241,32 +1410,39 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F9B29C"
 "2 c #D87559"
-String1=0x00,Naming Link
-String2=0x01,Voie dÃ¢â‚¬â„¢accÃƒÂ¨s
+String=Naming Link
+String1=0x01,Voie d’accès
+String2=0x02,Schnellstraße (verbindung)
+String4=0x03,Autoweg (Verbinding)
+String7=0x15,Droga szybkiego ruchu  (łącznik)
+String8=0x10,Ligação de via expressa
+String9=0x05,Superstrada (collegamento)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x0c
+type=0x0c
 ;GRMN_TYPE: Roads/ROUNDABOUT/Roundabout/Non NT, NT
 UseOrientation=N
-LineWidth=5
+LineWidth=7
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
-"2 c #FFCA41"
-String1=0x00,Roundabout
+"2 c #C5C5C5"
+String=Roundabout
+String1=0x01,Rond point
+String2=0x02,Kreisverkehr
+String4=0x03,Rotonde
+String7=0x15,Rondo
+String8=0x10,Rotatória
+String9=0x05,Rotatoria
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x11
+type=0x11
 ;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_ROUTE_LINE_5/Routable customizable line/Non NT, NT
 UseOrientation=N
 Xpm="32 2 2  1"
@@ -1275,36 +1451,43 @@ Xpm="32 2 2  1"
 "  !!!!    !!!!    !!!!    !!!!  "
 "  !!!!    !!!!    !!!!    !!!!  "
 ;12345678901234567890123456789012
-String1=0x00,Cycleway
-String2=0x01,Piste cyclable
+String=Cycleway
+String1=0x01,Piste cyclable
+String2=0x02,Radweg
+String4=0x03,Fietspad
+String7=0x15,Ścieżka rowerowa
+String8=0x10,Ciclovia
+String9=0x05,Pista ciclabile
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
 DaycustomColor:#0030FF
 [end]
-
-
 [_line]
-Type=0x14
+type=0x14
 ;GRMN_TYPE: Misc. Line Types/RAILROAD/Railroad/Non NT
 UseOrientation=Y
-Xpm="32 4 2  1"
-"! c #313131"
+Xpm="32 3 2  1"
+"! c #737373"
 "# c #FFFFFF"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!########!!!!!!!!########!!!!"
-"!!!!########!!!!!!!!########!!!!"
+"!!!!!!!!########!!!!!!!!########"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-String1=0x00,Railroad
+String=Railroad
+String1=0x01,Voie ferrée
+String2=0x02,Gleis
+String3=0x04,Railway
+String4=0x03,Spoorweg
+String7=0x15,Kolej
+String8=0x10,Ferrovia
+String9=0x05,Ferrovia
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x15
+type=0x15
 ;GRMN_TYPE: Misc. Line Types/SHORELINE/Shoreline of water body (typically only used when a water area is not available)/Non NT
 UseOrientation=N
 Xpm="32 1 2  1"
@@ -1312,17 +1495,20 @@ Xpm="32 1 2  1"
 "  c none"
 "                                "
 ;12345678901234567890123456789012
-String1=0x00,Coastline
-String2=0x01,Littoral
+String=Coastline
+String1=0x01,Littoral
+String2=0x02,Küstelinien
+String4=0x03,Kustlijn
+String7=0x15,Wybrzeże
+String8=0x10,Litoral / Costal
+String9=0x05,Costa
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#838383
 [end]
-
-
 [_line]
-Type=0x16
+type=0x16
 ;GRMN_TYPE: Roads/TRAIL/Walkway or trail/Non NT, NT
 UseOrientation=N
 Xpm="32 1 2  1"
@@ -1330,46 +1516,52 @@ Xpm="32 1 2  1"
 "  c none"
 "  !!!!!   !!!!!   !!!!!   !!!!! "
 ;12345678901234567890123456789012
-String1=0x00,Trail
-String2=0x01,Sentier
+String=Trail
+String1=0x01,Sentier
+String2=0x02,Fußweg
+String3=0x04,Path
+String4=0x03,Wandelpad
+String7=0x15,Ścieżka
+String8=0x10,Trilha
+String9=0x05,Sentiero
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x17
+type=0x17
 ;GRMN_TYPE: //
 UseOrientation=N
 LineWidth=1
 Xpm="0 0 1 0"
 "1 c #AAAAAA"
-String1=0x00,Barrier
+String=Barrier
+String4=0x03,Barrière
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x18
+type=0x18
 ;GRMN_TYPE: Water Features/STREAM/Small stream or creek/Non NT
 UseOrientation=Y
 LineWidth=2
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
-String1=0x00,Stream
-String2=0x01,Ruisseau
+String=Stream
+String1=0x01,Ruisseau
+String2=0x02,Bach
+String4=0x03,Beek
+String7=0x15,Strumień
+String8=0x10,Córrego
+String9=0x05,Ruscello
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#4D80B3
 [end]
-
-
 [_line]
-Type=0x1a
+type=0x1a
 ;GRMN_TYPE: Roads/INTERNATIONAL_FERRY/Major water or rail ferry/Non NT, NT
 UseOrientation=N
 Xpm="32 1 2  1"
@@ -1377,17 +1569,20 @@ Xpm="32 1 2  1"
 "  c none"
 "  !!!!    !!!!    !!!!    !!!!  "
 ;12345678901234567890123456789012
-String1=0x00,Car Ferry
-String2=0x01,Ferry
+String=Car Ferry
+String1=0x01,Ferry
+String2=0x02,Fähre
+String4=0x03,Ferry
+String7=0x15,Prom
+String8=0x10,Balsa
+String9=0x05,Traghetto
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#0065D5
 [end]
-
-
 [_line]
-Type=0x1b
+type=0x1b
 ;GRMN_TYPE: Roads/FERRY/Water or rail ferry/Non NT, NT
 UseOrientation=N
 Xpm="32 1 2  1"
@@ -1395,88 +1590,129 @@ Xpm="32 1 2  1"
 "  c none"
 "  !!!!    !!!!    !!!!    !!!!  "
 ;12345678901234567890123456789012
-String1=0x00,Pedestrian Ferry
-String2=0x01,Ferry
+String=Pedestrian Ferry
+String1=0x01,Ferry
+String2=0x02,Fähre
+String4=0x03,Ferry
+String7=0x15,Prom
+String8=0x10,Balsa
+String9=0x05,Traghetto
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#0065D5
 [end]
-
-
 [_line]
-Type=0x1c
+type=0x1c
 ;GRMN_TYPE: Political Borders/MJR_PLTCL_BDRY/Major political boundary (typically used for state, provincial borders)/Non NT
 UseOrientation=N
-Xpm="32 1 2  1"
-"! c #BD008B"
+Xpm="32 9 2  1"
+"! c #BD95D5"
 "  c none"
 "  !!!!    !!!!    !!!!    !!!!  "
+"  !!!!    !!!!    !!!!    !!!!  "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 ;12345678901234567890123456789012
-String1=0x00,hranice katastru
+String=St/Prv Border
+String1=0x01,Limite communale
+String2=0x02,Grenze
+String3=0x04,Boundary
+String4=0x03,Gemeentegrens
+String7=0x15,Granica
+String8=0x10,Limite Municipal
+String9=0x05,Confine
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x1d
+type=0x1d
 ;GRMN_TYPE: Political Borders/MNR_PLTCL_BDRY/Minor political boundary (typically used for county/parish borders)
 UseOrientation=N
-Xpm="32 2 2  1"
-"! c #BD008B"
+Xpm="32 9 2  1"
+"! c #BD95D5"
 "  c none"
-"!!!!  !!  !!!!!!!!!!  !!  !!!!!!"
-"!!!!  !!  !!!!!!!!!!  !!  !!!!!!"
+"!!!!!!!!!!!!!!        !!        "
+"!!!!!!!!!!!!!!        !!        "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
 ;12345678901234567890123456789012
-String1=0x00,Hranice kraje
+String=Country Border
+String1=0x01,Limite départementale
+String2=0x02,Landesgrenze
+String3=0x04,State Boundary
+String4=0x03,Provinciegrens 3
+String7=0x15,Granica województwa
+String8=0x10,Limite Estadual
+String9=0x05,Confine regionale
 ExtendedLabels=Y
 FontStyle=SmallFont
-CustomColor=No
+CustomColor=Day
+DaycustomColor:#BD30B4
 [end]
-
-
 [_line]
-Type=0x1e
+type=0x1e
 ;GRMN_TYPE: Political Borders/INTRN_PLTCL_BDRY/International boundary/Non NT
 UseOrientation=N
-Xpm="32 6 2  1"
-"! c #BD008B"
-"  c none"
-"   !!    !!        !!    !!     "
-"!!!!  !!  !!!!!!!!!!  !!  !!!!!!"
-"!!!! !!!! !!!!!!!!!! !!!! !!!!!!"
-"!!!! !!!! !!!!!!!!!! !!!! !!!!!!"
-"!!!!  !!  !!!!!!!!!!  !!  !!!!!!"
-"   !!    !!        !!    !!     "
+Xpm="32 9 2  1"
+"! c #BD95D5"
+"# c #FFFFFF"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!"
+"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
+"#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!"
+"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
+"#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!"
+"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
+"#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!"
 ;12345678901234567890123456789012
-String1=0x00,Mezinarodni hranice
+String=Intl Border
+String1=0x01,Frontière nationale
+String2=0x02,Staatsgrenze
+String3=0x04,National boundary
+String4=0x03,Landsgrens
+String7=0x15,Granica państwa
+String8=0x10,Limite Nacional
+String9=0x05,Confine nazionale
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
 DaycustomColor:#BD30B4
 [end]
-
-
 [_line]
-Type=0x1f
+type=0x1f
 ;GRMN_TYPE: Water Features/RIVER/Large stream or river/Non NT
 UseOrientation=Y
 LineWidth=7
 Xpm="0 0 1 0"
 "1 c #AAD3DF"
-String1=0x00,River
-String2=0x01,RiviÃƒÂ¨re, Canal
+String=River
+String1=0x01,Rivière, Canal
+String2=0x02,Fluß, Kanal
+String3=0x04,River, Canal
+String4=0x03,Rivier, Kanaal
+String7=0x15,Rzeka, Kanał
+String8=0x10,Rio / Canal
+String9=0x05,Fiume/Canale
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#4D80B3
 [end]
-
-
 [_line]
-Type=0x20
+type=0x20
 ;GRMN_TYPE: Contour Lines/MINOR_CONTOUR/Minor land-based contour line/Non NT
 UseOrientation=N
 Xpm="32 1 2  1"
@@ -1484,48 +1720,60 @@ Xpm="32 1 2  1"
 "  c none"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-String1=0x00,Contour Line
-String2=0x01,Courbe de niveau (20 m)
+String=Contour Line
+String1=0x01,Courbe de niveau (20 m)
+String2=0x02,Höhenlinie (20 m)
+String3=0x04,Contour (20 m)
+String4=0x03,Contour (20 m)
+String7=0x15,Warstwica (20 m)
+String8=0x10,Contorno (20 m)
+String9=0x05,Curva di livello (20 m)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x21
+type=0x21
 ;GRMN_TYPE: Contour Lines/INT_CONTOUR/Intermediate contour (should be used for about every 5th contour line)/Non NT
 UseOrientation=N
 LineWidth=1
 Xpm="0 0 1 0"
 "1 c #D3A87C"
-String1=0x00,Contour Line
-String2=0x01,Courbe de niveau (100 m)
+String=Contour Line
+String1=0x01,Courbe de niveau (100 m)
+String2=0x02,Höhenlinie(100 m)
+String3=0x04,Contour (100 m)
+String4=0x03,Contour (100 m)
+String7=0x15,Warstwica (100 m)
+String8=0x10,Contorno (100 m)
+String9=0x05,Curva di livello (100 m)
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#996633
 [end]
-
-
 [_line]
-Type=0x22
+type=0x22
 ;GRMN_TYPE: Contour Lines/MAJOR_CONTOUR/Major contour (should be used for about every 10th contour line)/Non NT
 UseOrientation=N
 LineWidth=1
 Xpm="0 0 1 0"
 "1 c #CC9966"
-String1=0x00,Contour Line
-String2=0x01,Courbe de niveau (500 m)
+String=Contour Line
+String1=0x01,Courbe de niveau (500 m)
+String2=0x02,Höhenlinie (500 m)
+String3=0x04,Contour (500 m)
+String4=0x03,Contour (500 m)
+String7=0x15,Warstwica (500 m)
+String8=0x10,Contorno (500 m)
+String9=0x05,Curva di livello (500 m)
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#996633
 [end]
-
-
 [_line]
-Type=0x26
+type=0x26
 ;GRMN_TYPE: Water Features/INTERMITTENT_STREAM/Intermittent or dry stream, creek, or ditch/Non NT
 UseOrientation=Y
 Xpm="32 3 2  1"
@@ -1535,491 +1783,99 @@ Xpm="32 3 2  1"
 " !!!!!   !!!!!   !!!!!   !!!!!  "
 " !!!!!   !!!!!   !!!!!   !!!!!  "
 ;12345678901234567890123456789012
-String1=0x00,Intermittent Stream
-String2=0x01,Ruisseau intermittent
+String=Intermittent Stream
+String1=0x01,Ruisseau intermittent
+String2=0x02,Wasserlauf (periodisch)
+String4=0x03,Beek (Periodiek)
+String7=0x15,Strumień
+String8=0x10,Córrego intermitente
+String9=0x05,Torrente (discontinuo)
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#4D80B3
 [end]
-
-
 [_line]
-Type=0x27
+type=0x27
 ;GRMN_TYPE: Misc. Line Types/AIRPORT_RUNWAY/Airport runway centerline/Non NT
 UseOrientation=Y
 LineWidth=12
 Xpm="0 0 1 0"
 "1 c #BBBBCC"
-String1=0x00,Runway
-String2=0x01,Piste dÃ¢â‚¬â„¢aviation
+String=Runway
+String1=0x01,Piste d’aviation
+String2=0x02,Startbahn
+String4=0x03,Landingsbaan
+String7=0x15,Pas startowy
+String8=0x10,Pista
+String9=0x05,Pista di aviazione
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x28
+type=0x28
 ;GRMN_TYPE: Misc. Line Types/PIPELINE/Oil or water pipeline/Non NT
 UseOrientation=Y
 Xpm="32 5 2  1"
-"! c #39306A"
+"! c #626262"
 "  c none"
-"!             ! !             ! "
-"!!!!!!!!!!!!!!! !!!!!!!!!!!!!!! "
-"!             ! !             ! "
-"!!!!!!!!!!!!!!! !!!!!!!!!!!!!!! "
-"!             ! !             ! "
+" !            !  !            ! "
+" !            !  !            ! "
+" !!!!!!!!!!!!!!  !!!!!!!!!!!!!! "
+" !            !  !            ! "
+" !            !  !            ! "
 ;12345678901234567890123456789012
-String1=0x00,Pipeline
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x29
-;GRMN_TYPE: Misc. Line Types/POWERLINE/Powerline/Non NT
-UseOrientation=Y
-Xpm="32 3 2  1"
-"! c #737373"
-"  c none"
-"            ! !                 "
-"!!!!!!!!!!!  !!!  !!!!!!!!!!!!!!"
-"              ! !               "
-;12345678901234567890123456789012
-String1=0x00,Powerline
+String=Pipeline
+String1=0x01,Pipeline
+String2=0x02,Rohr
+String4=0x03,Pijpleiding
+String7=0x15,Rurociąg
+String8=0x10,Tubulação
+String9=0x05,Conduttura
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x30
+type=0x29
+;GRMN_TYPE: Misc. Line Types/POWERLINE/Powerline/Non NT
+UseOrientation=Y
+LineWidth=1
+Xpm="0 0 2 0"
+"1 c #737373"
+"2 c #FFFFFF"
+String=Powerline
+String1=0x01,Ligne électrique
+String2=0x02,Hochspannungskabel
+String4=0x03,Hoogspanningskabel
+String7=0x15,Kabel wysokiego napięcia
+String8=0x10,Cabo de força
+String9=0x05,Linea elettrica
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+[_line]
+type=0x30
 ;GRMN_TYPE: //
 UseOrientation=Y
 LineWidth=7
 Xpm="0 0 1 0"
 "1 c #FFC0CB"
-String1=0x00,Raceway
-String2=0x01,Circuit
+String=Raceway
+String1=0x01,Circuit
+String2=0x02,Rennstrecke
+String4=0x03,Circuit
+String7=0x15,Tor wyścigowy
+String8=0x10,Pista de corrida
+String9=0x05,Pista
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x10000
-;GRMN_TYPE: //
-UseOrientation=Y
-Xpm="32 7 2  1"
-"! c #000000"
-"  c none"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"                                "
-"                                "
-"                                "
-"                                "
-"                                "
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Most velky
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10001
-;GRMN_TYPE: //
-UseOrientation=Y
-Xpm="32 5 2  1"
-"! c #000000"
-"  c none"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"                                "
-"                                "
-"                                "
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Most maly
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10010
-;GRMN_TYPE: //
-UseOrientation=Y
-Xpm="32 8 2  1"
-"! c #7B0000"
-"  c none"
-"!      !!      !!      !!      !"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"                                "
-"                                "
-"                                "
-"                                "
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!      !!      !!      !!      !"
-;12345678901234567890123456789012
-String1=0x00,Zeleznicni most
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10102
-;GRMN_TYPE: //
-UseOrientation=N
-LineWidth=4
-BorderWidth=2
-Xpm="0 0 2 0"
-"1 c #FFFFB4"
-"2 c #BD9500"
-String1=0x00,Secondary
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10103
-;GRMN_TYPE: //
-UseOrientation=N
-LineWidth=4
-BorderWidth=1
-Xpm="0 0 2 0"
-"1 c #FFFFFF"
-"2 c #000000"
-String1=0x00,Tertiary Road
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10104
-;GRMN_TYPE: //
-UseOrientation=N
-LineWidth=3
-BorderWidth=1
-Xpm="0 0 2 0"
-"1 c #FFFFFF"
-"2 c #525252"
-String1=0x00,Unclassified,service
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10105
-;GRMN_TYPE: Marine Lines/MARINE_CONTOUR_LINE/Marine contour line/Non NT, NT
-UseOrientation=N
-LineWidth=3
-BorderWidth=1
-Xpm="0 0 2 0"
-"1 c #FFFFFF"
-"2 c #000000"
-String1=0x00,Residental
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10108
-;GRMN_TYPE: //
-UseOrientation=Y
-LineWidth=2
-BorderWidth=1
-Xpm="0 0 2 0"
-"1 c #FEDBFF"
-"2 c #101010"
-String1=0x00,cycleway
-ExtendedLabels=N
-[end]
-
-
-[_line]
-Type=0x10110
-;GRMN_TYPE: //
-UseOrientation=Y
-Xpm="32 3 2  1"
-"! c #7B3000"
-"  c none"
-"!!!!!!    !!!!!!!!!!!!    !!!!!!"
-"                                "
-"!!!!!!    !!!!!!!!!!!!    !!!!!!"
-;12345678901234567890123456789012
-String1=0x00,path
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10111
-;GRMN_TYPE: //
-UseOrientation=N
-Xpm="32 4 2  1"
-"! c #7B3000"
-"  c none"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"                                "
-"                                "
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,grade1
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10112
-;GRMN_TYPE: //
-UseOrientation=Y
-Xpm="32 3 2  1"
-"! c #7B3000"
-"  c none"
-"!!!!!!!!!!!!      !!!!!!!!!!!!!!"
-"!!!!!!!!!!!!      !!!!!!!!!!!!!!"
-"!!!!!!!!!!!!      !!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,grade2
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10113
-;GRMN_TYPE: //
-UseOrientation=N
-Xpm="32 3 2  1"
-"! c #7B3000"
-"  c none"
-"      !!!!!!!!!!      !!!!!!!!!!"
-"      !!!!!!!!!!      !!!!!!!!!!"
-"      !!!!!!!!!!      !!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,grade3
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10114
-;GRMN_TYPE: //
-UseOrientation=N
-Xpm="32 2 2  1"
-"! c #7B3000"
-"  c none"
-"         !!!!!!!         !!!!!!!"
-"         !!!!!!!         !!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,grade4
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10115
-;GRMN_TYPE: //
-UseOrientation=N
-Xpm="32 2 2  1"
-"! c #7B3000"
-"  c none"
-"    !!!!    !!!!    !!!!    !!!!"
-"    !!!!    !!!!    !!!!    !!!!"
-;12345678901234567890123456789012
-String1=0x00,grade5
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10119
-;GRMN_TYPE: //
-UseOrientation=N
-LineWidth=2
-Xpm="0 0 1 0"
-"1 c #626262"
-String1=0x00,grade1
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x1011a
-;GRMN_TYPE: //
-UseOrientation=N
-Xpm="32 2 2  1"
-"! c #414141"
-"  c none"
-"    !!!!    !!!!    !!!!    !!!!"
-"    !!!!    !!!!    !!!!    !!!!"
-;12345678901234567890123456789012
-String1=0x00,footway
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10300
-;GRMN_TYPE: //
-UseOrientation=Y
-Xpm="32 4 2  1"
-"! c #313131"
-"# c #FFFFFF"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!########!!!!!!!!########!!!!"
-"!!!!########!!!!!!!!########!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Zeleznice, hlavni
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10301
-;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_CONTOUR/Depth contour/Non NT, NT
-UseOrientation=Y
-Xpm="32 3 2  1"
-"! c #313131"
-"# c #FFFFFF"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!########!!!!!!!!########!!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Zeleznice
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10302
-;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_1/Shallowest isobath area outline/Non NT, NT
-UseOrientation=Y
-Xpm="32 3 2  1"
-"! c #313131"
-"  c none"
-"!       !       !       !       "
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!       !       !       !       "
-;12345678901234567890123456789012
-String1=0x00,Mala trat, tram
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10304
-;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_3/Shallowest isobath area outline/Non NT, NT
-UseOrientation=Y
-Xpm="32 3 2  1"
-"! c #626262"
-"  c none"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!        !!!!!!!!        !!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Zeleznice, nepouzivana
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10305
-;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_4/Shallowest isobath area outline/Non NT, NT
-UseOrientation=Y
-Xpm="32 3 2  1"
-"! c #B4B4B4"
-"  c none"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"!!!!        !!!!!!!!        !!!!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Zeleznice
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10700
-;GRMN_TYPE: //
-UseOrientation=Y
-Xpm="32 5 2  1"
-"! c #737373"
-"# c #E6E6E6"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-"#####!#!#####!#!#####!#!#####!#!"
-"#!!!##!##!!!##!##!!!##!##!!!##!#"
-"#####!#!#####!#!#####!#!#####!#!"
-"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-;12345678901234567890123456789012
-String1=0x00,Nesplneno
-ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10701
-;GRMN_TYPE: //
-UseOrientation=Y
-LineWidth=1
-Xpm="0 0 1 0"
-"1 c #626262"
-String1=0x00,Nesplneno
-ExtendedLabels=Y
-FontStyle=Default
-CustomColor=No
-[end]
-
-
-[_line]
-Type=0x10801
+type=0x10801
 ;GRMN_TYPE: //
 UseOrientation=N
 LineWidth=5
@@ -2027,16 +1883,19 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F9B29C"
 "2 c #D87559"
-String1=0x00,Roundabout
-String2=0x01,Voie dÃ¢â‚¬â„¢accÃƒÂ¨s
+String=Roundabout
+String1=0x01,Voie d’accès
+String2=0x02,Schnellstraße (verbindung)
+String4=0x03,Autoweg (Verbinding)
+String7=0x15,Droga szybkiego ruchu  (łącznik)
+String8=0x10,Ligação de via expressa
+String9=0x05,Superstrada (collegamento)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x10802
+type=0x10802
 ;GRMN_TYPE: //
 UseOrientation=N
 LineWidth=5
@@ -2044,16 +1903,19 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FCD6A4"
 "2 c #C5A363"
-String1=0x00,Roundabout
-String2=0x01,Voie dÃ¢â‚¬â„¢accÃƒÂ¨s
+String=Roundabout
+String1=0x01,Voie d’accès
+String2=0x02,Bundesstraße (Verbindung)
+String4=0x03,Primair (Verbinding)
+String7=0x15,Droga krajowa (łącznik)
+String8=0x10,Ligação de via primária
+String9=0x05,Strada principale (collegamento)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x10803
+type=0x10803
 ;GRMN_TYPE: //
 UseOrientation=Y
 LineWidth=5
@@ -2061,16 +1923,19 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F7FABF"
 "2 c #BBC279"
-String1=0x00,Roundabout
-String2=0x01,Voie dÃ¢â‚¬â„¢accÃƒÂ¨s
+String=Roundabout
+String1=0x01,Voie d’accès
+String2=0x02,Bundesstraße (Verbindung)
+String4=0x03,Secundair (Verbinding)
+String7=0x15,Droga wojewódzka (łącznik)
+String8=0x10,Ligação de via secundária
+String9=0x05,Strada principale (collegamento)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x10804
+type=0x10804
 ;GRMN_TYPE: //
 UseOrientation=N
 LineWidth=8
@@ -2078,17 +1943,21 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
 "2 c #C5C5C5"
-String1=0x00,Roundabout
-String2=0x01,Route tertiaire
+String=Roundabout
+String1=0x01,Route tertiaire
+String2=0x02,Straße
+String4=0x03,Tertiair
+String7=0x15,Droga powiatowa
+String8=0x10,Via terciária
+String9=0x05,Strada
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x10a02
+type=0x10a02
 ;GRMN_TYPE: Water Features/INTERMITTENT_STREAM(NT)/Intermittent or dry stream, creek, or ditch/NT
+; not used by default style
 UseOrientation=Y
 Xpm="32 6 2  1"
 "! c #AAD3DF"
@@ -2100,34 +1969,42 @@ Xpm="32 6 2  1"
 " !!  !!  !!  !!  !!  !!  !!  !! "
 " !!  !!  !!  !!  !!  !!  !!  !! "
 ;12345678901234567890123456789012
-String1=0x00,River/Wadi (Intermittent)
-String2=0x01,Cours dÃ¢â‚¬â„¢eau (intermittent)
+String=River/Wadi (Intermittent)
+String1=0x01,Cours d’eau (intermittent)
+String2=0x02,Fluß (Periodisch)
+String4=0x03,Rivier (Periodiek)
+String7=0x15,Rzeka
+String8=0x10,Rio intermitente
+String9=0x05,Fiume (discontinuo)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x10a06
+type=0x10a06
 ;GRMN_TYPE: //
+; not used by default style
 UseOrientation=N
 LineWidth=4
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #BBBBBB"
 "2 c #949494"
-String1=0x00,Platform
-String2=0x01,Quai
+String=Platform
+String1=0x01,Quai
+String2=0x02,Plattform
+String4=0x03,Perron
+String7=0x15,Peron
+String8=0x10,Plataforma
+String9=0x05,Piattaforma
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
-
-
 [_line]
-Type=0x10c06
+type=0x10c06
 ;GRMN_TYPE: //
+; not used by default style
 UseOrientation=Y
 Xpm="32 7 2  1"
 "! c #99CCCC"
@@ -2140,8 +2017,13 @@ Xpm="32 7 2  1"
 "!!####!!!!####!!!!####!!!!####!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-String1=0x00,Road (Construction)
-String2=0x01,Route (en travaux)
+String=Road (Construction)
+String1=0x01,Route (en travaux)
+String2=0x02,Weg (Im bau)
+String4=0x03,Weg (In aanleg)
+String7=0x15,Droga (w budowie)
+String8=0x10,Rodovia em construção
+String9=0x05,Strada in costruzione
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2152,10 +2034,16 @@ CustomColor=No
 
 
 [_point]
-Type=0x00100
+type=0x001
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_10M/Large city with >10 million inhabitants/Non NT
-String1=0x00,City (>1m)
-String2=0x01,Capitale
+String=City (>1m)
+String1=0x01,Capitale
+String2=0x02,Hauptstadt
+String4=0x03,Hoofdstad
+String7=0x15,Stolica
+String8=0x10,Capital
+String9=0x05,Metropoli
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -2176,13 +2064,17 @@ DayXpm="11 11 2 1"   Colormode=16
 "   !!!!!   "
 ;12345678901
 [end]
-
-
 [_point]
-Type=0x00200
+type=0x002
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_5M, LARGE_CITY/Large city center, typically 1M+ inhabitants/Non NT
-String1=0x00,City (>800k)
-String2=0x01,Capitale
+String=City (>800k)
+String1=0x01,Capitale
+String2=0x02,Hauptstadt
+String4=0x03,Hoofdstad
+String7=0x15,Stolica
+String8=0x10,Capital
+String9=0x05,Metropoli
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -2203,13 +2095,17 @@ DayXpm="11 11 2 1"   Colormode=16
 "   !!!!!   "
 ;12345678901
 [end]
-
-
 [_point]
-Type=0x00300
+type=0x003
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_2M/Large city with a range of (2, 5] million inhabitants/Non NT
-String1=0x00,City (>400k)
-String2=0x01,Ville (>200k)
+String=City (>400k)
+String1=0x01,Ville (>200k)
+String2=0x02,Stadt (200t)
+String4=0x03,Stad (>200k)
+String7=0x15,Miasto (>200 tys.)
+String8=0x10,Cidade (>200k)
+String9=0x05,Città
 ExtendedLabels=Y
 FontStyle=LargeFont
 CustomColor=Day
@@ -2228,13 +2124,17 @@ DayXpm="9 9 2 1"   Colormode=16
 "  !!!!!  "
 ;123456789
 [end]
-
-
 [_point]
-Type=0x00400
+type=0x004
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_1M/Large city with a range of (1, 2] million inhabitants/Non NT
-String1=0x00,City (>300k)
-String2=0x01,Ville (>200k)
+String=City (>300k)
+String1=0x01,Ville (>200k)
+String2=0x02,Stadt (200t)
+String4=0x03,Stad (>200k)
+String7=0x15,Miasto (>200 tys.)
+String8=0x10,Cidade (>200k)
+String9=0x05,Città
 ExtendedLabels=Y
 FontStyle=LargeFont
 CustomColor=Day
@@ -2253,13 +2153,17 @@ DayXpm="9 9 2 1"   Colormode=16
 "  !!!!!  "
 ;123456789
 [end]
-
-
 [_point]
-Type=0x00500
+type=0x005
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_500K/City with the range of (0.5, 1] million inhabitants/Non NT
-String1=0x00,City (>200k)
-String2=0x01,Ville (>200k)
+String=City (>200k)
+String1=0x01,Ville (>200k)
+String2=0x02,Stadt (200t)
+String4=0x03,Stad (>200k)
+String7=0x15,Miasto (>200 tys.)
+String8=0x10,Cidade (>200k)
+String9=0x05,Città
 ExtendedLabels=Y
 FontStyle=LargeFont
 CustomColor=Day
@@ -2278,13 +2182,17 @@ DayXpm="9 9 2 1"   Colormode=16
 "  !!!!!  "
 ;123456789
 [end]
-
-
 [_point]
-Type=0x00600
+type=0x006
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_200K/City with the range of (200, 500] thousand inhabitants/Non NT
-String1=0x00,Small City / Large Town
-String2=0x01,Ville (>50k)
+String=Small City / Large Town
+String1=0x01,Ville (>50k)
+String2=0x02,Stadt (50t)
+String4=0x03,Woonplaats (>50k)
+String7=0x15,Miasto (>50 tys.)
+String8=0x10,Cidade (>50k)
+String9=0x05,Città
 ExtendedLabels=Y
 FontStyle=LargeFont
 CustomColor=Day
@@ -2303,13 +2211,17 @@ DayXpm="9 9 2 1"   Colormode=16
 "  !!!!!  "
 ;123456789
 [end]
-
-
 [_point]
-Type=0x00700
+type=0x007
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_100K/City with the range of (100, 200] thousand inhabitants/Non NT
-String1=0x00,Small City / Medium Town
-String2=0x01,Ville (>10k)
+String=Small City / Medium Town
+String1=0x01,Ville (>10k)
+String2=0x02,Stadt (10t)
+String4=0x03,Woonplaats (>10k)
+String7=0x15,Miasto (>10 tys.)
+String8=0x10,Cidade (>10k)
+String9=0x05,Città
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -2320,13 +2232,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x00800
+type=0x008
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_50K, MEDIUM_CITY/Medium city center, typically 50K-1M inhabitants/Non NT
-String1=0x00,Small City / Town
-String2=0x01,Village (>5k)
+String=Small City / Town
+String1=0x01,Village (>5k)
+String2=0x02,Dorf (>5t)
+String4=0x03,Dorp (>5k)
+String7=0x15,Wieś (>5 tys.)
+String8=0x10,Povoado (>5k)
+String9=0x05,Cittadina
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -2337,13 +2253,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x00900
+type=0x009
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_20K/City with the range of (20, 50] thousand inhabitants/Non NT
-String1=0x00,Small Town / Village
-String2=0x01,Village (>5k)
+String=Small Town / Village
+String1=0x01,Village (>5k)
+String2=0x02,Dorf (>5t)
+String4=0x03,Dorp (>5k)
+String7=0x15,Wieś (>5 tys.)
+String8=0x10,Povoado (>5k)
+String9=0x05,Cittadina
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -2354,13 +2274,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x00a00
+type=0x00a
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_10K/City with the range of (10, 20] thousand inhabitants/Non NT
-String1=0x00,Small Town / Suburb
-String2=0x01,Hameau
+String=Small Town / Suburb
+String1=0x01,Hameau
+String2=0x02,Ort, Weiler
+String4=0x03,Gehucht
+String7=0x15,Wioska
+String8=0x10,Lugarejo
+String9=0x05,Paese
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -2371,13 +2295,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x00b00
+type=0x00b
+subtype=0x00
 ;GRMN_TYPE: Political Entities/CITY_5K/City with the range of (5, 10] thousand inhabitants/Non NT
-String1=0x00,Hamlet
-String2=0x01,Nom
+String=Hamlet
+String1=0x01,Nom
+String2=0x02,Name
+String4=0x03,Naam
+String7=0x15,Nazwa
+String8=0x10,Nome
+String9=0x05,Borgo
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -2388,13 +2316,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02000
+type=0x020
+subtype=0x00
 ;GRMN_TYPE: //
-String1=0x00,Exit
-String2=0x01,Sortie
+String=Exit
+String1=0x01,Sortie
+String2=0x02,Ausfahrt
+String4=0x03,Afrit
+String7=0x15,Zjazd
+String8=0x10,Saída
+String9=0x05,Uscita
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -2408,13 +2340,17 @@ DayXpm="8 4 2 1"   Colormode=16
 " !!     "
 ;12345678
 [end]
-
-
 [_point]
-Type=0x0230f
+type=0x023
+subtype=0x0f
 ;GRMN_TYPE: //
-String1=0x00,Services
-String2=0x01,Sortie
+String=Services
+String1=0x01,Sortie
+String2=0x02,Ausfahrt
+String4=0x03,Afrit
+String7=0x15,Zjazd
+String8=0x10,Saída
+String9=0x05,Uscita
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -2428,13 +2364,17 @@ DayXpm="8 4 2 1"   Colormode=16
 " !!     "
 ;12345678
 [end]
-
-
 [_point]
-Type=0x02a00
+type=0x02a
+subtype=0x00
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT/General restaurant of unknown genre/Non NT
-String1=0x00,Restaurant
-String2=0x01,Restaurant
+String=Restaurant
+String1=0x01,Restaurant
+String2=0x02,Restaurant
+String4=0x03,Restaurant
+String7=0x15,Restauracja
+String8=0x10,Restaurante
+String9=0x05,Ristorante
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2460,13 +2400,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a01
+type=0x02a
+subtype=0x01
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_AMERICAN/American cuisine/Non NT
-String1=0x00,Restaurant (American/Burger)
-String2=0x01,Restaurant (AmÃƒÂ©ricain)
+String=Restaurant (American/Burger)
+String1=0x01,Restaurant (Américain)
+String2=0x02,Restaurant
+String4=0x03,Restaurant (Amerikaans)
+String7=0x15,Restauracja (Amerykańska)
+String8=0x10,Restaurante americano
+String9=0x05,Ristorante americano
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2492,13 +2436,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a02
+type=0x02a
+subtype=0x02
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_ASIAN/Asian cuisine/Non NT
-String1=0x00,Restaurant (Asian)
-String2=0x01,Restaurant (Asiatique)
+String=Restaurant (Asian)
+String1=0x01,Restaurant (Asiatique)
+String2=0x02,Restaurant (Asiatisch)
+String4=0x03,Restaurant (Aziatisch)
+String7=0x15,Restauracja (Azjatycka)
+String8=0x10,Restaurante asiático
+String9=0x05,Ristorante asiatico
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2524,13 +2472,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a03
+type=0x02a
+subtype=0x03
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_BARBECUE/Barbecue cuisine/Non NT
-String1=0x00,Restaurant (BBQ/Kebab)
-String2=0x01,Restaurant (Grill)
+String=Restaurant (BBQ/Kebab)
+String1=0x01,Restaurant (Grill)
+String2=0x02,Restaurant
+String4=0x03,Restaurant (BBQ)
+String7=0x15,Restauracja (Grill)
+String8=0x10,Churrascaria
+String9=0x05,Ristorante di grigliate
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2556,13 +2508,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a04
+type=0x02a
+subtype=0x04
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_CHINESE/Chinese cuisine/Non NT
-String1=0x00,Restaurant (Chinese/Vietnamese)
-String2=0x01,Restaurant (Chinois)
+String=Restaurant (Chinese/Vietnamese)
+String1=0x01,Restaurant (Chinois)
+String2=0x02,Restaurant (Chinesisch)
+String4=0x03,Restaurant (Chinees)
+String7=0x15,Restauracja (Chińska)
+String8=0x10,Restaurante chinês
+String9=0x05,Ristorante cinese
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2588,13 +2544,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a05
+type=0x02a
+subtype=0x05
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_DELI/Deli or sandwich shop/Non NT
-String1=0x00,Deli/Bakery
-String2=0x01,Restaurant (Grec)
+String=Deli/Bakery
+String1=0x01,Restaurant (Grec)
+String2=0x02,Restaurant (Griechisch)
+String4=0x03,Restaurant (Delicatesse)
+String7=0x15,Restauracja (Grecka)
+String8=0x10,Restaurante grego
+String9=0x05,Gastronomia
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2620,13 +2580,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a06
+type=0x02a
+subtype=0x06
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_INTRNTNL/International cuisine/Non NT
-String1=0x00,Restaurant (International)
-String2=0x01,Restaurant (International)
+String=Restaurant (International)
+String1=0x01,Restaurant (International)
+String2=0x02,Restaurant
+String4=0x03,Restaurant (Internationaal)
+String7=0x15,Restauracja (Międzynarodowa)
+String8=0x10,Restaurante Internacional
+String9=0x05,Ristorante internazionale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2652,13 +2616,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a07
+type=0x02a
+subtype=0x07
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_FAST_FOOD/Fast food establishment, i.e. McDonalds/Non NT
-String1=0x00,Fast Food
-String2=0x01,Restauration rapide
+String=Fast Food
+String1=0x01,Restauration rapide
+String2=0x02,Restaurant (Fastfood)
+String4=0x03,Restaurant (Fastfood)
+String7=0x15,Restauracja (Fastfood)
+String8=0x10,Lanchonete
+String9=0x05,Fast food
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2677,13 +2645,17 @@ DayXpm="14 9 3 1"   Colormode=16
 " #!!!!!!!!!!# "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02a08
+type=0x02a
+subtype=0x08
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_ITALIAN/Italian cuisine/Non NT
-String1=0x00,Restaurant (Italian)
-String2=0x01,Restaurant (Italien)
+String=Restaurant (Italian)
+String1=0x01,Restaurant (Italien)
+String2=0x02,Restaurant (Italienisch)
+String4=0x03,Restaurant (Italiaans)
+String7=0x15,Restauracja (Włoska)
+String8=0x10,Restaurante italiano
+String9=0x05,Ristorante italiano
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2709,13 +2681,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a09
+type=0x02a
+subtype=0x09
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_MEXICAN/Mexican cuisine/Non NT
-String1=0x00,Restaurant (Mexican/Spanish)
-String2=0x01,Restaurant (Mexicain/P)
+String=Restaurant (Mexican/Spanish)
+String1=0x01,Restaurant (Mexicain/P)
+String2=0x02,Restaurant (Mexikanisch)
+String4=0x03,Restaurant (Mexicaans)
+String7=0x15,Restauracja (Meksykańska)
+String8=0x10,Restaurante mexicano
+String9=0x05,Ristorante messicano
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2741,13 +2717,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a0a
+type=0x02a
+subtype=0x0a
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_PIZZA/Pizzeria/Non NT
-String1=0x00,Pizzeria
-String2=0x01,Pizzeria
+String=Pizzeria
+String1=0x01,Pizzeria
+String2=0x02,Restaurant (Pizza)
+String4=0x03,Restaurant (Pizza)
+String7=0x15,Restauracja (Pizza)
+String8=0x10,Pizzaria
+String9=0x05,Pizzeria
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2773,13 +2753,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a0b
+type=0x02a
+subtype=0x0b
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_SEAFOOD/Seafood restaurant/Non NT
-String1=0x00,Restaurant (Seafood)
-String2=0x01,Restaurant (Poissons/Fruits de mer)
+String=Restaurant (Seafood)
+String1=0x01,Restaurant (Poissons/Fruits de mer)
+String2=0x02,Restaurant (Fisch)
+String4=0x03,Restaurant (Vis)
+String7=0x15,Restauracja (Ryby)
+String8=0x10,Restaurante Frutos do Mar
+String9=0x05,Ristorante di pesce
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2805,13 +2789,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a0c
+type=0x02a
+subtype=0x0c
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_STEAK/Grill and steak brew pub restaurant/Non NT
-String1=0x00,Restaurant (Steak/Grill)
-String2=0x01,Restaurant (Steak)
+String=Restaurant (Steak/Grill)
+String1=0x01,Restaurant (Steak)
+String2=0x02,Restaurant (Steak)
+String4=0x03,Restaurant (Steak)
+String7=0x15,Restauracja (Steki)
+String8=0x10,Restaurante de carnes
+String9=0x05,Ristorante di carne
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2837,13 +2825,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a0d
+type=0x02a
+subtype=0x0d
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_DONUTS/Donut shop/Non NT
-String1=0x00,Restaurant (Bagel/Donut)
-String2=0x01,Restaurant (Beignets)
+String=Restaurant (Bagel/Donut)
+String1=0x01,Restaurant (Beignets)
+String2=0x02,Restaurant (Bagel)
+String4=0x03,Restaurant (Donuts)
+String7=0x15,Restauracja (Pączki)
+String8=0x10,Doceria
+String9=0x05,Panetteria
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2865,13 +2857,17 @@ DayXpm="13 12 3 1"   Colormode=16
 " !#######!   "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x02a0e
+type=0x02a
+subtype=0x0e
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_CAFES/Cafe or coffee shop/Non NT
-String1=0x00,Cafe/Diner
-String2=0x01,CafÃƒÂ©
+String=Cafe/Diner
+String1=0x01,Café
+String2=0x02,Cafe
+String4=0x03,Cafe
+String7=0x15,Kawiarnia
+String8=0x10,Café
+String9=0x05,Caffetteria
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2893,13 +2889,17 @@ DayXpm="13 12 3 1"   Colormode=16
 " !#######!   "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x02a0f
+type=0x02a
+subtype=0x0f
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_FRENCH/French cuisine/Non NT
-String1=0x00,Restaurant (French)
-String2=0x01,Restaurant (FranÃƒÂ§ais)
+String=Restaurant (French)
+String1=0x01,Restaurant (Français)
+String2=0x02,Restaurant
+String4=0x03,Restaurant (Frans)
+String7=0x15,Restauracja (Francuska)
+String8=0x10,Restaurante francês
+String9=0x05,Ristorante francese
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2925,13 +2925,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a10
+type=0x02a
+subtype=0x10
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_GERMAN/German cuisine/Non NT
-String1=0x00,Restaurant (German)
-String2=0x01,Restaurant (Allemand)
+String=Restaurant (German)
+String1=0x01,Restaurant (Allemand)
+String2=0x02,Restaurant (Deutsch)
+String4=0x03,Restaurant (Duits)
+String7=0x15,Restauracja (Niemiecka)
+String8=0x10,Restaurante alemão
+String9=0x05,Ristorante tedesco
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2957,13 +2961,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a11
+type=0x02a
+subtype=0x11
 ;GRMN_TYPE: Business - Food and Drink/RESTAURANT_BRITISH/British cuisine/Non NT
-String1=0x00,Restaurant (British/Fish & Chips)
-String2=0x01,Restaurant (Anglais)
+String=Restaurant (British/Fish & Chips)
+String1=0x01,Restaurant (Anglais)
+String2=0x02,Restaurant
+String4=0x03,Restaurant (Brits)
+String7=0x15,Restauracja (Angielska)
+String8=0x10,Restaurante inglês
+String9=0x05,Ristorante britannico
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -2989,13 +2997,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a12
+type=0x02a
+subtype=0x12
 ;GRMN_TYPE: //
-String1=0x00,Restaurant (Speciality/Regional)
-String2=0x01,Restaurant (SpÃƒÂ©cialitÃƒÂ©s)
+String=Restaurant (Speciality/Regional)
+String1=0x01,Restaurant (Spécialités)
+String2=0x02,Restaurant
+String4=0x03,Restaurant (Speciaal)
+String7=0x15,Restauracja (Specjalna)
+String8=0x10,Restaurante especial
+String9=0x05,Ristorante tipico
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3021,13 +3033,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a13
+type=0x02a
+subtype=0x13
 ;GRMN_TYPE: //
-String1=0x00,Restaurant (Other)
-String2=0x01,Restaurant (VÃƒÂ©gÃƒÂ©tarien)
+String=Restaurant (Other)
+String1=0x01,Restaurant (Végétarien)
+String2=0x02,Restaurant (Vegetarisch)
+String4=0x03,Restaurant (Vegetarisch)
+String7=0x15,Restauracja (Wegetariańska)
+String8=0x10,Restaurante vegetariano
+String9=0x05,Ristorante vegetariano
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3053,12 +3069,18 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02a14
+type=0x02a
+subtype=0x14
 ;GRMN_TYPE: //
-String1=0x01,Restaurant (RÃƒÂ©gional)
+; not used by default style
+String1=0x01,Restaurant (Régional)
+String2=0x02,Restaurant
+String3=0x04,Restaurant (Regional)
+String4=0x03,Restaurant (Regionaal)
+String7=0x15,Restauracja (Regionalna)
+String8=0x10,Restaurante regional
+String9=0x05,Ristorante regionale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3084,13 +3106,17 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02b01
+type=0x02b
+subtype=0x01
 ;GRMN_TYPE: Business - Lodging/HOTEL/Hotel/Non NT
-String1=0x00,Hotel/Motel
-String2=0x01,HÃƒÂ´tel
+String=Hotel/Motel
+String1=0x01,Hôtel
+String2=0x02,Hotel
+String4=0x03,Hotel
+String7=0x15,Hotel
+String8=0x10,Hotel
+String9=0x05,Albergo
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3110,13 +3136,17 @@ DayXpm="21 10 2 1"   Colormode=16
 "!!            !!     "
 ;123456789012345678901
 [end]
-
-
 [_point]
-Type=0x02b02
+type=0x02b
+subtype=0x02
 ;GRMN_TYPE: Business - Lodging/BED_AND_BREAKFAST/Bed and breakfast inn/Non NT
-String1=0x00,Bed & Breakfast/Guesthouse
-String2=0x01,Chambre d'hÃƒÂ´tes
+String=Bed & Breakfast/Guesthouse
+String1=0x01,Chambre d'hôtes
+String2=0x02,Pension
+String4=0x03,Bed en breakfast
+String7=0x15,Pensjonat
+String8=0x10,Pensão
+String9=0x05,Pensione/Bed and breakfast
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3143,13 +3173,17 @@ DayXpm="17 16 3 1"   Colormode=16
 "!!             !!"
 ;12345678901234567
 [end]
-
-
 [_point]
-Type=0x02b05
+type=0x02b
+subtype=0x05
 ;GRMN_TYPE: //
-String1=0x00,Camp/Caravan site
-String2=0x01,Camping
+String=Camp/Caravan site
+String1=0x01,Camping
+String2=0x02,Campingplatz
+String4=0x03,Camping
+String7=0x15,Kemping
+String8=0x10,Camping
+String9=0x05,Campeggio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3172,13 +3206,17 @@ DayXpm="22 13 2 1"   Colormode=16
 "       !!             "
 ;1234567890123456789012
 [end]
-
-
 [_point]
-Type=0x02b06
+type=0x02b
+subtype=0x06
 ;GRMN_TYPE: //
-String1=0x00,Shelter
-String2=0x01,Abri
+String=Shelter
+String1=0x01,Abri
+String2=0x02,Schutzhütte
+String4=0x03,Schuilplek
+String7=0x15,Schronienie
+String8=0x10,Cabana
+String9=0x05,Rifugio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3203,13 +3241,17 @@ DayXpm="16 16 2 1"   Colormode=16
 "    !      !    "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02b07
+type=0x02b
+subtype=0x07
 ;GRMN_TYPE: //
-String1=0x00,Wilderness Hut
-String2=0x01,Refuge
+String=Wilderness Hut
+String1=0x01,Refuge
+String2=0x02,Bergschutzhütte
+String4=0x03,Bergschuilhut
+String7=0x15,Schronisko
+String8=0x10,Cabana
+String9=0x05,Bivacco
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3233,13 +3275,17 @@ DayXpm="14 14 2 1"   Colormode=16
 " !! !!!!!! !! "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02c01
+type=0x02c
+subtype=0x01
 ;GRMN_TYPE: Business - Attractions/THEME_PARK/Amusement or theme park, i.e. Disneyland/Non NT
-String1=0x00,Amusement/Theme Park
-String2=0x01,Parc d'attractions
+String=Amusement/Theme Park
+String1=0x01,Parc d'attractions
+String2=0x02,Freizeitpark
+String4=0x03,Attractiepark
+String7=0x15,Park rozrywki
+String8=0x10,Parque temático / diversão
+String9=0x05,Parco a tema
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3250,13 +3296,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02c02
+type=0x02c
+subtype=0x02
 ;GRMN_TYPE: Business - Attractions/MUSEUM/Museum or historical society/Non NT
-String1=0x00,Museum/Historical
-String2=0x01,MusÃƒÂ©e
+String=Museum/Historical
+String1=0x01,Musée
+String2=0x02,Museum
+String4=0x03,Museum
+String7=0x15,Muzeum
+String8=0x10,Museu
+String9=0x05,Museo
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3279,13 +3329,17 @@ DayXpm="20 13 2 1"   Colormode=16
 "!!!!!!!!!!!!!!!!    "
 ;12345678901234567890
 [end]
-
-
 [_point]
-Type=0x02c03
+type=0x02c
+subtype=0x03
 ;GRMN_TYPE: Business - Attractions/LIBRARY/Library/Non NT
-String1=0x00,Library
-String2=0x01,BibliothÃƒÂ¨que
+String=Library
+String1=0x01,Bibliothèque
+String2=0x02,Bibliothek
+String4=0x03,Bibliotheek
+String7=0x15,Biblioteka
+String8=0x10,Biblioteca
+String9=0x05,Biblioteca
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3307,13 +3361,17 @@ DayXpm="20 12 2 1"   Colormode=16
 "     !!!!!          "
 ;12345678901234567890
 [end]
-
-
 [_point]
-Type=0x02c04
+type=0x02c
+subtype=0x04
 ;GRMN_TYPE: Business - Attractions/LANDMARK/Landmark/Non NT
-String1=0x00,Landmark/Arts/Attraction/Viewpoint
-String2=0x01,Point de vue, Ã…â€œuvre d'art, attraction
+String=Landmark/Arts/Attraction/Viewpoint
+String1=0x01,Point de vue, œuvre d'art, attraction
+String2=0x02,Aussichtspunkt, Kunstwerk, Attraktion
+String4=0x03,Bezienswaardigheid
+String7=0x15,Sztuka, Atrakcja, Punkt widokowy
+String8=0x10,Atração
+String9=0x05,Opera/Veduta
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3340,13 +3398,17 @@ DayXpm="12 17 2 1"   Colormode=16
 "!!!!!!!!    "
 ;123456789012
 [end]
-
-
 [_point]
-Type=0x02c05
+type=0x02c
+subtype=0x05
 ;GRMN_TYPE: Business - Attractions/SCHOOL/School/Non NT
-String1=0x00,Education
-String2=0x01,Ãƒâ€°cole
+String=Education
+String1=0x01,École
+String2=0x02,Schule
+String4=0x03,Educatie
+String7=0x15,Edukacja
+String8=0x10,Escola
+String9=0x05,Scuola
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -3357,13 +3419,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02c06
+type=0x02c
+subtype=0x06
 ;GRMN_TYPE: Business - Attractions/GARDEN, PARK/Garden, park/Non NT
-String1=0x00,Park/Garden/Playground
-String2=0x01,Aire de jeu
+String=Park/Garden/Playground
+String1=0x01,Aire de jeu
+String2=0x02,Spielplatz
+String4=0x03,Speelplaats
+String7=0x15,Plac zabaw
+String8=0x10,Parque infantil
+String9=0x05,Parco giochi
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3389,13 +3455,17 @@ DayXpm="18 17 2 1"   Colormode=16
 "     !!!!!!!!     "
 ;123456789012345678
 [end]
-
-
 [_point]
-Type=0x02c07
+type=0x02c
+subtype=0x07
 ;GRMN_TYPE: Business - Attractions/ZOO/Zoo/Non NT
-String1=0x00,Zoo/Aquarium
-String2=0x01,Zoo
+String=Zoo/Aquarium
+String1=0x01,Zoo
+String2=0x02,Zoo
+String4=0x03,Dierentuin
+String7=0x15,Zoo
+String8=0x10,Zoológico
+String9=0x05,Zoo/Acquario
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -3406,13 +3476,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02c08
+type=0x02c
+subtype=0x08
 ;GRMN_TYPE: Business - Attractions/ARENA/Arena or track/Non NT
-String1=0x00,Arena/Track
-String2=0x01,Sport
+String=Arena/Track
+String1=0x01,Sport
+String2=0x02,Sport
+String4=0x03,Sport
+String7=0x15,Sport
+String8=0x10,Esporte
+String9=0x05,Sport
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3423,13 +3497,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02c09
+type=0x02c
+subtype=0x09
 ;GRMN_TYPE: Business - Attractions/HALL/Auditorium or hall/Non NT
-String1=0x00,Hall/Auditorium
-String2=0x01,Auditorium
+String=Hall/Auditorium
+String1=0x01,Auditorium
+String2=0x02,Konferenzzentrum
+String4=0x03,Conferentiecentrum
+String7=0x15,Centrum konferencyjne
+String8=0x10,Conferência
+String9=0x05,Fiera
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3439,13 +3517,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02c0a
+type=0x02c
+subtype=0x0a
 ;GRMN_TYPE: Business - Attractions/WINERY/Winery/Non NT
-String1=0x00,Winery
-String2=0x01,Cave ÃƒÂ  vin
+String=Winery
+String1=0x01,Cave à vin
+String2=0x02,Weinkeller
+String4=0x03,Wijnmaker
+String7=0x15,Winiarnia
+String8=0x10,Adega
+String9=0x05,Cantina
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3455,13 +3537,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02c0b
+type=0x02c
+subtype=0x0b
 ;GRMN_TYPE: Business - Attractions/PLACE_OF_WORSHIP/Religious place of worship/Non NT
-String1=0x00,Place of Worship
-String2=0x01,Lieu de culte
+String=Place of Worship
+String1=0x01,Lieu de culte
+String2=0x02,Religiöses Gebäude
+String4=0x03,Gebedshuis
+String7=0x15,Budynek religijny
+String8=0x10,Edifício religioso
+String9=0x05,Luogo di culto
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3486,13 +3572,17 @@ DayXpm="12 15 2 1"   Colormode=16
 "    !!!!!!!!"
 ;123456789012
 [end]
-
-
 [_point]
-Type=0x02c0c
+type=0x02c
+subtype=0x0c
 ;GRMN_TYPE: //
-String1=0x00,Hot Spring / Volcano
-String2=0x01,Volcan
+String=Hot Spring / Volcano
+String1=0x01,Volcan
+String2=0x02,Vulkan
+String4=0x03,Vulkaan
+String7=0x15,Wulkan
+String8=0x10,Vulcão
+String9=0x05,Vulcano
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3512,13 +3602,17 @@ DayXpm="14 10 2 1"   Colormode=16
 "!!!!!!!!!     "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02c0d
+type=0x02c
+subtype=0x0d
 ;GRMN_TYPE: Business - Attractions/POW_MOSQUE/Religious place of worship/Non NT
-String1=0x00,Tourist attraction
-String2=0x01,Attraction touristique
+String=Tourist attraction
+String1=0x01,Attraction touristique
+String2=0x02,Touristenattraktion
+String4=0x03,Touristische attractie
+String7=0x15,Atrakcja turystyczna
+String8=0x10,Atração turística
+String9=0x05,Attrazione turistica
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3533,13 +3627,17 @@ DayXpm="10 5 2 1"   Colormode=16
 " !!!      "
 ;1234567890
 [end]
-
-
 [_point]
-Type=0x02d01
+type=0x02d
+subtype=0x01
 ;GRMN_TYPE: Business - Entertainment/LIVE_THEATER/Live theater/Non NT
-String1=0x00,Live Theatre
-String2=0x01,ThÃƒÂ©ÃƒÂ¢tre
+String=Live Theatre
+String1=0x01,Théâtre
+String2=0x02,Theater
+String4=0x03,Theater
+String7=0x15,Teatr
+String8=0x10,Teatro
+String9=0x05,Teatro
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3562,13 +3660,18 @@ DayXpm="18 13 2 1"   Colormode=16
 "        !!!!      "
 ;123456789012345678
 [end]
-
-
 [_point]
-Type=0x02d02
+type=0x02d
+subtype=0x02
 ;GRMN_TYPE: Business - Entertainment/BAR/Bar or club/Non NT
-String1=0x00,Bar/Nightclub
-String2=0x01,Bar
+String=Bar/Nightclub
+String1=0x01,Bar
+String2=0x02,Bar
+String3=0x04,Pub
+String4=0x03,Bar
+String7=0x15,Bar
+String8=0x10,Bar
+String9=0x05,Bar
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3589,13 +3692,18 @@ DayXpm="13 12 2 1"   Colormode=16
 "   !!!!!!!   "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x02d03
+type=0x02d
+subtype=0x03
 ;GRMN_TYPE: Business - Entertainment/MOVIE_THEATER/Movie theater or cinema/Non NT
-String1=0x00,Movie Theatre
-String2=0x01,CinÃƒÂ©ma
+String=Movie Theatre
+String1=0x01,Cinéma
+String2=0x02,Kino
+String3=0x04,Cinema
+String4=0x03,Bioscoop
+String7=0x15,Kino
+String8=0x10,Cinema
+String9=0x05,Cinema
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3618,13 +3726,17 @@ DayXpm="16 13 2 1"   Colormode=16
 "!!!!!!!!!!!!    "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02d04
+type=0x02d
+subtype=0x04
 ;GRMN_TYPE: Business - Entertainment/CASINO/Casino/Non NT
-String1=0x00,Casino
-String2=0x01,Casino
+String=Casino
+String1=0x01,Casino
+String2=0x02,Casino
+String4=0x03,Casino
+String7=0x15,Kasyno
+String8=0x10,Cassino
+String9=0x05,Sala da gioco
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3649,13 +3761,17 @@ DayXpm="16 15 2 1"   Colormode=16
 "        !!!!!!! "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02d05
+type=0x02d
+subtype=0x05
 ;GRMN_TYPE: Business - Entertainment/GOLF_COURSE/Golf course/Non NT
-String1=0x00,Golf Course
-String2=0x01,Golf
+String=Golf Course
+String1=0x01,Golf
+String2=0x02,Golfplatz
+String4=0x03,Golfbaan
+String7=0x15,Golf
+String8=0x10,Campo de golfe
+String9=0x05,Campo da golf
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3683,13 +3799,17 @@ DayXpm="19 18 2 1"   Colormode=16
 "!    !!   !!       "
 ;1234567890123456789
 [end]
-
-
 [_point]
-Type=0x02d06
+type=0x02d
+subtype=0x06
 ;GRMN_TYPE: Business - Entertainment/SKI_CENTER/Ski area or resort/Non NT
-String1=0x00,Skiing Center/Resort
-String2=0x01,Ski
+String=Skiing Center/Resort
+String1=0x01,Ski
+String2=0x02,Ski
+String4=0x03,Ski
+String7=0x15,Narty
+String8=0x10,Esqui
+String9=0x05,Centro sciistico
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3712,13 +3832,18 @@ DayXpm="16 13 2 1"   Colormode=16
 "          !!!!! "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02d07
+type=0x02d
+subtype=0x07
 ;GRMN_TYPE: Business - Entertainment/BOWLING/Bowling alley/Non NT
-String1=0x00,Bowling Center
-String2=0x01,Bowling
+String=Bowling Center
+String1=0x01,Bowling
+String2=0x02,Bowling
+String3=0x04,Bowling Alley
+String4=0x03,Bowlingbaan
+String7=0x15,Kręgle
+String8=0x10,Boliche
+String9=0x05,Sala da bowling
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3744,13 +3869,17 @@ DayXpm="18 16 2 1"   Colormode=16
 "   !!!     !!!!   "
 ;123456789012345678
 [end]
-
-
 [_point]
-Type=0x02d08
+type=0x02d
+subtype=0x08
 ;GRMN_TYPE: Business - Entertainment/ICE_SKATING/Ice skating rink/Non NT
-String1=0x00,Ice Skating
-String2=0x01,Patinoire
+String=Ice Skating
+String1=0x01,Patinoire
+String2=0x02,Eisbahn
+String4=0x03,Schaatsbaan
+String7=0x15,Lodowisko
+String8=0x10,Patinação no gelo
+String9=0x05,Pista di pattinaggio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3773,13 +3902,17 @@ DayXpm="15 12 3 1"   Colormode=16
 "############## "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02d09
+type=0x02d
+subtype=0x09
 ;GRMN_TYPE: Business - Entertainment/SWIMMING_POOL/Swimming pool/Non NT
-String1=0x00,Swimming Pool
-String2=0x01,Piscine
+String=Swimming Pool
+String1=0x01,Piscine
+String2=0x02,Schwimmbad
+String4=0x03,Zwembad
+String7=0x15,Basen
+String8=0x10,Piscina
+String9=0x05,Piscina
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -3802,13 +3935,17 @@ DayXpm="19 13 2 1"   Colormode=16
 "!   !!   !!   !    "
 ;1234567890123456789
 [end]
-
-
 [_point]
-Type=0x02d0a
+type=0x02d
+subtype=0x0a
 ;GRMN_TYPE: Business - Entertainment/FITNESS_CENTER/Fitness center or gym/Non NT
-String1=0x00,Sports Fitnes Center
-String2=0x01,Centre sportif
+String=Sports Fitnes Center
+String1=0x01,Centre sportif
+String2=0x02,Sportzentrum
+String4=0x03,Sportcentrum
+String7=0x15,Centrum sportowe
+String8=0x10,Centro esportivo
+String9=0x05,Centro sportivo
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -3819,13 +3956,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02d0b
+type=0x02d
+subtype=0x0b
 ;GRMN_TYPE: Business - Entertainment/SPORT_AIRPORT/Sport or R-C airport/Non NT
-String1=0x00,Public Sport Airport
-String2=0x01,AÃƒÂ©roport
+String=Public Sport Airport
+String1=0x01,Aéroport
+String2=0x02,Flughafen
+String4=0x03,Luchthaven
+String7=0x15,Lotnisko
+String8=0x10,Aeroporto
+String9=0x05,Aerodromo
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -3851,13 +3992,17 @@ DayXpm="16 16 2 1"   Colormode=16
 "   !!!!  !!!!   "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02e01
+type=0x02e
+subtype=0x01
 ;GRMN_TYPE: Business - Shopping/DEPARTMENT_STORE/Department store/Non NT
-String1=0x00,Department Store
-String2=0x01,HypermarchÃƒÂ©
+String=Department Store
+String1=0x01,Hypermarché
+String2=0x02,Kaufhaus
+String4=0x03,Warenhuis
+String7=0x15,Centrum handlowe
+String8=0x10,Shopping Center
+String9=0x05,Grande magazzino
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3883,13 +4028,17 @@ DayXpm="14 17 2 1"   Colormode=16
 "!!!!!!!!!!!!!!"
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02e02
+type=0x02e
+subtype=0x02
 ;GRMN_TYPE: Business - Shopping/GROCERY_STORE/Grocery store/Non NT
-String1=0x00,Grocery Store
-String2=0x01,Boulangerie
+String=Grocery Store
+String1=0x01,Boulangerie
+String2=0x02,Bäckerei
+String4=0x03,Bakker
+String7=0x15,Piekarnia
+String8=0x10,Padaria
+String9=0x05,Alimentari/Drogheria
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3906,13 +4055,17 @@ DayXpm="14 8 2 1"   Colormode=16
 " !!!!!!!!!!!! "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02e03
+type=0x02e
+subtype=0x03
 ;GRMN_TYPE: Business - Shopping/GENERAL_STORE/General store/Non NT
-String1=0x00,General Merchandise
-String2=0x01,SupermarchÃƒÂ©
+String=General Merchandise
+String1=0x01,Supermarché
+String2=0x02,Supermarkt
+String4=0x03,Algemeen
+String7=0x15,Supermarket
+String8=0x10,Loja
+String9=0x05,Supermercato
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3932,13 +4085,17 @@ DayXpm="13 11 2 1"   Colormode=16
 "  !!!!!!!!!  "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x02e04
+type=0x02e
+subtype=0x04
 ;GRMN_TYPE: Business - Shopping/SHOPPING_CENTER/Shopping center or mall/Non NT
-String1=0x00,Shopping Center
-String2=0x01,Centre commercial
+String=Shopping Center
+String1=0x01,Centre commercial
+String2=0x02,Einkaufszentrum
+String4=0x03,Winkelcentrum
+String7=0x15,Centrum handlowe
+String8=0x10,Shopping Center
+String9=0x05,Centro commerciale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3964,13 +4121,17 @@ DayXpm="14 17 2 1"   Colormode=16
 "!!!!!!!!!!!!!!"
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02e05
+type=0x02e
+subtype=0x05
 ;GRMN_TYPE: Business - Shopping/PHARMACY/Pharmacy/Non NT
-String1=0x00,Pharmacy/Chemist
-String2=0x01,Pharmacie
+String=Pharmacy/Chemist
+String1=0x01,Pharmacie
+String2=0x02,Apotheke
+String4=0x03,Apotheek
+String7=0x15,Apteka
+String8=0x10,Farmácia
+String9=0x05,Farmacia
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -3993,13 +4154,17 @@ DayXpm="10 14 2 1"   Colormode=16
 "!!!!!!!!!!"
 ;1234567890
 [end]
-
-
 [_point]
-Type=0x02e06
+type=0x02e
+subtype=0x06
 ;GRMN_TYPE: Business - Shopping/CONVENIENCE_STORE/Convenience store/Non NT
-String1=0x00,Convenience with Auto Fuel
-String2=0x01,Station-service
+String=Convenience with Auto Fuel
+String1=0x01,Station-service
+String2=0x02,Tankstellenshop
+String4=0x03,Tankstation shop
+String7=0x15,Sklep na stacji paliw
+String8=0x10,Loja de conveniência
+String9=0x05,Negozio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4013,13 +4178,18 @@ DayXpm="5 5 2 1"   Colormode=16
 " !!! "
 ;12345
 [end]
-
-
 [_point]
-Type=0x02e07
+type=0x02e
+subtype=0x07
 ;GRMN_TYPE: Business - Shopping/CLOTHING_RETAIL/Clothing store/Non NT
-String1=0x00,Apparel
-String2=0x01,Magasin de vÃƒÂªtements
+String=Apparel
+String1=0x01,Magasin de vêtements
+String2=0x02,Bekleidungsgeschäft
+String3=0x04,Clothes Shop
+String4=0x03,Kleding
+String7=0x15,Sklep odzieżowy
+String8=0x10,Loja de roupas
+String9=0x05,Negozio di abbigliamento
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4039,13 +4209,18 @@ DayXpm="14 11 2 1"   Colormode=16
 "   !!!!!!!!   "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02e08
+type=0x02e
+subtype=0x08
 ;GRMN_TYPE: Business - Shopping/HOME_AND_GARDEN_STORE/House and garden store/Non NT
-String1=0x00,House & Garden
-String2=0x01,Jardinerie
+String=House & Garden
+String1=0x01,Jardinerie
+String2=0x02,Gartencentrum
+String3=0x04,Garden Center
+String4=0x03,Huis- en tuin
+String7=0x15,Centrum ogrodnicze
+String8=0x10,Loja de jardinagem
+String9=0x05,Negozio di giardinaggio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4069,13 +4244,18 @@ DayXpm="16 15 2 1"   Colormode=16
 "         !!!!!  "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02e09
+type=0x02e
+subtype=0x09
 ;GRMN_TYPE: Business - Shopping/HOME_FURNISHINGS_STORE/Furniture store/Non NT
-String1=0x00,Home Furnishings
-String2=0x01,Magasin dÃ¢â‚¬â„¢ameublement
+String=Home Furnishings
+String1=0x01,Magasin d’ameublement
+String2=0x02,Möbelgeschäft
+String3=0x04,Furniture
+String4=0x03,Meubels
+String7=0x15,Meble
+String8=0x10,Loja de móveis
+String9=0x05,Negozio di arredamento
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4094,13 +4274,17 @@ DayXpm="14 10 2 1"   Colormode=16
 "  !!!    !!!  "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02e0a
+type=0x02e
+subtype=0x0a
 ;GRMN_TYPE: Business - Shopping/SPECIALTY_RETAIL/Specialty store/Non NT
-String1=0x00,Speciality Retail / Organic
-String2=0x01,Magasin
+String=Speciality Retail / Organic
+String1=0x01,Magasin
+String2=0x02,Geschäft
+String4=0x03,Winkel
+String7=0x15,Sklep
+String8=0x10,Loja
+String9=0x05,Negozio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4114,13 +4298,17 @@ DayXpm="5 5 2 1"   Colormode=16
 " !!! "
 ;12345
 [end]
-
-
 [_point]
-Type=0x02e0b
+type=0x02e
+subtype=0x0b
 ;GRMN_TYPE: Business - Shopping/SOFTWARE_RETAIL/Computer software store/Non NT
-String1=0x00,Computer/Software
-String2=0x01,Magasin dÃ¢â‚¬â„¢ÃƒÂ©lectronique
+String=Computer/Software
+String1=0x01,Magasin d’électronique
+String2=0x02,Computerhandel
+String4=0x03,Elektronica
+String7=0x15,Elektronika
+String8=0x10,Loja de eletrônicos
+String9=0x05,Negozio di elettronica
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4143,13 +4331,17 @@ DayXpm="14 14 2 1"   Colormode=16
 " !!!!!!!!!!!! "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02e0c
+type=0x02e
+subtype=0x0c
 ;GRMN_TYPE: //
-String1=0x00,Shop
-String2=0x01,Magasin
+String=Shop
+String1=0x01,Magasin
+String2=0x02,Geschäft
+String4=0x03,Winkel
+String7=0x15,Sklep
+String8=0x10,Loja
+String9=0x05,Negozio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4163,13 +4355,17 @@ DayXpm="5 5 2 1"   Colormode=16
 " !!! "
 ;12345
 [end]
-
-
 [_point]
-Type=0x02f01
+type=0x02f
+subtype=0x01
 ;GRMN_TYPE: Business - Services/GAS_STATION/Gas, fuel station/Non NT
-String1=0x00,Auto-Fuel Station
-String2=0x01,Station-essence
+String=Auto-Fuel Station
+String1=0x01,Station-essence
+String2=0x02,Tankstelle
+String4=0x03,Tankstation
+String7=0x15,Stacja paliw
+String8=0x10,Posto de combustível
+String9=0x05,Stazione di servizio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4194,13 +4390,17 @@ DayXpm="12 14 3 1"   Colormode=16
 "!!!!!!!!    "
 ;123456789012
 [end]
-
-
 [_point]
-Type=0x02f02
+type=0x02f
+subtype=0x02
 ;GRMN_TYPE: Business - Services/AUTO_RENTAL/Car rental location/Non NT
-String1=0x00,Car rental
-String2=0x01,Location de voitures
+String=Car rental
+String1=0x01,Location de voitures
+String2=0x02,Autoverleih
+String4=0x03,Autoverhuur
+String7=0x15,Wypożyczalnia samochodów
+String8=0x10,Aluguel de carro
+String9=0x05,Noleggio veicoli
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4223,13 +4423,17 @@ DayXpm="10 14 2 1"   Colormode=16
 " !!    !! "
 ;1234567890
 [end]
-
-
 [_point]
-Type=0x02f03
+type=0x02f
+subtype=0x03
 ;GRMN_TYPE: Business - Services/AUTO_REPAIR/Car repair, mechanic/Non NT
-String1=0x00,Car Repairs
-String2=0x01,RÃƒÂ©paration automobile
+String=Car Repairs
+String1=0x01,Réparation automobile
+String2=0x02,Autowerkstatt
+String4=0x03,Autogarage
+String7=0x15,Garaż
+String8=0x10,Garagem
+String9=0x05,Riparazione veicoli
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4252,13 +4456,17 @@ DayXpm="10 14 2 1"   Colormode=16
 " !!    !! "
 ;1234567890
 [end]
-
-
 [_point]
-Type=0x02f04
+type=0x02f
+subtype=0x04
 ;GRMN_TYPE: Business - Services/AIRPORT/Airport/Non NT
-String1=0x00,Airport
-String2=0x01,AÃƒÂ©roport
+String=Airport
+String1=0x01,Aéroport
+String2=0x02,Flughafen
+String4=0x03,Luchthaven
+String7=0x15,Lotnisko
+String8=0x10,Aeroporto
+String9=0x05,Aerodromo
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -4284,13 +4492,17 @@ DayXpm="16 16 2 1"   Colormode=16
 "   !!!!  !!!!   "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02f05
+type=0x02f
+subtype=0x05
 ;GRMN_TYPE: Business - Services/POST_OFFICE/Post office/Non NT
-String1=0x00,Post Office
-String2=0x01,Poste
+String=Post Office
+String1=0x01,Poste
+String2=0x02,Postamt
+String4=0x03,Postkantoor
+String7=0x15,Poczta
+String8=0x10,Correio
+String9=0x05,Poste
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4309,13 +4521,17 @@ DayXpm="14 10 2 1"   Colormode=16
 " !!!!!!!!!!!! "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02f06
+type=0x02f
+subtype=0x06
 ;GRMN_TYPE: Business - Services/BANK/Bank/Non NT
-String1=0x00,Bank/ATM
-String2=0x01,Banque
+String=Bank/ATM
+String1=0x01,Banque
+String2=0x02,Bank
+String4=0x03,Bank
+String7=0x15,Bank
+String8=0x10,Banco
+String9=0x05,Banca/Sportello
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4336,13 +4552,17 @@ DayXpm="16 11 2 1"   Colormode=16
 "!!!!!!!!!!!!!!  "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02f07
+type=0x02f
+subtype=0x07
 ;GRMN_TYPE: Business - Services/DEALER/Dealer of manufactured goods/Non NT
-String1=0x00,Car/Parts Dealer
-String2=0x01,Concessionnaire automobile
+String=Car/Parts Dealer
+String1=0x01,Concessionnaire automobile
+String2=0x02,Autohändler
+String4=0x03,Autodealer
+String7=0x15,Sprzedaż samochodów
+String8=0x10,Revenda de carros
+String9=0x05,Vendita veicoli
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4362,13 +4582,18 @@ DayXpm="13 10 2 1"   Colormode=16
 " !!!     !!! "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x02f08
+type=0x02f
+subtype=0x08
 ;GRMN_TYPE: Business - Services/GND_TRANSPORT/Ground transportation status, i.e. a bus station/Non NT
-String1=0x00,Ground Transportation
-String2=0x01,Gare routiÃƒÂ¨re
+String=Ground Transportation
+String1=0x01,Gare routière
+String2=0x02,Busbahnhof
+String3=0x04,Bus/Railway/Ferry Station
+String4=0x03,Busstation
+String7=0x15,Przystanek autobusowy
+String8=0x10,Estação de ônibus
+String9=0x05,Stazione
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -4395,13 +4620,18 @@ DayXpm="21 16 3 1"   Colormode=16
 "!!!!!!!!!!!!!!!!     "
 ;123456789012345678901
 [end]
-
-
 [_point]
-Type=0x02f09
+type=0x02f
+subtype=0x09
 ;GRMN_TYPE: Business - Services/MARINA/Marina/Non NT
-String1=0x00,Marina/Repairs & Storage
-String2=0x01,Magasin accastillage et bateaux
+String=Marina/Repairs & Storage
+String1=0x01,Magasin accastillage et bateaux
+String2=0x02,Bootsgeschäft
+String3=0x04,Boat Chandler
+String4=0x03,Botenwinkel
+String7=0x15,Sklep żeglarski
+String8=0x10,Loja de iates
+String9=0x05,Assistenza imbarcazioni
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4415,13 +4645,18 @@ DayXpm="5 5 2 1"   Colormode=16
 " !!! "
 ;12345
 [end]
-
-
 [_point]
-Type=0x02f0a
+type=0x02f
+subtype=0x0a
 ;GRMN_TYPE: Business - Services/WRECKER_SERVICE/Wrecker service/Non NT
-String1=0x00,Wrecker Service
-String2=0x01,DÃƒÂ©panneuse
+String=Wrecker Service
+String1=0x01,Dépanneuse
+String2=0x02,Schleppdienst
+String3=0x04,Scrap Yard
+String4=0x03,Sleepdienst
+String7=0x15,Holowanie
+String8=0x10,Guincho
+String9=0x05,Soccorso stradale
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4435,13 +4670,17 @@ DayXpm="5 5 2 1"   Colormode=16
 " !!! "
 ;12345
 [end]
-
-
 [_point]
-Type=0x02f0b
+type=0x02f
+subtype=0x0b
 ;GRMN_TYPE: Business - Services/PARKING/Parking/Non NT
-String1=0x00,Parking
-String2=0x01,Parking
+String=Parking
+String1=0x01,Parking
+String2=0x02,Parking
+String4=0x03,Parkeerplaats
+String7=0x15,Parking
+String8=0x10,Estacionamento
+String9=0x05,Parcheggio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4464,13 +4703,18 @@ DayXpm="15 13 2 1"   Colormode=16
 "!!             "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02f0c
+type=0x02f
+subtype=0x0c
 ;GRMN_TYPE: Business - Services/REST_AREA_TOURIST_INFO/Rest area, Tourist information/Non NT
-String1=0x00,Rest Area / Tourist Info
-String2=0x01,WC
+String=Rest Area / Tourist Info
+String1=0x01,WC
+String2=0x02,WC
+String3=0x04,Toilets
+String4=0x03,Toilet
+String7=0x15,Toaleta
+String8=0x10,Banheiro
+String9=0x05,Servizi igienici
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4493,13 +4737,17 @@ DayXpm="15 14 2 1"   Colormode=16
 "  !!   !   !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x02f0d
+type=0x02f
+subtype=0x0d
 ;GRMN_TYPE: Business - Services/AUTO_CLUB/Automobile club/Non NT
-String1=0x00,Automobile Club
-String2=0x01,Club automobile
+String=Automobile Club
+String1=0x01,Club automobile
+String2=0x02,Automobilclub
+String4=0x03,Auto club
+String7=0x15,Klub samochodowy
+String8=0x10,Clube automobilístico
+String9=0x05,Amministrazione veicoli
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4509,13 +4757,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x02f0e
+type=0x02f
+subtype=0x0e
 ;GRMN_TYPE: Business - Services/CAR_WASH/Car wash/Non NT
-String1=0x00,Car Wash
-String2=0x01,Lavage-auto
+String=Car Wash
+String1=0x01,Lavage-auto
+String2=0x02,Autowaschanlage
+String4=0x03,Autowasstraat
+String7=0x15,Myjnia
+String8=0x10,Lava jato
+String9=0x05,Lavaggio veicoli
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4538,13 +4790,18 @@ DayXpm="10 14 2 1"   Colormode=16
 " !!    !! "
 ;1234567890
 [end]
-
-
 [_point]
-Type=0x02f10
+type=0x02f
+subtype=0x10
 ;GRMN_TYPE: Business - Services/SERVICES_PERSONAL/Personal services/Non NT
-String1=0x00,Personal Service
-String2=0x01,Coiffeur
+String=Personal Service
+String1=0x01,Coiffeur
+String2=0x02,Friseur
+String3=0x04,Hairdresser
+String4=0x03,Kapper
+String7=0x15,Fryzjer
+String8=0x10,Cabeleireiro
+String9=0x05,Servizi per la persona
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4567,13 +4824,17 @@ DayXpm="14 14 2 1"   Colormode=16
 " !!!  !!!   !!"
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x02f12
+type=0x02f
+subtype=0x12
 ;GRMN_TYPE: Business - Services/COMMUNICATION_SERVICES/Communication services/Non NT
-String1=0x00,Communications
-String2=0x01,Wifi
+String=Communications
+String1=0x01,Wifi
+String2=0x02,Wifi
+String4=0x03,Wifi
+String7=0x15,Wifi
+String8=0x10,Wifi
+String9=0x05,Servizi di comunicazione
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4593,13 +4854,18 @@ DayXpm="11 11 2 1"   Colormode=16
 "! ! !  !!!!"
 ;12345678901
 [end]
-
-
 [_point]
-Type=0x02f13
+type=0x02f
+subtype=0x13
 ;GRMN_TYPE: Business - Services/REPAIR_SERVICE/Repair service/Non NT
-String1=0x00,Repair Service
-String2=0x01,VÃƒÂ©lo
+String=Repair Service
+String1=0x01,Vélo
+String2=0x02,Rad
+String3=0x04,Bicycle
+String4=0x03,Fietsen
+String7=0x15,Rower
+String8=0x10,Bicicleta
+String9=0x05,Servizi di riparazione
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4620,13 +4886,17 @@ DayXpm="16 11 2 1"   Colormode=16
 " !!!!    !!!!   "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x02f14
+type=0x02f
+subtype=0x14
 ;GRMN_TYPE: Business - Services/SOCIAL_SERVICES/Social services/Non NT
-String1=0x00,Social Service
-String2=0x01,Services sociaux
+String=Social Service
+String1=0x01,Services sociaux
+String2=0x02,Soziale Einrichtung
+String4=0x03,Sociale instelling
+String7=0x15,Social
+String8=0x10,Social
+String9=0x05,Istituzione sociale
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4652,13 +4922,18 @@ DayXpm="19 16 2 1"   Colormode=16
 "  !!!!  !!!!       "
 ;1234567890123456789
 [end]
-
-
 [_point]
-Type=0x02f15
+type=0x02f
+subtype=0x15
 ;GRMN_TYPE: Business - Services/UTILITY/Utility (gas, electric, water) services/Non NT
-String1=0x00,Utility
-String2=0x01,DÃƒÂ©chetterie
+String=Utility
+String1=0x01,Déchetterie
+String2=0x02,Recycling
+String3=0x04,Postbox / Recycling
+String4=0x03,Glasbak
+String7=0x15,Recykling
+String8=0x10,Reciclagem
+String9=0x05,Punto di raccolta
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4684,13 +4959,17 @@ DayXpm="17 17 2 1"   Colormode=16
 "            !    "
 ;12345678901234567
 [end]
-
-
 [_point]
-Type=0x02f16
+type=0x02f
+subtype=0x16
 ;GRMN_TYPE: Business - Services/TRUCK_STOP/Truck stop/Non NT
-String1=0x00,Truck Stop
-String2=0x01,Station-essence
+String=Truck Stop
+String1=0x01,Station-essence
+String2=0x02,Tankstelle
+String4=0x03,Tankstation
+String7=0x15,Stacja paliw
+String8=0x10,Posto de combustível
+String9=0x05,Stazione di servizio
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4715,13 +4994,18 @@ DayXpm="12 14 3 1"   Colormode=16
 "!!!!!!!!    "
 ;123456789012
 [end]
-
-
 [_point]
-Type=0x02f17
+type=0x02f
+subtype=0x17
 ;GRMN_TYPE: Business - Services/TRANSIT_SERVICES/Mass transit services/Non NT
-String1=0x00,Transit Service
-String2=0x01,ArrÃƒÂªt de bus
+String=Transit Service
+String1=0x01,Arrêt de bus
+String2=0x02,Haltestelle
+String3=0x04,Bus/Tram Stop / Taxi Rank
+String4=0x03,Bushalte
+String7=0x15,Przystanek
+String8=0x10,Parada de ônibus
+String9=0x05,Fermata mezzi pubblici
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4742,13 +5026,17 @@ DayXpm="9 11 3 1"   Colormode=16
 "#!!###!!#"
 ;123456789
 [end]
-
-
 [_point]
-Type=0x03001
+type=0x030
+subtype=0x01
 ;GRMN_TYPE: Business - Emergency and Government/POLICE_STATION/Police station/Non NT
-String1=0x00,Police Station
-String2=0x01,Police
+String=Police Station
+String1=0x01,Police
+String2=0x02,Polizei
+String4=0x03,Politiekantoor
+String7=0x15,Policja
+String8=0x10,Polícia
+String9=0x05,Forze dell’Ordine
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4773,13 +5061,17 @@ DayXpm="15 15 2 1"   Colormode=16
 "! !!!!!!!!     "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x03002
+type=0x030
+subtype=0x02
 ;GRMN_TYPE: Business - Emergency and Government/HOSPITAL/Hospital/Non NT
-String1=0x00,Hospital
-String2=0x01,HÃƒÂ´pital
+String=Hospital
+String1=0x01,Hôpital
+String2=0x02,Krankenhaus
+String4=0x03,Ziekenhuis
+String7=0x15,Szpital
+String8=0x10,Hospital
+String9=0x05,Ospedale
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4803,13 +5095,17 @@ DayXpm="19 14 2 1"   Colormode=16
 "    !!!!!!         "
 ;1234567890123456789
 [end]
-
-
 [_point]
-Type=0x03003
+type=0x030
+subtype=0x03
 ;GRMN_TYPE: Business - Emergency and Government/CITY_HALL/City hall/Non NT
-String1=0x00,City Hall
-String2=0x01,Mairie
+String=City Hall
+String1=0x01,Mairie
+String2=0x02,Rathaus
+String4=0x03,Stadhuis
+String7=0x15,Ratusz
+String8=0x10,Prefeitura
+String9=0x05,Municipio/Ambasciata
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4833,13 +5129,17 @@ DayXpm="16 14 2 1"   Colormode=16
 "!!!!!!!!!!!!    "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x03004
+type=0x030
+subtype=0x04
 ;GRMN_TYPE: Business - Emergency and Government/COURTHOUSE/Courthouse/Non NT
-String1=0x00,Court House
-String2=0x01,Tribunal
+String=Court House
+String1=0x01,Tribunal
+String2=0x02,Gericht
+String4=0x03,Gerechtsgebouw
+String7=0x15,Sąd
+String8=0x10,Tribunal
+String9=0x05,Tribunale
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4864,13 +5164,17 @@ DayXpm="18 15 2 1"   Colormode=16
 "   !!!!!!!!!!!    "
 ;123456789012345678
 [end]
-
-
 [_point]
-Type=0x03005
+type=0x030
+subtype=0x05
 ;GRMN_TYPE: Business - Emergency and Government/COMMUNITY_CENTER/Community center/Non NT
-String1=0x00,Community Center
-String2=0x01,Associations culturelles
+String=Community Center
+String1=0x01,Associations culturelles
+String2=0x02,Gemeindezentrum
+String4=0x03,Gemeenschapscentrum
+String7=0x15,Ośrodek kultury
+String8=0x10,Centro comunitário
+String9=0x05,Centro comunitario
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4895,13 +5199,17 @@ DayXpm="18 15 2 1"   Colormode=16
 "!      !      !   "
 ;123456789012345678
 [end]
-
-
 [_point]
-Type=0x03006
+type=0x030
+subtype=0x06
 ;GRMN_TYPE: Business - Emergency and Government/BORDER_CROSSING/Border crossing/Non NT
-String1=0x00,Border Control
-String2=0x01,Douane
+String=Border Control
+String1=0x01,Douane
+String2=0x02,Zoll
+String4=0x03,Douane
+String7=0x15,Kontrola graniczna
+String8=0x10,Alfândega
+String9=0x05,Dogana
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4911,13 +5219,18 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x03007
+type=0x030
+subtype=0x07
 ;GRMN_TYPE: Business - Emergency and Government/GOV_OFFICE/Government Office/Non NT
-String1=0x00,Government Office
-String2=0x01,Prison
+String=Government Office
+String1=0x01,Prison
+String2=0x02,Gefängnis
+String3=0x04,Prison / Public Building
+String4=0x03,Gevangenis
+String7=0x15,Więzienie
+String8=0x10,Prisão
+String9=0x05,Istituto governativo
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4941,13 +5254,17 @@ DayXpm="16 14 2 1"   Colormode=16
 "!!!!!!!!!!!!!!  "
 ;1234567890123456
 [end]
-
-
 [_point]
-Type=0x03008
+type=0x030
+subtype=0x08
 ;GRMN_TYPE: Business - Emergency and Government/FIRE_DEPT/Fire department/Non NT
-String1=0x00,Fire Station
-String2=0x01,Pompiers
+String=Fire Station
+String1=0x01,Pompiers
+String2=0x02,Feuerwehr
+String4=0x03,Brandweer
+String7=0x15,Straż pożarna
+String8=0x10,Bombeiros
+String9=0x05,Vigili del fuoco
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -4974,13 +5291,17 @@ DayXpm="13 17 2 1"   Colormode=16
 "     !!  !   "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x03200
+type=0x032
+subtype=0x00
 ;GRMN_TYPE: //
-String1=0x00,Barrier
-String2=0x01,BarriÃƒÂ¨re
+String=Barrier
+String1=0x01,Barrière
+String2=0x02,Poller
+String4=0x03,Paaltje
+String7=0x15,Słupek
+String8=0x10,Barreira
+String9=0x05,Ostacolo
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -4994,13 +5315,17 @@ DayXpm="5 5 2 1"   Colormode=16
 " !!! "
 ;12345
 [end]
-
-
 [_point]
-Type=0x04300
+type=0x043
+subtype=0x00
 ;GRMN_TYPE: //
-String1=0x00,Marina
-String2=0x01,Marina
+String=Marina
+String1=0x01,Marina
+String2=0x02,Bootshafen
+String4=0x03,Jachthaven
+String7=0x15,Przystań
+String8=0x10,Marina
+String9=0x05,Porto
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5011,12 +5336,18 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x04301
+type=0x043
+subtype=0x01
 ;GRMN_TYPE: //
+; not used by default style
 String1=0x01,Gare
+String2=0x02,Bahnhof
+String3=0x04,Trainstation
+String4=0x03,Treinstation
+String7=0x15,Dworzec kolejowy
+String8=0x10,Estação de trem
+String9=0x05,Stazione
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -5033,12 +5364,18 @@ DayXpm="12 7 2 1"   Colormode=16
 "!!!!!!!     "
 ;123456789012
 [end]
-
-
 [_point]
-Type=0x04302
+type=0x043
+subtype=0x02
 ;GRMN_TYPE: //
+; not used by default style
 String1=0x01,Tramway
+String2=0x02,Straßenbahn
+String3=0x04,Tram / Metro
+String4=0x03,Tram / Metro
+String7=0x15,Tramwaj / Metro
+String8=0x10,Metrô
+String9=0x05,Stazione
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5052,12 +5389,18 @@ DayXpm="8 4 2 1"   Colormode=16
 "!!!!    "
 ;12345678
 [end]
-
-
 [_point]
-Type=0x04303
+type=0x043
+subtype=0x03
 ;GRMN_TYPE: //
+; not used by default style
 String1=0x01,Terminal Ferry
+String2=0x02,Fährhafen
+String3=0x04,Ferry terminal
+String4=0x03,Ferry terminal
+String7=0x15,Terminal promowy
+String8=0x10,Terminal de balsa
+String9=0x05,Terminal
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -5082,13 +5425,17 @@ DayXpm="11 15 2 1"   Colormode=16
 "    !!     "
 ;12345678901
 [end]
-
-
 [_point]
-Type=0x04a00
+type=0x04a
+subtype=0x00
 ;GRMN_TYPE: Misc. Points of Interest/PICNIC_AREA/Picnic area/Non NT, NT
-String1=0x00,Picnic Area
-String2=0x01,Pique-nique
+String=Picnic Area
+String1=0x01,Pique-nique
+String2=0x02,Picknick
+String4=0x03,Picknick plaats
+String7=0x15,Miejsce piknikowe
+String8=0x10,Piquenique
+String9=0x05,Area picnic
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5107,13 +5454,17 @@ DayXpm="13 10 2 1"   Colormode=16
 " !!       !! "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x04c00
+type=0x04c
+subtype=0x00
 ;GRMN_TYPE: Misc. Points of Interest/INFORMATION/Information/Non NT, NT
-String1=0x00,Tourist information
-String2=0x01,Office du Tourisme
+String=Tourist information
+String1=0x01,Office du Tourisme
+String2=0x02,Touristeninformation
+String4=0x03,Touristen informatie
+String7=0x15,Informacja turystyczna
+String8=0x10,Informações turísticas
+String9=0x05,Informazioni turistiche
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5135,12 +5486,18 @@ DayXpm="6 13 2 1"   Colormode=16
 "!!!!!!"
 ;123456
 [end]
-
-
 [_point]
-Type=0x04e00
+type=0x04e
+subtype=0x00
 ;GRMN_TYPE: Misc. Points of Interest/RESTROOMS/Restrooms/Non NT, NT
+; not used by default style
 String1=0x01,WC
+String2=0x02,WC
+String3=0x04,WC
+String4=0x03,Toilet
+String7=0x15,Toaleta
+String8=0x10,Banheiro
+String9=0x05,Servizi igienici
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5163,13 +5520,17 @@ DayXpm="15 14 2 1"   Colormode=16
 "  !!   !   !!  "
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x05000
+type=0x050
+subtype=0x00
 ;GRMN_TYPE: Misc. Points of Interest/DRINKING_WATER/Drinking water/Non NT, NT
-String1=0x00,Drinking Water
-String2=0x01,Eau potable
+String=Drinking Water
+String1=0x01,Eau potable
+String2=0x02,Trinkwasser
+String4=0x03,Drinkwater
+String7=0x15,Woda pitna
+String8=0x10,Bebedouro
+String9=0x05,Acqua potabile
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5194,13 +5555,17 @@ DayXpm="13 16 2 1"   Colormode=16
 "  !!!!       "
 ;1234567890123
 [end]
-
-
 [_point]
-Type=0x05904
+type=0x059
+subtype=0x04
 ;GRMN_TYPE: //
-String1=0x00,Helipad
-String2=0x01,HÃƒÂ©liport
+String=Helipad
+String1=0x01,Héliport
+String2=0x02,Hubschrauberlandeplatz
+String4=0x03,Helihaven
+String7=0x15,Lądowisko helikopterowe
+String8=0x10,Heliponto
+String9=0x05,Eliporto
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5226,13 +5591,17 @@ DayXpm="18 17 2 1"   Colormode=16
 "      !!!!!!      "
 ;123456789012345678
 [end]
-
-
 [_point]
-Type=0x06403
+type=0x064
+subtype=0x03
 ;GRMN_TYPE: Geographical Named Points of Interest/CEMETERY/Cemetery/Non NT, NT
-String1=0x00,Cemetery
-String2=0x01,CimetiÃƒÂ¨re
+String=Cemetery
+String1=0x01,Cimetière
+String2=0x02,Friedhof
+String4=0x03,Begraafplaats
+String7=0x15,Cmentarz
+String8=0x10,Cemitério
+String9=0x05,Cimitero
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -5243,13 +5612,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x0640b
+type=0x064
+subtype=0x0b
 ;GRMN_TYPE: Geographical Named Points of Interest/MILITARY/Military point of interest/Non NT, NT
-String1=0x00,Military
-String2=0x01,Militaire
+String=Military
+String1=0x01,Militaire
+String2=0x02,Militär
+String4=0x03,Militair
+String7=0x15,Wojsko
+String8=0x10,Militar
+String9=0x05,Elemento militare
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5260,13 +5633,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06411
+type=0x064
+subtype=0x11
 ;GRMN_TYPE: Geographical Named Points of Interest/TOWER/Tower/Non NT, NT
-String1=0x00,Tower
-String2=0x01,Tour/PylÃƒÂ´ne
+String=Tower
+String1=0x01,Tour/Pylône
+String2=0x02,Turm
+String4=0x03,Toren
+String7=0x15,Wieża
+String8=0x10,Torre
+String9=0x05,Torre/Pilone
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5290,13 +5667,17 @@ DayXpm="10 15 2 1"   Colormode=16
 "!!!!!!!!  "
 ;1234567890
 [end]
-
-
 [_point]
-Type=0x06505
+type=0x065
+subtype=0x05
 ;GRMN_TYPE: Geographical Named Points of Interest - Water Related/CANAL/Canal/Non NT, NT
-String1=0x00,Canal / Lock
-String2=0x01,Barrage
+String=Canal / Lock
+String1=0x01,Barrage
+String2=0x02,Wehr
+String4=0x03,Stuw
+String7=0x15,Tama
+String8=0x10,Açude
+String9=0x05,Diga
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5315,13 +5696,17 @@ DayXpm="9 9 2 1"   Colormode=16
 "  !!!!!  "
 ;123456789
 [end]
-
-
 [_point]
-Type=0x06508
+type=0x065
+subtype=0x08
 ;GRMN_TYPE: Geographical Named Points of Interest - Water Related/WATERFALL/Waterfall/Non NT, NT
-String1=0x00,Waterfall
-String2=0x01,Chute d'eau
+String=Waterfall
+String1=0x01,Chute d'eau
+String2=0x02,Wasserfall
+String4=0x03,Waterval
+String7=0x15,Wodospad
+String8=0x10,Cachoeira
+String9=0x05,Cascata
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5345,13 +5730,17 @@ DayXpm="15 14 2 1"   Colormode=16
 "!   !!   !!   !"
 ;123456789012345
 [end]
-
-
 [_point]
-Type=0x0650a
+type=0x065
+subtype=0x0a
 ;GRMN_TYPE: Geographical Named Points of Interest - Water Related/GLACIER/Glacier/Non NT, NT
-String1=0x00,Glacier
-String2=0x01,Glacier
+String=Glacier
+String1=0x01,Glacier
+String2=0x02,Gletscher
+String4=0x03,Gletsjer
+String7=0x15,Lodowiec
+String8=0x10,Geleira
+String9=0x05,Ghiacciaio
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5361,13 +5750,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x0650c
+type=0x065
+subtype=0x0c
 ;GRMN_TYPE: //
-String1=0x00,Island
-String2=0x01,ÃƒÅ½le
+String=Island
+String1=0x01,Île
+String2=0x02,Insel
+String4=0x03,Eiland
+String7=0x15,Wyspa
+String8=0x10,Ilha
+String9=0x05,Isola
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5378,13 +5771,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x0650f
+type=0x065
+subtype=0x0f
 ;GRMN_TYPE: Geographical Named Points of Interest - Water Related/RESERVOIR/Reservoir/Non NT, NT
-String1=0x00,Reservoir
-String2=0x01,Eau
+String=Reservoir
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5395,13 +5792,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06511
+type=0x065
+subtype=0x11
 ;GRMN_TYPE: Geographical Named Points of Interest - Water Related/SPRING/Spring/Non NT, NT
-String1=0x00,Spring
-String2=0x01,Source
+String=Spring
+String1=0x01,Source
+String2=0x02,Quelle
+String4=0x03,Waterbron
+String7=0x15,Źródło
+String8=0x10,Poço
+String9=0x05,Sorgente
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5420,13 +5821,17 @@ DayXpm="9 9 2 1"   Colormode=16
 "  !!!!!  "
 ;123456789
 [end]
-
-
 [_point]
-Type=0x06512
+type=0x065
+subtype=0x12
 ;GRMN_TYPE: Geographical Named Points of Interest - Water Related/STREAM/Stream/Non NT, NT
-String1=0x00,Stream
-String2=0x01,Eau
+String=Stream
+String1=0x01,Eau
+String2=0x02,Wasser
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5437,13 +5842,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06513
+type=0x065
+subtype=0x13
 ;GRMN_TYPE: Geographical Named Points of Interest - Water Related/SWAMP/Swamp/Non NT, NT
-String1=0x00,Swamp
-String2=0x01,Marais
+String=Swamp
+String1=0x01,Marais
+String2=0x02,Sumpf
+String4=0x03,Moeras
+String7=0x15,Bagno
+String8=0x10,Pântano
+String9=0x05,Palude
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5454,13 +5863,18 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06601
+type=0x066
+subtype=0x01
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/ARCH/Arch/Non NT, NT
-String1=0x00,Arch
-String2=0x01,Grotte
+String=Arch
+String1=0x01,Grotte
+String2=0x02,Höhle
+String3=0x04,Cave
+String4=0x03,Grot
+String7=0x15,Jaskinia
+String8=0x10,Caverna
+String9=0x05,Grotta
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5475,13 +5889,18 @@ DayXpm="11 6 2 1"   Colormode=16
 "! !!!!!!! !"
 ;12345678901
 [end]
-
-
 [_point]
-Type=0x06603
+type=0x066
+subtype=0x03
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/BASIN/Basin/Non NT, NT
-String1=0x00,Basin
-String2=0x01,Eau
+String=Basin
+String1=0x01,Eau
+String2=0x02,Wasser
+String3=0x04,Water
+String4=0x03,Water
+String7=0x15,Woda
+String8=0x10,Água
+String9=0x05,Acqua
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5492,13 +5911,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06604
+type=0x066
+subtype=0x04
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/BEACH/Beach/Non NT, NT
-String1=0x00,Beach
-String2=0x01,Plage
+String=Beach
+String1=0x01,Plage
+String2=0x02,Strand
+String4=0x03,Strand
+String7=0x15,Plaża
+String8=0x10,Praia
+String9=0x05,Spiaggia
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5509,13 +5932,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06606
+type=0x066
+subtype=0x06
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/CAPE/Cape/Non NT, NT
-String1=0x00,Cape
-String2=0x01,Cap
+String=Cape
+String1=0x01,Cap
+String2=0x02,Kap
+String4=0x03,Kaap
+String7=0x15,Przylądek
+String8=0x10,Cabo
+String9=0x05,Capo
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5525,13 +5952,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06607
+type=0x066
+subtype=0x07
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/CLIFF/Cliff/Non NT, NT
-String1=0x00,Cliff
-String2=0x01,Falaise
+String=Cliff
+String1=0x01,Falaise
+String2=0x02,Klippe
+String4=0x03,Klif
+String7=0x15,Klif
+String8=0x10,Penhasco
+String9=0x05,Dirupo
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
@@ -5541,13 +5972,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06612
+type=0x066
+subtype=0x12
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/RESERVE/Reserve/Non NT, NT
-String1=0x00,Nature Reserve
-String2=0x01,RÃƒÂ©serve naturelle
+String=Nature Reserve
+String1=0x01,Réserve naturelle
+String2=0x02,Naturschutzgebiet
+String4=0x03,Natuurgebied
+String7=0x15,Rezerwat przyrody
+String8=0x10,Reserva natural
+String9=0x05,Riserva
 ExtendedLabels=Y
 FontStyle=Default
 CustomColor=Day
@@ -5558,13 +5993,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06614
+type=0x066
+subtype=0x14
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/ROCK/Rock/Non NT, NT
-String1=0x00,Rock
-String2=0x01,Roche
+String=Rock
+String1=0x01,Roche
+String2=0x02,Felsen
+String4=0x03,Rotsen
+String7=0x15,Skała
+String8=0x10,Rochedo
+String9=0x05,Roccia
 ExtendedLabels=Y
 FontStyle=NormalFont
 CustomColor=Day
@@ -5575,13 +6014,17 @@ DayXpm="1 1 2 1"   Colormode=16
 " "
 ;1
 [end]
-
-
 [_point]
-Type=0x06616
+type=0x066
+subtype=0x16
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/SUMMIT/Summit, top of a hill or mountain/Non NT, NT
-String1=0x00,Summit
-String2=0x01,Sommet
+String=Summit
+String1=0x01,Sommet
+String2=0x02,Gipfel
+String4=0x03,Bergtop
+String7=0x15,Szczyt
+String8=0x10,Pico
+String9=0x05,Picco
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
@@ -5601,23 +6044,23 @@ DayXpm="14 10 2 1"   Colormode=16
 "!!!!!!!!!     "
 ;12345678901234
 [end]
-
-
 [_point]
-Type=0x06618
+type=0x066
+subtype=0x18
 ;GRMN_TYPE: Geographical Named Points of Interest - Land Related/WOODS/Wooded area/Non NT, NT
-String1=0x00,Woods
-String2=0x01,ForÃƒÂªt
+String=Woods
+String1=0x01,Forêt
+String2=0x02,Wald
+String4=0x03,Bos
+String7=0x15,Drzewa
+String8=0x10,Mata / Bosque
+String9=0x05,Selva
 ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#527247
 DayXpm="1 1 2 1"   Colormode=16
 "!	c #009500"
-"  	c none"
-" "
-;1
-[end]"
 "  	c none"
 " "
 ;1

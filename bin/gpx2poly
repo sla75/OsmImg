@@ -11,22 +11,22 @@ if [ "${1##*.}" != "gpx" ]; then
 fi;
 
 name="${1%.*}"
-name=${name##*/}
+#name=${name##*/}
 
-exec 3>"${name%.*}.poly"
+#exec 3>"${name%.*}.poly"
 
-echo "${name^^}" >&3
-echo "A" >&3
+echo "${name^^}"
+echo "A"
 
 cat $1 | grep "<trkpt lat" | cut -d'"' -f 2,4 | tr "\"" "\t"	|	\
 while read line; do
 	lon=$(echo ${line} | cut -d' ' -f 2)
 	lan=$(echo ${line} | cut -d' ' -f 1)
-	echo -e "\t${lon}    ${lan}" >&3
+	echo -e "\t${lon}    ${lan}"#
 done
 
-echo -e "END\nEND" >&3
+echo -e "END\nEND"
 
-exec 3>&-  # close the data output file
+##exec 3>&-  # close the data output file
 
-echo "Created ${name%.*}.poly"
+#echo "Created ${name%.*}.poly"

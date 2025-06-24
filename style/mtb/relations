@@ -40,12 +40,12 @@ type=route & route~'mtb|MTB' {
 		add mtbroute=yes;
 		add ref='${ref}';
 		add oneway='${oneway}'
-		add mtbname='${name}'
+		add mtbname='${ref} ${name}'
 		add mtbcolour='${colour}'
 	}
 }
 
-route~'foot|hiking' & osmc:symbol~'red|red:.*'{
+route~'Xfoot|hikingX' & osmc:symbol~'red|red:.*'{
 	apply {
 		set hikingroute=yes;
 		set hiking_red='${osmc:symbol}';
@@ -54,7 +54,7 @@ route~'foot|hiking' & osmc:symbol~'red|red:.*'{
 			'${name} (${distance})' | '${name}'
 	}
 }
-route~'foot|hiking' & osmc:symbol~'green|green:.*'{
+route~'Xfoot|hikingX' & osmc:symbol~'green|green:.*'{
 	apply {
 		set hikingroute=yes;
 		set hiking_green='${osmc:symbol}';
@@ -63,7 +63,7 @@ route~'foot|hiking' & osmc:symbol~'green|green:.*'{
 			'${name} (${distance})' | '${name}'
 	}
 }
-route~'foot|hiking' & osmc:symbol~'yellow|yellow:.*'{
+route~'Xfoot|hikingX' & osmc:symbol~'yellow|yellow:.*'{
 	apply {
 		set hikingroute=yes;
 		set hiking_yellow='${osmc:symbol}';
@@ -72,7 +72,7 @@ route~'foot|hiking' & osmc:symbol~'yellow|yellow:.*'{
 			'${name} (${distance})' | '${name}'
 	}
 }
-route~'foot|hiking' & osmc:symbol~'blue|blue:.*'{
+route~'Xfoot|hikingX' & osmc:symbol~'blue|blue:.*'{
 	apply {
 		set hikingroute=yes;
 		set hiking_blue='${osmc:symbol}';
