@@ -1,5 +1,5 @@
 product-id=1
-draw-priority=18
+draw-priority=19
 transparent=0
 
 series-name: %name% series
@@ -36,8 +36,8 @@ route
 #check-roundabouts
 
 link-pois-to-ways
-add-pois-to-lines
-add-pois-to-areas
+#add-pois-to-lines
+#add-pois-to-areas
 #make-opposite-cycleways
 #cycle-map
 

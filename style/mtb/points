@@ -33,21 +33,23 @@ barrier=bus_trap | barrier=block | barrier=cycle_barrier |
 
 military=bunker & bunker_type=pillbox { name '${name}' ; add label='Bunker' } [0x11501 resolution 24-23]
 man_made=tower { name '${name}'} [0x1100a resolution 24]
-historic=ruins & wikipedia=* { name '${name}'} [0x10c05 resolution 24]
+historic=ruins & wikipedia=* { name '${name}'} [0x6705 resolution 24]
 
 highway=stop [0x03101 resolution 24]
 highway=give_way [0x03102 resolution 24]
 railway=level_crossing { name '${name}' } [0x06303 resolution 24]
-amenity=pharmacy { add label='${brand}' | '${name}' | '${operator}'} [0x11103 resolution 24-23]
-amenity=post_office { name 'Pošta'; set addr:postcode = '${collection_times}' | '${ref}' } [0x06302 resolution 24-23]
-amenity=post_box { set addr:postcode = '${ref} ${collection_times}' | '${ref}' } [0x06302 resolution 24]
+#amenity=pharmacy { add label='${brand}' | '${name}' | '${operator}'} [0x11103 resolution 24-23]
+#amenity=post_office { name 'Pošta'; set addr:postcode = '${collection_times}' | '${ref}' } [0x06302 resolution 24-23]
+#amenity=post_box { set addr:postcode = '${ref} ${collection_times}' | '${ref}' } [0x06302 resolution 24]
 
-railway=station  { name '${name}' } [0x10e0c resolution 24-22]
+railway=station  { name '${name}' } [0x6708 resolution 24-22]
+aerialway=station  { name '${name}' } [0x6708 resolution 24]
 
 
-tourism=information & information=guidepost & hiking=yes & bicycle=yes { name '${name}' ; add label='${ref}' } [0x10c07 resolution 24-22]
-tourism=information & information=guidepost & bicycle=yes { name '${name}' ; add label='${ref}' } [0x10c06 resolution 24-22]
-tourism=information & information=guidepost { name '${name}' ; add label='${ref}' } [0x10c04 resolution 24-23]
+tourism=information & information=guidepost & hiking=yes & bicycle=yes { name '${name}' ; add label='${ref}' } [0x6707 resolution 24-22]
+tourism=information & information=guidepost & bicycle=yes { name '${name}' ; add label='${ref}' } [0x6706 resolution 24-22]
+tourism=information & information=guidepost { name '${name}' ; add label='${ref}' } [0x6704 resolution 24-23]
+tourism=information {name '${name}'} [0x6701 resolution 24]
 
 historic=wayside_cross { name '${name}'} [0x11009 resolution 24]
 historic=wayside_shrine { name '${name}'} [0x1100b resolution 24]
@@ -78,8 +80,8 @@ natural=rock {name '${name}'} [0x06614 resolution 24]
 natural=spring & ( access!=no & access!=private ) {name '${name}' } [0x06511 resolution 24]
 amenity=drinking_water & ( access!=no & access!=private ) {name '${name}' } [0x06511 resolution 24]
 
-natural=peak & ele=* {name '${name} ${ele|subst:"\..*~>"}m'} [0x06616 resolution 24-23]
-natural=peak {name '${name}'} [0x06616 resolution 24]
+#natural=peak & ele=* {name '${name} ${ele|subst:"\..*~>"}m'} [0x06616 resolution 24-23]
+#natural=peak {name '${name}'} [0x06616 resolution 24]
 
 highway=emergency_access_point {name '${name} (${ref})' | '${ref}' | '${name}' } [0x11104 resolution 24-22]
 man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x02d02 resolution 24-22]
@@ -87,17 +89,17 @@ man_made=chimney {name '${name} (${height})' | '${height}' | '${name}' } [0x02d0
 power=tower [0x11508 resolution 24]
 
 place=locality {name '${name}'} [0x02a00 resolution 24]
-amenity~'(pub|bar|restaurant)' {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
+amenity~'(pub|bar|restaurant)' {name '${name}'} [0x02a02 resolution 24-23]
 amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
 
 
 amenity=parking & fee=yes & access!=no {name '${name}'} [0x06301 resolution 24]
 amenity=parking & access!=private & access!=no {name '${name}'} [0x06300 resolution 24]
-tourism=camp_site {name '${name}'} [0x10c03 resolution 24-23]
+tourism=camp_site {name '${name}'} [0x6703 resolution 24-23]
 tourism=viewpoint {name '${name} ${direction}' | '${name}' | '${direction}'} [0x04002 resolution 24-22]
 natural=cave_entrance {name '${name}'} [0x1100f resolution 24]
 natural=sinkhole {name '${name}'} [0x1100e resolution 24]
-tourism=information {name '${name}'} [0x10c01 resolution 24]
+
 
 
 historic=mine {set man_made=mineshaft; set disused=yes}

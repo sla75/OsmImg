@@ -246,6 +246,7 @@ if [[ -n "${polygon}"  && -e ${pathpolygon}/${polygon} ]]; then
 	srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
 	if checkModifFile ${srcfile} ${srctmpfile_plg} ${polygonfile}; then
 		echo -e "\tCreate PBF polygon from '${polygon}' to ${srctmpfile_plg}"
+		echo "osmconvert ${verbose} ${srcfile} -B=${polygonfile} -o=${srctmpfile_plg}"
 		osmconvert ${verbose} ${srcfile} -B=${polygonfile} -o=${srctmpfile_plg}
 	fi;
 	srcfile=${srctmpfile_plg}
@@ -378,6 +379,7 @@ if [ -f "${splitterDir}/template.args" ]; then
 	$debug && ls -l ${tmpdir}/img_${area}/
 	[ -d ${pathcache}/imgs/ ] || mkdir -p ${pathcache}/imgs/
 	pathImg=${root}/imgs/${name^}.img
+	[ -d "${root}/imgs/" ] || mkdir "${root}/imgs/"
 	mv -v ${tmpdir}/img_${area}/gmapsupp.img ${pathImg} || exit 1
 	name=${name/-/ }
 	imgsversion="${name^}, ${yyyymm} v.${version}"

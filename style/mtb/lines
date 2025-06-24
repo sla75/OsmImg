@@ -15,10 +15,27 @@ access=no & (bicycle!=no | foot!=no) {delete access}
 highway!=* & bicycle=no {delete bicycle}
 
 
+aerialway=* & aerialway:bicycle~'yes|summer' {set bicycle=yes}
+aerialway=* & aerialway:access='no' {set bicycle=no}
+aerialway=* & aerialway:summer:access='no' {set bicycle=no}
+
+
+
 abandoned:railway=* | (railway=* & abandoned=yes) {add railway=abandoned}
 railway=abandoned & length()>1000 [0x10c00 default_name="zr. trat" resolution 24-20]
 railway=abandoned { name '${name}' } [0x10c00 resolution 24-23]
-aerialway=* { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c01 resolution 24-23]
+
+#aerialway=goods { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c03 resolution 24-23]
+aerialway=goods [0x10c03 resolution 24-23]
+
+aerialway~'gondola|cable_car|mixed_lift' & bicycle=no [0x10c03 resolution 24-23]
+aerialway~'gondola|cable_car|mixed_lift' & bicycle!=no { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c01 resolution 24-21]
+
+aerialway~'chair_lift|t-bar|drag_lift|j-bar|platter|rope_tow' & bicycle!=yes [0x10c03 resolution 24-23]
+aerialway~'chair_lift|t-bar|drag_lift|j-bar|platter|rope_tow' & bicycle=yes { name '${name}' | 'vlek' ; add label='${aerialway}' } [0x10c02 resolution 24-21]
+
+  	
+
 
 natural=cliff {name '${name}'} [0x10a00 resolution 24]
 natural~'arete|ridge' {name '${name}'} [0x11a1e resolution 20-24]
@@ -42,34 +59,34 @@ bicycleroute=yes
 	{name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11100 resolution 21-18 continue]
 
 include 'inc/mtbroute'
-include 'inc/hikingroute'
+#include 'inc/hikingroute'
 
 
 	
-mtb:scale:up=0 & mtb:scale!=* {set mtb:scale=0}
-mtb:scale:up=0 {delete mtb:scale:up}
+#mtb:scale:up=0 & mtb:scale!=* {set mtb:scale=0}
+#mtb:scale:up=0 {delete mtb:scale:up}
 
-mtb:scale:down=0 & mtb:scale!=* {set mtb:scale=0}
-mtb:scale:down=0 {delete mtb:scale:down}
+#mtb:scale:down=0 & mtb:scale!=* {set mtb:scale=0}
+#mtb:scale:down=0 {delete mtb:scale:down}
 
-incline=* {set inclinenum='${incline|subst:"%=>"}'}
+#incline=* {set inclinenum='${incline|subst:"%=>"}'}
 
-inclinenum>0 {set incline=up}
-inclinenum<0 {set incline=down; set inclinenum='${inclinenum|subst:"-=>"}'}
+#inclinenum>0 {set incline=up}
+#inclinenum<0 {set incline=down; set inclinenum='${inclinenum|subst:"-=>"}'}
 
-inclinenum=up {set inclinenum=8}
-inclinenum=down {set inclinenum=8}
+#inclinenum=up {set inclinenum=8}
+#inclinenum=down {set inclinenum=8}
 
 
 #inclinenum=* {; echo 'INCLINE ${incline} ${inclinenum}'}
 
 
-highway!=steps & bicycle!=no & incline=down & inclinenum>=16 {name '${inclinenum}%'} [0x11a06 resolution 22 continue]
-highway!=steps & bicycle!=no & incline=up & inclinenum>=16 {name '${inclinenum}%'} [0x11a05 resolution 22 continue]
-highway!=steps & bicycle!=no & incline=down & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a04 resolution 23 continue]
-highway!=steps & bicycle!=no & incline=up & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a03 resolution 23 continue]
-highway!=steps & bicycle!=no & incline=down & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a02 resolution 24 continue]
-highway!=steps & bicycle!=no & incline=up & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a01 resolution 24 continue]
+#highway!=steps & bicycle!=no & incline=down & inclinenum>=16 {name '${inclinenum}%'} [0x11a06 resolution 22 continue]
+#highway!=steps & bicycle!=no & incline=up & inclinenum>=16 {name '${inclinenum}%'} [0x11a05 resolution 22 continue]
+#highway!=steps & bicycle!=no & incline=down & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a04 resolution 23 continue]
+#highway!=steps & bicycle!=no & incline=up & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a03 resolution 23 continue]
+#highway!=steps & bicycle!=no & incline=down & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a02 resolution 24 continue]
+#highway!=steps & bicycle!=no & incline=up & inclinenum>0 & inclinenum<8 {name '${inclinenum}%'} [0x11a01 resolution 24 continue]
 
 
 #	highway=* {name '${name}'} [0x11c0f resolution 24]
@@ -81,9 +98,9 @@ highway!=steps & bicycle!=no & incline=up & inclinenum>0 & inclinenum<8 {name '$
 
 highway=* & access~'no|private' [0x11b00 resolution 24-22]
 highway=* & access=customers [0x11b02 resolution 24-23]
-highway=bridleway {name '${name}' | 'Koně' } [0x11b03 resolution 24]
+bicycle=discouraged {name '${name}'} [0x11b03 resolution 24-23]
 
-bicycle=dismount {name '${name}' | 'dismount'} [0x11b04 resolution 23-24]
+bicycle=dismount {name '${name}' | 'dismount'} [0x11b04 resolution 24-23]
 bicycle=no {name '${name}'} [0x11b01 resolution 22-24]
 
 <finalize>
