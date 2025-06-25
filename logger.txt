@@ -1,5 +1,5 @@
 # The default level FINE, WARNING, INFO, SEVERE 
-.level=SEVERE
+.level=INFO
 #handlers: java.util.logging.ConsoleHandler 
 handlers: java.util.logging.FileHandler java.util.logging.ConsoleHandler 
 # package or class name with .level appended and then the level
