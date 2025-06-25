@@ -41,6 +41,9 @@ railway=level_crossing { name '${name}' } [0x06303 resolution 24]
 #amenity=pharmacy { add label='${brand}' | '${name}' | '${operator}'} [0x11103 resolution 24-23]
 #amenity=post_office { name 'Pošta'; set addr:postcode = '${collection_times}' | '${ref}' } [0x06302 resolution 24-23]
 #amenity=post_box { set addr:postcode = '${ref} ${collection_times}' | '${ref}' } [0x06302 resolution 24]
+#amenity=pharmacy { add label='${brand}' | '${name}' | '${operator}'} [0x11103 resolution 24-23]
+#amenity=post_office { name 'Pošta'; set addr:postcode = '${collection_times}' | '${ref}' } [0x06302 resolution 24-23]
+#amenity=post_box { set addr:postcode = '${ref} ${collection_times}' | '${ref}' } [0x06302 resolution 24]
 
 railway=station  { name '${name}' } [0x6708 resolution 24-22]
 aerialway=station  { name '${name}' } [0x6708 resolution 24]
@@ -90,6 +93,7 @@ power=tower [0x11508 resolution 24]
 
 place=locality {name '${name}'} [0x02a00 resolution 24]
 amenity~'(pub|bar|restaurant)' {name '${name}'} [0x02a02 resolution 24-23]
+amenity~'(pub|bar|restaurant)' {name '${name}'} [0x02a02 resolution 24-23]
 amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '${name}';set addr:postcode = 'open ${opening_hours}'} [0x02a02 resolution 24-23]
 
 
@@ -99,6 +103,7 @@ tourism=camp_site {name '${name}'} [0x6703 resolution 24-23]
 tourism=viewpoint {name '${name} ${direction}' | '${name}' | '${direction}'} [0x04002 resolution 24-22]
 natural=cave_entrance {name '${name}'} [0x1100f resolution 24]
 natural=sinkhole {name '${name}'} [0x1100e resolution 24]
+#tourism=information {name '${name}'} [0x10c01 resolution 24]
 
 
 
