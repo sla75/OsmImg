@@ -60,7 +60,6 @@ bicycleroute=yes
 
 include 'inc/mtbroute'
 #include 'inc/hikingroute'
-#include 'inc/hikingroute'
 
 
 	
