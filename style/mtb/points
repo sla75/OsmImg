@@ -43,13 +43,13 @@ railway=level_crossing [0x06303 resolution 24]
 #amenity=post_box { set addr:postcode = '${ref} ${collection_times}' | '${ref}' } [0x06302 resolution 24]
 
 railway=station  { name '${name}' } [0x6708 resolution 24-22]
-aerialway=station  { name '${name}' } [0x6708 resolution 24]
+#aerialway=station  { name '${name}' } [0x6708 resolution 24]
 
 
 tourism=information & information=guidepost & hiking=yes & bicycle=yes [0x6707 resolution 24-22]
 tourism=information & information=guidepost & bicycle=yes [0x6706 resolution 24-22]
 tourism=information & information=guidepost [0x6704 resolution 24-23]
-tourism=information [0x6701 resolution 24]
+#tourism=information [0x6701 resolution 24]
 
 historic=wayside_cross  [0x11009 resolution 24]
 historic=wayside_shrine  [0x1100b resolution 24]

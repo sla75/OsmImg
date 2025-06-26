@@ -398,6 +398,7 @@ echo -e "${name^}\n"
 msg "\n### 8. Postprocessing"
 
 echo -e "\n### "`date '+%F %T'`" END\n"
+echo -e "#####################\n###               ###\n###       OK      ###\n###               ###\n#####################\n"
 
 ####################################
 filename=$(basename -- "$fullfile")

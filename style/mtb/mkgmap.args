@@ -55,7 +55,7 @@ style-file: style/mtb
 
 # Optimalizace
 polygon-size-limits=24:0,22:12,20:12,18:12,16:12
-#reduce-point-density=2.6
+reduce-point-density=0
 #reduce-point-density-polygon=3
 min-size-polygon=3
 merge-lines

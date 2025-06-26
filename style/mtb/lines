@@ -53,13 +53,15 @@ bicycle=no & mtbroute=yes {delete bicycle}
 bicycle!=yes & bicycleroute=yes {set bicycle=yes}
 
 
-bicycleroute=yes
-	{name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11101 resolution 24-22 continue]
-bicycleroute=yes
-	{name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11100 resolution 21-18 continue]
+
 
 include 'inc/mtbroute'
 #include 'inc/hikingroute'
+
+
+bicycleroute=yes [0x11100 resolution 19-18]
+bicycleroute=yes {name '${bicycleref}'} [0x11100 resolution 22-20 continue]
+bicycleroute=yes {name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11104 resolution 24-23 continue]
 
 
 	
@@ -111,12 +113,12 @@ include 'inc/mtbroute'
 
 
 
-highway=* & access~'no|private' [0x11b00 resolution 24-22]
-highway=* & access=customers [0x11b02 resolution 24-23]
+highway=* & access~'no|private' [0x11b00 resolution 24-23]
+highway=* & access=customers [0x11b02 resolution 24]
 bicycle=discouraged {name '${name}'} [0x11b03 resolution 24-23]
 
-bicycle=dismount {name '${name}' | 'dismount'} [0x11b04 resolution 24-23]
-bicycle=no {name '${name}'} [0x11b01 resolution 22-24]
+bicycle=dismount {name '${name}' | 'dismount'} [0x11b04 resolution 24]
+bicycle=no {name '${name}'} [0x11b01 resolution 23-24]
 
 <finalize>
 
