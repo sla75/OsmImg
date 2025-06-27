@@ -1,0 +1,52 @@
+petr@hp600:~/Projekty/GarminApp/MTP/Garmin$ for f in `ls *.img`; do echo "File $f"; /home/petr/Projekty/OsmImg/bin/gmt -i $f | grep ":" ; done
+File D4713090A.img
+File:		D4713090A.img, length 1287323648
+Header:   	13.03.2023 10:50:27, DSKIMG, XOR 00, V 23.10, Ms 0, 006-D4713-09
+Mapset:   	Garmin DEM Map EU 2023.10
+ F: PID 1, FID 12080, Garmin DEM Map EU 2023.10
+File D4728160A.img
+File:		D4728160A.img, length 1907032064
+Header:   	20.02.2024 16:44:45, DSKIMG, XOR 00, V 24.10, Ms 0, 006-D4728-16
+Mapset:   	Garmin Geocode Map EU 2024.10
+ F: PID 1, FID 12436, Garmin Geocode Map EU 2024.10
+File D5554030A.img
+File:		D5554030A.img, length 580403200
+Header:   	30.08.2022 11:33:55, DSKIMG, XOR 00, V 5.00, Ms 0, 006-D5554-03
+Mapset:   	TOPO Czech v5 PRO
+ V: 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 17 (1)
+ U: YSE5A-FP365-XWHQY-S9VGB-ZVPBX
+ F: PID 1, FID 9721, TOPO Czech PRO
+File D6016120A.img
+File:		D6016120A.img, length 2919432192
+Header:   	23.10.2024 11:29:05, DSKIMG, XOR 00, V 24.20, Ms 0, 006-D6016-12
+Mapset:   	Garmin Cycle Map Europe, East 2024.20
+ F: PID 1, FID 12669, Garmin Cycle Map Europe - East 2024.20
+File D6017120A.img
+File:		D6017120A.img, length 2753036288
+Header:   	24.10.2024 09:09:25, DSKIMG, XOR 00, V 24.20, Ms 0, 006-D6017-12
+Mapset:   	Garmin Cycle Map Europe, West 2024.20
+ F: PID 1, FID 12669, Garmin Cycle Map Europe - West 2024.20
+File D7557140A.img
+File:		D7557140A.img, length 206778368
+Header:   	21.04.2025 10:07:02, DSKIMG, XOR 00, V 25.10, Ms 0, 006-D7557-14
+Mapset:   	Trailforks 2025.10
+ F: PID 1, FID 12995, Trailforks 2025.10
+File D9499050A.img
+File:		D9499050A.img, length 2826108928
+Header:   	23.10.2024 12:03:32, DSKIMG, XOR 00, V 24.20, Ms 0, 006-D9499-05
+Mapset:   	Garmin Cycle Map Europe, Central 2024.20
+ F: PID 1, FID 12669, Garmin Cycle Map Europe - Central 2024.20
+File gmapbmap.img
+File:		gmapbmap.img, length 53915648
+Header:   	28.02.2024 14:24:06, DSKIMG, XOR 00, V 8.00, Ms 0, 006-F0114-00
+Mapset:   	Worldwide DEM Basemap,NR v8
+File gmaptz.img
+File:		gmaptz.img, length 573440
+Header:   	17.03.2025 12:16:14, DSKIMG, XOR 00, V 39.00, Ms 0, 006-D1074-00
+Mapset:   	Time Zone Map
+File SFL-mtb.img
+File:		SFL-mtb.img, length 125440
+Header:   	26.06.2025 16:51:48, DSKIMG, XOR 00, V 0.37, Ms 0
+Mapset:   	AT-Landeck
+ F: PID 1, FID 6621, SFL-mtb Map family
+ V: OSM map set (0)

@@ -386,8 +386,8 @@ if [ -f "${splitterDir}/template.args" ]; then
 	name=${name/-/ }
 	imgsversion="${name^}, ${yyyymm} v.${version}"
 	echo "SET Mapsetname '${imgsversion}'"
-	gmt -w -m "${imgsversion}" ${pathImg}
-	gmt -i ${pathImg} 2>/dev/null
+	bin/gmt -w -m "${imgsversion}" ${pathImg}
+	bin/gmt -i ${pathImg} 2>/dev/null
 	ls -l ${pathImg}
 else
 	errmsg "No splitter files." 1
