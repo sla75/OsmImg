@@ -22,8 +22,12 @@ aerialway=* & aerialway:summer:access='no' {set bicycle=no}
 
 
 abandoned:railway=* | (railway=* & abandoned=yes) {add railway=abandoned}
-railway=abandoned & length()>1000 [0x10c00 default_name="zr. trat" resolution 24-20 continue]
+railway=abandoned & length()>1000 [0x10c00 default_name="zr. trat" resolution 22-20 continue]
 railway=abandoned { name '${name}' } [0x10c00 resolution 24-23]
+
+railway=funicular & length()>1000 [0x10a02 resolution 21-18 continue]
+railway=funicular { name '${name}' } [0x10c03 resolution 24-22]
+
 
 #aerialway=goods { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c03 resolution 24-23]
 aerialway=goods [0x10c03 resolution 24-23]
