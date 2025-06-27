@@ -2,13 +2,13 @@ product-id=1
 draw-priority=19
 transparent=0
 
-series-name: %name% series
-family-name: %name% family
+series-name: OsmImg series
+family-name: Mapnik
 description: %name% %year% v.%version%
 
-country-name: Czech
-country-abbr: CZ
-copyright-message: %name%, Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz %datetime% v.%version%
+country-name: Europe
+country-abbr: EU
+copyright-message: %name% %year% v.%version%, Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz
 
 # Soubor pro GPS
 gmapsupp

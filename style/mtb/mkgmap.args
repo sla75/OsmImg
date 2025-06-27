@@ -2,13 +2,13 @@ product-id=1
 draw-priority=18
 transparent=1
 
-series-name: %name% series
-family-name: %name% family
+series-name: OsmImg
+family-name: MTB
 description: %name% %year% v.%version%
 
-country-name: Czech
-country-abbr: CZ
-copyright-message: %name%, Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz %datetime% v.%version%
+country-name: Europe
+country-abbr: EU
+copyright-message: %name% %year% v.%version%, Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz
 
 # Soubor pro GPS
 gmapsupp
@@ -39,7 +39,7 @@ link-pois-to-ways
 add-pois-to-lines
 add-pois-to-areas
 #make-opposite-cycleways
-#cycle-map
+cycle-map
 
 # Podpora pr MapSource/BaseCamp
 #tdbfile

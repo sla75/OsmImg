@@ -307,7 +307,7 @@ function varreplace {
 	sed -i "s/%date%/$(date +%F)/gi" ${rfile}
 	sed -i "s/%datetime%/$(date +'%F %R')/gi" ${rfile}
 	sed -i "s/%version%/${version}/gi" ${rfile}
-	sed -i "s/%name%/${name^} Map/gi" ${rfile}
+	sed -i "s/%name%/${name^}/gi" ${rfile}
 	sed -i "s/%year%/$(date +%Y)/gi" ${rfile}
 }
 function getLicenceFile {
