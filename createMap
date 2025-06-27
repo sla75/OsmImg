@@ -88,7 +88,8 @@ function exitmsg {
 	echo -e ${1}" (${2:-0})" >&2 ; exit ${2:-0}
 }
 function msg {
-	${debug} && echo -e ${*}
+#	${debug} && echo -e ${*}
+	echo -e ${*}
 }
 
 function showFileTime {
@@ -366,9 +367,9 @@ if [ -f "${splitterDir}/template.args" ]; then
 
 	cp -v ${pathstyle}/${style}/mkgmap.args ${tmpdir}/${style}.args >&2
 	varreplace ${tmpdir}/${style}.args || exit $?
+#			--family-id=${imgfid}	\
 	execjar mkgmap --verbose $(getLicenceFile)\
 		--max-jobs	\
-		--family-id=${imgfid}	\
 		--description=${imgname}_${yyyymm}.${version}	\
 		--read-config="${tmpdir}/${style}.args"	${boundstag} ${seatag}	\
 		--product-version=${version}	\

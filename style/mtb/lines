@@ -22,14 +22,15 @@ aerialway=* & aerialway:summer:access='no' {set bicycle=no}
 
 
 abandoned:railway=* | (railway=* & abandoned=yes) {add railway=abandoned}
-railway=abandoned & length()>1000 [0x10c00 default_name="zr. trat" resolution 24-20]
+railway=abandoned & length()>1000 [0x10c00 default_name="zr. trat" resolution 24-20 continue]
 railway=abandoned { name '${name}' } [0x10c00 resolution 24-23]
 
 #aerialway=goods { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c03 resolution 24-23]
 aerialway=goods [0x10c03 resolution 24-23]
 
 aerialway~'gondola|cable_car|mixed_lift' & bicycle=no [0x10c03 resolution 24-23]
-aerialway~'gondola|cable_car|mixed_lift' & bicycle!=no { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c01 resolution 24-21]
+aerialway~'gondola|cable_car|mixed_lift' & bicycle!=no & length()>1500 [0x10c01 resolution 21-18 continue]
+aerialway~'gondola|cable_car|mixed_lift' & bicycle!=no { name '${name}' | 'lanovka' ; add label='${aerialway}' } [0x10c01 resolution 24-22]
 
 aerialway~'chair_lift|t-bar|drag_lift|j-bar|platter|rope_tow' & bicycle!=yes [0x10c03 resolution 24-23]
 aerialway~'chair_lift|t-bar|drag_lift|j-bar|platter|rope_tow' & bicycle=yes { name '${name}' | 'vlek' ; add label='${aerialway}' } [0x10c02 resolution 24-21]
@@ -48,7 +49,7 @@ barrier=city_wall [0x10a02 resolution 24]
 barrier=bollard [0x11b06 resolution 24]
 barrier=* [0x11b05 resolution 24]
 
-bicycle=no & mtb:scale=* {delete bicycle}
+bicycle=no & mtb:scale=* {delete bicycle; name 'scale ${mtb:scale}'}
 bicycle=no & mtbroute=yes {delete bicycle}
 bicycle!=yes & bicycleroute=yes {set bicycle=yes}
 
@@ -92,7 +93,6 @@ bicycleroute=yes {name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bic
 #inclinenum=* {; echo 'INCLINE ${incline} ${inclinenum}'}
 
 
-#highway!=steps & bicycle!=no & incline=down & inclinenum>=16 {name '${inclinenum}%'} [0x11a06 resolution 22 continue]
 #highway!=steps & bicycle!=no & incline=up & inclinenum>=16 {name '${inclinenum}%'} [0x11a05 resolution 22 continue]
 #highway!=steps & bicycle!=no & incline=down & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a04 resolution 23 continue]
 #highway!=steps & bicycle!=no & incline=up & inclinenum>=8 & inclinenum<16 {name '${inclinenum}%'} [0x11a03 resolution 23 continue]
@@ -109,16 +109,19 @@ bicycleroute=yes {name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bic
 #	highway=* {name '${name}'} [0x11c0f resolution 24]
 
 
-
+highway=* & bicycle=no [0x11b01 resolution 24-23]
 
 
 
 highway=* & access~'no|private' [0x11b00 resolution 24-23]
 highway=* & access=customers [0x11b02 resolution 24]
-bicycle=discouraged {name '${name}'} [0x11b03 resolution 24-23]
 
-bicycle=dismount {name '${name}' | 'dismount'} [0x11b04 resolution 24]
-bicycle=no {name '${name}'} [0x11b01 resolution 23-24]
+bicycle=discouraged [0x11b03 resolution 24-23]
+bicycle=dismount [0x11b04 resolution 24-23]
+
+highway=steps & bicycle!=yes [0x11b07 resolution 23]
+highway=steps & (bicycle=yes | mtb:scale=*) {name '${step_count}'} [0x11b08 resolution 23]
+
 
 <finalize>
 

@@ -17,15 +17,15 @@ mtbroute=yes & mtbcolour='orange' & oneway=yes & role=forward
 mtbroute=yes & mtbcolour='orange' & oneway=yes & role=backward
 	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11002 resolution 24-22]
 
-
+mtbroute=yes & mtbcolour='blue' [0x10d01 resolution 22-22 continue]
 mtbroute=yes & mtbcolour='blue' & ( oneway=no | role!=* )
-	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11003 resolution 24-24] 	
+	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11003 resolution 24-23] 	
 mtbroute=yes & mtbcolour='blue' & oneway=yes & role=forward
-	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11004 resolution 24-24]
+	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11004 resolution 24-23]
 mtbroute=yes & mtbcolour='blue' & oneway=yes & role=backward
-	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11005 resolution 24-24]	
-mtbroute=yes & mtbcolour='blue' {name '${bicycleref}'} [0x10d01 resolution 23-23 ]
-#mtbroute=yes & mtbcolour='blue' [0x10d01 resolution 22-22 ]
+	{name '${mtbname} ${name}' | '${mtbname}' | '${name}'} [0x11005 resolution 24-23]	
+mtbroute=yes & mtbcolour='blue' {name '${bicycleref}'} [0x10d01 resolution 24-23 ]
+
 
 
 mtbroute=yes & mtbcolour='black' & ( oneway=no | role!=* )
