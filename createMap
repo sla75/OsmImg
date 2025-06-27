@@ -351,6 +351,7 @@ echo -e "\n### 7. Run mkgmap"
 [[ -d "${pathstyle}/${style}" ]] || exitmsg "Style ${pathstyle}/${style} not found!" 2
 
 if [ -f "${splitterDir}/template.args" ]; then
+	sed -i '/description: /d' ${splitterDir}/template.args
 	[ -d ${tmpdir}/img_${area} ] && rm -rf ${tmpdir}/img_${area}
 	[ ! -d ${tmpdir}/img_${area} ] && mkdir -p ${tmpdir}/img_${area}
 	$bounds && ${root}/bin/curletag ${v} --filetime "-1 month" --etagtime "-1 day" \
