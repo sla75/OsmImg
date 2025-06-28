@@ -1,14 +1,14 @@
 product-id=1
-draw-priority=18
+draw-priority=36
 transparent=1
 
 series-name: OsmImg
 family-name: MTB
-description: %name% %year% v.%version%
+description: %name%.%year% (%version%)
 
 country-name: Europe
 country-abbr: EU
-copyright-message: %name% %year% v.%version%, Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz
+copyright-message: %name%.%year% (%version%), Map data (c) openstreetmap.org, Map layout (c) osm.slavics.cz
 
 # Soubor pro GPS
 gmapsupp

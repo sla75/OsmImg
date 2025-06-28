@@ -1,4 +1,5 @@
 petr@hp600:~/Projekty/GarminApp/MTP/Garmin$ for f in `ls *.img`; do echo "File $f"; /home/petr/Projekty/OsmImg/bin/gmt -i $f | grep ":" ; done
+
 File D4713090A.img
 File:		D4713090A.img, length 1287323648
 Header:   	13.03.2023 10:50:27, DSKIMG, XOR 00, V 23.10, Ms 0, 006-D4713-09
@@ -15,7 +16,61 @@ Header:   	30.08.2022 11:33:55, DSKIMG, XOR 00, V 5.00, Ms 0, 006-D5554-03
 Mapset:   	TOPO Czech v5 PRO
  V: 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 17 (1)
  U: YSE5A-FP365-XWHQY-S9VGB-ZVPBX
- F: PID 1, FID 9721, TOPO Czech PRO
+ F: PID 1, FID 9721, TOPO Czech PRO, Priority 31
+File D6184160A.img
+File:		D6184160A.img, length 3007709184
+Header:   	31.03.2025 10:03:44, DSKIMG, XOR 00, V 25.10, Ms 0, 006-D6184-16
+Mapset:   	TopoActive Europe, East 2025.10
+ F: PID 1, FID 12924, TopoActive Europe - East 2025.10
+File D6185160A.img
+File:		D6185160A.img, length 2850816000
+Header:   	31.03.2025 11:40:53, DSKIMG, XOR 00, V 25.10, Ms 0, 006-D6185-16
+Mapset:   	TopoActive Europe, West 2025.10
+ F: PID 1, FID 12924, TopoActive Europe - West 2025.10
+File D7557140A.img
+File:		D7557140A.img, length 206778368
+Header:   	21.04.2025 10:07:02, DSKIMG, XOR 00, V 25.10, Ms 0, 006-D7557-14
+Mapset:   	Trailforks 2025.10
+ F: PID 1, FID 12995, Trailforks 2025.10
+File D9486050A.img
+File:		D9486050A.img, length 2897805312
+Header:   	30.03.2025 15:02:52, DSKIMG, XOR 00, V 25.10, Ms 0, 006-D9486-05
+Mapset:   	TopoActive Europe, Central 2025.10
+ F: PID 1, FID 12924, TopoActive EU - Central 2025.10, Priority 19
+File gmapbmap.img
+File:		gmapbmap.img, length 53915648
+Header:   	28.02.2024 14:24:06, DSKIMG, XOR 00, V 8.00, Ms 0, 006-F0114-00
+Mapset:   	Worldwide DEM Basemap,NR v8
+File gmaptz.img
+File:		gmaptz.img, length 573440
+Header:   	17.03.2025 12:16:14, DSKIMG, XOR 00, V 39.00, Ms 0, 006-D1074-00
+Mapset:   	Time Zone Map
+File SFL-mtb.img
+File:		SFL-mtb.img, length 2187264
+Header:   	27.06.2025 17:06:51, DSKIMG, XOR 00, V 0.40, Ms 0
+Mapset:   	SFL mtb, 2025/06 v.40
+ F: PID 1, FID 6324, MTB
+ V: SFL mtb, 2025/06 v.40 (0)
+
+
+-- OLD --
+File D4713090A.img
+File:		D4713090A.img, length 1287323648
+Header:   	13.03.2023 10:50:27, DSKIMG, XOR 00, V 23.10, Ms 0, 006-D4713-09
+Mapset:   	Garmin DEM Map EU 2023.10
+ F: PID 1, FID 12080, Garmin DEM Map EU 2023.10
+File D4728160A.img
+File:		D4728160A.img, length 1907032064
+Header:   	20.02.2024 16:44:45, DSKIMG, XOR 00, V 24.10, Ms 0, 006-D4728-16
+Mapset:   	Garmin Geocode Map EU 2024.10
+ F: PID 1, FID 12436, Garmin Geocode Map EU 2024.10
+File D5554030A.img
+File:		D5554030A.img, length 580403200
+Header:   	30.08.2022 11:33:55, DSKIMG, XOR 00, V 5.00, Ms 0, 006-D5554-03
+Mapset:   	TOPO Czech v5 PRO
+ V: 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 17 (1)
+ U: YSE5A-FP365-XWHQY-S9VGB-ZVPBX
+ F: PID 1, FID 9721, TOPO Czech PRO, Priority 31
 File D6016120A.img
 File:		D6016120A.img, length 2919432192
 Header:   	23.10.2024 11:29:05, DSKIMG, XOR 00, V 24.20, Ms 0, 006-D6016-12

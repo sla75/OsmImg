@@ -24,7 +24,7 @@ type=route & route=bicycle {
 		set bicycleroute=yes;
 		set bicyclename='${name}';
 		set bicycleref='${ref}';
-		set bicycle='yes';
+		set bicycleroute='yes';
 		add bicyclecolour='${colour}'
 	}
 }
