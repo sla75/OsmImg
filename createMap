@@ -377,7 +377,7 @@ if [ -f "${splitterDir}/template.args" ]; then
 #			--family-id=${imgfid}	\
 	execjar mkgmap --verbose $(getLicenceFile)\
 		--max-jobs	\
-		--description="${imgname}_${yyyymm} (${version})"	\
+		--description="${imgname}_${yyyymm}.${version}"	\
 		--read-config="${tmpdir}/${style}.args"	${boundstag} ${seatag}	\
 		--product-version=${version}	\
 		--output-dir=${tmpdir}/img_${area}	\
