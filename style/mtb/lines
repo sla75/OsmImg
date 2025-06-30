@@ -14,6 +14,8 @@ mtb:scale!=* & sac_scale~'mountain_hiking|demanding_mountain_hiking|.*alpine_hik
 access=no & (bicycle!=no | foot!=no) {delete access}
 highway!=* & bicycle=no {delete bicycle}
 
+bicycle=discouraged [0x11b03 resolution 24-23]
+bicycle=dismount [0x11b04 resolution 24-23]
 
 aerialway=* & aerialway:bicycle~'yes|summer' {set bicycle=yes}
 aerialway=* & aerialway:access='no' {set bicycle=no}
@@ -55,7 +57,7 @@ barrier=* [0x11b05 resolution 24]
 
 bicycle=no & mtb:scale=* {delete bicycle; name 'scale ${mtb:scale}'}
 bicycle=no & mtbroute=yes {delete bicycle}
-bicycle!=yes & bicycleroute=yes {set bicycle=yes}
+#bicycle!=yes & bicycleroute=yes {set bicycle=yes}
 
 
 
@@ -64,11 +66,12 @@ include 'inc/mtbroute'
 #include 'inc/hikingroute'
 
 
-bicycleroute=yes [0x11100 resolution 19-18]
-bicycleroute=yes {name '${bicycleref}'} [0x11100 resolution 22-20 continue]
-bicycleroute=yes {name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11104 resolution 24-23 continue]
+bicycleroute=yes [0x11102 resolution 19-18 continue]
+bicycleroute=yes {name '${bicycleref}'} [0x11102 resolution 22-20 continue]
+bicycleroute=yes {name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11103 resolution 24-23 continue]
 
-
+#bicycleroute=yes
+#	{name '${bicycleref} ${bicyclename}' | '${bicyclename}' | '${bicycleref}'} [0x11000 resolution 24-22] 	
 	
 #mtb:scale:up=0 & mtb:scale!=* {set mtb:scale=0}
 #mtb:scale:up=0 {delete mtb:scale:up}
@@ -118,10 +121,9 @@ highway=* & bicycle=no [0x11b01 resolution 24-23]
 
 
 highway=* & access~'no|private' [0x11b00 resolution 24-23]
-highway=* & access=customers [0x11b02 resolution 24]
+#highway=* & access=customers [0x11b02 resolution 24]
 
-bicycle=discouraged [0x11b03 resolution 24-23]
-bicycle=dismount [0x11b04 resolution 24-23]
+
 
 highway=steps & bicycle!=yes [0x11b07 resolution 23]
 highway=steps & (bicycle=yes | mtb:scale=*) {name '${step_count}'} [0x11b08 resolution 23]

@@ -226,6 +226,13 @@ else
 	[ ! ${nodownload} ] && msg "### 3. Disable download by parameter -nd."
 fi;
 
+if [ -e "${srcfile%.*}.osm" ]; then
+	if [ "${srcfile%.*}.osm" -nt "${srcfile}" ]; then
+    	osmconvert -v "${srcfile%.*}.osm" -o=${srcfile}
+		rm -rvf "${tmpdir}/img_${area}"
+	fi
+fi
+
 showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
 
 ######################################## POLYGON #######################################################################
@@ -327,7 +334,7 @@ function getLicenceFile {
 	return 1
 }
 echo -e "\n### 6. Run splitter"
-yyyymm=$(date +'%Y/%m')
+yyyymm=$(date +'%Y.%m')
 splitterDir="${tmpdir}/splitter_${area}"
 if [[ ! -e ${splitterDir}/template.args || ${srcfile} -nt ${splitterDir}/template.args ]]; then
 	[ ! -d ${splitterDir} ] && mkdir -p ${splitterDir}
@@ -370,7 +377,7 @@ if [ -f "${splitterDir}/template.args" ]; then
 #			--family-id=${imgfid}	\
 	execjar mkgmap --verbose $(getLicenceFile)\
 		--max-jobs	\
-		--description=${imgname}_${yyyymm}.${version}	\
+		--description="${imgname}_${yyyymm}.${version}"	\
 		--read-config="${tmpdir}/${style}.args"	${boundstag} ${seatag}	\
 		--product-version=${version}	\
 		--output-dir=${tmpdir}/img_${area}	\
@@ -384,10 +391,10 @@ if [ -f "${splitterDir}/template.args" ]; then
 	[ -d "${root}/imgs/" ] || mkdir "${root}/imgs/"
 	mv -v ${tmpdir}/img_${area}/gmapsupp.img ${pathImg} || exit 1
 	name=${name/-/ }
-	imgsversion="${name^}, ${yyyymm} v.${version}"
+	imgsversion="${name^}, ${yyyymm} (${version})"
 	echo "SET Mapsetname '${imgsversion}'"
-	gmt -w -m "${imgsversion}" ${pathImg}
-	gmt -i ${pathImg} 2>/dev/null
+	bin/gmt -w -m "${imgsversion}" ${pathImg}
+	bin/gmt -i ${pathImg} 2>/dev/null
 	ls -l ${pathImg}
 else
 	errmsg "No splitter files." 1
