@@ -21,7 +21,7 @@ aerialway=* & aerialway:bicycle~'yes|summer' {set bicycle=yes}
 aerialway=* & aerialway:access='no' {set bicycle=no}
 aerialway=* & aerialway:summer:access='no' {set bicycle=no}
 
-
+highway=* & length()<100 {set shortway=yes}
 
 abandoned:railway=* | (railway=* & abandoned=yes) {add railway=abandoned}
 railway=abandoned & length()>1000 [0x10c00 default_name="zr. trat" resolution 22-20 continue]
@@ -117,7 +117,6 @@ bicycleroute=yes {name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bic
 
 
 highway=* & bicycle=no [0x11b01 resolution 24-23]
-
 
 
 highway=* & access~'no|private' [0x11b00 resolution 24-23]
