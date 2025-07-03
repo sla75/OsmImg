@@ -66,9 +66,9 @@ include 'inc/mtbroute'
 #include 'inc/hikingroute'
 
 
-bicycleroute=yes [0x11102 resolution 19-18 continue]
-bicycleroute=yes {name '${bicycleref}'} [0x11102 resolution 22-20 continue]
-bicycleroute=yes {name '${bicyclename} ${bicycleref}' | '${bicycleref}' | '${bicyclename}'} [0x11103 resolution 24-23 continue]
+bicycleroute=yes [0x11100 resolution 19-18 continue]
+bicycleroute=yes [0x11102 resolution 22-20 continue]
+bicycleroute=yes {name '${bicycleref}'} [0x11103 resolution 24-23 continue]
 
 #bicycleroute=yes
 #	{name '${bicycleref} ${bicyclename}' | '${bicyclename}' | '${bicycleref}'} [0x11000 resolution 24-22] 	

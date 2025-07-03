@@ -14,7 +14,7 @@ copyright-message: %name%.%year% (%version%), Map data (c) openstreetmap.org, Ma
 gmapsupp
 
 # Kodovani
-lower-case
+#lower-case
 #latin1
 code-page: 1252
 show-profiles: 1
@@ -27,7 +27,7 @@ location-autofill=is_in,nearest
 #housenumbers
 #poi-address
 name-tag-list=short_name,name,int_name,name:cs,name:en,name:de,place_name
-#make-poi-index
+make-poi-index
 
 # Podpora routovai
 #route

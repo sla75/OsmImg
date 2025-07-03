@@ -22,7 +22,7 @@ state~'proposed|recommended' { deletealltags }
 type=route & route=bicycle {
 	apply {
 		set bicycleroute=yes;
-		set bicyclename='${name}';
+		#set bicyclename='${name}';
 		set bicycleref='${ref}';
 		set bicycleroute='yes';
 		add bicyclecolour='${colour}'
@@ -38,9 +38,9 @@ type=route & route~'mtb|MTB' {
 	}
 	apply {
 		add mtbroute=yes;
-		add ref='${ref}';
+		add mtbref='${ref}';
 		add oneway='${oneway}'
-		add mtbname='${ref} ${name}'
+		#add mtbname='${ref} ${name}'
 		add mtbcolour='${colour}'
 	}
 }

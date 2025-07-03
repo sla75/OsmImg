@@ -3,12 +3,13 @@ bicycle=no & mtbroute=yes {delete bicycle}
 mtbroute=yes & mtbcolour!=* {set mtbcolour='none'}
 mtbroute=yes & oneway!=* {set oneway='no'}
 
+mtbroute=yes & mtbcolour='none' [0x11102 resolution 23-20 continue]
 mtbroute=yes & mtbcolour='none' & ( oneway=no | role!=* )
-	{name '${ref}'} [0x11104 resolution 24-22 continue]
+	{name '${ref}'} [0x11104 resolution 24-24 continue]
 mtbroute=yes & mtbcolour='none' & oneway=yes & role=forward
-	{name '${ref}'} [0x11105 resolution 24-22 continue]
+	{name '${ref}'} [0x11105 resolution 24-24 continue]
 mtbroute=yes & mtbcolour='none' & oneway=yes & role=backward
-	{name '${ref}'} [0x11106 resolution 24-22 continue]
+	{name '${ref}'} [0x11106 resolution 24-24 continue]
 
 mtbroute=yes & mtbcolour='orange' & ( oneway=no | role!=* )
 	{name '${ref}'} [0x11000 resolution 24-22 continue] 	
@@ -17,12 +18,13 @@ mtbroute=yes & mtbcolour='orange' & oneway=yes & role=forward
 mtbroute=yes & mtbcolour='orange' & oneway=yes & role=backward
 	{name '${ref}'} [0x11002 resolution 24-22 continue]
 
+mtbroute=yes & mtbcolour='blue' [0x11203 resolution 23-20 continue]
 mtbroute=yes & mtbcolour='blue' & ( oneway=no | role!=* )
-	{name '${ref}'} [0x11003 resolution 24-22 continue] 	
+	{name '${ref}'} [0x11003 resolution 24-24 continue] 	
 mtbroute=yes & mtbcolour='blue' & oneway=yes & role=forward
-	{name '${ref}'} [0x11004 resolution 24-22 continue]
+	{name '${ref}'} [0x11004 resolution 24-24 continue]
 mtbroute=yes & mtbcolour='blue' & oneway=yes & role=backward
-	{name '${ref}'} [0x11005 resolution 24-22 continue]	
+	{name '${ref}'} [0x11005 resolution 24-24 continue]	
 
 mtbroute=yes & mtbcolour='black' & ( oneway=no | role!=* )
 	{name '${ref}'} [0x11006 resolution 24-22 continue] 	
@@ -31,17 +33,19 @@ mtbroute=yes & mtbcolour='black' & oneway=yes & role=forward
 mtbroute=yes & mtbcolour='black' & oneway=yes & role=backward
 	{name '${ref}'} [0x11008 resolution 24-22 continue]	
 
+mtbroute=yes & mtbcolour='red' [0x11201 resolution 23-20 continue]
 mtbroute=yes & mtbcolour='red' & ( oneway=no | role!=* )
-	{name '${ref}'} [0x11009 resolution 24-22 continue] 	
+	{name '${ref}'} [0x11009 resolution 24-24 continue]
 mtbroute=yes & mtbcolour='red' & oneway=yes & role=forward
-	{name '${ref}'} [0x1100a resolution 24-22 continue]
+	{name '${ref}'} [0x1100a resolution 24-24 continue]
 mtbroute=yes & mtbcolour='red' & oneway=yes & role=backward
-	{name '${ref}'} [0x1100b resolution 24-22 continue]	
+	{name '${ref}'} [0x1100b resolution 24-24 continue]
 
+mtbroute=yes & mtbcolour='green' [0x11204 resolution 23-20 continue]
 mtbroute=yes & mtbcolour='green' & ( oneway=no | role!=* )
-	{name '${ref}'} [0x1100c resolution 24-22 continue] 	
+	{name '${ref}'} [0x1100c resolution 24-24 continue] 	
 mtbroute=yes & mtbcolour='green' & oneway=yes & role=forward
-	{name '${ref}'} [0x1100d resolution 24-22 continue]
+	{name '${ref}'} [0x1100d resolution 24-24 continue]
 mtbroute=yes & mtbcolour='green' & oneway=yes & role=backward
-	{name '${ref}'} [0x1100e resolution 24-22 continue]
+	{name '${ref}'} [0x1100e resolution 24-24 continue]
 

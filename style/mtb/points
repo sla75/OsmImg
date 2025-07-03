@@ -20,11 +20,11 @@ abandoned:landuse=* {set landuse='${abandoned:landuse}'; set disused=yes}
 abandoned:man_made=* {set man_made='${abandoned:man_made}'; set disused=yes}
 bicycle:hazard=* {set hazard='${bicycle:hazard}'}
 
-#hazard=* {name '${hazard|subst:yes=>}'} [0x6709 resolution 24-22]
+#hazard=* {name '${hazard|subst:yes=>}'} [0x06300 resolution 24-22]
 
-hazard=* & mkgmap:line2poi!=true { name '${hazard|subst:yes=>}'} [0x6709 resolution 24-22]
-hazard=* & mkgmap:line2poi=true & mkgmap:line2poitype~'start|end' { name '${hazard|subst:yes=>}'} [0x6709 resolution 24-22]
-#hazard=* & hazard~'^(no|animal_crosing)' & mkgmap:line2poi=true & mkgmap:line2poitype~'start|mid|end' { name '${hazard|subst:yes=>}'  }   [0x6709 resolution 24-22]
+hazard=* & mkgmap:line2poi!=true { name '${hazard|subst:yes=>}'} [0x06300 resolution 24-23]
+hazard=* & mkgmap:line2poi=true & mkgmap:line2poitype~'start|end' { name '${hazard|subst:yes=>}'} [0x06300 resolution 24-23]
+#hazard=* & hazard~'^(no|animal_crosing)' & mkgmap:line2poi=true & mkgmap:line2poitype~'start|mid|end' { name '${hazard|subst:yes=>}'  }   [0x06300 resolution 24-22]
 
 (access!=private | access!=customers) & barrier=gate
 	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24]
@@ -102,7 +102,7 @@ amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '$
 
 
 amenity=parking & fee=yes & access!=no [0x06301 resolution 24]
-amenity=parking & access!=private & access!=no [0x06300 resolution 24]
+amenity=parking & access!=private & access!=no [0x06709 resolution 24]
 tourism=camp_site {name '${name}'} [0x6703 resolution 24-23]
 tourism=viewpoint [0x04002 resolution 24-22]
 natural=cave_entrance {name '${name}'} [0x1100f resolution 24]
