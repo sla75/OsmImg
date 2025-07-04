@@ -1,6 +1,6 @@
 product-id=1
 draw-priority=19
-transparent=0
+#transparent
 
 series-name: OsmImg series
 family-name: Mapnik

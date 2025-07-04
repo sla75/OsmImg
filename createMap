@@ -161,9 +161,9 @@ echo -e "\n### 0.1 Check ${area}.parameters"
 msg ${patharea}/${area}.parameters
 source ${patharea}/${area}.parameters
 
-subfid=$(grep ${style} ${pathstyle}/style.fid 2>/dev/null | cut -d'=' -f2)
-subfid=${subfid:-0}
-imgfid=$((imgfid+subfid))
+pid=$(grep ${style} ${pathstyle}/style.fid 2>/dev/null | cut -d'=' -f2)
+pid=${pid:-0}
+imgfid=$((imgfid+pid))
 
 echo -e "FID: ${imgfid}"
 echo -e "url: ${url}"
@@ -392,8 +392,16 @@ if [ -f "${splitterDir}/template.args" ]; then
 	mv -v ${tmpdir}/img_${area}/gmapsupp.img ${pathImg} || exit 1
 	name=${name/-/ }
 	imgsversion="${name^}, ${yyyymm} (${version})"
-	echo "SET Mapsetname '${imgsversion}'"
+
+	echo "SET Mapsetname '${imgsversion}', FID: ${imgfid}, PID: ${pid}"
 	bin/gmt -w -m "${imgsversion}" ${pathImg}
+
+	echo bin/gmt -w -y ${imgfid},${pid} ${pathImg}
+	bin/gmt -w -y ${imgfid},${pid} ${pathImg}
+
+	echo bin/gmt -w -v -z ${imgfid},${pid}  ${pathImg}
+	bin/gmt -w -v -z ${imgfid},${pid}  ${pathImg}
+
 	bin/gmt -i ${pathImg} 2>/dev/null
 	ls -l ${pathImg}
 else

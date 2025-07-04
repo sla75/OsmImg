@@ -1,6 +1,6 @@
 product-id=1
 draw-priority=36
-transparent=1
+transparent
 
 series-name: OsmImg
 family-name: MTB
@@ -21,7 +21,7 @@ show-profiles: 1
 
 
 # Podpora vyhledavani
-#index
+index
 #split-name-index
 location-autofill=is_in,nearest
 #housenumbers

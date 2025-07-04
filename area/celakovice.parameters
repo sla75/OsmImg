@@ -1,5 +1,5 @@
 # ID mapy, max x500
-imgfid=6100
+imgfid=5900
 imgabbr="CZ"
 #srcfile="cache/czech-republic-latest.osm.pbf"
 srcfile="pbf/celakovice.pbf"
