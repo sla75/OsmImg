@@ -50,9 +50,8 @@ railway=station  { name '${name}' } [0x6708 resolution 24-22]
 #aerialway=station  { name '${name}' } [0x6708 resolution 24]
 
 # Zákaz vjezdu
-highway=* & bicycle=no & mtb:scale!=* & mkgmap:line2poi=true & shortway=yes & mkgmap:line2poitype~'mid' [0x03103 resolution 24-24]
-highway=* & bicycle=no & mtb:scale!=* & mkgmap:line2poi=true & shortway!=yes & mkgmap:line2poitype~'start|end' [0x03103 resolution 24-23]
-
+#highway=* & bicycle=no & mtb:scale!=* & mkgmap:line2poi=true & shortway=yes & mkgmap:line2poitype~'mid' [0x03103 resolution 24-24]
+#highway=* & bicycle=no & mtb:scale!=* & mkgmap:line2poi=true & shortway!=yes & mkgmap:line2poitype~'start|mid|end' [0x03103 resolution 24-23]
 
 tourism=information & information=guidepost & hiking=yes & bicycle=yes [0x6707 resolution 24-22]
 tourism=information & information=guidepost & bicycle=yes [0x6706 resolution 24-22]
@@ -105,7 +104,7 @@ amenity=fast_food & (brand!=* | brand~'^(?:(?!\b(KFC|McDonald)\b).)*$') {name '$
 amenity=parking & fee=yes & access!=no [0x06301 resolution 24]
 amenity=parking & access!=private & access!=no [0x06300 resolution 24]
 tourism=camp_site {name '${name}'} [0x6703 resolution 24-23]
-tourism=viewpoint [0x04002 resolution 24-22]
+tourism=viewpoint {name '${name}'} [0x04002 resolution 24-24]
 natural=cave_entrance {name '${name}'} [0x1100f resolution 24]
 natural=sinkhole {name '${name}'} [0x1100e resolution 24]
 #tourism=information {name '${name}'} [0x10c01 resolution 24]
