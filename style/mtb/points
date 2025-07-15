@@ -34,8 +34,10 @@ aerialway=* & bicycle=yes & aerialway:summer:access~'yes|both' {set access=yes}
 
 aerialway~'gondola|cable_car|mixed_lift' & access=yes & mkgmap:line2poi=true & mkgmap:line2poitype='mid' { name '${name}'} [0x0670a resolution 24-22]
 
-(access!=private | access!=customers) & barrier=gate
+access!=private & barrier=gate
 	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24]
+access=private & barrier=gate
+	{add name='${barrier|subst:"_=> "}'} [0x3104 resolution 24]
 barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x3202 resolution 24]
 access!=private & barrier=lift_gate | barrier=swing_gate
 	{add name='${barrier|subst:"_=> "}'} [0x3203 resolution 24]
