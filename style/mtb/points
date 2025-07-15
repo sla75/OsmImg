@@ -26,6 +26,14 @@ hazard=* & mkgmap:line2poi!=true { name '${hazard|subst:yes=>}'} [0x06709 resolu
 hazard=* & mkgmap:line2poi=true & mkgmap:line2poitype~'start|end' { name '${hazard|subst:yes=>}'} [0x06709 resolution 24-23]
 #hazard=* & hazard~'^(no|animal_crosing)' & mkgmap:line2poi=true & mkgmap:line2poitype~'start|mid|end' { name '${hazard|subst:yes=>}'  }   [0x06709 resolution 24-22]
 
+aerialway=* & aerialway:bicycle!=* & bicycle!=* {set bicycle=no}
+aerialway=* & bicycle~'yes|summer' {set bicycle=yes}
+aerialway=* & aerialway:bicycle~'yes|summer' {set bicycle=yes}
+aerialway=* & bicycle=yes & aerialway:access~'yes|both|summer' {set access=yes}
+aerialway=* & bicycle=yes & aerialway:summer:access~'yes|both' {set access=yes}
+
+aerialway~'gondola|cable_car|mixed_lift' & access=yes & mkgmap:line2poi=true & mkgmap:line2poitype='mid' { name '${name}'} [0x0670a resolution 24-22]
+
 (access!=private | access!=customers) & barrier=gate
 	{add name='${barrier|subst:"_=> "}'} [0x3201 resolution 24]
 barrier=bollard	{ add name='${barrier|subst:"_=> "}'} [0x3202 resolution 24]
@@ -58,21 +66,21 @@ tourism=information & information=guidepost & bicycle=yes [0x6706 resolution 24-
 tourism=information & information=guidepost [0x6704 resolution 24-23]
 #tourism=information [0x6701 resolution 24]
 
-historic=wayside_cross  [0x11009 resolution 24]
-historic=wayside_shrine  [0x1100b resolution 24]
+historic=wayside_cross  [0x06800 resolution 24]
+historic=wayside_shrine  [0x06801 resolution 24]
 historic=monument  [0x06612 resolution 24]
 historic=memorial  [0x06615 resolution 24]
 historic=stone {name '${name}'; set mkgmap:label:4='${inscription} ${start_date}'} [0x06611 resolution 24]
 historic~'boundary_stone|milestone'  [0x06508 resolution 24]
 boundary=marker  [0x06508 resolution 24]
 man_made=survey_point & survey_point:structure=block { name '${name} ${ele}m' | '${name}' | '${ele}m'} [0x06508 resolution 24]
-historic=chapel | building=chapel  [0x1100c resolution 24]
-historic=tomb | building=tomb  [0x1100c resolution 24]
+historic=chapel | building=chapel  [0x06802 resolution 24]
+historic=tomb | building=tomb  [0x06802 resolution 24]
 
-amenity=shelter & covered=yes  [0x11007 resolution 24-23]
-shelter_type=picnic_shelter  [0x11007 resolution 24-23]
+amenity=shelter & covered=yes  [0x06900 resolution 24-24]
+shelter_type=picnic_shelter  [0x06900 resolution 24-24]
 
-(amenity=atm | atm=yes) { add label='${operator}' | '${brand}' | '${name}'} [0x11006 resolution 24-23]
+(amenity=atm | atm=yes) { add label='${operator}' | '${brand}' | '${name}'} [0x06306 resolution 24-24]
 
 
 #if (mkgmap:line2poi=true & highway=* & bicycle=dismount) then
@@ -80,8 +88,9 @@ shelter_type=picnic_shelter  [0x11007 resolution 24-23]
 # 	(mkgmap:line2poitype=start | mkgmap:line2poitype=end) & mkgmap:way-length>=25 [0x320f resolution 23]
 #end
 
-natural=tree & denotation=natural_monument & leaf_type=needleleaved [0x2c06 resolution 24]
-natural=tree & denotation=natural_monument [0x2c07 resolution 24]
+#denotation=natural_monument
+natural=tree & leaf_type=needleleaved [0x2c06 resolution 24]
+natural=tree [0x2c07 resolution 24]
 natural=stone [0x06613 resolution 24]
 natural=rock [0x06614 resolution 24]
 natural=spring & ( access!=no & access!=private ) {name '${name}' } [0x06511 resolution 24]
@@ -89,6 +98,7 @@ amenity=drinking_water & ( access!=no & access!=private ) {name '${name}' } [0x0
 
 #natural=peak & ele=* {name '${name} ${ele|subst:"\..*~>"}m'} [0x06616 resolution 24-23]
 #natural=peak {name '${name}'} [0x06616 resolution 24]
+natural=saddle  {name '${name} ${ele}' | '${name}' } [0x11502 resolution 24]
 
 highway=emergency_access_point {name '${name} (${ref})' | '${ref}' | '${name}' } [0x11104 resolution 24-22]
 man_made=chimney [0x02d02 resolution 24-22]
