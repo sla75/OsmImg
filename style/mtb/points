@@ -20,6 +20,9 @@ abandoned:landuse=* {set landuse='${abandoned:landuse}'; set disused=yes}
 abandoned:man_made=* {set man_made='${abandoned:man_made}'; set disused=yes}
 bicycle:hazard=* {set hazard='${bicycle:hazard}'}
 
+amenity=bicycle_wash [0x06702 resolution 24-24]
+#amenity=bicycle_repair_station
+
 #hazard=* {name '${hazard|subst:yes=>}'} [0x06709 resolution 24-22]
 
 hazard=* & mkgmap:line2poi!=true { name '${hazard|subst:yes=>}'} [0x06709 resolution 24-23]
