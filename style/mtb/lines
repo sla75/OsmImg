@@ -131,7 +131,7 @@ bicycleroute=yes & mtbroute!=yes [0x11103 resolution 24-23 continue]
 
 highway=* & bicycle=no [0x11b01 resolution 24-23]
 
-highway=service [0x00300 resolution 24]
+highway=service [0x11c07 resolution 24]
 
 highway=steps & bicycle!=yes [0x11b07 resolution 24]
 highway=steps & (bicycle=yes | mtb:scale=*) {name '${step_count}'} [0x11b08 resolution 24]

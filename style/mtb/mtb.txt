@@ -1977,9 +1977,9 @@ ContourColor=No
 
 
 [_line]
-Type=0x03
-;GRMN_TYPE: Roads/OTHER_HWY/Other highway road, akin to a state highway in the US/Non NT, NT
-Activity=Bicycling
+Type=0x11
+;GRMN_TYPE: //
+Activity=Mountaineering
 UseOrientation=Y
 LineWidth=3
 BorderWidth=1
@@ -4018,6 +4018,11 @@ DayXpm="11 16 2 1"   Colormode=16
 "  !!!!!!!  "
 "  !     !  "
 " !!!!!!!!! "
+" !       ! "
+" !       ! "
+"           "
+;12345678901
+[end]!!!!! "
 " !       ! "
 " !       ! "
 "           "
