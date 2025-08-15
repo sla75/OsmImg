@@ -1,7 +1,8 @@
 # ID mapy, max x500
 imgfid=6000
 imgabbr="CZ"
-srcfile="cache/czech-republic-latest.osm.pbf"
-url="https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf"
-#polygon="doksy.poly"
-#filter="../2018_JHMD.pdf"
+srcfile="cache/czech-republic.osm.pbf"
+url=("https://download.geofabrik.de/europe/poland/dolnoslaskie-latest.osm.pbf" "https://download.geofabrik.de/europe/poland/opolskie-latest.osm.pbf" "https://download.geofabrik.de/europe/poland/slaskie-latest.osm.pbf" "https://download.geofabrik.de/europe/poland/malopolskie-latest.osm.pbf" "https://download.geofabrik.de/europe/slovakia-latest.osm.pbf" "https://download.geofabrik.de/europe/austria-latest.osm.pbf" "https://download.geofabrik.de/europe/germany/sachsen-latest.osm.pbf" "https://download.geofabrik.de/europe/germany/bayern-latest.osm.pbf" "https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf")
+#url=("https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf")
+#url="https://download.geofabrik.de/europe/czech-republic-latest.osm.pbf"
+polygon="czech.gpx"

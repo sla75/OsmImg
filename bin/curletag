@@ -85,9 +85,9 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi;
 
-etagfile=$(dirname ${destfile})"/.etag"
-[[ ! -d ${etagfile} ]] && mkdir -p ${etagfile}
-etagfile="${etagfile}/"$(basename ${destfile})".etag"
+etagfile=$(dirname ${destfile})
+#[[ ! -d ${etagfile} ]] && mkdir -p ${etagfile}
+etagfile="${etagfile}/."$(basename ${destfile})".etag"
 
 #echo "etagFile ${etagfile}"
 #echo "destFile ${destfile}"

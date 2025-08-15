@@ -133,6 +133,34 @@ function checkPrgsMkgmap {
 	fi;
 }
 
+######################################## POLYGON #######################################################################
+function polygoneded {
+	local srcfile1=$1;
+	#local outputpolygonfile="${srcfile1%%-*}-${area}-${srcfile1##*-}"
+	local outputpolygonfile=${2}
+	if [ -n "${area}" ]; then
+		echo -e "\n#### Polygon ${area} from ${srcfile1}"
+		polygonfile=${tmpdir}/${area}".poly"
+		if [[ ! -e ${polygonfile} || ${polygonfile} -ot ${pathpolygon}/${area}.gpx ]]; then
+			echo -e "\tCreate polygon from ${pathpolygon}/${area}.gpx"
+			${root}/bin/gpx2poly ${pathpolygon}/${area}.gpx > ${polygonfile} || exitmsg "Bad create polygon file from ${pathpolygon}/${area}.gpx to ${polygonfile}" 1
+		fi;
+		[[ -e ${polygonfile} ]] || msg "\t${polygonfile} not exists!" 1
+
+		echo checkModifFile ${srcfile1} ${outputpolygonfile} ${polygonfile}
+		if checkModifFile ${srcfile1} ${outputpolygonfile} ${polygonfile}; then
+			echo -e "\tCreate PBF polygon from '${area}' to ${outputpolygonfile}"
+			echo "osmconvert ${verbose} ${srcfile1} -B=${polygonfile} -o=${outputpolygonfile}"
+			osmconvert ${verbose} ${srcfile1} -B=${polygonfile} -o=${outputpolygonfile}
+		else 
+			echo -e "\tNo change ${srcfile1}"
+		fi;
+		echo -e "\tPolygoned "${outputpolygonfile}
+	else
+		echo -e "\tNot area"
+		cp -v ${srcfile1} ${outputpolygonfile}
+	fi;
+}
 
 
 echo -e "\n### "`date '+%F %T'`" START"
@@ -178,49 +206,44 @@ echo -e "\n### 2. Check mkgmap"
 checkPrgsMkgmap mkgmap || exit 1;
 
 
+function donwloadsArea {
+	local file=$1;
+	${root}/bin/curletag -ft "-4 hour" -fe "-2 hour" -f ${file} ${2}
+	local status=$?
+	case ${status} in
+		0)
+			echo "File ${1} exists and no change."
+			;;
+		1)
+			echo "Downloaded ${2}"
+			;;
+		*)
+			return $status;
+	esac;
+#	checkModifFile ${file} ${file}.polygoned && polygoneded ${file}
+	return 0;
+}
+srcfile=${pathcache}/${area}.osm.pbf
 if [[ ${nodownload}=false && -n "${url}" ]]; then
-	if [ ${#url[@]} -eq 1 ]; then
-#		msg "\n### 3. Download "`echo ${url} | awk -F[/:] '{print $4}'`" CREATE ${srcfile}"
-		echo -e "\n### 3. Check download ${srcfile}"
-		${root}/bin/curletag -ft "-4 hour" -fe "-2 hour" -f ${srcfile} ${url}
-	else
-		echo "Size download url: ${#url[@]}"
-		i=0;
-		for link in "${url[@]}"; do
-			i=$((i+1))
-			urlfile="${pathcache}/${link##*/}"
-			echo -e "\n### 3.$i Check download ${urlfile##*/}"
-			${root}/bin/curletag -ft "-4 hour" -fe "-2 hour" -f ${urlfile} ${link}
-		done
-		if [ -f ${srcfile} ]; then
-			for link in "${url[@]}"; do
-				i=$((i+1))
-				urlfile="${pathcache}/${link##*/}"
-				if [ ${srcfile} -ot ${urlfile} ]; then
-					echo "${link##*/} is newest than ${srcfile}"
-					rm -v ${srcfile}
-					break;
-				fi;
-			done;		
+	echo "Size download url: ${#url[@]}"
+	i=0;
+	for link in "${url[@]}"; do
+		i=$((i+1))
+		echo -e "\n### 3.$i Check download ${link}"
+		#${root}/bin/curletag -ft "-4 hour" -fe "-2 hour" -f ${urlfile} ${link}
+		downloadfile=${pathcache}/${link##*/}
+		outputpolygonfile="${downloadfile%%-*}-${area}-${downloadfile##*-}"
+		donwloadsArea "${downloadfile}" "${link}"
+		polygoneded ${downloadfile} ${outputpolygonfile}
+		if [ $i -eq 1 ]; then
+			cp -v ${downloadfile} ${srcfile}
+		else
+			echo -e "\n### 3.$i MERGE ${downloadfile} to ${srcfile}"
+			mv -v "${srcfile}" "${srcfile%.*}.tmp"
+			echo -e "\tosmconvert ${srcfile%.*}.tmp --out-o5m | osmconvert - ${outputpolygonfile} -o=${srcfile}"
+			osmconvert ${srcfile%.*}.tmp --out-o5m | osmconvert - ${outputpolygonfile} -o=${srcfile}
 		fi;
-		if [ ! -f ${srcfile} ]; then
-			i=0;
-			for link in "${url[@]}"; do
-				i=$((i+1))
-				urlfile="${pathcache}/${link##*/}"
-				echo "${i} MERGE ${link##*/} to ${srcfile%.*}.${i}.${srcfile##*.}"
-				if [ ${i} -eq 1 ]; then
-					cp -v ${urlfile} "${srcfile%.*}.${i}.${srcfile##*.}"
-				else
-					echo -e "\tosmconvert ${srcfile%.*}.$((i-1)).${srcfile##*.} ${srcfile%.*}.${i}.${srcfile##*.}"
-#					touch "${srcfile%.*}.${i}.${srcfile##*.}"
-					osmconvert "${srcfile%.*}.$((i-1)).${srcfile##*.}" --out-o5m | osmconvert - ${urlfile} -o="${srcfile%.*}.${i}.${srcfile##*.}"
-					rm -v "${srcfile%.*}.$((i-1)).${srcfile##*.}"
-				fi;
-			done
-			[[ -f "${srcfile%.*}.${i}.${srcfile##*.}" ]] && mv -v "${srcfile%.*}.${i}.${srcfile##*.}" ${srcfile}
-		fi;
-	fi;
+	done
 else
 	[ -n "${url}" ] && msg "### 3. No url."
 	[ ! ${nodownload} ] && msg "### 3. Disable download by parameter -nd."
@@ -235,33 +258,7 @@ fi
 
 showFileTime ${srcfile} || exitmsg "Source file ${srcfile} not found!" 1
 
-######################################## POLYGON #######################################################################
-if [[ -n "${polygon}"  && -e ${pathpolygon}/${polygon} ]]; then
-	polygonname=$(basename ${polygon})
-	polygonname="${polygonname%.*}"
-	echo -e "\n### 4. Polygon ${polygon}"	
-	if [ "${polygon##*.}" = "gpx" ]; then
-		polygonfile=${tmpdir}/${polygonname}".poly"
-		if [[ ! -e ${polygonfile} || ${polygonfile} -ot ${pathpolygon}/${polygon} ]]; then
-			echo -e "\tCreate polygon from ${pathpolygon}/${polygon}"
-			${root}/bin/gpx2poly ${pathpolygon}/${polygon} > ${polygonfile} || exitmsg "Bad create polygon file from ${pathpolygon}/${polygon} to ${polygonfile}" 1
-		fi;
-	elif [ "${polygon##*.}" = "poly" ]; then
-		polygonfile=${pathpolygon}/${polygon}
-	else
-		msg "\tUnknown format ${polygon}" 1
-	fi;
-	srctmpfile_plg=$(dirname ${srcfile})"/${polygonname%.*}.${srcfile##*.}"
-	if checkModifFile ${srcfile} ${srctmpfile_plg} ${polygonfile}; then
-		echo -e "\tCreate PBF polygon from '${polygon}' to ${srctmpfile_plg}"
-		echo "osmconvert ${verbose} ${srcfile} -B=${polygonfile} -o=${srctmpfile_plg}"
-		osmconvert ${verbose} ${srcfile} -B=${polygonfile} -o=${srctmpfile_plg}
-	fi;
-	srcfile=${srctmpfile_plg}
-	echo -e "\tPolygoned srcfile "${srctmpfile_plg}
-else
-	msg "\n### 4. No polygoned file."
-fi;
+
 
 ######################################## TODO Filter ###################################################################
 #srctmpfile_flt=cache/${polygonname}".filtered"
