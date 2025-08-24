@@ -38,7 +38,7 @@ style=mapnik
 bounds=false
 debug=false
 nodownload=false
-root=$(dirname "${0}")
+root=$(pwd)
 patharea="${root}/area"
 pathcache="${root}/cache"
 pathstyle="${root}/style"
@@ -133,6 +133,7 @@ function checkPrgsMkgmap {
 	fi;
 }
 
+polygonfile=${tmpdir}/${area}".poly"
 ######################################## POLYGON #######################################################################
 function polygoneded {
 	local srcfile1=$1;
@@ -140,7 +141,6 @@ function polygoneded {
 	local outputpolygonfile=${2}
 	if [ -n "${area}" ]; then
 		echo -e "\n#### Polygon ${area} from ${srcfile1}"
-		polygonfile=${tmpdir}/${area}".poly"
 		if [[ ! -e ${polygonfile} || ${polygonfile} -ot ${pathpolygon}/${area}.gpx ]]; then
 			echo -e "\tCreate polygon from ${pathpolygon}/${area}.gpx"
 			${root}/bin/gpx2poly ${pathpolygon}/${area}.gpx > ${polygonfile} || exitmsg "Bad create polygon file from ${pathpolygon}/${area}.gpx to ${polygonfile}" 1
@@ -192,6 +192,7 @@ source ${patharea}/${area}.parameters
 pid=$(grep ${style} ${pathstyle}/style.fid 2>/dev/null | cut -d'=' -f2)
 pid=${pid:-0}
 imgfid=$((imgfid+pid))
+srcfile=${pathcache}/${area}.osm.pbf
 
 echo -e "FID: ${imgfid}"
 echo -e "url: ${url}"
@@ -212,18 +213,81 @@ function donwloadsArea {
 	local status=$?
 	case ${status} in
 		0)
-			echo "File ${1} exists and no change."
+			echo -e "\tFile ${1} exists and no change."
+			return 0
 			;;
 		1)
-			echo "Downloaded ${2}"
+			echo -e "\tDownloaded ${2}"
+			return 1
 			;;
 		*)
-			return $status;
+			echo -e "\tError(${status}) download ${2}" >&2
+			return ${status};
 	esac;
-#	checkModifFile ${file} ${file}.polygoned && polygoneded ${file}
-	return 0;
 }
-srcfile=${pathcache}/${area}.osm.pbf
+poly=0
+if [[ ${nodownload}=false && -n "${url}" ]]; then
+	i=0;
+	for link in "${url[@]}"; do
+		i=$((i+1))
+		country=${link##*/}
+		country=${country%-*}
+		echo -e "\n### 3.$i Check download ${country^}"
+		downloadfile=${pathcache}/${link##*/}
+		[[ ${i} -eq 1 && ${#url[@]} -le 1 ]] && downloadfile=${srcfile}
+		donwloadsArea "${downloadfile}" "${link}"
+		st=$?
+		[[ ${st} -eq 1 && -e ${srcfile} ]] && rm -v ${srcfile}
+		[[ ${st} -gt 1 ]] && exitmsg "Bad downloads!" ${st}
+	done
+fi;
+
+
+
+
+############# POLYGONED ######################
+i=0;
+if [ -e ${polygonfile} ]; then
+	echo -e "\n### 3. POLYGON ${area^}"
+	for link in "${url[@]}"; do
+		i=$((i+1))
+		country=${link##*/}
+		country=${country%-*}
+		outputpolygonfile="${downloadfile%%-*}-${area}-${downloadfile##*-}"
+		downloadfile=${pathcache}/${link##*/}
+		if [[ ! -f ${outputpolygonfile} || ${outputpolygonfile} -ot ${downloadfile} ]]; then
+			echo -e "\n### 3.$i POLYGON ${area^} --> ${country^}"
+			[[ -e ${srcfile} ]] && rm -v ${srcfile}
+			polygoneded ${downloadfile} ${outputpolygonfile}
+		fi;
+	done
+	echo -e "\n### 3. POLYGONED ${area^}"
+fi;
+
+i=0;
+if [ ! -e ${srcfile} ]; then
+	echo -e "\n### 4. MERGE"
+	for link in "${url[@]}"; do
+		i=$((i+1))
+		outputpolygonfile="${link%%-*}-${area}-${link##*-}"
+		echo -e "\n### 4.$i MERGE ${link##*/} --> ${srcfile##*/}"
+		if [ $i -eq 1 ]; then
+			cp -v ${outputpolygonfile} ${srcfile}
+			continue;
+		fi;
+		mv "${srcfile}" "${srcfile%.*}.tmp"
+		#echo -e "\tosmconvert ${srcfile%.*}.tmp --out-o5m | osmconvert - ${outputpolygonfile} -o=${srcfile}"
+		osmconvert ${srcfile%.*}.tmp --out-o5m | osmconvert - ${outputpolygonfile} -o=${srcfile}
+	done
+	echo -e "\n### 4. MERGED"
+fi;
+
+
+
+echo "EXIT"
+exit 1
+
+
 if [[ ${nodownload}=false && -n "${url}" ]]; then
 	echo "Size download url: ${#url[@]}"
 	i=0;
